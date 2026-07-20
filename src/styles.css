@@ -1,19 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-arabic: 'Cairo', 'Noto Naskh Arabic', Tahoma, sans-serif;
+  --font-sans: Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: 'Noto Naskh Arabic', Tahoma, serif;
 }
 
 :root {
   color: #0f172a;
   background: #f8fafc;
-  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* Computer-based tests favor neutral system sans-serifs over branded display fonts. */
+  font-family: Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Naskh is optimized for extended Arabic reading; keep its line rhythm intact. */
+.font-arabic {
+  font-family: 'Noto Naskh Arabic', Tahoma, serif;
+  font-feature-settings: 'kern' 1;
 }
 
 * {

@@ -48,6 +48,8 @@ export function AudioPlayer({ questionId, plays, onPlay }: AudioPlayerProps) {
 
   const play = async () => {
     if (exhausted || isPlaying || !audioRef.current) return
+    if (!onPlay()) return
+    setIsPlaying(true)
     try {
       audioRef.current.currentTime = 0
       await audioRef.current.play()
@@ -56,21 +58,13 @@ export function AudioPlayer({ questionId, plays, onPlay }: AudioPlayerProps) {
     }
   }
 
-  const handlePlay = () => {
-    if (!onPlay()) {
-      audioRef.current?.pause()
-      return
-    }
-    setIsPlaying(true)
-  }
-
   return (
     <section className="rounded-2xl bg-slate-100 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]" aria-label="Pemutar audio">
       <audio
         ref={audioRef}
         src={audioUrl}
         preload="metadata"
-        onPlay={handlePlay}
+        onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
       />

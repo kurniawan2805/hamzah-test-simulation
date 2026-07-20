@@ -26,14 +26,15 @@ import {
   TimerReset,
   TriangleAlert,
 } from 'lucide-react'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
 import { QuestionGrid } from './components/question-grid'
 import { demoExam } from './data/exam-data'
 import { calculateRemainingSeconds, createSessionResult } from './lib/scoring'
 import { useExamStore } from './store/exam-store'
 import type { ExamFinishReason, Section } from './types'
+
+const PerformanceChart = lazy(() => import('./components/performance-chart'))
 
 const sectionCopy: Record<Section, { label: string; description: string }> = {
   listening: { label: 'Istima’', description: 'Pemahaman mendengar' },
@@ -52,9 +53,7 @@ const resultsRoute = createRoute({ getParentRoute: () => rootRoute, path: '/resu
 const reviewRoute = createRoute({ getParentRoute: () => rootRoute, path: '/review', component: ReviewPage })
 
 const routeTree = rootRoute.addChildren([dashboardRoute, instructionsRoute, examRoute, resultsRoute, reviewRoute])
-// The router is intentionally exported for TanStack Router's registered type.
-// eslint-disable-next-line react-refresh/only-export-components
-export const router = createRouter({ routeTree, defaultPreload: 'intent', scrollRestoration: true })
+const router = createRouter({ routeTree, defaultPreload: 'intent', scrollRestoration: true })
 
 declare module '@tanstack/react-router' {
   interface Register {
@@ -275,6 +274,9 @@ function ExamPage() {
           <button type="button" onClick={submit} className="hidden min-h-10 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B] sm:inline-flex">
             <Send size={16} /> Kirim
           </button>
+          <button type="button" onClick={submit} className="grid size-10 place-items-center rounded-xl bg-[#006C35] text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B] sm:hidden" aria-label="Kirim jawaban">
+            <Send size={16} />
+          </button>
         </div>
         <div className="h-1 bg-slate-100"><div className="h-full bg-[#C5A059] transition-[width]" style={{ width: `${(answeredCount / demoExam.questions.length) * 100}%` }} /></div>
       </header>
@@ -309,7 +311,7 @@ function ExamPage() {
               <div className="min-w-0 p-5 sm:p-7">
                 {question.section === 'listening' && <AudioPlayer questionId={question.id} plays={audioPlays[question.id] ?? 0} onPlay={() => markAudioPlay(question.id)} />}
                 <div dir="rtl" className="mt-6 font-arabic">
-                  <h1 className="text-xl font-semibold leading-[1.8] text-slate-900 sm:text-2xl">{question.question}</h1>
+                  <h1 className="text-[22px] font-medium leading-[1.85] text-slate-900 sm:text-[25px]">{question.question}</h1>
                   <div className="mt-6 grid gap-3">
                     {question.options.map((option, index) => {
                       const selected = answers[question.id] === index
@@ -318,7 +320,7 @@ function ExamPage() {
                           key={option}
                           type="button"
                           onClick={() => answerQuestion(question.id, index)}
-                          className={`flex min-h-[58px] w-full items-center gap-4 rounded-xl border p-4 text-right text-[17px] leading-[1.7] transition-[transform,border-color,background-color,box-shadow] active:scale-[0.99] ${selected ? 'border-2 border-[#006C35] bg-[#E6F0EB] font-semibold text-[#064D2A] shadow-[0_1px_2px_rgba(0,108,53,0.12)]' : 'border-slate-200 bg-white text-slate-800 hover:border-[#006C35]'}`}
+                          className={`flex min-h-[58px] w-full items-center gap-4 rounded-xl border p-4 text-right text-[18px] leading-[1.8] transition-[transform,border-color,background-color,box-shadow] active:scale-[0.99] ${selected ? 'border-2 border-[#006C35] bg-[#E6F0EB] font-medium text-[#064D2A] shadow-[0_1px_2px_rgba(0,108,53,0.12)]' : 'border-slate-200 bg-white text-slate-800 hover:border-[#006C35]'}`}
                         >
                           <span className={`grid size-8 shrink-0 place-items-center rounded-lg text-sm font-bold ${selected ? 'bg-[#006C35] text-white' : 'bg-slate-100 text-slate-600'}`}>{optionLetters[index]}</span>
                           <span>{option}</span>
@@ -332,7 +334,7 @@ function ExamPage() {
               {question.passage && (
                 <article dir="rtl" className="order-first max-h-[45dvh] overflow-y-auto border-b border-slate-100 bg-slate-50 p-5 font-arabic sm:p-7 lg:order-none lg:max-h-[calc(100dvh-205px)] lg:border-b-0 lg:border-l">
                   <p className="mb-4 text-sm font-bold text-[#006C35]">النص المقروء</p>
-                  <p className="text-[20px] leading-[2] text-slate-800 sm:text-[22px]">{question.passage}</p>
+                  <p className="text-[22px] leading-[2] text-slate-800 sm:text-[24px]">{question.passage}</p>
                 </article>
               )}
             </div>
@@ -406,15 +408,9 @@ function ResultsPage() {
               <CircleHelp size={21} className="text-slate-400" aria-label="Skor per kompetensi" />
             </div>
             <div className="mt-6 h-64" aria-label="Grafik batang performa per kompetensi">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={chartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
-                  <CartesianGrid vertical={false} stroke="#E2E8F0" />
-                  <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{ fill: '#475569', fontSize: 12 }} />
-                  <YAxis domain={[0, 100]} tickLine={false} axisLine={false} tick={{ fill: '#94A3B8', fontSize: 12 }} />
-                  <Tooltip cursor={{ fill: '#F8FAFC' }} formatter={(value) => [`${value ?? 0}%`, 'Skor']} />
-                  <Bar dataKey="score" fill="#006C35" radius={[8, 8, 2, 2]} maxBarSize={44} />
-                </BarChart>
-              </ResponsiveContainer>
+              <Suspense fallback={<div className="h-full rounded-xl bg-slate-100" aria-label="Memuat grafik" />}>
+                <PerformanceChart data={chartData} />
+              </Suspense>
             </div>
           </section>
         </section>
@@ -459,13 +455,13 @@ function ReviewPage() {
                   <span className={`rounded-lg px-3 py-1.5 text-xs font-bold ${isCorrect ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>{isCorrect ? 'Benar' : answer === undefined ? 'Tidak dijawab' : 'Perlu ditinjau'}</span>
                 </div>
                 <div dir="rtl" className="p-5 font-arabic sm:p-6">
-                  <h2 className="text-lg font-semibold leading-[1.8] text-slate-900">{question.question}</h2>
+                  <h2 className="text-[20px] font-medium leading-[1.85] text-slate-900">{question.question}</h2>
                   <div className="mt-5 grid gap-2.5">
                     {question.options.map((option, optionIndex) => {
                       const isAnswer = answer === optionIndex
                       const isKey = question.correct_index === optionIndex
                       return (
-                        <div key={option} className={`flex items-center gap-3 rounded-xl border p-3.5 text-[16px] leading-7 ${isKey ? 'border-green-200 bg-green-50 text-green-900' : isAnswer ? 'border-red-200 bg-red-50 text-red-900' : 'border-slate-100 text-slate-600'}`}>
+                        <div key={option} className={`flex items-center gap-3 rounded-xl border p-3.5 text-[17px] leading-8 ${isKey ? 'border-green-200 bg-green-50 text-green-900' : isAnswer ? 'border-red-200 bg-red-50 text-red-900' : 'border-slate-100 text-slate-600'}`}>
                           <span className="grid size-7 shrink-0 place-items-center rounded-md bg-white text-xs font-bold shadow-sm">{optionLetters[optionIndex]}</span>
                           <span>{option}</span>
                           {isKey && <Check className="mr-auto size-4 text-green-700" />}
@@ -475,7 +471,7 @@ function ReviewPage() {
                     })}
                   </div>
                 </div>
-                <div className="border-t border-slate-100 bg-[#FFFCF4] px-5 py-4 text-sm leading-6 text-slate-700 sm:px-6"><span className="font-bold text-[#8A5A12]">Pembahasan: </span>{question.explanation}</div>
+                <div className="border-t border-slate-100 bg-[#FFFCF4] px-5 py-4 text-sm leading-6 text-slate-700 sm:px-6"><span className="font-bold text-[#8A5A12]">Pembahasan: </span>{question.explanation.replace(/^Pembahasan:\s*/i, '')}</div>
               </article>
             )
           })}
