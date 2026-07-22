@@ -1,0 +1,853 @@
+{
+  "id": "banksoal1",
+  "title": "اختبار همزة التجريبي",
+  "subtitle": "Bank soal latihan bahasa Arab",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_001",
+      "section": "listening",
+      "question": "لماذا ذهب خالد إلى المكتبة؟",
+      "options": [
+        "ليشتري كتابًا",
+        "ليبحث عن كتاب في التاريخ",
+        "ليستعير قصة",
+        "ليقابل صديقًا"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_002",
+      "section": "listening",
+      "question": "ماذا حدث؟",
+      "options": [
+        "وجد الكتاب فورًا",
+        "استعان بصديقه",
+        "لم يجد الكتاب",
+        "اشترى كتابًا آخر"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_003",
+      "section": "listening",
+      "question": "ماذا نصحه الموظف؟",
+      "options": [
+        "أن يذهب إلى مكتبة أخرى",
+        "أن يعود الأسبوع القادم",
+        "أن يشتري الكتاب إلكترونيًا",
+        "أن يقرأ مجلة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_004",
+      "section": "listening",
+      "question": "متى تستيقظ مريم؟",
+      "options": [
+        "الخامسة",
+        "السادسة",
+        "السابعة",
+        "الثامنة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_005",
+      "section": "listening",
+      "question": "كيف تذهب إلى الجامعة؟",
+      "options": [
+        "بالسيارة",
+        "سيرًا على الأقدام",
+        "بالحافلة",
+        "بالقطار"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_006",
+      "section": "listening",
+      "question": "ماذا نصح الطبيب؟",
+      "options": [
+        "السهر",
+        "شرب الماء",
+        "ترك الرياضة",
+        "السفر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_007",
+      "section": "listening",
+      "question": "كم مرة ينبغي ممارسة الرياضة؟",
+      "options": [
+        "مرة واحدة",
+        "مرتين",
+        "ثلاث مرات",
+        "خمس مرات"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_008",
+      "section": "listening",
+      "question": "كم ساعة من النوم أوصى بها الطبيب؟",
+      "options": [
+        "ست ساعات",
+        "سبع ساعات",
+        "ثماني ساعات",
+        "عشر ساعات"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_009",
+      "section": "listening",
+      "question": "من شارك في المعرض؟",
+      "options": [
+        "المعلمون فقط",
+        "أكثر من خمسين طالبًا",
+        "مدير المدرسة فقط",
+        "الزوار الأجانب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_010",
+      "section": "listening",
+      "question": "من حضر المعرض؟",
+      "options": [
+        "أولياء الأمور والمعلمون",
+        "الطلاب فقط",
+        "الأطباء",
+        "التجار"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_011",
+      "section": "reading",
+      "question": "ما موضوع النص؟",
+      "options": [
+        "الرياضة",
+        "القراءة",
+        "التجارة",
+        "السفر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_012",
+      "section": "reading",
+      "question": "ماذا توسع القراءة؟",
+      "options": [
+        "الأموال",
+        "العلاقات",
+        "الآفاق",
+        "المباني"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_013",
+      "section": "reading",
+      "question": "ماذا تنمي القراءة؟",
+      "options": [
+        "القوة",
+        "التفكير",
+        "النوم",
+        "الذاكرة فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_014",
+      "section": "reading",
+      "question": "ماذا تساعد القراءة على فهمه؟",
+      "options": [
+        "العلوم فقط",
+        "الثقافات المختلفة",
+        "الرياضيات",
+        "اللغات فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_015",
+      "section": "reading",
+      "question": "من يحرص على القراءة اليومية؟",
+      "options": [
+        "الأطفال فقط",
+        "كثير من الناجحين",
+        "الرياضيون فقط",
+        "السائحون"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_016",
+      "section": "reading",
+      "question": "لماذا يفضل أحمد القطار؟",
+      "options": [
+        "لأنه أسرع دائمًا",
+        "لأنه أكثر راحة",
+        "لأنه أرخص",
+        "لأنه قريب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_017",
+      "section": "reading",
+      "question": "ماذا يستمتع أحمد بمشاهدته؟",
+      "options": [
+        "البحر",
+        "المباني",
+        "المناظر الطبيعية",
+        "الطائرات"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_018",
+      "section": "reading",
+      "question": "كلمة \"أثناء\" تعني:",
+      "options": [
+        "قبل",
+        "بعد",
+        "خلال",
+        "فوق"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_019",
+      "section": "reading",
+      "question": "ماذا يعمل والد الكاتب؟",
+      "options": [
+        "طبيب",
+        "معلم",
+        "مهندس",
+        "محاسب"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_020",
+      "section": "reading",
+      "question": "أين تعمل والدته؟",
+      "options": [
+        "مدرسة",
+        "شركة",
+        "مستشفى حكومي",
+        "جامعة"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_021",
+      "section": "grammar",
+      "question": "اختر الكلمة الصحيحة: ______ الطالبُ الدرسَ جيدًا.",
+      "options": [
+        "كتب",
+        "قرأ",
+        "أكل",
+        "شرب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_022",
+      "section": "grammar",
+      "question": "أكمل الجملة: ذهبنا ______ المسجد.",
+      "options": [
+        "إلى",
+        "على",
+        "من",
+        "عند"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_023",
+      "section": "grammar",
+      "question": "ضد كلمة \"كبير\":",
+      "options": [
+        "طويل",
+        "صغير",
+        "جميل",
+        "سريع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_024",
+      "section": "grammar",
+      "question": "مرادف كلمة \"سريع\":",
+      "options": [
+        "بطيء",
+        "عاجل",
+        "ثقيل",
+        "بعيد"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_025",
+      "section": "grammar",
+      "question": "أي الجمل صحيحة؟",
+      "options": [
+        "الطالباتُ مجتهدون.",
+        "الطالبُ مجتهدة.",
+        "الطالباتُ مجتهداتٌ.",
+        "الطالبُ مجتهداتٌ."
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_026",
+      "section": "grammar",
+      "question": " اختر الجملة الصحيحة:",
+      "options": [
+        "لم يذهبْ أحمدُ إلى المدرسة أمس.",
+        "لم ذهب أحمد إلى المدرسة أمس.",
+        "لم يذهبُ أحمد إلى المدرسة أمس.",
+        "لم يذهبَ أحمد إلى المدرسة أمس."
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_027",
+      "section": "grammar",
+      "question": " أكمل الجملة: إذا ______ الوقت، فسأزورك.",
+      "options": [
+        "وجدتُ",
+        "أجدُ",
+        "وجدتَ",
+        "أجدْ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_028",
+      "section": "grammar",
+      "question": " أي الكلمات الآتية اسم فاعل؟",
+      "options": [
+        "مكتوب",
+        "كاتب",
+        "كتابة",
+        "كتاب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_029",
+      "section": "grammar",
+      "question": " اختر المعنى الصحيح لكلمة \"ازدحام\":",
+      "options": [
+        "هدوء",
+        "كثرة الناس أو السيارات",
+        "سرعة",
+        "سفر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_030",
+      "section": "grammar",
+      "question": " قال الله تعالى: ﴿إِنَّ اللَّهَ مَعَ الصَّابِرِينَ﴾ المقصود بـ الصابرين:",
+      "options": [
+        "المستعجلين",
+        "الذين يتحملون الشدائد",
+        "الأغنياء",
+        "المسافرين"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_031",
+      "section": "grammar",
+      "question": " أكمل: ليس الطالبُ ______.",
+      "options": [
+        "مهملٌ",
+        "مهملًا",
+        "مهملٍ",
+        "مهملان"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_032",
+      "section": "grammar",
+      "question": " اختر الجمع الصحيح لكلمة مدينة:",
+      "options": [
+        "مدائن",
+        "مدن",
+        "مدينات",
+        "كلا (A) و(B)"
+      ],
+      "correct_index": 3,
+      "explanation": "Jawaban benar: D."
+    },
+    {
+      "id": "hamza_q_033",
+      "section": "grammar",
+      "question": " أي الجمل تحتوي على فعل مضارع؟",
+      "options": [
+        "ذهب خالد.",
+        "يقرأ محمد القرآن.",
+        "اكتب الدرس.",
+        "كان الجو جميلًا."
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_034",
+      "section": "grammar",
+      "question": " اختر المرادف الأقرب لكلمة يسعى:",
+      "options": [
+        "يجلس",
+        "يحاول",
+        "ينام",
+        "يضحك"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_035",
+      "section": "dictation",
+      "question": " أي الكلمات التالية صحيحة إملائيًا؟",
+      "options": [
+        "مسؤل",
+        "مسئول",
+        "مسؤول",
+        "مسوول"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_036",
+      "section": "reading",
+      "question": " ما الفكرة الرئيسة للنص؟",
+      "options": [
+        "السفر",
+        "التعلم الإلكتروني والتعليم الحضوري",
+        "التجارة الإلكترونية",
+        "وسائل النقل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_037",
+      "section": "reading",
+      "question": " لماذا يعتمد الطلاب على المنصات الرقمية؟",
+      "options": [
+        "للترفيه فقط",
+        "لمتابعة الدروس والمحاضرات",
+        "للتسوق",
+        "للألعاب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_038",
+      "section": "reading",
+      "question": " ما الميزة التي ذكرها النص للتعليم الحضوري؟",
+      "options": [
+        "انخفاض التكلفة",
+        "التفاعل المباشر",
+        "السرعة",
+        "قلة الواجبات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_039",
+      "section": "reading",
+      "question": " كلمة \"إذ\" في النص تفيد:",
+      "options": [
+        "النفي",
+        "التعليل أو التوضيح",
+        "الاستثناء",
+        "الشرط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_040",
+      "section": "reading",
+      "question": " أي عنوان هو الأنسب للنص؟",
+      "options": [
+        "أهمية الإنترنت",
+        "مقارنة بين التعليم الإلكتروني والحضوري",
+        "المدارس القديمة",
+        "السفر والتعليم"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_041",
+      "section": "reading",
+      "question": " لماذا استيقظ يوسف متأخرًا؟",
+      "options": [
+        "لأنه نام مبكرًا",
+        "لأن المنبه لم يعمل",
+        "لأنه كان مريضًا",
+        "لأنه سافر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_042",
+      "section": "reading",
+      "question": " لماذا لم يعمل المنبه؟",
+      "options": [
+        "نفدت البطارية",
+        "انقطعت الكهرباء",
+        "كسره أحد",
+        "نسي تشغيله"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_043",
+      "section": "reading",
+      "question": " ماذا فعل يوسف قبل الذهاب إلى العمل؟",
+      "options": [
+        "تناول الإفطار",
+        "عاد إلى النوم",
+        "خرج مسرعًا",
+        "اتصل بمديره"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_044",
+      "section": "reading",
+      "question": " هل وصل متأخرًا؟",
+      "options": [
+        "نعم",
+        "لا، وصل في الوقت المناسب",
+        "لم يذهب إلى العمل",
+        "لا يذكر النص"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_045",
+      "section": "reading",
+      "question": " أي كلمة تعني \"بسرعة\"؟",
+      "options": [
+        "متأخرًا",
+        "مسرعًا",
+        "مناسبًا",
+        "أثناء"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_046",
+      "section": "grammar",
+      "question": " اختر الصيغة الصحيحة: كان الطلاب ______ الدرس.",
+      "options": [
+        "يدرسون",
+        "يدرسون",
+        "يدرس",
+        "درسوا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_047",
+      "section": "grammar",
+      "question": " أكمل: رغم ______ المطر، خرج الناس.",
+      "options": [
+        "نزولِ",
+        "نزل",
+        "ينزل",
+        "نزولَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_048",
+      "section": "grammar",
+      "question": " أي الجمل تحتوي على اسم مجرور؟",
+      "options": [
+        "قرأتُ الكتابَ.",
+        "ذهبتُ إلى المسجدِ.",
+        "كتبَ الطالبُ الدرسَ.",
+        "جاء المعلمُ."
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_049",
+      "section": "grammar",
+      "question": " اختر الجملة الأكثر فصاحة:",
+      "options": [
+        "ما رحت المدرسة.",
+        "لم أذهب إلى المدرسة.",
+        "أنا ما ذهبت مدرسة.",
+        "ما ذهبت إلى المدرسة أمسش."
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_050",
+      "section": "grammar",
+      "question": " اختر الكلمة الأنسب: يجب على الطالب أن ______ واجباته في وقتها.",
+      "options": [
+        "يهمل",
+        "يؤدي",
+        "ينسى",
+        "يترك"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_051",
+      "section": "reading",
+      "question": " الفكرة الرئيسة للنص هي:",
+      "options": [
+        "أهمية الدراسة الجامعية",
+        "فوائد العمل التطوعي",
+        "أهمية السفر",
+        "تطوير التكنولوجيا"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_052",
+      "section": "reading",
+      "question": " ما الذي يكتسبه المتطوع؟",
+      "options": [
+        "المال فقط",
+        "خبرات عملية",
+        "شهرة فقط",
+        "شهادة جامعية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_053",
+      "section": "reading",
+      "question": " كلمة \"تُسهم\" تعني:",
+      "options": [
+        "تمنع",
+        "تُساهم",
+        "تُؤجل",
+        "تُهمل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_054",
+      "section": "reading",
+      "question": " بحسب النص، يساعد العمل التطوعي المؤسسات على:",
+      "options": [
+        "تقليل الموظفين",
+        "تقديم خدماتها بصورة أكثر فاعلية",
+        "إغلاق الفروع",
+        "رفع الأسعار"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_055",
+      "section": "reading",
+      "question": " أي عنوان هو الأنسب؟",
+      "options": [
+        "التجارة الإلكترونية",
+        "العمل التطوعي وأثره في المجتمع",
+        "الرياضة والصحة",
+        "وسائل النقل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_056",
+      "section": "reading",
+      "question": " يدور النص حول:",
+      "options": [
+        "الزراعة",
+        "الذكاء الاصطناعي",
+        "السياحة",
+        "التجارة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_057",
+      "section": "reading",
+      "question": " ذكر النص أن الذكاء الاصطناعي يُستخدم في:",
+      "options": [
+        "التعليم فقط",
+        "الطب فقط",
+        "التعليم والطب والصناعة",
+        "الصناعة فقط"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban benar: C."
+    },
+    {
+      "id": "hamza_q_058",
+      "section": "reading",
+      "question": " ما القضية التي أكد عليها النص؟",
+      "options": [
+        "زيادة الإنتاج الزراعي",
+        "حماية الخصوصية والجوانب الأخلاقية",
+        "تقليل عدد المدارس",
+        "السفر إلى الخارج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_059",
+      "section": "reading",
+      "question": " كلمة \"مراعاة\" تعني:",
+      "options": [
+        "إهمال",
+        "أخذ الشيء في الاعتبار",
+        "نسيان",
+        "معارضة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_060",
+      "section": "reading",
+      "question": " أي استنتاج صحيح؟",
+      "options": [
+        "الذكاء الاصطناعي لا فوائد له.",
+        "الذكاء الاصطناعي مفيد، لكن استخدامه يحتاج إلى مسؤولية.",
+        "يجب منع الذكاء الاصطناعي.",
+        "الذكاء الاصطناعي مخصص للأطباء فقط."
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_061",
+      "section": "grammar",
+      "question": " اختر الجملة الصحيحة:",
+      "options": [
+        "إنَّ الطالبُ مجتهدٌ.",
+        "إنَّ الطالبَ مجتهدٌ.",
+        "إنَّ الطالبِ مجتهدًا.",
+        "إنَّ الطالبُ مجتهدًا."
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban benar: B."
+    },
+    {
+      "id": "hamza_q_062",
+      "section": "grammar",
+      "question": " أكمل: لو ______ أكثر، لنجحتَ.",
+      "options": [
+        "درستَ",
+        "تدرس",
+        "درستُ",
+        "يدرس"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_063",
+      "section": "grammar",
+      "question": " اختر المرادف الأقرب لكلمة يُنجز:",
+      "options": [
+        "يُتمّ",
+        "يُهمل",
+        "يُؤجل",
+        "يُفسد"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_064",
+      "section": "dictation",
+      "question": " اختر الكلمة الصحيحة:",
+      "options": [
+        "استثناء",
+        "إستثناء",
+        "إستنناء",
+        "إستثناء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_065",
+      "section": "grammar",
+      "question": " أي الجمل صحيحة؟",
+      "options": [
+        "حضر المعلم والطلابُ.",
+        "حضر المعلم والطلابَ.",
+        "حضروا المعلم والطلاب.",
+        "حضر المعلمين والطلاب."
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban benar: A."
+    }
+  ]
+}
