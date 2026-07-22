@@ -1,8 +1,8 @@
 import { Bookmark } from 'lucide-react'
-import type { Question } from '../types'
+type NavigableQuestion = { id: string }
 
 interface QuestionGridProps {
-  questions: Question[]
+  questions: NavigableQuestion[]
   activeIndex: number
   answers: Record<string, number>
   bookmarks: string[]

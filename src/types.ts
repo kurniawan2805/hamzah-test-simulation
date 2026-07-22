@@ -1,4 +1,4 @@
-export const sections = ['listening', 'reading', 'grammar', 'dictation'] as const
+export const sections = ['listening', 'reading', 'grammar', 'structures', 'writing', 'speaking'] as const
 
 export type Section = (typeof sections)[number]
 
@@ -11,6 +11,13 @@ export interface Question {
   explanation: string
   passage?: string
   audio_url?: string
+  /** Identitas aset bersama; beberapa nomor dapat merujuk ke audio/teks yang sama. */
+  shared_asset_id?: string
+  answer_type?: 'multiple_choice' | 'writing' | 'speaking'
+  prompt_hint?: string
+  minimum_words?: number
+  preparation_seconds?: number
+  scored?: boolean
 }
 
 export interface ExamSet {

@@ -1,82 +1,123 @@
-# DESIGN.md - Visual Style Guide
+# DESIGN.md — Pedoman UI Hamza Test Simulation
 
-Dokumen ini adalah aturan desain visual mutlak untuk sistem kecerdasan buatan (AI) guna membangun antarmuka pengguna (UI) aplikasi "Hamza Test Simulation". Patuhi semua aturan warna, tipografi, jarak, dan komponen di bawah ini dengan ketat demi menjaga konsistensi merek.
+> Status: living document · terakhir diperbarui 22 Juli 2026
 
----
+Dokumen ini adalah sumber acuan desain untuk UI aplikasi. Ikuti token dan pola yang sudah digunakan di `src/styles.css`, `src/app.tsx`, dan `src/cloud-app.tsx`; jangan menciptakan gaya visual baru tanpa alasan produk yang jelas.
 
-## 1. Palet Warna (Color Palette)
+## 1. Prinsip desain
 
-Aplikasi ini menggunakan skema warna formal instansi akademik Kerajaan Arab Saudi. Desain harus didominasi oleh warna hijau tua yang bersih dikombinasikan dengan aksen emas kerajaan yang elegan.
+1. **Fokus saat ujian.** Antarmuka ujian mengutamakan soal, waktu, dan navigasi; dekorasi tidak boleh mengalihkan perhatian.
+2. **Jelas sebelum menarik.** Status jawaban, waktu hampir habis, dan kuota audio harus dapat dipahami tanpa menebak.
+3. **Arab adalah warga kelas satu.** RTL, font Arab, ukuran, dan tinggi baris diperlakukan sebagai kebutuhan fungsional.
+4. **Tenang dan formal.** Gunakan ruang kosong, hierarki yang konsisten, dan animasi pendek hanya sebagai umpan balik tindakan.
+5. **Responsif.** Tampilan harus tetap layak pakai di lebar minimum 320 px dan efisien pada layar desktop.
 
-*   *Warna Utama (Primary):* #006C35 (Hijau Tua Bendera/Akademik Saudi)
-*   *Warna Utama Redup (Primary Light):* #E6F0EB (Hijau sangat muda untuk latar belakang komponen aktif)
-*   *Warna Aksen (Accent/Gold):* #C5A059 (Emas Kerajaan untuk lencana, peringkat, dan skor)
-*   *Latar Belakang Aplikasi (Background):* #F8FAFC (Abu-abu sangat terang, bersih, dan meminimalkan kelelahan mata)
-*   *Permukaan Konten (Surface/Card):* #FFFFFF (Putih bersih)
-*   *Warna Teks Utama (Text Primary):* #0F172A (Slate gelap untuk keterbacaan tinggi)
-*   *Warna Teks Sekunder (Text Secondary):* #475569 (Abu-abu medium untuk keterangan dan sub-judul)
-*   *Warna Batas (Border Color):* #E2E8F0 (Abu-abu tipis untuk pemisah)
+## 2. Token visual
 
-### Status Sistem:
-*   *Warna Timer & Peringatan:* #DC2626 (Merah tegas)
-*   *Warna Sukses & Jawaban Benar:* #16A34A (Hijau sukses)
-*   *Warna Ragu-Ragu (Bookmark):* #D97706 (Amber/Kuning Tua)
+| Peran | Nilai | Penggunaan |
+| --- | --- | --- |
+| Primary | `#006C35` | CTA, jawaban terpilih, brand, status sukses utama |
+| Primary light | `#E6F0EB` | Latar state terpilih dan badge lembut |
+| Accent gold | `#C5A059` | Aksen progres dan level; jangan untuk aksi utama |
+| App background | `#F8FAFC` | Latar halaman |
+| Surface | `#FFFFFF` | Kartu, header, panel |
+| Text primary | `#0F172A` | Teks utama |
+| Text secondary | `#475569` / Tailwind `slate-600` | Deskripsi dan metadata |
+| Border | `#E2E8F0` | Pemisah dan border default |
+| Danger | `#DC2626` | Timer kritis dan kegagalan |
+| Warning/bookmark | `#D97706` | Soal ditandai ragu-ragu |
+| Success review | Tailwind `green-700`/`green-50` | Indikator jawaban benar di review |
 
----
+Jangan memakai hitam murni sebagai warna antarmuka utama. Gunakan slate untuk keterbacaan yang tidak terlalu keras.
 
-## 2. Tipografi & Pengaturan Bahasa (Typography & RTL)
+## 3. Tipografi dan arah bahasa
 
-Karena berfokus pada teks Arab berharakat, tipografi harus diatur agar tanda baca tidak saling bertabrakan atau terlalu kecil.
+- UI Latin memakai `Arial, Helvetica, ui-sans-serif, system-ui, sans-serif`.
+- Konten Arab memakai `.font-arabic`, yang memetakan ke `Noto Naskh Arabic` dengan fallback `Tahoma, serif`.
+- Tambahkan `dir="rtl"` untuk pertanyaan, opsi, dan bacaan Arab; instruksi bahasa Indonesia tetap LTR.
+- Pertanyaan Arab: sekitar `22–25px`, `line-height: 1.85`.
+- Bacaan Arab: sekitar `22–24px`, `line-height: 2`.
+- Opsi Arab: sekitar `17–18px`, `line-height: 1.8`.
+- Angka timer memakai `font-mono` dan `tabular-nums` agar lebarnya stabil.
+- Jangan mengecilkan teks Arab untuk memaksa lebih banyak konten masuk ke layar. Lebih baik beri area scroll yang jelas.
 
-### Pengaturan Arah Teks (Directionality)
-*   Semua area yang menampilkan konten soal Arab *wajib* menggunakan atribut HTML dir="rtl" (Right-to-Left).
-*   Area instruksi dalam bahasa Indonesia/Inggris menggunakan atribut dir="ltr" (Left-to-Right).
+## 4. Tata letak dan responsivitas
 
-### Huruf (Fonts)
-*   *Font Bahasa Arab (Utama):* Cairo, Amiri, atau Noto Naskh Arabic, sans-serif.
-*   *Font Bahasa Latin (Sistem):* Inter, system-ui, sans-serif.
+### Halaman umum
 
-### Hirarki & Ukuran Teks (Typography Scale)
-*   *Judul Utama / Teks Bacaan (H1):* 22px - 24px | Tebal (Bold) | line-height: 1.8 (Wajib longgar untuk harakat).
-*   *Teks Pertanyaan Soal (H2):* 18px - 20px | Semi-Tebal (Semi-Bold) | line-height: 1.6.
-*   *Pilihan Ganda & Isi Teks (Body):* 16px - 18px | Reguler (Regular) | line-height: 1.6.
-*   *Teks Info / Timer / Nomor (Caption):* 14px | Semi-Tebal | Font Monospace untuk angka timer agar tidak bergeser.
+- Lebar konten dashboard: `max-w-6xl`; halaman ujian: `max-w-[1440px]`.
+- Gutter halaman: `px-5` pada ponsel, `sm:px-8` pada layar lebih lebar.
+- Panel utama menggunakan `rounded-2xl` atau `rounded-3xl`, surface putih, dan bayangan slate tipis.
+- Tinggi target interaksi minimal `44px` (`min-h-11`).
 
----
+### Halaman ujian
 
-## 3. Komponen Antarmuka & Tata Letak (Layout & Components)
+- Header menempel di atas, tinggi `60px`, memuat seksi, timer, aksi kirim, dan progress tipis.
+- Desktop ekstra lebar: grid navigasi `17rem` + area soal fleksibel.
+- Soal dengan bacaan: pada `lg` gunakan dua kolom; bacaan berada di sisi awal visual dan dapat di-scroll. Pada layar kecil, bacaan muncul sebelum pertanyaan.
+- Jangan menyembunyikan informasi penting hanya untuk mendapatkan layout dua kolom. Susun vertikal di layar sempit.
 
-### 3.1. Tata Letak Layar Ujian (Exam Layout)
-*   *Header Atas (Sticky Top):* Tinggi 60px, latar belakang #FFFFFF, memiliki bayangan tipis bawah. Berisi info sub-tes, timer, dan progress bar.
-*   *Tata Letak Responsif (Split View):*
-    *   Layar PC/Tablet: Menggunakan sistem 2 kolom grid (grid-cols-2). Kolom kanan untuk teks bacaan panjang (overflow-y scroll), kolom kiri untuk pertanyaan dan pilihan ganda.
-    *   Layar HP: Layout 1 kolom vertikal. Teks bacaan diletakkan di atas kotak pertanyaan dengan batas vertikal yang jelas.
+## 5. Komponen dan state
 
-### 3.2. Kartu Pilihan Ganda (Radio Cards)
-*   *Bentuk:* Kotak memanjang ke bawah, border-radius: 12px, padding dalam 16px.
-*   *State Visual:*
-    *   Default (Belum Dipilih): Latar belakang #FFFFFF, border 1px padat #E2E8F0.
-    *   Hover (Kursor di atas): Border berubah menjadi #006C35.
-    *   Selected (Terpilih): Latar belakang berubah menjadi #E6F0EB (Primary Light), border 2px tebal #006C35. Teks opsi otomatis menjadi Semi-Bold.
+### Tombol
 
-### 3.3. Panel Navigasi Soal (Question Grid)
-*   *Bentuk:* Grid kotak-kotak kecil ukuran 40px x 40px dengan border-radius: 8px.
-*   *Indikator Warna Kotak:*
-    *   Belum Dijawab: Latar belakang #FFFFFF, border #E2E8F0, teks abu-abu.
-    *   Sudah Dijawab: Latar belakang #006C35 (Primary), teks putih #FFFFFF.
-    *   Ragu-Ragu (Ditandai): Latar belakang #D97706 (Amber), teks putih #FFFFFF.
-    *   Sedang Aktif (Dilihat): Berikan outline atau efek ring tebal di luar kotak sebesar 2px.
+- CTA utama: latar primary, teks putih, `rounded-xl`, tebal, tinggi minimal 44px.
+- CTA sekunder: surface putih dengan border atau teks primary.
+- Gunakan `active:scale-[0.96]` secara hemat untuk umpan balik tekan. Hindari animasi masuk/keluar yang lama.
+- Semua tombol dan tautan harus memiliki `:focus-visible` dengan outline emas. Jangan menghapus fokus keyboard.
 
-### 3.4. Pemutar Audio (Listening Audio Player)
-*   *Bentuk:* Bar horizontal minimalis berlatar belakang #F1F5F9.
-*   *Elemen:* Tombol Play besar berwarna #006C35, diiringi teks petunjuk kuota putar (Contoh: "Sisa putar: 2/2").
-*   *State Disabled:* Jika kuota habis, ubah latar belakang menjadi #E2E8F0, ikon tombol menjadi abu-abu, dan kursor tidak bisa diklik (cursor-not-allowed).
+### Opsi jawaban
 
----
+| State | Tampilan |
+| --- | --- |
+| Default | Putih, border slate-200 |
+| Hover | Border primary |
+| Terpilih | `#E6F0EB`, border primary 2px, teks lebih tegas |
+| Review benar | `green-50`, border `green-200` |
+| Review salah terpilih | `red-50`, border `red-200` |
 
-## 4. Aturan Penting Do & Don't (AI Guidelines)
+Opsi adalah seluruh kartu yang dapat diklik, bukan radio kecil yang sulit disentuh. Label huruf `أ–د` tetap muncul sebagai penanda terpisah.
 
-*   *DO (Wajib):* Berikan jarak ruang kosong (white space) yang cukup luas antar komponen utama (minimal 24px margin/padding) agar tampilan terasa lapang dan formal mirip aplikasi CAT/CBT resmi pemerintah.
-*   *DO (Wajib):* Gunakan ikon bergaya garis tipis minimalis (outline icons) seperti Lucide Icons atau Heroicons dengan warna senada tema.
-*   *DON'T (Jangan dilakukan):* Jangan menggunakan warna hitam pekat #000000 untuk teks atau latar belakang mode gelap, gunakan variasi abu-abu slate tua agar visual tetap premium.
-*   *DON'T (Jangan dilakukan):* Jangan menerapkan efek animasi transisi masuk/keluar (seperti fade atau slide) yang terlalu lama atau berlebihan pada komponen soal karena akan mengganggu konsentrasi peserta ujian.
+### Grid navigasi soal
+
+| Status | Tampilan |
+| --- | --- |
+| Belum dilihat | Putih, border slate-200, teks slate-400 |
+| Dilihat, belum dijawab | Slate lembut |
+| Dijawab | Primary, teks putih |
+| Ragu-ragu | Warning, teks putih, ikon bookmark |
+| Aktif | Ring primary 2px dengan offset |
+
+Status bookmark diprioritaskan secara visual atas status telah dijawab.
+
+### Pemutar audio
+
+- Panel `slate-100`, tombol play primary, dan badge sisa putar menggunakan angka tabular.
+- Saat sedang diputar atau kuota habis, tombol tidak dapat ditekan dan state disabled harus tampak jelas.
+- Jangan menganggap pemblokiran tombol sebagai keamanan; server tetap harus menegakkan kuota pada mode cloud.
+
+### Tugas menulis dan berbicara (prototipe)
+
+- Tugas menulis memakai area jawaban RTL yang lapang dan menyatakan jelas jumlah kata minimum.
+- Tugas berbicara boleh memakai tombol rekam dummy pada demo, tetapi harus menjelaskan bahwa rekaman belum tersimpan atau dinilai otomatis.
+
+### Timer
+
+- State normal: primary light dan teks primary.
+- Di bawah 60 detik: latar merah lembut, teks danger. Jangan bergantung pada warna saja; angka selalu terlihat.
+
+## 6. Aksesibilitas dan kualitas interaksi
+
+- Gunakan elemen `<button>` untuk aksi; sediakan `aria-label` untuk ikon tanpa label.
+- Pertahankan urutan tab yang mengikuti urutan visual dan fokus keyboard yang selalu terlihat.
+- Kontras teks harus memadai di atas latar yang dipakai. Jangan memakai emas sebagai teks kecil di atas putih.
+- Pesan error, loading, dan state kosong harus spesifik dalam bahasa Indonesia.
+- Gunakan `min-width: 320px`; uji layout pada ponsel dan desktop setelah mengubah komponen utama.
+
+## 7. Yang perlu dihindari
+
+- Gradien dekoratif, dark mode baru, atau warna cerah tambahan tanpa kebutuhan yang tervalidasi.
+- Modal konfirmasi berlapis saat mengerjakan soal.
+- Animasi panjang yang membuat perpindahan soal lambat.
+- Teks Arab dalam font Latin, atau konten RTL tanpa atribut `dir`.
+- Hanya membedakan state lewat warna tanpa teks, bentuk, atau ikon pendukung.

@@ -2,6 +2,12 @@ import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import type { SessionResult } from '../types'
 
+export interface CloudSessionBackup {
+  currentIndex: number
+  answers: Record<string, { selectedIndex?: number; bookmarked: boolean; audioPlayCount: number }>
+  updatedAt: number
+}
+
 interface ExamState {
   activeExamId: string | null
   startedAt: number | null
@@ -13,6 +19,7 @@ interface ExamState {
   viewedQuestionIds: string[]
   audioPlays: Record<string, number>
   history: SessionResult[]
+  cloudBackups: Record<string, CloudSessionBackup>
   startExam: (examId: string, durationMinutes: number) => void
   setCurrentIndex: (index: number, questionId: string) => void
   answerQuestion: (questionId: string, answerIndex: number) => void
@@ -20,6 +27,9 @@ interface ExamState {
   markAudioPlay: (questionId: string) => boolean
   completeExam: (result: SessionResult) => void
   resetActiveExam: () => void
+  cacheCloudAnswer: (attemptId: string, questionId: string, answer: CloudSessionBackup['answers'][string]) => void
+  setCloudCurrentIndex: (attemptId: string, currentIndex: number) => void
+  clearCloudBackup: (attemptId: string) => void
 }
 
 const emptySession = {
@@ -39,6 +49,7 @@ export const useExamStore = create<ExamState>()(
     (set, get) => ({
       ...emptySession,
       history: [],
+      cloudBackups: {},
       startExam: (examId, durationMinutes) => {
         const now = Date.now()
         set({
@@ -76,6 +87,26 @@ export const useExamStore = create<ExamState>()(
           history: [result, ...state.history.filter((entry) => entry.id !== result.id)].slice(0, 8),
         })),
       resetActiveExam: () => set(emptySession),
+      cacheCloudAnswer: (attemptId, questionId, answer) =>
+        set((state) => {
+          const previous = state.cloudBackups[attemptId] ?? { currentIndex: 0, answers: {}, updatedAt: Date.now() }
+          return {
+            cloudBackups: {
+              ...state.cloudBackups,
+              [attemptId]: { ...previous, answers: { ...previous.answers, [questionId]: answer }, updatedAt: Date.now() },
+            },
+          }
+        }),
+      setCloudCurrentIndex: (attemptId, currentIndex) =>
+        set((state) => {
+          const previous = state.cloudBackups[attemptId] ?? { currentIndex: 0, answers: {}, updatedAt: Date.now() }
+          return { cloudBackups: { ...state.cloudBackups, [attemptId]: { ...previous, currentIndex, updatedAt: Date.now() } } }
+        }),
+      clearCloudBackup: (attemptId) =>
+        set((state) => {
+          const remaining = Object.fromEntries(Object.entries(state.cloudBackups).filter(([id]) => id !== attemptId)) as Record<string, CloudSessionBackup>
+          return { cloudBackups: remaining }
+        }),
     }),
     {
       name: 'hamza-test-simulation',
@@ -91,6 +122,7 @@ export const useExamStore = create<ExamState>()(
         viewedQuestionIds: state.viewedQuestionIds,
         audioPlays: state.audioPlays,
         history: state.history,
+        cloudBackups: state.cloudBackups,
       }),
     },
   ),

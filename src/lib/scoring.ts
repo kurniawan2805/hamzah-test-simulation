@@ -17,11 +17,12 @@ export const createSessionResult = (
   reason: ExamFinishReason,
   completedAt = Date.now(),
 ): SessionResult => {
-  const correctCount = exam.questions.filter((question) => answers[question.id] === question.correct_index).length
-  const score = Math.round((correctCount / exam.questions.length) * 100)
+  const scoredQuestions = exam.questions.filter((question) => question.scored !== false)
+  const correctCount = scoredQuestions.filter((question) => answers[question.id] === question.correct_index).length
+  const score = Math.round((correctCount / scoredQuestions.length) * 100)
   const sectionScores = Object.fromEntries(
     sections.map((section) => {
-      const questions = exam.questions.filter((question) => question.section === section)
+      const questions = scoredQuestions.filter((question) => question.section === section)
       const correct = questions.filter((question) => answers[question.id] === question.correct_index).length
       return [section, questions.length ? Math.round((correct / questions.length) * 100) : 0]
     }),
@@ -33,7 +34,7 @@ export const createSessionResult = (
     completedAt,
     score,
     correctCount,
-    totalQuestions: exam.questions.length,
+    totalQuestions: scoredQuestions.length,
     cefr: getCefrLevel(score),
     sectionScores,
     reason,

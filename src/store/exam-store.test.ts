@@ -15,6 +15,7 @@ describe('exam session storage', () => {
       viewedQuestionIds: [],
       audioPlays: {},
       history: [],
+      cloudBackups: {},
     })
   })
 
@@ -45,5 +46,19 @@ describe('exam session storage', () => {
     expect(session.answers.hamza_q_003).toBe(1)
     expect(session.bookmarks).toContain('hamza_q_003')
     expect(session.viewedQuestionIds).toContain('hamza_q_003')
+  })
+
+  it('keeps a cloud-session backup for offline resume', () => {
+    const store = useExamStore.getState()
+    store.cacheCloudAnswer('attempt-1', 'question-1', { selectedIndex: 2, bookmarked: true, audioPlayCount: 1 })
+    store.setCloudCurrentIndex('attempt-1', 4)
+
+    expect(useExamStore.getState().cloudBackups['attempt-1']).toMatchObject({
+      currentIndex: 4,
+      answers: { 'question-1': { selectedIndex: 2, bookmarked: true, audioPlayCount: 1 } },
+    })
+
+    store.clearCloudBackup('attempt-1')
+    expect(useExamStore.getState().cloudBackups['attempt-1']).toBeUndefined()
   })
 })

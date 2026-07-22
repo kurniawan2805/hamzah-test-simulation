@@ -7,6 +7,7 @@
     {
       "id": "hamza_q_001",
       "section": "listening",
+      "shared_asset_id": "audio_perpustakaan_01",
       "question": "لماذا ذهب خالد إلى المكتبة؟",
       "options": [
         "ليشتري كتابًا",
@@ -20,6 +21,7 @@
     {
       "id": "hamza_q_002",
       "section": "listening",
+      "shared_asset_id": "audio_perpustakaan_01",
       "question": "ماذا حدث؟",
       "options": [
         "وجد الكتاب فورًا",
@@ -33,6 +35,7 @@
     {
       "id": "hamza_q_003",
       "section": "listening",
+      "shared_asset_id": "audio_perpustakaan_01",
       "question": "ماذا نصحه الموظف؟",
       "options": [
         "أن يذهب إلى مكتبة أخرى",
@@ -46,6 +49,7 @@
     {
       "id": "hamza_q_004",
       "section": "listening",
+      "shared_asset_id": "audio_rutinitas_02",
       "question": "متى تستيقظ مريم؟",
       "options": [
         "الخامسة",
@@ -59,6 +63,7 @@
     {
       "id": "hamza_q_005",
       "section": "listening",
+      "shared_asset_id": "audio_rutinitas_02",
       "question": "كيف تذهب إلى الجامعة؟",
       "options": [
         "بالسيارة",
@@ -72,6 +77,7 @@
     {
       "id": "hamza_q_006",
       "section": "listening",
+      "shared_asset_id": "audio_kesehatan_03",
       "question": "ماذا نصح الطبيب؟",
       "options": [
         "السهر",
@@ -85,6 +91,7 @@
     {
       "id": "hamza_q_007",
       "section": "listening",
+      "shared_asset_id": "audio_kesehatan_03",
       "question": "كم مرة ينبغي ممارسة الرياضة؟",
       "options": [
         "مرة واحدة",
@@ -98,6 +105,7 @@
     {
       "id": "hamza_q_008",
       "section": "listening",
+      "shared_asset_id": "audio_kesehatan_03",
       "question": "كم ساعة من النوم أوصى بها الطبيب؟",
       "options": [
         "ست ساعات",
@@ -111,6 +119,7 @@
     {
       "id": "hamza_q_009",
       "section": "listening",
+      "shared_asset_id": "audio_pameran_04",
       "question": "من شارك في المعرض؟",
       "options": [
         "المعلمون فقط",
@@ -124,6 +133,7 @@
     {
       "id": "hamza_q_010",
       "section": "listening",
+      "shared_asset_id": "audio_pameran_04",
       "question": "من حضر المعرض؟",
       "options": [
         "أولياء الأمور والمعلمون",
@@ -448,7 +458,7 @@
     },
     {
       "id": "hamza_q_035",
-      "section": "dictation",
+      "section": "grammar",
       "question": " أي الكلمات التالية صحيحة إملائيًا؟",
       "options": [
         "مسؤل",
@@ -591,7 +601,7 @@
     },
     {
       "id": "hamza_q_046",
-      "section": "grammar",
+      "section": "structures",
       "question": " اختر الصيغة الصحيحة: كان الطلاب ______ الدرس.",
       "options": [
         "يدرسون",
@@ -604,7 +614,7 @@
     },
     {
       "id": "hamza_q_047",
-      "section": "grammar",
+      "section": "structures",
       "question": " أكمل: رغم ______ المطر، خرج الناس.",
       "options": [
         "نزولِ",
@@ -617,7 +627,7 @@
     },
     {
       "id": "hamza_q_048",
-      "section": "grammar",
+      "section": "structures",
       "question": " أي الجمل تحتوي على اسم مجرور؟",
       "options": [
         "قرأتُ الكتابَ.",
@@ -630,7 +640,7 @@
     },
     {
       "id": "hamza_q_049",
-      "section": "grammar",
+      "section": "structures",
       "question": " اختر الجملة الأكثر فصاحة:",
       "options": [
         "ما رحت المدرسة.",
@@ -643,7 +653,7 @@
     },
     {
       "id": "hamza_q_050",
-      "section": "grammar",
+      "section": "structures",
       "question": " اختر الكلمة الأنسب: يجب على الطالب أن ______ واجباته في وقتها.",
       "options": [
         "يهمل",
@@ -825,7 +835,7 @@
     },
     {
       "id": "hamza_q_064",
-      "section": "dictation",
+      "section": "grammar",
       "question": " اختر الكلمة الصحيحة:",
       "options": [
         "استثناء",
@@ -848,6 +858,126 @@
       ],
       "correct_index": 0,
       "explanation": "Jawaban benar: A."
+    },
+    {
+      "id": "hamza_q_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن أهمية تنظيم الوقت في حياة الطالب.",
+      "prompt_hint": "اذكر فائدتين ومثالًا واحدًا",
+      "minimum_words": 80,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas menulis untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب رسالة قصيرة إلى صديقك تدعوه فيها إلى زيارة مدينتك.",
+      "prompt_hint": "اذكر موعد الزيارة وثلاثة أماكن مقترحة",
+      "minimum_words": 80,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas menulis untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش أثر وسائل التواصل الاجتماعي في تعلّم اللغات.",
+      "prompt_hint": "اعرض رأيًا مؤيدًا ورأيًا مخالفًا ثم خلص إلى رأيك",
+      "minimum_words": 100,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas menulis untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب ملخصًا للنص الذي قرأته عن العمل التطوعي.",
+      "prompt_hint": "اكتب الفكرة الرئيسة وثلاث نقاط داعمة",
+      "minimum_words": 80,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas menulis untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب مقالًا قصيرًا: هل التعليم عن بُعد بديل كامل للتعليم الحضوري؟",
+      "prompt_hint": "قدّم مقدمة وحجتين وخاتمة",
+      "minimum_words": 120,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas menulis untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "عرّف بنفسك وتحدث عن دراستك أو عملك لمدة دقيقة واحدة.",
+      "prompt_hint": "اذكر الاسم والمدينة والاهتمامات",
+      "preparation_seconds": 30,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas berbicara untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "صف رحلة قمت بها مؤخرًا، واذكر ما الذي تعلمته منها.",
+      "prompt_hint": "تحدث لمدة دقيقة إلى دقيقتين",
+      "preparation_seconds": 45,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas berbicara untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "اشرح كيف تحافظ على صحتك في حياتك اليومية.",
+      "prompt_hint": "اذكر الطعام والنوم والرياضة",
+      "preparation_seconds": 30,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas berbicara untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ناقش فوائد العمل التطوعي للمجتمع وللفرد.",
+      "prompt_hint": "قدم مثالًا من محيطك",
+      "preparation_seconds": 45,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas berbicara untuk penilaian manual."
+    },
+    {
+      "id": "hamza_q_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "عبّر عن رأيك في استخدام الذكاء الاصطناعي في التعليم.",
+      "prompt_hint": "اذكر فائدة واحدة وتحديًا واحدًا",
+      "preparation_seconds": 45,
+      "options": ["—", "—", "—", "—"],
+      "correct_index": 0,
+      "scored": false,
+      "explanation": "Tugas berbicara untuk penilaian manual."
     }
   ]
 }

@@ -16,14 +16,17 @@ import {
   ChevronLeft,
   CircleHelp,
   Clock3,
+  Mic,
   Headphones,
   History,
   ListChecks,
   PlayCircle,
   Send,
+  Save,
   ShieldCheck,
   Sparkles,
   TimerReset,
+  Trash2,
   TriangleAlert,
 } from 'lucide-react'
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -33,6 +36,11 @@ import { demoExam } from './data/exam-data'
 import { calculateRemainingSeconds, createSessionResult } from './lib/scoring'
 import { useExamStore } from './store/exam-store'
 import type { ExamFinishReason, Section } from './types'
+import { AppAuthProvider, RequireAuth } from './lib/auth'
+import { useSupabaseClient } from './lib/supabase'
+import { getAudioPath } from './lib/audio-assets'
+import { getPublicAudioUrl, getSignedAudioUrl } from './lib/exam-api'
+import { CloudApp } from './cloud-app'
 
 const PerformanceChart = lazy(() => import('./components/performance-chart'))
 
@@ -40,7 +48,9 @@ const sectionCopy: Record<Section, { label: string; description: string }> = {
   listening: { label: 'Istima’', description: 'Pemahaman mendengar' },
   reading: { label: 'Qira’ah', description: 'Pemahaman membaca' },
   grammar: { label: 'Tarkib', description: 'Tata bahasa' },
-  dictation: { label: 'Imla’', description: 'Ejaan dan dikte' },
+  structures: { label: 'Tarākīb', description: 'Struktur bahasa' },
+  writing: { label: 'Kitābah', description: 'Tugas menulis' },
+  speaking: { label: 'Muḥādatsah', description: 'Tugas berbicara' },
 }
 
 const optionLetters = ['أ', 'ب', 'ج', 'د']
@@ -51,17 +61,19 @@ const instructionsRoute = createRoute({ getParentRoute: () => rootRoute, path: '
 const examRoute = createRoute({ getParentRoute: () => rootRoute, path: '/exam', component: ExamPage })
 const resultsRoute = createRoute({ getParentRoute: () => rootRoute, path: '/results', component: ResultsPage })
 const reviewRoute = createRoute({ getParentRoute: () => rootRoute, path: '/review', component: ReviewPage })
+const questionBankRoute = createRoute({ getParentRoute: () => rootRoute, path: '/question-bank', component: QuestionBankPage })
 
-const routeTree = rootRoute.addChildren([dashboardRoute, instructionsRoute, examRoute, resultsRoute, reviewRoute])
+const routeTree = rootRoute.addChildren([dashboardRoute, instructionsRoute, examRoute, resultsRoute, reviewRoute, questionBankRoute])
 const router = createRouter({ routeTree, defaultPreload: 'intent', scrollRestoration: true })
 
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
+export function App() {
+  return <AppAuthProvider><RequireAuth><AppRuntime /></RequireAuth></AppAuthProvider>
 }
 
-export function App() {
+function AppRuntime() {
+  const client = useSupabaseClient()
+  const cloudEnabled = import.meta.env.VITE_ENABLE_CLOUD === 'true'
+  if (cloudEnabled && client) return <CloudApp client={client} />
   return <RouterProvider router={router} />
 }
 
@@ -129,7 +141,7 @@ function DashboardPage() {
               </div>
               <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-600">
                 <span className="inline-flex items-center gap-2"><Clock3 size={16} /> {demoExam.durationMinutes} menit</span>
-                <span className="inline-flex items-center gap-2"><ListChecks size={16} /> 4 kompetensi</span>
+                <span className="inline-flex items-center gap-2"><ListChecks size={16} /> 3 bagian · 75 nomor</span>
               </div>
             </article>
           </div>
@@ -155,9 +167,29 @@ function DashboardPage() {
             )}
           </section>
         </section>
+        <button type="button" onClick={() => navigate({ to: '/question-bank' })} className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#006C35] bg-white px-4 py-3 text-sm font-bold text-[#006C35] hover:bg-[#E6F0EB]"><BookOpenCheck size={17} />Kelola soal & jawaban</button>
       </div>
     </main>
   )
+}
+
+type DraftQuestion = { id: string; section: Section; question: string; options: [string, string, string, string]; correct_index: number; explanation: string }
+const questionStorageKey = 'hamza-question-bank-v1'
+const emptyQuestion = (): DraftQuestion => ({ id: `draft_${Date.now()}`, section: 'reading', question: '', options: ['', '', '', ''], correct_index: 0, explanation: '' })
+
+function QuestionBankPage() {
+  const [questions, setQuestions] = useState<DraftQuestion[]>(() => { try { return JSON.parse(localStorage.getItem(questionStorageKey) ?? '[]') as DraftQuestion[] } catch { return [] } })
+  const [draft, setDraft] = useState<DraftQuestion>(() => emptyQuestion())
+  const [message, setMessage] = useState('')
+  const updateOption = (index: number, value: string) => setDraft((current) => ({ ...current, options: current.options.map((option, i) => i === index ? value : option) as DraftQuestion['options'] }))
+  const saveQuestion = (event: React.FormEvent) => {
+    event.preventDefault()
+    if (!draft.question.trim() || draft.options.some((option) => !option.trim()) || !draft.explanation.trim()) { setMessage('Lengkapi pertanyaan, 4 opsi, dan pembahasan.'); return }
+    const next = [...questions.filter((question) => question.id !== draft.id), draft]
+    setQuestions(next); localStorage.setItem(questionStorageKey, JSON.stringify(next)); setDraft(emptyQuestion()); setMessage('Soal tersimpan di perangkat ini.')
+  }
+  const removeQuestion = (id: string) => { const next = questions.filter((question) => question.id !== id); setQuestions(next); localStorage.setItem(questionStorageKey, JSON.stringify(next)) }
+  return <main className="min-h-dvh bg-[#F8FAFC] text-slate-900"><header className="border-b border-slate-200/80 bg-white"><div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8"><Brand /><Link to="/" className="text-sm font-bold text-slate-600">Kembali</Link></div></header><div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-12"><p className="text-sm font-bold text-[#006C35]">MVP · Modul 1</p><h1 className="mt-1 text-3xl font-bold tracking-tight">Bank soal</h1><p className="mt-3 max-w-2xl leading-7 text-slate-600">Buat soal pilihan ganda dan tentukan satu jawaban benar. Data sementara disimpan di browser.</p><div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]"><form onSubmit={saveQuestion} className="rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] sm:p-8"><h2 className="text-xl font-bold">Buat soal baru</h2><label className="mt-6 block text-sm font-bold">Kompetensi<select value={draft.section} onChange={(event) => setDraft({ ...draft, section: event.target.value as Section })} className="mt-2 min-h-11 w-full rounded-xl border border-slate-200 px-3"><option value="listening">Istima’ · Listening</option><option value="reading">Qira’ah · Reading</option><option value="grammar">Tarkib · Grammar</option><option value="structures">Tarākīb · Structures</option></select></label><label className="mt-5 block text-sm font-bold">Pertanyaan<textarea dir="rtl" value={draft.question} onChange={(event) => setDraft({ ...draft, question: event.target.value })} placeholder="Tulis pertanyaan bahasa Arab…" className="font-arabic mt-2 min-h-28 w-full rounded-xl border border-slate-200 p-3 text-lg" /></label><fieldset className="mt-5"><legend className="text-sm font-bold">Opsi jawaban <span className="font-normal text-slate-500">(radio = kunci)</span></legend><div className="mt-2 grid gap-3">{draft.options.map((option, index) => <div key={index} className="flex items-center gap-2"><input type="radio" name="correct" checked={draft.correct_index === index} onChange={() => setDraft({ ...draft, correct_index: index })} className="size-4 accent-[#006C35]" /><input dir="rtl" value={option} onChange={(event) => updateOption(index, event.target.value)} placeholder={`Opsi ${index + 1}`} className="font-arabic min-h-11 min-w-0 flex-1 rounded-xl border border-slate-200 px-3 text-lg" /></div>)}</div></fieldset><label className="mt-5 block text-sm font-bold">Pembahasan<textarea value={draft.explanation} onChange={(event) => setDraft({ ...draft, explanation: event.target.value })} placeholder="Mengapa jawaban ini benar?" className="mt-2 min-h-24 w-full rounded-xl border border-slate-200 p-3" /></label>{message ? <p className="mt-4 rounded-xl bg-[#FFF7E8] p-3 text-sm font-semibold text-[#8A5A12]">{message}</p> : null}<button type="submit" className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 py-3 text-sm font-bold text-white"><Save size={17} />Simpan soal</button></form><section className="rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] sm:p-8"><div className="flex items-center justify-between"><h2 className="text-xl font-bold">Soal tersimpan</h2><span className="text-sm font-bold text-slate-500">{questions.length} soal</span></div>{questions.length === 0 ? <p className="mt-6 rounded-2xl bg-slate-50 p-5 text-sm leading-6 text-slate-500">Belum ada soal.</p> : <div className="mt-5 space-y-3">{questions.map((question, index) => <article key={question.id} className="rounded-2xl border border-slate-200 p-4"><div className="flex items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wide text-[#006C35]">Soal {index + 1} · {question.section}</p><p dir="rtl" className="font-arabic mt-2 text-lg leading-8">{question.question}</p><p className="mt-2 text-xs text-slate-500">Kunci: opsi {question.correct_index + 1}</p></div><div className="flex shrink-0 gap-1"><button type="button" onClick={() => { setDraft(question); setMessage('Mode edit aktif.') }} className="rounded-lg px-2 py-1 text-xs font-bold text-[#006C35]">Edit</button><button type="button" onClick={() => removeQuestion(question.id)} aria-label="Hapus soal" className="rounded-lg p-2 text-red-600"><Trash2 size={16} /></button></div></div></article>)}</div>}</section></div></div></main>
 }
 
 function InstructionsPage() {
@@ -226,6 +258,25 @@ function ExamPage() {
   const safeIndex = Math.min(Math.max(currentIndex, 0), demoExam.questions.length - 1)
   const question = demoExam.questions[safeIndex]
   const answeredCount = Object.keys(answers).length
+  const [taskDrafts, setTaskDrafts] = useState<Record<string, string>>({})
+  const client = useSupabaseClient()
+  const [audioUrl, setAudioUrl] = useState<string>()
+  const audioPath = getAudioPath(question.shared_asset_id)
+
+  useEffect(() => {
+    if (!client || !audioPath) {
+      void Promise.resolve().then(() => setAudioUrl(undefined))
+      return
+    }
+    let cancelled = false
+    const audioRequest = import.meta.env.VITE_ENABLE_CLOUD === 'true'
+      ? getSignedAudioUrl(client, audioPath)
+      : Promise.resolve(getPublicAudioUrl(client, audioPath))
+    void audioRequest
+      .then((url) => { if (!cancelled) setAudioUrl(url) })
+      .catch(() => { if (!cancelled) setAudioUrl(undefined) })
+    return () => { cancelled = true }
+  }, [audioPath, client])
 
   const finish = useCallback((reason: ExamFinishReason) => {
     if (completionRef.current || submittedAt) return
@@ -309,10 +360,28 @@ function ExamPage() {
 
             <div className={`grid gap-0 ${question.passage ? 'lg:grid-cols-2' : ''}`}>
               <div className="min-w-0 p-5 sm:p-7">
-                {question.section === 'listening' && <AudioPlayer questionId={question.id} plays={audioPlays[question.id] ?? 0} onPlay={() => markAudioPlay(question.id)} />}
+                {question.section === 'listening' && <div><AudioPlayer questionId={question.shared_asset_id ?? question.id} plays={audioPlays[question.shared_asset_id ?? question.id] ?? 0} audioUrl={audioUrl} onPlay={() => markAudioPlay(question.shared_asset_id ?? question.id)} /><p className="mt-2 text-xs text-slate-500">Aset bersama: {question.shared_asset_id ?? question.id}</p></div>}
                 <div dir="rtl" className="mt-6 font-arabic">
                   <h1 className="text-[22px] font-medium leading-[1.85] text-slate-900 sm:text-[25px]">{question.question}</h1>
-                  <div className="mt-6 grid gap-3">
+                  {question.answer_type === 'writing' ? (
+                    <div className="mt-6">
+                      <p className="mb-3 text-right text-sm text-slate-600">{question.prompt_hint} · minimum {question.minimum_words ?? 80} kata</p>
+                      <textarea
+                        value={taskDrafts[question.id] ?? ''}
+                        onChange={(event) => { setTaskDrafts((drafts) => ({ ...drafts, [question.id]: event.target.value })); answerQuestion(question.id, 0) }}
+                        placeholder="اكتب إجابتك هنا..."
+                        className="min-h-56 w-full rounded-xl border border-slate-200 bg-white p-4 text-right text-lg leading-9 outline-none focus:border-[#006C35] focus:ring-2 focus:ring-[#E6F0EB]"
+                      />
+                      <p className="mt-2 text-left text-xs text-slate-500">Prototipe: jawaban esai tersimpan sebagai status selesai, belum dinilai otomatis.</p>
+                    </div>
+                  ) : question.answer_type === 'speaking' ? (
+                    <div className="mt-6 rounded-2xl border border-dashed border-[#C5A059] bg-[#FFFCF4] p-5 text-center" dir="ltr">
+                      <Mic className="mx-auto text-[#006C35]" size={30} />
+                      <p className="mt-3 font-sans text-sm font-bold text-slate-900">Tugas berbicara · persiapan {question.preparation_seconds ?? 30} detik</p>
+                      <p className="mt-1 font-sans text-sm leading-6 text-slate-600">Rekaman hanyalah mockup tampilan dan belum menyimpan audio.</p>
+                      <button type="button" onClick={() => answerQuestion(question.id, 0)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white"><Mic size={17} /> Tandai rekaman selesai</button>
+                    </div>
+                  ) : <div className="mt-6 grid gap-3">
                     {question.options.map((option, index) => {
                       const selected = answers[question.id] === index
                       return (
@@ -327,7 +396,7 @@ function ExamPage() {
                         </button>
                       )
                     })}
-                  </div>
+                  </div>}
                 </div>
               </div>
 
@@ -396,7 +465,8 @@ function ResultsPage() {
               <span className="text-sm text-emerald-50">Level perkiraan</span>
               <span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span>
             </div>
-            <p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal dijawab benar{result.reason === 'timeout' ? '; jawaban dikirim saat waktu habis.' : '.'}</p>
+            <p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal objektif dijawab benar{result.reason === 'timeout' ? '; jawaban dikirim saat waktu habis.' : '.'}</p>
+            <p className="mt-2 text-xs leading-5 text-emerald-50/75">10 tugas menulis dan berbicara pada prototipe belum masuk nilai otomatis.</p>
           </div>
 
           <section className="rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_12px_32px_rgba(15,23,42,0.06)] sm:p-8">

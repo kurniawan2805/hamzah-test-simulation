@@ -8,9 +8,10 @@ describe('exam scoring', () => {
     const result = createSessionResult(demoExam, answers, 'manual', 1_000)
 
     expect(result.score).toBe(100)
-    expect(result.correctCount).toBe(demoExam.questions.length)
+    expect(result.correctCount).toBe(65)
+    expect(result.totalQuestions).toBe(65)
     expect(result.cefr).toBe('C1')
-    expect(result.sectionScores).toEqual({ listening: 100, reading: 100, grammar: 100, dictation: 100 })
+    expect(result.sectionScores).toEqual({ listening: 100, reading: 100, grammar: 100, structures: 100, writing: 0, speaking: 0 })
   })
 
   it('uses the expected CEFR boundaries', () => {

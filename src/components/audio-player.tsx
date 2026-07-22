@@ -4,7 +4,9 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 interface AudioPlayerProps {
   questionId: string
   plays: number
-  onPlay: () => boolean
+  onPlay: () => boolean | Promise<boolean>
+  audioUrl?: string
+  maxPlays?: number
 }
 
 const makePracticeTone = () => {
@@ -38,17 +40,19 @@ const makePracticeTone = () => {
   return URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' }))
 }
 
-export function AudioPlayer({ questionId, plays, onPlay }: AudioPlayerProps) {
+export function AudioPlayer({ questionId, plays, onPlay, audioUrl, maxPlays = 2 }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null)
-  const audioUrl = useMemo(() => makePracticeTone(), [])
+  const practiceToneUrl = useMemo(() => (audioUrl ? null : makePracticeTone()), [audioUrl])
   const [isPlaying, setIsPlaying] = useState(false)
-  const exhausted = plays >= 2
+  const exhausted = plays >= maxPlays
 
-  useEffect(() => () => URL.revokeObjectURL(audioUrl), [audioUrl])
+  useEffect(() => () => {
+    if (practiceToneUrl) URL.revokeObjectURL(practiceToneUrl)
+  }, [practiceToneUrl])
 
   const play = async () => {
     if (exhausted || isPlaying || !audioRef.current) return
-    if (!onPlay()) return
+    if (!(await onPlay())) return
     setIsPlaying(true)
     try {
       audioRef.current.currentTime = 0
@@ -62,7 +66,7 @@ export function AudioPlayer({ questionId, plays, onPlay }: AudioPlayerProps) {
     <section className="rounded-2xl bg-slate-100 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]" aria-label="Pemutar audio">
       <audio
         ref={audioRef}
-        src={audioUrl}
+        src={audioUrl ?? practiceToneUrl ?? undefined}
         preload="metadata"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
@@ -83,10 +87,10 @@ export function AudioPlayer({ questionId, plays, onPlay }: AudioPlayerProps) {
             <Volume2 size={16} className="text-[#006C35]" />
             Materi dengar latihan
           </div>
-          <p className="mt-0.5 text-sm text-slate-600">Putar sampai dua kali sebelum menjawab.</p>
+          <p className="mt-0.5 text-sm text-slate-600">Putar sampai {maxPlays} kali sebelum menjawab.</p>
         </div>
         <span className="rounded-lg bg-white px-2.5 py-1.5 text-xs font-bold tabular-nums text-slate-600 shadow-sm">
-          Sisa: {Math.max(0, 2 - plays)}/2
+          Sisa: {Math.max(0, maxPlays - plays)}/{maxPlays}
         </span>
       </div>
       {exhausted && <p className="mt-3 text-xs font-semibold text-slate-500">Kuota pemutaran audio telah habis.</p>}

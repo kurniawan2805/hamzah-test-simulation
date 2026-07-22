@@ -11,6 +11,8 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@clerk/react": "^6.12.6",
+    "@supabase/supabase-js": "^2.110.8",
     "@tanstack/react-router": "latest",
     "lucide-react": "latest",
     "react": "latest",

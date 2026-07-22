@@ -1,98 +1,133 @@
-# Product Requirement Document (PRD)
+# PRD — Hamza Test Simulation
 
-## 1. Project Overview & Objectives
-Aplikasi ini adalah platform simulasi ujian mandiri (CBT - Computer Based Test) bernama *"Hamza Test Simulation". Aplikasi ini meniru secara persis format, struktur kompetensi, aturan teknis, dan pengalaman pengguna dari **Hamza Test (اختبار همزة)* — ujian sertifikasi kemahiran bahasa Arab resmi berstandar nasional dari Kerajaan Arab Saudi.
+> Status: living document · terakhir diperbarui 22 Juli 2026
 
-### Objectives
-*   Menyediakan media latihan bagi penutur asing (non-native) untuk menguji kemahiran bahasa Arab standar akademik Saudi.
-*   Mengimplementasikan mesin ujian (Exam Engine) dengan penanganan arah teks kanan-ke-kiri (RTL) yang sempurna.
-*   Menghasilkan visual antarmuka yang bersih, formal, dan bebas gangguan (distraction-free) untuk menjaga fokus pengguna.
+## 1. Ringkasan produk
 
----
+Hamza Test Simulation adalah aplikasi CBT (*computer-based test*) untuk latihan kemampuan bahasa Arab. Produk membantu peserta membangun kebiasaan mengerjakan ujian: mengelola waktu, mendengarkan materi dengan kuota terbatas, menjawab soal pilihan ganda, lalu memahami hasilnya per kompetensi.
 
-## 2. Target User & Use Cases
-*   *User Persona:* Pelajar, mahasiswa, atau profesional non-Arab yang bersiap mengambil sertifikasi Hamza Test resmi untuk keperluan beasiswa atau kerja di Arab Saudi.
-*   *User Goal:* Melakukan simulasi ujian dalam kondisi yang mirip dengan aslinya (berbatas waktu, tipe soal acak, performa per sesi).
+Produk ini adalah simulasi latihan mandiri. Jangan menyatakan bahwa aplikasi ini berafiliasi, disetujui, atau identik dengan ujian/sistem sertifikasi resmi mana pun tanpa bukti dan persetujuan tertulis.
 
----
+## 2. Masalah dan sasaran
 
-## 3. Functional Requirements (Fitur & Spesifikasi)
+Peserta belajar bahasa Arab membutuhkan latihan yang lebih realistis daripada kumpulan soal statis: ada batas waktu, urutan soal, materi audio, dan umpan balik yang dapat ditindaklanjuti. Pengelola konten juga memerlukan cara aman untuk menerbitkan paket tanpa mengekspos kunci jawaban di browser.
 
-### 3.1. User Flow Diagram (Alur Utama Aplikasi)
-[Dashboard/Home] ➔ [Pilih Mode: Full Test / Practice] ➔ [Halaman Instruksi & Cek Audio] ➔ [Exam Interface (Timer Aktif)] ➔ [Kirim Jawaban / Waktu Habis] ➔ [Halaman Hasil & Pembahasan]
+Sasaran produk saat ini:
 
-### 3.2. Fitur 1: Dashboard Utama
-*   *Pilihan Paket Ujian:* Menampilkan daftar simulasi tersedia (contoh: "Simulasi Akbar 1", "Latihan Mandiri").
-*   *Riwayat Skor:* Kartu ringkasan yang menampilkan nilai dari ujian-ujian sebelumnya (Tanggal, Skor Total, Level CEFR).
+- Memberikan satu alur latihan CBT lengkap dari dashboard hingga pembahasan.
+- Mempertahankan sesi dan jawaban peserta saat halaman dimuat ulang.
+- Menyimpan kunci jawaban dan perhitungan nilai di server saat mode cloud aktif.
+- Menyajikan konten Arab dengan RTL dan tipografi yang nyaman dibaca.
 
-### 3.3. Fitur 2: Sistem Mesin Ujian (The Exam Engine)
-*   *Sistem Timer Global:* Waktu berjalan mundur (countdown). Jika waktu mencapai 00:00, sistem wajib mengunci semua input, menyimpan jawaban yang ada, dan otomatis mengarahkan pengguna ke halaman hasil.
-*   *Sidebar Navigasi Soal (Question Grid):* 
-    *   Berisi kotak nomor soal yang bisa diklik untuk berpindah soal secara cepat (jump to question).
-    *   *Warna Status Kotak:*
-        *   Abu-abu (#E2E8F0): Belum dibaca/dilihat.
-        *   Hijau Utama (#006C35): Sudah dijawab.
-        *   Kuning (#C5A059): Ditandai oleh user sebagai "Ragu-Ragu" (Bookmark).
-*   *Komponen Pembaca Soal (Split Layout):*
-    *   *Sesi Membaca (Reading/Qira'ah):* Layar terbagi dua. Sisi kanan menampilkan teks bacaan panjang (scrollable), sisi kiri menampilkan pertanyaan dan opsi jawaban.
-    *   *Sesi Mendengar (Listening/Istima'):* Menampilkan pemutar audio khusus. Audio *hanya bisa diputar maksimal 2 kali. Setelah putaran kedua selesai, tombol *Play wajib dinonaktifkan (disabled).
-*   *Input Jawaban:* 4 Pilihan Ganda (Opsi أ, ب, ج, د). Area klik harus luas berbentuk kartu radio (Radio Card).
+Bukan sasaran MVP:
 
-### 3.4. Fitur 3: Halaman Hasil & Analisis Skor
-*   *Skor Konversi:* Menampilkan total poin dan konversi otomatis ke standar tingkat kemahiran Eropa (CEFR: A2, B1, B2, C1).
-*   *Analisis Sesi:* Grafik batang atau persentase performa yang memecah nilai berdasarkan 4 kompetensi (Listening, Reading, Grammar, Dictation).
-*   *Mode Tinjau (Review Mode):* Pengguna dapat melihat kembali soal-soal yang dikerjakan lengkap dengan indikator jawaban mereka, jawaban yang benar, dan teks pembahasan solusi.
+- Sertifikasi resmi, proctoring, anti-cheat penuh, atau penilaian adaptif.
+- Penulisan soal, manajemen editor, atau publikasi paket melalui UI produksi.
+- Penilaian otomatis produksi untuk tugas esai dan rekaman berbicara. Keduanya saat ini hanya tersedia sebagai mockup demo.
 
----
+## 3. Pengguna dan kebutuhan utama
 
-## 4. Technical & Non-Functional Requirements
+| Pengguna | Kebutuhan | Hasil yang diharapkan |
+| --- | --- | --- |
+| Peserta latihan | Mengerjakan ujian terstruktur dari desktop atau ponsel | Dapat melanjutkan sesi, mengetahui skor, dan meninjau kesalahan |
+| Pengelola konten (sementara via Supabase) | Menyiapkan paket, soal, kunci, dan audio | Paket hanya terlihat setelah lengkap dan diterbitkan |
+| Pengembang | Memelihara mode demo dan cloud tanpa melemahkan keamanan | Perubahan teruji dan tidak membocorkan jawaban |
 
-### 4.1. Data Architecture (Format Bank Soal JSON)
-Bank soal disimpan dalam file JSON dengan struktur baku berikut. AI harus menggunakan struktur ini saat membuat data tiruan (mock data):
+## 4. Alur pengguna
 
-json
-[
-  {
-    "id": "hamza_q_001",
-    "section": "listening",
-    "audio_url": "/assets/audio/audio_sample_1.mp3",
-    "passage": null,
-    "question": "مَا هُوَ المَوْضُوعُ الرَّئِيسِيُّ لِلْحِوَارِ؟",
-    "options": [
-      "التَّسْجِيلُ فِي الجَامِعَةِ",
-      "السَّفَرُ إِلَى الرِّيَاضِ",
-      "شِرَاءُ الكُتُبِ",
-      "البَحْثُ عَنْ عَمَلٍ"
-    ],
-    "correct_index": 0,
-    "explanation": "Pembahasan: Dalam audio tersebut, kedua pembicara membahas langkah-langkah mendaftar kuliah (التسجيل في الجامعة)."
-  },
-  {
-    "id": "hamza_q_002",
-    "section": "reading",
-    "audio_url": null,
-    "passage": "تَأْسِيسُ مَجْمَعِ المَلِكِ سَلْمَانَ العَالَمِيِّ لِلُّغَةِ العَرَبِيَّةِ جَاءَ لِتَعْزِيزِ دَوْرِ اللُّغَةِ...",
-    "question": "لِمَاذَا تَأَسَّسَ مَجْمَعُ المَلِكِ سَلْمَانَ؟",
-    "options": [
-      "لِتَعْزِيزِ دَوْرِ اللُّغَةِ العَرَبِيَّةِ",
-      "لِتَعْلِيمِ اللُّغَاتِ الأُخْرَى",
-      "لِلتِّجَارَةِ العَالَمِيَّةِ",
-      "لِلسِّيَاحَةِ الدِّينِيَّةِ"
-    ],
-    "correct_index": 0,
-    "explanation": "Pembahasan: Sesuai dengan kalimat pertama pada teks bacaan."
-  }
-]
+```text
+Dashboard
+  ├─ mode demo: instruksi → ujian → hasil → pembahasan
+  └─ mode cloud: pilih paket → instruksi → attempt → hasil → pembahasan
+```
 
+1. Peserta membuka dashboard dan melihat paket latihan serta riwayat terbaru.
+2. Peserta membaca instruksi, lalu memulai atau melanjutkan sesi aktif.
+3. Selama ujian, peserta memilih jawaban, berpindah soal, dan dapat menandai soal ragu-ragu.
+4. Untuk soal listening, pemutaran audio dibatasi oleh kuota tiap soal.
+5. Peserta mengirim ujian, atau waktu habis dan sesi ditutup otomatis.
+6. Hasil menampilkan skor 0–100, jumlah benar, perkiraan CEFR, dan performa per seksi.
+7. Setelah selesai, peserta dapat membuka pembahasan beserta jawaban benar dan jawabannya sendiri.
 
-### 4.2. Aturan Teknis Sistem & UI
-*   *State Retention (Penyimpanan Lokal):* Menggunakan localStorage untuk menyimpan status ujian yang sedang berjalan (jawaban terpilih dan sisa detik timer). Jika aplikasi tidak sengaja ter-refresh, pengguna langsung melanjutkan ujian (resume) tanpa kehilangan data.
-*   *Bidirectional Layout (RTL & LTR):* Elemen yang berisi teks Arab harus secara otomatis menerapkan atribut dir="rtl" dan menggunakan font Amiri atau Cairo dengan ukuran minimal 18px agar tanda harakat tidak bertumpuk.
-*   *Responsivitas:* Aplikasi harus berwujud Mobile-First, namun memiliki adaptasi Split Screen yang baik saat diakses di perangkat komputer/tablet untuk mengakomodasi teks bacaan panjang.
+## 5. Ruang lingkup yang sudah berjalan
 
----
+### 5.1 Dua mode runtime
 
-## 5. Acceptance Criteria (Kriteria Validasi Akhir)
-1.  Ujian dapat diselesaikan dari awal hingga akhir, dan tombol selesai memicu kalkulasi skor yang akurat sesuai kunci jawaban JSON.
-2.  Tombol audio pada sesi listening benar-benar terkunci dan tidak bisa diklik lagi setelah diputar 2 kali.
-3.  Desain halaman ujian sepenuhnya mengikuti panduan warna resmi Saudi yang tertera pada file DESIGN.md (dominan hijau tua #006C35 dan bersih).
+| Kondisi konfigurasi | Perilaku aplikasi | Penyimpanan utama |
+| --- | --- | --- |
+| Variabel Clerk/Supabase belum lengkap | Mode demo lokal | `localStorage` melalui Zustand |
+| Clerk dan Supabase tersedia | Mode cloud dengan autentikasi | Supabase; cache pemulihan lokal |
+
+Mode demo memakai `src/data/exam-data.ts`. Fitur **Bank soal** pada mode ini adalah alat draft lokal; soal yang dibuat di sana belum otomatis masuk ke paket ujian atau Supabase.
+
+### 5.2 Mesin ujian
+
+- Timer memakai waktu selesai absolut, bukan penghitung yang hanya hidup di memori, sehingga refresh tidak menambah waktu.
+- Navigasi nomor soal memperlihatkan status belum dilihat, dijawab, dan ditandai ragu-ragu.
+- Soal membaca menampilkan bacaan dan pertanyaan dalam layout responsif dua kolom pada layar besar.
+- Soal listening menggunakan pemutar audio dengan batas default dua kali. Mode demo memakai nada latihan bila URL audio tidak tersedia.
+- Empat opsi jawaban menggunakan indeks `0` sampai `3`; tampilan memakai label Arab `أ`, `ب`, `ج`, `د`.
+
+### 5.3 Hasil dan penilaian
+
+- Nilai adalah persentase jawaban benar yang dibulatkan ke bilangan bulat.
+- Perkiraan CEFR saat ini: `0–39 A2`, `40–59 B1`, `60–79 B2`, `80–100 C1`.
+- Nilai per seksi tersedia untuk `listening`, `reading`, `grammar`, dan `dictation`; seksi tanpa soal menghasilkan `0`.
+- Pembahasan hanya tersedia setelah attempt selesai.
+
+## 6. Aturan produk yang tidak boleh dilanggar
+
+1. Timer dan penilaian mode cloud harus diputuskan server. UI hanya boleh menampilkan dan memicu aksi.
+2. `correct_index` dan `explanation` tidak boleh dimuat untuk peserta sebelum ujian selesai.
+3. Peserta hanya boleh membaca dan mengubah attempt miliknya sendiri.
+4. Jawaban hanya dapat diubah ketika attempt masih `active` dan belum melewati `ends_at`.
+5. Kuota audio harus diperiksa oleh server dalam mode cloud; pembatasan UI saja tidak cukup.
+6. Satu paket hanya memiliki satu versi `published` dalam satu waktu.
+7. Teks Arab, soal, opsi, dan bacaan memakai `dir="rtl"` serta kelas `font-arabic`.
+
+## 7. Model konten
+
+Soal pilihan ganda memiliki empat opsi dan satu kunci jawaban. Prototipe demo juga memuat tugas `writing` dan `speaking` yang tidak dihitung dalam skor otomatis; skema lokal divalidasi oleh Zod di `src/lib/schema.ts`. Satu `shared_asset_id` dapat digunakan oleh beberapa soal listening atau bacaan.
+
+```json
+{
+  "id": "hamza_q_001",
+  "section": "listening",
+  "question": "…",
+  "options": ["…", "…", "…", "…"],
+  "correct_index": 0,
+  "explanation": "…",
+  "passage": "…",
+  "audio_url": "/path/to/audio.mp3"
+}
+```
+
+Di cloud, `correct_index` dan `explanation` dipisahkan ke skema privat `private.exam_answer_keys`. Konten peserta berada pada `public.exam_questions`, sedangkan `audio_path` mengarah ke object pada bucket private `exam-audio`. Prototipe frontend lokal memakai bucket `Audio1` dengan empat object `1.mp3`–`4.mp3`; bucket demo perlu dapat dibaca publik agar URL audio bisa dipakai tanpa backend.
+
+## 8. Kriteria penerimaan
+
+Sebuah perubahan dianggap selesai bila, sesuai dampaknya:
+
+- Alur demo dapat dimulai, di-refresh, diselesaikan, dan direview tanpa kehilangan sesi.
+- Alur cloud hanya menampilkan paket berstatus `published`; peserta yang tidak berhak tidak dapat mengakses attempt atau review orang lain.
+- Hasil server sesuai kunci jawaban dan aturan CEFR di atas.
+- Audio tidak dapat diputar melebihi `max_audio_plays`, termasuk lewat pemanggilan API berulang.
+- Layout tetap dapat dipakai pada lebar 320 px dan teks Arab terbaca tanpa harakat bertumpuk.
+- `npm run lint`, `npm run test`, dan `npm run build` lulus apabila area terkait berubah.
+
+## 9. Backlog terarah
+
+Urutan ini adalah arah berikutnya, bukan fitur yang telah tersedia.
+
+1. **Admin konten aman:** UI khusus peran admin untuk membuat paket, versi, soal, kunci, dan unggahan audio.
+2. **Authoring yang nyata:** hubungkan Bank soal ke draft versi di server; tambahkan validasi konten dan pratinjau RTL/audio.
+3. **Keandalan attempt:** retry/sinkronisasi eksplisit, indikator koneksi, dan penanganan konflik multi-tab.
+4. **Kualitas pembelajaran:** filter riwayat, analisis tren, target per kompetensi, serta penjelasan hasil yang lebih berguna.
+5. **Aksesibilitas dan pengujian E2E:** navigasi keyboard, pengumuman pembaca layar, dan skenario refresh/timeout/audio.
+
+## 10. Ukuran keberhasilan awal
+
+- Peserta berhasil menyelesaikan simulasi tanpa kehilangan jawaban saat refresh.
+- Tidak ada endpoint peserta yang mengekspos kunci sebelum attempt selesai.
+- Sebagian besar attempt aktif dapat disinkronkan kembali setelah gangguan jaringan sementara.
+- Peserta memahami seksi yang perlu dilatih dari halaman hasil.
