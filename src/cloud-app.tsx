@@ -36,6 +36,7 @@ import {
   type PublishedExam,
 } from './lib/exam-api'
 import { AccountMenu } from './lib/auth'
+import { AUDIO_BUCKET } from './lib/audio-assets'
 import { calculateRemainingSeconds } from './lib/scoring'
 import { useExamStore } from './store/exam-store'
 import type { Section } from './types'
@@ -118,7 +119,7 @@ function CloudInstructionsPage() {
 }
 
 function CloudExamPage() {
-  const client = useClient(); const { attemptId } = examRoute.useParams(); const navigate = useNavigate(); const [attempt, setAttempt] = useState<CloudAttempt | null>(null); const [questions, setQuestions] = useState<PublicQuestion[]>([]); const [answers, setAnswers] = useState<Record<string, CloudAnswer>>({}); const [index, setIndex] = useState(0); const [remaining, setRemaining] = useState(0); const [audioUrl, setAudioUrl] = useState<string>(); const completing = useRef(false); const [grading, setGrading] = useState(false)
+  const client = useClient(); const { attemptId } = examRoute.useParams(); const navigate = useNavigate(); const [attempt, setAttempt] = useState<CloudAttempt | null>(null); const [questions, setQuestions] = useState<PublicQuestion[]>([]); const [answers, setAnswers] = useState<Record<string, CloudAnswer>>({}); const [index, setIndex] = useState(0); const [remaining, setRemaining] = useState(0); const [audioUrl, setAudioUrl] = useState<string>(); const completing = useRef(false); const [grading, setGrading] = useState(false); const [speakingSaveError, setSpeakingSaveError] = useState<string | null>(null)
   
   const load = useCallback(async () => { 
     const current = await getAttempt(client, attemptId)
@@ -136,7 +137,7 @@ function CloudExamPage() {
     setIndex(backup?.currentIndex ?? 0)
     if (backup) {
       void Promise.all(Object.entries(backup.answers).map(([questionId, value]) => 
-        saveAttemptAnswer(client, attemptId, questionId, value.selectedIndex ?? null, value.bookmarked, value.answerText).catch(() => undefined)
+        saveAttemptAnswer(client, attemptId, questionId, value.selectedIndex ?? null, value.bookmarked, value.answerText, value.audioStoragePath).catch(() => undefined)
       ))
     }
   }, [attemptId, client, navigate])
@@ -266,17 +267,20 @@ function CloudExamPage() {
 
   const handleSpeakingComplete = async (blob: Blob) => {
     if (!question) return
-    const path = `speaking/${attemptId}/${question.id}.webm`
+    setSpeakingSaveError(null)
+    const extension = blob.type.includes('mp4') ? 'mp4' : 'webm'
+    const path = `speaking/${attemptId}/${question.id}.${extension}`
     try {
       const { error: uploadErr } = await client.storage
-        .from('exam-audio')
-        .upload(path, blob, { contentType: 'audio/webm', upsert: true })
+        .from(AUDIO_BUCKET)
+        .upload(path, blob, { contentType: blob.type || `audio/${extension}`, upsert: true })
       
       if (uploadErr) throw uploadErr
 
       await persist(undefined, answer?.bookmarked, undefined, path)
     } catch (err) {
       console.error('Failed to save speaking recording:', err)
+      setSpeakingSaveError('Rekaman belum tersimpan ke akun. Coba rekam ulang.')
     }
   }
 
@@ -334,13 +338,16 @@ function CloudExamPage() {
                     </div>
                   </div>
                 ) : question.answerType === 'speaking' ? (
-                  <SpeakingRecorder
-                    questionId={question.id}
-                    preparationSeconds={question.preparationSeconds ?? 30}
-                    maxRecordingSeconds={question.maxRecordingSeconds ?? 60}
-                    existingAudioUrl={speakingAudioUrl}
-                    onRecordingComplete={handleSpeakingComplete}
-                  />
+                  <>
+                    <SpeakingRecorder
+                      questionId={question.id}
+                      preparationSeconds={question.preparationSeconds ?? 30}
+                      maxRecordingSeconds={question.maxRecordingSeconds ?? 60}
+                      existingAudioUrl={speakingAudioUrl}
+                      onRecordingComplete={handleSpeakingComplete}
+                    />
+                    {speakingSaveError ? <p className="mt-3 text-sm font-semibold text-red-700" role="alert">{speakingSaveError}</p> : null}
+                  </>
                 ) : (
                   <div className="mt-6 grid gap-3">
                     {(question.options || []).map((option, optionIdx) => {

@@ -161,10 +161,10 @@ begin
   end if;
 
   select * into v_attempt
-  from public.attempts
-  where user_id = v_user_id
-    and exam_version_id = p_exam_version_id
-    and state = 'active'
+  from public.attempts a
+  where a.user_id = v_user_id
+    and a.exam_version_id = p_exam_version_id
+    and a.state = 'active'
   for update;
 
   if found and v_attempt.ends_at > now() then

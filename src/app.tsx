@@ -45,6 +45,8 @@ import { CloudApp } from './cloud-app'
 
 const PerformanceChart = lazy(() => import('./components/performance-chart'))
 
+import { posthog } from './lib/analytics'
+
 const sectionCopy: Record<Section, { label: string; description: string }> = {
   listening: { label: 'Istima’', description: 'Pemahaman mendengar' },
   reading: { label: 'Qira’ah', description: 'Pemahaman membaca' },
@@ -201,7 +203,12 @@ function InstructionsPage() {
   const resuming = activeExamId === demoExam.id && !submittedAt
 
   const start = () => {
-    if (!resuming) startExam(demoExam.id, demoExam.durationMinutes)
+    if (!resuming) {
+      startExam(demoExam.id, demoExam.durationMinutes)
+      posthog.capture('exam_started', { exam_id: demoExam.id, duration_minutes: demoExam.durationMinutes })
+    } else {
+      posthog.capture('exam_resumed', { exam_id: demoExam.id })
+    }
     navigate({ to: '/exam' })
   }
 
@@ -362,7 +369,16 @@ function ExamPage() {
       }
     }
     
-    completeExam(createSessionResult(demoExam, answers, reason, Date.now(), writingAnswers, grades, sGrades))
+    const resultObj = createSessionResult(demoExam, answers, reason, Date.now(), writingAnswers, grades, sGrades)
+    completeExam(resultObj)
+    posthog.capture('exam_completed', {
+      exam_id: demoExam.id,
+      reason,
+      score: resultObj.score,
+      cefr: resultObj.cefr,
+      total_questions: resultObj.totalQuestions,
+      correct_count: resultObj.correctCount
+    })
     setGrading(false)
     navigate({ to: '/results', replace: true })
   }, [answers, completeExam, navigate, submittedAt, client, writingAnswers, setWritingGrades, speakingBlobs, setSpeakingGrades])
@@ -383,8 +399,22 @@ function ExamPage() {
     return () => window.clearInterval(interval)
   }, [endsAt, finish])
 
+  const toggleBookmarkWithTracking = (qId: string) => {
+    toggleBookmark(qId)
+    const isBookmarked = !bookmarks.includes(qId)
+    posthog.capture('question_bookmark_toggled', { question_id: qId, bookmarked: isBookmarked })
+  }
+
+  const markAudioPlayWithTracking = (assetId: string) => {
+    markAudioPlay(assetId)
+    const nextPlays = (audioPlays[assetId] ?? 0) + 1
+    posthog.capture('audio_played', { asset_id: assetId, plays_count: nextPlays })
+    return true
+  }
+
   const selectQuestion = useCallback((index: number) => {
     setCurrentIndex(index, demoExam.questions[index].id)
+    posthog.capture('question_viewed', { question_id: demoExam.questions[index].id, index })
   }, [setCurrentIndex])
 
   useEffect(() => {
@@ -468,7 +498,7 @@ function ExamPage() {
               </div>
               <button
                 type="button"
-                onClick={() => toggleBookmark(question.id)}
+                onClick={() => toggleBookmarkWithTracking(question.id)}
                 className={`inline-flex min-h-10 items-center gap-2 rounded-xl px-3 text-sm font-bold transition-[transform,background-color,color] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059] ${bookmarks.includes(question.id) ? 'bg-[#FFF4DE] text-[#B45309]' : 'text-slate-500 hover:bg-slate-100'}`}
                 aria-pressed={bookmarks.includes(question.id)}
               >
@@ -479,7 +509,7 @@ function ExamPage() {
 
             <div className={`grid gap-0 ${question.passage ? 'lg:grid-cols-2' : ''}`}>
               <div className="min-w-0 p-5 sm:p-7">
-                {question.section === 'listening' && <div><AudioPlayer questionId={question.shared_asset_id ?? question.id} plays={audioPlays[question.shared_asset_id ?? question.id] ?? 0} audioUrl={audioUrl} onPlay={() => markAudioPlay(question.shared_asset_id ?? question.id)} /><p className="mt-2 text-xs text-slate-500">Aset bersama: {question.shared_asset_id ?? question.id}</p></div>}
+                {question.section === 'listening' && <div><AudioPlayer questionId={question.shared_asset_id ?? question.id} plays={audioPlays[question.shared_asset_id ?? question.id] ?? 0} audioUrl={audioUrl} onPlay={() => markAudioPlayWithTracking(question.shared_asset_id ?? question.id)} /><p className="mt-2 text-xs text-slate-500">Aset bersama: {question.shared_asset_id ?? question.id}</p></div>}
                 <div dir="rtl" lang="ar" className="mt-6 font-arabic">
                   <h2 className="text-[22px] font-medium leading-[1.85] text-slate-900 sm:text-[25px]">{question.question}</h2>
                   {question.answer_type === 'writing' ? (

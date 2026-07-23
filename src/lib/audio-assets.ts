@@ -1,4 +1,9 @@
-export const AUDIO_BUCKET = import.meta.env.VITE_AUDIO_BUCKET || 'Audio1'
+// Cloud audio is private and lives in the production bucket. Keep the env
+// override for demo/local mode so a stale VITE_AUDIO_BUCKET=Audio1 cannot
+// point the cloud runtime at the demo bucket.
+export const AUDIO_BUCKET = import.meta.env.VITE_ENABLE_CLOUD === 'true'
+  ? 'exam-audio'
+  : (import.meta.env.VITE_AUDIO_BUCKET || 'Audio1')
 
 const audioPaths: Record<string, string> = {
   audio_perpustakaan_01: '1.mp3',
