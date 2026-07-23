@@ -63,7 +63,7 @@ export function AudioPlayer({ questionId, plays, onPlay, audioUrl, maxPlays = 2 
   }
 
   return (
-    <section className="rounded-2xl bg-slate-100 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]" aria-label="Pemutar audio">
+    <section className="rounded-2xl bg-slate-100 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]" aria-label="Pemutar audio materi dengar">
       <audio
         ref={audioRef}
         src={audioUrl ?? practiceToneUrl ?? undefined}
@@ -77,23 +77,23 @@ export function AudioPlayer({ questionId, plays, onPlay, audioUrl, maxPlays = 2 
           type="button"
           onClick={play}
           disabled={exhausted || isPlaying}
-          className="grid size-11 shrink-0 place-items-center rounded-xl bg-[#006C35] text-white shadow-sm transition-[transform,background-color,opacity] active:scale-[0.96] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500"
-          aria-label={exhausted ? 'Kuota audio habis' : 'Putar audio'}
+          className="grid size-11 shrink-0 place-items-center rounded-xl bg-[#006C35] text-white shadow-sm transition-[transform,background-color,opacity] active:scale-[0.96] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
+          aria-label={exhausted ? 'Kuota pemutaran audio telah habis' : isPlaying ? 'Audio sedang diputar' : 'Putar audio materi dengar'}
         >
-          {isPlaying ? <Pause size={18} /> : <Play className="translate-x-px" size={19} fill="currentColor" />}
+          {isPlaying ? <Pause size={18} aria-hidden="true" /> : <Play className="translate-x-px" size={19} fill="currentColor" aria-hidden="true" />}
         </button>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 text-sm font-semibold text-slate-800">
-            <Volume2 size={16} className="text-[#006C35]" />
+            <Volume2 size={16} className="text-[#006C35]" aria-hidden="true" />
             Materi dengar latihan
           </div>
           <p className="mt-0.5 text-sm text-slate-600">Putar sampai {maxPlays} kali sebelum menjawab.</p>
         </div>
-        <span className="rounded-lg bg-white px-2.5 py-1.5 text-xs font-bold tabular-nums text-slate-600 shadow-sm">
+        <span className="rounded-lg bg-white px-2.5 py-1.5 text-xs font-bold tabular-nums text-slate-600 shadow-sm" aria-live="polite">
           Sisa: {Math.max(0, maxPlays - plays)}/{maxPlays}
         </span>
       </div>
-      {exhausted && <p className="mt-3 text-xs font-semibold text-slate-500">Kuota pemutaran audio telah habis.</p>}
+      {exhausted && <p className="mt-3 text-xs font-semibold text-slate-500" aria-live="polite">Kuota pemutaran audio telah habis.</p>}
       <span className="sr-only">Audio soal {questionId}</span>
     </section>
   )

@@ -15,10 +15,15 @@ export type PublicQuestion = {
   position: number
   section: Section
   question: string
-  options: [string, string, string, string]
+  options: [string, string, string, string] | null
   passage?: string
   audioPath?: string
   maxAudioPlays: number
+  answerType?: 'multiple_choice' | 'writing' | 'speaking'
+  promptHint?: string
+  minimumWords?: number
+  preparationSeconds?: number
+  maxRecordingSeconds?: number
 }
 
 export type CloudAttempt = {
@@ -42,12 +47,18 @@ export type CloudAnswer = {
   bookmarked: boolean
   viewedAt?: string
   audioPlayCount: number
+  answerText?: string
+  audioStoragePath?: string
 }
 
 export type ReviewQuestion = PublicQuestion & {
   selectedIndex?: number
-  correctIndex: number
+  correctIndex?: number
   explanation: string
+  answerText?: string
+  writingScore?: number
+  writingFeedback?: unknown
+  audioStoragePath?: string
 }
 
 type Row = Record<string, unknown>
@@ -98,7 +109,7 @@ export async function getPublishedExams(client: SupabaseClient): Promise<Publish
 export async function getQuestions(client: SupabaseClient, examVersionId: string): Promise<PublicQuestion[]> {
   const { data, error } = await client
     .from('exam_questions')
-    .select('id, position, section, question, options, passage, audio_path, max_audio_plays')
+    .select('id, position, section, question, options, passage, audio_path, max_audio_plays, answer_type, prompt_hint, minimum_words, preparation_seconds, max_recording_seconds')
     .eq('exam_version_id', examVersionId)
     .order('position')
   if (error) throw error
@@ -108,10 +119,15 @@ export async function getQuestions(client: SupabaseClient, examVersionId: string
     position: asNumber(row.position),
     section: asString(row.section) as Section,
     question: asString(row.question),
-    options: asOptions(row.options),
+    options: row.options ? asOptions(row.options) : null,
     passage: row.passage ? asString(row.passage) : undefined,
     audioPath: row.audio_path ? asString(row.audio_path) : (asString(row.section) === 'listening' ? getAudioPathForPosition(asNumber(row.position)) : undefined),
     maxAudioPlays: asNumber(row.max_audio_plays),
+    answerType: asString(row.answer_type || 'multiple_choice') as 'multiple_choice' | 'writing' | 'speaking',
+    promptHint: row.prompt_hint ? asString(row.prompt_hint) : undefined,
+    minimumWords: row.minimum_words ? asNumber(row.minimum_words) : undefined,
+    preparationSeconds: row.preparation_seconds ? asNumber(row.preparation_seconds) : undefined,
+    maxRecordingSeconds: row.max_recording_seconds ? asNumber(row.max_recording_seconds) : undefined,
   }))
 }
 
@@ -134,7 +150,7 @@ export async function getAttempt(client: SupabaseClient, attemptId: string): Pro
 export async function getAttemptAnswers(client: SupabaseClient, attemptId: string): Promise<CloudAnswer[]> {
   const { data, error } = await client
     .from('attempt_answers')
-    .select('question_id, selected_index, bookmarked, viewed_at, audio_play_count')
+    .select('question_id, selected_index, bookmarked, viewed_at, audio_play_count, answer_text, audio_storage_path')
     .eq('attempt_id', attemptId)
   if (error) throw error
   return asRows(data).map((row) => ({
@@ -143,15 +159,28 @@ export async function getAttemptAnswers(client: SupabaseClient, attemptId: strin
     bookmarked: Boolean(row.bookmarked),
     viewedAt: row.viewed_at ? asString(row.viewed_at) : undefined,
     audioPlayCount: asNumber(row.audio_play_count),
+    answerText: row.answer_text ? asString(row.answer_text) : undefined,
+    audioStoragePath: row.audio_storage_path ? asString(row.audio_storage_path) : undefined,
   }))
 }
 
-export async function saveAttemptAnswer(client: SupabaseClient, attemptId: string, questionId: string, selectedIndex: number | null, bookmarked: boolean) {
+export async function saveAttemptAnswer(
+  client: SupabaseClient,
+  attemptId: string,
+  questionId: string,
+  selectedIndex: number | null | undefined,
+  bookmarked: boolean,
+  answerText?: string,
+  audioStoragePath?: string,
+) {
   const { error } = await client.rpc('save_attempt_answer', {
     p_attempt_id: attemptId,
     p_question_id: questionId,
-    p_selected_index: selectedIndex,
+    p_selected_index: selectedIndex === undefined ? null : selectedIndex,
     p_bookmarked: bookmarked,
+    p_mark_viewed: true,
+    p_answer_text: answerText || null,
+    p_audio_storage_path: audioStoragePath || null,
   })
   if (error) throw error
 }
@@ -176,13 +205,33 @@ export async function getAttemptReview(client: SupabaseClient, attemptId: string
     position: asNumber(row.position),
     section: asString(row.section) as Section,
     question: asString(row.question),
-    options: asOptions(row.options),
+    options: row.options ? asOptions(row.options) : null,
     passage: row.passage ? asString(row.passage) : undefined,
     maxAudioPlays: 2,
     selectedIndex: row.selected_index === null ? undefined : asNumber(row.selected_index),
-    correctIndex: asNumber(row.correct_index),
-    explanation: asString(row.explanation),
+    correctIndex: row.correct_index === null || row.correct_index === undefined ? undefined : asNumber(row.correct_index),
+    explanation: asString(row.explanation || ''),
+    answerText: row.answer_text ? asString(row.answer_text) : undefined,
+    writingScore: row.writing_score !== null && row.writing_score !== undefined ? asNumber(row.writing_score) : undefined,
+    writingFeedback: row.writing_feedback || undefined,
+    audioStoragePath: row.audio_storage_path ? asString(row.audio_storage_path) : undefined,
   }))
+}
+
+export async function evaluateWriting(client: SupabaseClient, attemptId: string): Promise<unknown> {
+  const { data, error } = await client.functions.invoke('evaluate-writing', {
+    body: { attempt_id: attemptId },
+  })
+  if (error) throw error
+  return data
+}
+
+export async function evaluateSpeaking(client: SupabaseClient, attemptId: string): Promise<unknown> {
+  const { data, error } = await client.functions.invoke('evaluate-speaking', {
+    body: { attempt_id: attemptId },
+  })
+  if (error) throw error
+  return data
 }
 
 export async function getSignedAudioUrl(client: SupabaseClient, path: string): Promise<string> {

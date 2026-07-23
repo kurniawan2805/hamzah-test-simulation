@@ -16,15 +16,45 @@ export const createSessionResult = (
   answers: Record<string, number>,
   reason: ExamFinishReason,
   completedAt = Date.now(),
+  _writingAnswers?: Record<string, string>,
+  writingGrades: Record<string, { score: number; feedback: unknown }> = {},
+  speakingGrades: Record<string, { score: number; feedback: unknown }> = {},
 ): SessionResult => {
   const scoredQuestions = exam.questions.filter((question) => question.scored !== false)
-  const correctCount = scoredQuestions.filter((question) => answers[question.id] === question.correct_index).length
-  const score = Math.round((correctCount / scoredQuestions.length) * 100)
+  
+  // Calculate correct MCQ and add writing/speaking points
+  const mcqQuestions = scoredQuestions.filter((q) => q.answer_type !== 'writing' && q.answer_type !== 'speaking')
+  const correctMcqCount = mcqQuestions.filter((question) => answers[question.id] === question.correct_index).length
+  
+  const writingQuestions = scoredQuestions.filter((q) => q.answer_type === 'writing')
+  const writingTotalScore = writingQuestions.reduce((acc, q) => acc + (writingGrades[q.id]?.score ?? 0), 0)
+
+  const speakingQuestions = scoredQuestions.filter((q) => q.answer_type === 'speaking')
+  const speakingTotalScore = speakingQuestions.reduce((acc, q) => acc + (speakingGrades[q.id]?.score ?? 0), 0)
+  
+  // Weighted / direct average score
+  // Each MCQ is worth 1 point. Each writing/speaking is worth (score / 100) points.
+  const totalScoreVal = correctMcqCount + (writingTotalScore / 100) + (speakingTotalScore / 100)
+  const score = scoredQuestions.length ? Math.round((totalScoreVal / scoredQuestions.length) * 100) : 0
+  const correctCount = Math.round(totalScoreVal)
+
   const sectionScores = Object.fromEntries(
     sections.map((section) => {
       const questions = scoredQuestions.filter((question) => question.section === section)
+      if (!questions.length) return [section, 0]
+
+      if (section === 'writing') {
+        const avgWriting = Math.round(writingTotalScore / questions.length)
+        return [section, avgWriting]
+      }
+
+      if (section === 'speaking') {
+        const avgSpeaking = Math.round(speakingTotalScore / questions.length)
+        return [section, avgSpeaking]
+      }
+
       const correct = questions.filter((question) => answers[question.id] === question.correct_index).length
-      return [section, questions.length ? Math.round((correct / questions.length) * 100) : 0]
+      return [section, Math.round((correct / questions.length) * 100)]
     }),
   ) as Record<Section, number>
 

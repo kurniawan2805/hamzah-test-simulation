@@ -23,7 +23,7 @@ Bukan sasaran MVP:
 
 - Sertifikasi resmi, proctoring, anti-cheat penuh, atau penilaian adaptif.
 - Penulisan soal, manajemen editor, atau publikasi paket melalui UI produksi.
-- Penilaian otomatis produksi untuk tugas esai dan rekaman berbicara. Keduanya saat ini hanya tersedia sebagai mockup demo.
+- Penilaian otomatis produksi untuk tugas esai. Keduanya sekarang dinilai menggunakan OpenAI gpt-4o-mini lewat Edge Function, sedangkan rekaman berbicara saat ini hanya tersedia sebagai mockup demo.
 
 ## 3. Pengguna dan kebutuhan utama
 

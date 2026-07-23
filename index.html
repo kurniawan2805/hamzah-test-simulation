@@ -6,6 +6,22 @@
     <meta name="theme-color" content="#006C35" />
     <meta name="description" content="Simulasi ujian kemahiran bahasa Arab Hamza Test." />
     <title>Hamza Test Simulation</title>
+    <script type="module">
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        try {
+          const RefreshRuntime = await import(/* @vite-ignore */ '/@react-refresh')
+          const runtime = RefreshRuntime.default || RefreshRuntime
+          if (runtime && typeof runtime.injectIntoGlobalHook === 'function') {
+            runtime.injectIntoGlobalHook(window)
+            window.$RefreshReg$ = () => {}
+            window.$RefreshSig$ = () => (type) => type
+            window.__vite_plugin_react_preamble_installed__ = true
+          }
+        } catch (e) {
+          // Silent catch to prevent errors in production where /@react-refresh is not available
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

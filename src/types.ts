@@ -17,6 +17,7 @@ export interface Question {
   prompt_hint?: string
   minimum_words?: number
   preparation_seconds?: number
+  max_recording_seconds?: number
   scored?: boolean
 }
 

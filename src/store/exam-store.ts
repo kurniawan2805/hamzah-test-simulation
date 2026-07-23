@@ -4,7 +4,7 @@ import type { SessionResult } from '../types'
 
 export interface CloudSessionBackup {
   currentIndex: number
-  answers: Record<string, { selectedIndex?: number; bookmarked: boolean; audioPlayCount: number }>
+  answers: Record<string, { selectedIndex?: number; bookmarked: boolean; audioPlayCount: number; answerText?: string; audioStoragePath?: string }>
   updatedAt: number
 }
 
@@ -15,6 +15,10 @@ interface ExamState {
   submittedAt: number | null
   currentIndex: number
   answers: Record<string, number>
+  writingAnswers: Record<string, string>
+  writingGrades: Record<string, { score: number; feedback: unknown }>
+  speakingAnswers: Record<string, string>
+  speakingGrades: Record<string, { score: number; feedback: unknown }>
   bookmarks: string[]
   viewedQuestionIds: string[]
   audioPlays: Record<string, number>
@@ -23,6 +27,10 @@ interface ExamState {
   startExam: (examId: string, durationMinutes: number) => void
   setCurrentIndex: (index: number, questionId: string) => void
   answerQuestion: (questionId: string, answerIndex: number) => void
+  setWritingAnswer: (questionId: string, text: string) => void
+  setWritingGrades: (grades: Record<string, { score: number; feedback: unknown }>) => void
+  setSpeakingAnswer: (questionId: string, pathOrBlob: string) => void
+  setSpeakingGrades: (grades: Record<string, { score: number; feedback: unknown }>) => void
   toggleBookmark: (questionId: string) => void
   markAudioPlay: (questionId: string) => boolean
   completeExam: (result: SessionResult) => void
@@ -39,6 +47,10 @@ const emptySession = {
   submittedAt: null,
   currentIndex: 0,
   answers: {},
+  writingAnswers: {},
+  writingGrades: {},
+  speakingAnswers: {},
+  speakingGrades: {},
   bookmarks: [],
   viewedQuestionIds: [],
   audioPlays: {},
@@ -69,6 +81,14 @@ export const useExamStore = create<ExamState>()(
         })),
       answerQuestion: (questionId, answerIndex) =>
         set((state) => ({ answers: { ...state.answers, [questionId]: answerIndex } })),
+      setWritingAnswer: (questionId, text) =>
+        set((state) => ({ writingAnswers: { ...state.writingAnswers, [questionId]: text } })),
+      setWritingGrades: (writingGrades) =>
+        set({ writingGrades }),
+      setSpeakingAnswer: (questionId, pathOrBlob) =>
+        set((state) => ({ speakingAnswers: { ...state.speakingAnswers, [questionId]: pathOrBlob } })),
+      setSpeakingGrades: (speakingGrades) =>
+        set({ speakingGrades }),
       toggleBookmark: (questionId) =>
         set((state) => ({
           bookmarks: state.bookmarks.includes(questionId)
@@ -111,19 +131,23 @@ export const useExamStore = create<ExamState>()(
     {
       name: 'hamza-test-simulation',
       storage: createJSONStorage(() => localStorage),
-      partialize: (state) => ({
-        activeExamId: state.activeExamId,
-        startedAt: state.startedAt,
-        endsAt: state.endsAt,
-        submittedAt: state.submittedAt,
-        currentIndex: state.currentIndex,
-        answers: state.answers,
-        bookmarks: state.bookmarks,
-        viewedQuestionIds: state.viewedQuestionIds,
-        audioPlays: state.audioPlays,
-        history: state.history,
-        cloudBackups: state.cloudBackups,
-      }),
+        partialize: (state) => ({
+          activeExamId: state.activeExamId,
+          startedAt: state.startedAt,
+          endsAt: state.endsAt,
+          submittedAt: state.submittedAt,
+          currentIndex: state.currentIndex,
+          answers: state.answers,
+          writingAnswers: state.writingAnswers,
+          writingGrades: state.writingGrades,
+          speakingAnswers: state.speakingAnswers,
+          speakingGrades: state.speakingGrades,
+          bookmarks: state.bookmarks,
+          viewedQuestionIds: state.viewedQuestionIds,
+          audioPlays: state.audioPlays,
+          history: state.history,
+          cloudBackups: state.cloudBackups,
+        }),
     },
   ),
 )

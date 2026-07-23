@@ -16,7 +16,7 @@
         "ليقابل صديقًا"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Khalid pergi ke perpustakaan untuk mencari buku sejarah («ليبحث عن كتاب في التاريخ»)."
     },
     {
       "id": "hamza_q_002",
@@ -30,7 +30,7 @@
         "اشترى كتابًا آخر"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Khalid tidak berhasil menemukan buku sejarah yang dicarinya («لم يجد الكتاب»)."
     },
     {
       "id": "hamza_q_003",
@@ -44,7 +44,7 @@
         "أن يقرأ مجلة"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Petugas perpustakaan menyarankan agar Khalid kembali pada minggu depan («أن يعود الأسبوع القادم»)."
     },
     {
       "id": "hamza_q_004",
@@ -58,7 +58,7 @@
         "الثامنة"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Berdasarkan informasi rutinitas harian, Maryam bangun tidur pada pukul enam pagi («السادسة»)."
     },
     {
       "id": "hamza_q_005",
@@ -72,7 +72,7 @@
         "بالقطار"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Sarana transportasi yang digunakan Maryam untuk pergi ke kampus adalah bus («بالحافلة»)."
     },
     {
       "id": "hamza_q_006",
@@ -86,7 +86,7 @@
         "السفر"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Dokter menyarankan untuk menjaga kesehatan dengan memperbanyak minum air putih («شرب الماء»)."
     },
     {
       "id": "hamza_q_007",
@@ -100,7 +100,7 @@
         "خمس مرات"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Durasi olahraga yang dianjurkan oleh dokter adalah tiga kali seminggu («ثلاث مرات»)."
     },
     {
       "id": "hamza_q_008",
@@ -114,7 +114,7 @@
         "عشر ساعات"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Dokter merekomendasikan tidur yang cukup selama delapan jam sehari («ثماني ساعات»)."
     },
     {
       "id": "hamza_q_009",
@@ -128,7 +128,7 @@
         "الزوار الأجانب"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Pihak yang berpartisipasi memamerkan karya adalah lebih dari 50 siswa («أكثر من خمسين طالبًا»)."
     },
     {
       "id": "hamza_q_010",
@@ -142,11 +142,12 @@
         "التجار"
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Tamu yang menghadiri pameran tersebut adalah para wali murid (orang tua) dan guru («أولياء الأمور والمعلمون»)."
     },
     {
       "id": "hamza_q_011",
       "section": "reading",
+      "passage": "القراءة نورٌ يُنيرُ طريقَ الإنسان في الحياة. إنّ القراءة توسع آفاقَ المعرفة وتُنمّي التفكيرَ الناقد. كما تساعدنا على فهم الثقافات المختلفة وتُقرّبنا من شعوب العالم. كثير من الناجحين يحرصون على القراءة اليومية لأنّها تُثري العقل وتشجّع على الإبداع. قال أحد العلماء: «مَن قرأ اليوم، غداً ناجحٌ بإذن الله». فلنجعل القراءة عادةً يومية نمارسها بانتظام.",
       "question": "ما موضوع النص؟",
       "options": [
         "الرياضة",
@@ -155,11 +156,12 @@
         "السفر"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Keseluruhan teks membahas pentingnya aktivitas membaca bagi manusia («القراءة»)."
     },
     {
       "id": "hamza_q_012",
       "section": "reading",
+      "passage": "القراءة نورٌ يُنيرُ طريقَ الإنسان في الحياة. إنّ القراءة توسع آفاقَ المعرفة وتُنمّي التفكيرَ الناقد. كما تساعدنا على فهم الثقافات المختلفة وتُقرّبنا من شعوب العالم. كثير من الناجحين يحرصون على القراءة اليومية لأنّها تُثري العقل وتشجّع على الإبداع. قال أحد العلماء: «مَن قرأ اليوم، غداً ناجحٌ بإذن الله». فلنجعل القراءة عادةً يومية نمارسها بانتظام.",
       "question": "ماذا توسع القراءة؟",
       "options": [
         "الأموال",
@@ -168,11 +170,12 @@
         "المباني"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Di dalam teks tertulis secara eksplisit bahwa membaca memperluas cakrawala pengetahuan («توسع آفاقَ المعرفة»)."
     },
     {
       "id": "hamza_q_013",
       "section": "reading",
+      "passage": "القراءة نورٌ يُنيرُ طريقَ الإنسان في الحياة. إنّ القراءة توسع آفاقَ المعرفة وتُنمّي التفكيرَ الناقد. كما تساعدنا على فهم الثقافات المختلفة وتُقرّبنا من شعوب العالم. كثير من الناجحين يحرصون على القراءة اليومية لأنّها تُثري العقل وتشجّع على الإبداع. قال أحد العلماء: «مَن قرأ اليوم، غداً ناجحٌ بإذن الله». فلنجعل القراءة عادةً يومية نمارسها بانتظام.",
       "question": "ماذا تنمي القراءة؟",
       "options": [
         "القوة",
@@ -181,11 +184,12 @@
         "الذاكرة فقط"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Teks menyatakan bahwa membaca menumbuhkan dan mengembangkan pemikiran kritis («تُنمّي التفكيرَ الناقد»)."
     },
     {
       "id": "hamza_q_014",
       "section": "reading",
+      "passage": "القراءة نورٌ يُنيرُ طريقَ الإنسان في الحياة. إنّ القراءة توسع آفاقَ المعرفة وتُنمّي التفكيرَ الناقد. كما تساعدنا على فهم الثقافات المختلفة وتُقرّبنا من شعوب العالم. كثير من الناجحين يحرصون على القراءة اليومية لأنّها تُثري العقل وتشجّع على الإبداع. قال أحد العلماء: «مَن قرأ اليوم، غداً ناجحٌ بإذن الله». فلنجعل القراءة عادةً يومية نمارسها بانتظام.",
       "question": "ماذا تساعد القراءة على فهمه؟",
       "options": [
         "العلوم فقط",
@@ -194,11 +198,12 @@
         "اللغات فقط"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Membaca membantu manusia memahami berbagai kebudayaan yang ada di dunia («فهم الثقافات المختلفة»)."
     },
     {
       "id": "hamza_q_015",
       "section": "reading",
+      "passage": "القراءة نورٌ يُنيرُ طريقَ الإنسان في الحياة. إنّ القراءة توسع آفاقَ المعرفة وتُنمّي التفكيرَ الناقد. كما تساعدنا على فهم الثقافات المختلفة وتُقرّبنا من شعوب العالم. كثير من الناجحين يحرصون على القراءة اليومية لأنّها تُثري العقل وتشجّع على الإبداع. قال أحد العلماء: «مَن قرأ اليوم، غداً ناجحٌ بإذن الله». فلنجعل القراءة عادةً يومية نمارسها بانتظام.",
       "question": "من يحرص على القراءة اليومية؟",
       "options": [
         "الأطفال فقط",
@@ -207,11 +212,12 @@
         "السائحون"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Orang-orang yang sukses sangat antusias melakukan kebiasaan membaca harian («كثير من الناجحين يحرصون على القراءة اليومية»)."
     },
     {
       "id": "hamza_q_016",
       "section": "reading",
+      "passage": "يُفضّل أحمد السفر بالقطار لأنّه أكثر راحةً من غيره. يستمتع أحمد بمشاهدة المناظر الطبيعية أثناء الرحلة، من جبال خضراء وسهول واسعة. يعمل والد الكاتب مهندسًا في إحدى الشركات الكبرى، وتعمل والدته طبيبة في مستشفى حكومي. يقول أحمد إنّ القطار يُعطيه فرصةً للتفكير والقراءة أثناء السفر.",
       "question": "لماذا يفضل أحمد القطار؟",
       "options": [
         "لأنه أسرع دائمًا",
@@ -220,11 +226,12 @@
         "لأنه قريب"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Alasan Ahmad lebih menyukai bepergian menggunakan kereta adalah karena kenyamanannya («لأنّه أكثر راحةً»)."
     },
     {
       "id": "hamza_q_017",
       "section": "reading",
+      "passage": "يُفضّل أحمد السفر بالقطار لأنّه أكثر راحةً من غيره. يستمتع أحمد بمشاهدة المناظر الطبيعية أثناء الرحلة، من جبال خضراء وسهول واسعة. يعمل والد الكاتب مهندسًا في إحدى الشركات الكبرى، وتعمل والدته طبيبة في مستشفى حكومي. يقول أحمد إنّ القطار يُعطيه فرصةً للتفكير والقراءة أثناء السفر.",
       "question": "ماذا يستمتع أحمد بمشاهدته؟",
       "options": [
         "البحر",
@@ -233,11 +240,12 @@
         "الطائرات"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Di sepanjang perjalanan, Ahmad senang melihat pemandangan alam berupa pegunangan dan dataran hijau («مشاهدة المناظر الطبيعية»)."
     },
     {
       "id": "hamza_q_018",
       "section": "reading",
+      "passage": "يُفضّل أحمد السفر بالقطار لأنّه أكثر راحةً من غيره. يستمتع أحمد بمشاهدة المناظر الطبيعية أثناء الرحلة، من جبال خضراء وسهول واسعة. يعمل والد الكاتب مهندسًا في إحدى الشركات الكبرى، وتعمل والدته طبيبة في مستشفى حكومي. يقول أحمد إنّ القطار يُعطيه فرصةً للتفكير والقراءة أثناء السفر.",
       "question": "كلمة \"أثناء\" تعني:",
       "options": [
         "قبل",
@@ -246,11 +254,12 @@
         "فوق"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Kata «أثناء» bermakna waktu berlangsungnya sesuatu ('selama' atau 'di sela-sela'), yang sepadan dengan kata «خلال»."
     },
     {
       "id": "hamza_q_019",
       "section": "reading",
+      "passage": "يُفضّل أحمد السفر بالقطار لأنّه أكثر راحةً من غيره. يستمتع أحمد بمشاهدة المناظر الطبيعية أثناء الرحلة, من جبال خضراء وسهول واسعة. يعمل والد الكاتب مهندسًا في إحدى الشركات الكبرى، وتعمل والدته طبيبة في مستشفى حكومي. يقول أحمد إنّ القطار يُعطيه فرصةً للتفكير والقراءة أثناء السفر.",
       "question": "ماذا يعمل والد الكاتب؟",
       "options": [
         "طبيب",
@@ -259,11 +268,12 @@
         "محاسب"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Ayah dari penulis bekerja sebagai seorang insinyur teknik («يعمل والد الكاتب مهندسًا»)."
     },
     {
       "id": "hamza_q_020",
       "section": "reading",
+      "passage": "يُفضّل أحمد السفر بالقطار لأنّه أكثر راحةً من غيره. يستمتع أحمد بمشاهدة المناظر الطبيعية أثناء الرحلة، من جبال خضراء وسهول واسعة. يعمل والد الكاتب مهندسًا في إحدى الشركات الكبرى، وتعمل والدته طبيبة في مستشفى حكومي. يقول أحمد إنّ القطار يُعطيه فرصةً للتفكير والقراءة أثناء السفر.",
       "question": "أين تعمل والدته؟",
       "options": [
         "مدرسة",
@@ -272,7 +282,7 @@
         "جامعة"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Tempat bekerja ibunya adalah di rumah sakit pemerintah sebagai dokter («تعمل والدته طبيبة في مستشفى حكومي»)."
     },
     {
       "id": "hamza_q_021",
@@ -285,7 +295,7 @@
         "شرب"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Berdasarkan kesesuaian makna kalimat ('... siswa pelajaran itu dengan baik'), kata kerja yang tepat adalah membaca («قرأ»)."
     },
     {
       "id": "hamza_q_022",
@@ -298,7 +308,7 @@
         "عند"
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Huruf jar «إلى» (ke) adalah preposisi arah yang tepat untuk melengkapi kalimat 'Kami pergi ke masjid' («ذهبنا إلى المسجد»)."
     },
     {
       "id": "hamza_q_023",
@@ -311,7 +321,7 @@
         "سريع"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Antonim (lawan kata) dari kata besar («كبير») adalah kecil («صغير»)."
     },
     {
       "id": "hamza_q_024",
@@ -324,7 +334,7 @@
         "بعيد"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Sinonim (persamaan makna) terdekat dari kata cepat («سريع») adalah segera atau bergegas («عاجل»)."
     },
     {
       "id": "hamza_q_025",
@@ -337,7 +347,7 @@
         "الطالبُ مجتهداتٌ."
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Kalimat ini memerlukan keselarasan gender dan jumlah antara mubtada' jamak feminin («الطالباتُ») dan khabar jamak feminin («مجتهداتٌ»)."
     },
     {
       "id": "hamza_q_026",
@@ -350,7 +360,7 @@
         "لم يذهبَ أحمد إلى المدرسة أمس."
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Amil jazam «لم» membuat fi'il mudhari' setelahnya majzum (ditandai harakat sukun pada huruf akhir), sehingga yang benar adalah «لم يذهبْ»."
     },
     {
       "id": "hamza_q_027",
@@ -363,7 +373,7 @@
         "أجدْ"
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Kata syarat «إذا» membutuhkan fi'il madhi mutakallim (orang pertama tunggal) «وجدتُ» untuk membentuk makna pengandaian 'Jika aku menemukan waktu...'"
     },
     {
       "id": "hamza_q_028",
@@ -376,7 +386,7 @@
         "كتاب"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Isim fa'il (subjek pelaku) dari fi'il tsulatsi mujarrad 'kataba' dibentuk mengikuti wazan/pola Faa'il (فَاعِل), yaitu «كاتب» (penulis)."
     },
     {
       "id": "hamza_q_029",
@@ -389,7 +399,7 @@
         "سفر"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kata «ازدحام» merujuk pada kondisi penuh sesak, ramai, atau macetnya mobilitas manusia maupun kendaraan («كثرة الناس أو السيارات»)."
     },
     {
       "id": "hamza_q_030",
@@ -402,7 +412,7 @@
         "المسافرين"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kata «الصابرين» (orang-orang yang sabar) secara istilah berarti mereka yang teguh menahan diri dan menanggung beban kesulitan («الذين يتحملون الشدائد»)."
     },
     {
       "id": "hamza_q_031",
@@ -415,7 +425,7 @@
         "مهملان"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kata kerja bantu penafian «ليس» bertugas merafa'kan isimnya («الطالبُ») dan menashabkan khabarnya, sehingga khabarnya berharakat fathatain («مهملًا»)."
     },
     {
       "id": "hamza_q_032",
@@ -428,7 +438,7 @@
         "كلا (A) و(B)"
       ],
       "correct_index": 3,
-      "explanation": "Jawaban benar: D."
+      "explanation": "Jawaban D. Kata «مدينة» memiliki dua bentuk jamak taksir yang sah dan digunakan dalam bahasa Arab standar, yaitu «مدن» dan «مدائن»."
     },
     {
       "id": "hamza_q_033",
@@ -441,7 +451,7 @@
         "كان الجو جميلًا."
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Fi'il mudhari' (kata kerja masa kini/nanti) ditandai dengan huruf mudhara'ah di awal kata. Contohnya adalah «يقرأ» pada kalimat «يقرأ محمد القرآن»."
     },
     {
       "id": "hamza_q_034",
@@ -454,7 +464,7 @@
         "يضحك"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kata «يسعى» berarti berjalan dengan sungguh-sungguh atau berusaha keras, yang bersinonim paling dekat dengan kata «يحاول» (berusaha/mencoba)."
     },
     {
       "id": "hamza_q_035",
@@ -467,11 +477,12 @@
         "مسوول"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Penulisan ejaan hamzah di tengah kata (hamzah mutawassithah) pada kata 'tanggung jawab' yang paling baku dan benar adalah di atas wawu («مسؤول»)."
     },
     {
       "id": "hamza_q_036",
       "section": "reading",
+      "passage": "يُعدّ التعليم الإلكتروني من أهمّ اتجاهات العصر الحديث. يعتمد كثيرٌ من الطلاب على المنصات الرقمية لمتابعة الدروس والمحاضرات في أيّ وقت. ويعتمد التعليم الحضوري على التفاعل المباشر بين المعلمين والطلاب، إذ يُتيح النقاش والحوارات الصفّية. لكلّ نوعٍ منهما مزايا وتحديات، فالأول يوفّر المرونة، والثاني يُعزّز التعلّم العملي والاجتماعي. يجب أن نوازن بينهما لتحقيق أفضل نتيجة تعليمية.",
       "question": " ما الفكرة الرئيسة للنص؟",
       "options": [
         "السفر",
@@ -480,11 +491,12 @@
         "وسائل النقل"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Gagasan utama teks adalah perbandingan karakteristik antara pembelajaran daring (e-learning) dan tatap muka («التعلم الإلكتروني والتعليم الحضوري»)."
     },
     {
       "id": "hamza_q_037",
       "section": "reading",
+      "passage": "يُعدّ التعليم الإلكتروني من أهمّ اتجاهات العصر الحديث. يعتمد كثيرٌ من الطلاب على المنصات الرقمية لمتابعة الدروس والمحاضرات في أيّ وقت. ويعتمد التعليم الحضوري على التفاعل المباشر بين المعلمين والطلاب، إذ يُتيح النقاش والحوارات الصفّية. لكلّ نوعٍ منهما مزايا وتحديات، فالأول يوفّر المرونة، والثاني يُعزّز التعلّم العملي والاجتماعي. يجب أن نوازن بينهما لتحقيق أفضل نتيجة تعليمية.",
       "question": " لماذا يعتمد الطلاب على المنصات الرقمية؟",
       "options": [
         "للترفيه فقط",
@@ -493,11 +505,12 @@
         "للألعاب"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Siswa menggunakan teknologi platform digital untuk mengikuti proses pembelajaran dan perkuliahan («لمتابعة الدروس والمحاضرات»)."
     },
     {
       "id": "hamza_q_038",
       "section": "reading",
+      "passage": "يُعدّ التعليم الإلكتروني من أهمّ اتجاهات العصر الحديث. يعتمد كثيرٌ من الطلاب على المنصات الرقمية لمتابعة الدروس والمحاضرات في أيّ وقت. ويعتمد التعليم الحضوري على التفاعل المباشر بين المعلمين والطلاب، إذ يُتيح النقاش والحوارات الصفّية. لكلّ نوعٍ منهما مزايا وتحديات، فالأول يوفّر المرونة، والثاني يُعزّز التعلّم العملي والاجتماعي. يجب أن نوازن بينهما لتحقيق أفضل نتيجة تعليمية.",
       "question": " ما الميزة التي ذكرها النص للتعليم الحضوري؟",
       "options": [
         "انخفاض التكلفة",
@@ -506,11 +519,12 @@
         "قلة الواجبات"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Teks menyebutkan kelebihan utama sistem pendidikan langsung adalah terjadinya interaksi tatap muka yang interaktif («التفاعل المباشر»)."
     },
     {
       "id": "hamza_q_039",
       "section": "reading",
+      "passage": "يُعدّ التعليم الإلكتروني من أهمّ اتجاهات العصر الحديث. يعتمد كثيرٌ من الطلاب على المنصات الرقمية لمتابعة الدروس والمحاضرات في أيّ وقت. ويعتمد التعليم الحضوري على التفاعل المباشر بين المعلمين والطلاب، إذ يُتيح النقاش والحوارات الصفّية. لكلّ نوعٍ منهما مزايا وتحديات، فالأول يوفّر المرونة، والثاني يُعزّز التعلّم العملي والاجتماعي. يجب أن نوازن بينهما لتحقيق أفضل نتيجة تعليمية.",
       "question": " كلمة \"إذ\" في النص تفيد:",
       "options": [
         "النفي",
@@ -519,11 +533,12 @@
         "الشرط"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kata tugas/partikel «إذ» dalam kalimat tersebut berfungsi untuk memberikan alasan sebab-akibat atau penjelasan tambahan («التعليل أو التوضيح»)."
     },
     {
       "id": "hamza_q_040",
       "section": "reading",
+      "passage": "يُعدّ التعليم الإلكتروني من أهمّ اتجاهات العصر الحديث. يعتمد كثيرٌ من الطلاب على المنصات الرقمية لمتابعة الدروس والمحاضرات في أيّ وقت. ويعتمد التعليم الحضوري على التفاعل المباشر بين المعلمين والطلاب، إذ يُتيح النقاش والحوارات الصفّية. لكلّ نوعٍ منهما مزايا وتحديات، فالأول يوفّر المرونة، والثاني يُعزّز التعلّم العملي والاجتماعي. يجب أن نوازن بينهما لتحقيق أفضل نتيجة تعليمية.",
       "question": " أي عنوان هو الأنسب للنص؟",
       "options": [
         "أهمية الإنترنت",
@@ -532,11 +547,12 @@
         "السفر والتعليم"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Judul paling representatif mewakili isi paragraf adalah komparasi kelebihan/kekurangan e-learning dan tatap muka («مقارنة بين التعليم الإلكتروني والحضوري»)."
     },
     {
       "id": "hamza_q_041",
       "section": "reading",
+      "passage": "استيقظ يوسف متأخرًا لأنّ المنبه لم يعمل. انقطعت الكهرباء أثناء الليل، فلم يرنّ المنبه في الوقت المحدد. لم يتوقّف يوسف كثيرًا، بل غسل وجهه ولبس ملابسه بسرعة، ثم خرج مسرعًا إلى العمل دون أن يتناول الإفطار. لحسن الحظّ، وصل إلى مكتبه في الوقت المناسب قبل أن يبدأ الاجتماع الأوّل.",
       "question": " لماذا استيقظ يوسف متأخرًا؟",
       "options": [
         "لأنه نام مبكرًا",
@@ -545,11 +561,12 @@
         "لأنه سافر"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Yusuf bangun tidur kesiangan karena alat alarmnya tidak berbunyi tepat waktu («لأن المنبه لم يعمل»)."
     },
     {
       "id": "hamza_q_042",
       "section": "reading",
+      "passage": "استيقظ يوسف متأخرًا لأنّ المنبه لم يعمل. انقطعت الكهرباء أثناء الليل، فلم يرنّ المنبه في الوقت المحدد. لم يتوقّف يوسف كثيرًا، بل غسل وجهه ولبس ملابسه بسرعة، ثم خرج مسرعًا إلى العمل دون أن يتناول الإفطار. لحسن الحظّ، وصل إلى مكتبه في الوقت المناسب قبل أن يبدأ الاجتماع الأوّل.",
       "question": " لماذا لم يعمل المنبه؟",
       "options": [
         "نفدت البطارية",
@@ -558,11 +575,12 @@
         "نسي تشغيله"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Alarm mati disebabkan oleh aliran listrik yang terputus di malam hari («انقطعت الكهرباء»)."
     },
     {
       "id": "hamza_q_043",
       "section": "reading",
+      "passage": "استيقظ يوسف متأخرًا لأنّ المنبه لم يعمل. انقطعت الكهرباء أثناء الليل، فلم يرنّ المنبه في الوقت المحدد. لم يتوقّف يوسف كثيرًا، بل غسل وجهه ولبس ملابسه بسرعة، ثم خرج مسرعًا إلى العمل دون أن يتناول الإفطار. لحسن الحظّ، وصل إلى مكتبه في الوقت المناسب قبل أن يبدأ الاجتماع الأوّل.",
       "question": " ماذا فعل يوسف قبل الذهاب إلى العمل؟",
       "options": [
         "تناول الإفطار",
@@ -571,11 +589,12 @@
         "اتصل بمديره"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Karena terburu-buru, setelah berpakaian Yusuf langsung bergegas keluar menuju kantornya («خرج مسرعًا»)."
     },
     {
       "id": "hamza_q_044",
       "section": "reading",
+      "passage": "استيقظ يوسف متأخرًا لأنّ المنبه لم يعمل. انقطعت الكهرباء أثناء الليل، فلم يرنّ المنبه في الوقت المحدد. لم يتوقّف يوسف كثيرًا، بل غسل وجهه ولبس ملابسه بسرعة، ثم خرج مسرعًا إلى العمل دون أن يتناول الإفطار. لحسن الحظّ، وصل إلى مكتبه في الوقت المناسب قبل أن يبدأ الاجتماع الأوّل.",
       "question": " هل وصل متأخرًا؟",
       "options": [
         "نعم",
@@ -584,11 +603,12 @@
         "لا يذكر النص"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Yusuf tidak terlambat karena berhasil sampai sebelum dimulainya rapat perdana («وصل في الوقت المناسب»)."
     },
     {
       "id": "hamza_q_045",
       "section": "reading",
+      "passage": "استيقظ يوسف متأخرًا لأنّ المنبه لم يعمل. انقطعت الكهرباء أثناء الليل، فلم يرنّ المنبه في الوقت المحدد. لم يتوقّف يوسف كثيرًا، بل غسل وجهه ولبس ملابسه بسرعة، ثم خرج مسرعًا إلى العمل دون أن يتناول الإفطار. لحسن الحظّ، وصل إلى مكتبه في الوقت المناسب قبل أن يبدأ الاجتماع الأوّل.",
       "question": " أي كلمة تعني \"بسرعة\"؟",
       "options": [
         "متأخرًا",
@@ -597,7 +617,7 @@
         "أثناء"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kosakata yang bermakna melakukan sesuatu secara cepat/tergesa-gesa dalam teks adalah «مسرعًا»."
     },
     {
       "id": "hamza_q_046",
@@ -605,12 +625,12 @@
       "question": " اختر الصيغة الصحيحة: كان الطلاب ______ الدرس.",
       "options": [
         "يدرسون",
-        "يدرسون",
+        "يدرسان",
         "يدرس",
         "درسوا"
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Kata kerja bantu «كان» berpasangan dengan khabar fi'liyah berupa fi'il mudhari' jamak yang selaras dengan mubtada' jamak mudzakkar («الطلابُ»): «يدرسون»."
     },
     {
       "id": "hamza_q_047",
@@ -623,7 +643,7 @@
         "نزولَ"
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Kata setelah preposisi «رغم» berkedudukan sebagai mudhaf ilaih yang berharakat kasrah («نزولِ»)."
     },
     {
       "id": "hamza_q_048",
@@ -636,7 +656,7 @@
         "جاء المعلمُ."
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Isim majrur ditandai kasrah karena didahului huruf jar. Kalimat «ذهبتُ إلى المسجدِ» mengandung isim majrur yaitu kata «المسجدِ» setelah huruf jar «إلى»."
     },
     {
       "id": "hamza_q_049",
@@ -649,7 +669,7 @@
         "ما ذهبت إلى المدرسة أمسش."
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Struktur kalimat «لم أذهب إلى المدرسة» menggunakan tata bahasa Arab fusha baku, terhindar dari dialek amiyah lokal atau saltik."
     },
     {
       "id": "hamza_q_050",
@@ -662,11 +682,12 @@
         "يترك"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kata kerja yang tepat secara semantik untuk melengkapi kewajiban siswa terhadap tugasnya adalah menunaikan atau melaksanakan («يؤدي»)."
     },
     {
       "id": "hamza_q_051",
       "section": "reading",
+      "passage": "يُعدّ العمل التطوعي من أجمل أشكال المساهمة في خدمة المجتمع. يكتسب المتطوع خبرات عملية فريدة لا يمكن الحصول عليها من الكتب فقط، كما يُساهم في تعزيز روح الفريق والتعاون. تساعد المؤسسات العمل التطوعي على تقديم خدماتها بصورة أكثر فاعلية وأمانًا. كما يُتيح العمل التطوعي فرصةً للتعرّف على ثقافات مختلفة وبناء صداقات جديدة. إنّ العمل التطوعي أثرٌ كبيرٌ في حياة الفرد والمجتمع.",
       "question": " الفكرة الرئيسة للنص هي:",
       "options": [
         "أهمية الدراسة الجامعية",
@@ -675,11 +696,12 @@
         "تطوير التكنولوجيا"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Pembahasan utama paragraf menguraikan berbagai macam kontribusi positif dan kegunaan dari aktivitas kerelawanan («فوائد العمل التطوعي»)."
     },
     {
       "id": "hamza_q_052",
       "section": "reading",
+      "passage": "يُعدّ العمل التطوعي من أجمل أشكال المساهمة في خدمة المجتمع. يكتسب المتطوع خبرات عملية فريدة لا يمكن الحصول عليها من الكتب فقط، كما يُساهم في تعزيز روح الفريق والتعاون. تساعد المؤسسات العمل التطوعي على تقديم خدماتها بصورة أكثر فاعلية وأمانًا. كما يُتيح العمل التطوعي فرصةً للتعرّف على ثقافات مختلفة وبناء صداقات جديدة. إنّ العمل التطوعي أثرٌ كبيرٌ في حياة الفرد والمجتمع.",
       "question": " ما الذي يكتسبه المتطوع؟",
       "options": [
         "المال فقط",
@@ -688,11 +710,12 @@
         "شهادة جامعية"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Manfaat langsung bagi diri relawan yang diperoleh secara nyata adalah tambahan kecakapan atau pengalaman praktis («خبرات عملية»)."
     },
     {
       "id": "hamza_q_053",
       "section": "reading",
+      "passage": "يُعدّ العمل التطوعي من أجمل أشكال المساهمة في خدمة المجتمع. يكتسب المتطوع خبرات عملية فريدة لا يمكن الحصول عليها من الكتب فقط، كما يُساهم في تعزيز روح الفريق والتعاون. تساعد المؤسسات العمل التطوعي على تقديم خدماتها بصورة أكثر فاعلية وأمانًا. كما يُتيح العمل التطوعي فرصةً للتعرّف على ثقافات مختلفة وبناء صداقات جديدة. إنّ العمل التطوعي أثرٌ كبيرٌ في حياة الفرد والمجتمع.",
       "question": " كلمة \"تُسهم\" تعني:",
       "options": [
         "تمنع",
@@ -701,11 +724,12 @@
         "تُهمل"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kosakata kata kerja «تُسهم» bersinonim dengan kata «تُساهم» yang berarti ikut andil, berpartisipasi, atau berkontribusi."
     },
     {
       "id": "hamza_q_054",
       "section": "reading",
+      "passage": "يُعدّ العمل التطوعي من أجمل أشكال المساهمة في خدمة المجتمع. يكتسب المتطوع خبرات عملية فريدة لا يمكن الحصول عليها من الكتب فقط، كما يُساهم في تعزيز روح الفريق والتعاون. تساعد المؤسسات العمل التطوعي على تقديم خدماتها بصورة أكثر فاعلية وأمانًا. كما يُتيح العمل التطوعي فرصةً للتعرّف على ثقافات مختلفة وبناء صداقات جديدة. إنّ العمل التطوعي أثرٌ كبيرٌ في حياة الفرد والمجتمع.",
       "question": " بحسب النص، يساعد العمل التطوعي المؤسسات على:",
       "options": [
         "تقليل الموظفين",
@@ -714,11 +738,12 @@
         "رفع الأسعار"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Bagi instansi penyedia layanan, keberadaan relawan mempermudah penyaluran program sosial secara optimal («تقديم خدماتها بصورة أكثر فاعلية»)."
     },
     {
       "id": "hamza_q_055",
       "section": "reading",
+      "passage": "يُعدّ العمل التطوعي من أجمل أشكال المساهمة في خدمة المجتمع. يكتسب المتطوع خبرات عملية فريدة لا يمكن الحصول عليها من الكتب فقط، كما يُساهم في تعزيز روح الفريق والتعاون. تساعد المؤسسات العمل التطوعي على تقديم خدماتها بصورة أكثر فاعلية وأمانًا. كما يُتيح العمل التطوعي فرصةً للتعرّف على ثقافات مختلفة وبناء صداقات جديدة. إنّ العمل التطوعي أثرٌ كبيرٌ في حياة الفرد والمجتمع.",
       "question": " أي عنوان هو الأنسب؟",
       "options": [
         "التجارة الإلكترونية",
@@ -727,11 +752,12 @@
         "وسائل النقل"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Tajuk bacaan yang merangkum keseluruhan isi paragraf adalah kegunaan kegiatan kerelawanan dalam peradaban sosial («العمل التطوعي وأثره في المجتمع»)."
     },
     {
       "id": "hamza_q_056",
       "section": "reading",
+      "passage": "يُستخدم الذكاء الاصطناعي في مجالات عديدة، منها التعليم والطب والصناعة. يساعد الأطباء في تشخيص الأمراض بدقة عالية، ويسهّل على الطلاب التعلّم بالوسائط المتعددة. لكنّ استخدامه يحتاج إلى مراعاة الخصوصية والجوانب الأخلاقية. فالإفراط في استخدامه قد يُشكّل تهديدًا لوظائف الإنسان وخصوصيته. خلاصةً، الذكاء الاصطناعي أداةٌ مفيدةٌ إذا أُحسن استخدامها، وتحتاج إلى تنظيمٍ دوليٍّ لضمان عدم الإساءة.",
       "question": " يدور النص حول:",
       "options": [
         "الزراعة",
@@ -740,11 +766,12 @@
         "التجارة"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Teks secara komprehensif mengulas tentang pemanfaatan serta tantangan teknologi kecerdasan buatan («الذكاء الاصطناعي»)."
     },
     {
       "id": "hamza_q_057",
       "section": "reading",
+      "passage": "يُستخدم الذكاء الاصطناعي في مجالات عديدة، منها التعليم والطب والصناعة. يساعد الأطباء في تشخيص الأمراض بدقة عالية، ويسهّل على الطلاب التعلّم بالوسائط المتعددة. لكنّ استخدامه يحتاج إلى مراعاة الخصوصية والجوانب الأخلاقية. فالإفراط في استخدامه قد يُشكّل تهديدًا لوظائف الإنسان وخصوصيته. خلاصةً، الذكاء الاصطناعي أداةٌ مفيدةٌ إذا أُحسن استخدامها، وتحتاج إلى تنظيمٍ دوليٍّ لضمان عدم الإساءة.",
       "question": " ذكر النص أن الذكاء الاصطناعي يُستخدم في:",
       "options": [
         "التعليم فقط",
@@ -753,24 +780,26 @@
         "الصناعة فقط"
       ],
       "correct_index": 2,
-      "explanation": "Jawaban benar: C."
+      "explanation": "Jawaban C. Sektor-sektor penerapan teknologi kecerdasan buatan yang disebutkan pada kalimat pembuka meliputi edukasi, kesehatan, dan manufaktur («التعليم والطب والصناعة»)."
     },
     {
       "id": "hamza_q_058",
       "section": "reading",
+      "passage": "يُستخدم الذكاء الاصطناعي في مجالات عديدة، منها التعليم والطب والصناعة. يساعد الأطباء في تشخيص الأمراض بدقة عالية، ويسهّل على الطلاب التعلّم بالوسائط المتعددة. لكنّ استخدامه يحتاج إلى مراعاة الخصوصية والجوانب الأخلاقية. فالإفراط في استخدامه قد يُشكّل تهديدًا لوظائف الإنسان وخصوصيته. خلاصةً، الذكاء الاصطناعي أداةٌ مفيدةٌ إذا أُحسن استخدامها، وتحتاج إلى تنظيمٍ دوليٍّ لضمان عدم الإساءة.",
       "question": " ما القضية التي أكد عليها النص؟",
       "options": [
         "زيادة الإنتاج الزراعي",
         "حماية الخصوصية والجوانب الأخلاقية",
-        "تقليل عدد المدارس",
+        "تقليل عدد Mudaris",
         "السفر إلى الخارج"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Penulis menekankan pentingnya berhati-hati terhadap kerentanan data pribadi dan norma moralitas saat berinteraksi dengan AI («حماية الخصوصية والجوانب الأخلاقية»)."
     },
     {
       "id": "hamza_q_059",
       "section": "reading",
+      "passage": "يُستخدم الذكاء الاصطناعي في مجالات عديدة، منها التعليم والطب والصناعة. يساعد الأطباء في تشخيص الأمراض بدقة عالية، ويسهّل على الطلاب التعلّم بالوسائط المتعددة. لكنّ استخدامه يحتاج إلى مراعاة الخصوصية والجوانب الأخلاقية. فالإفراط في استخدامه قد يُشكّل تهديدًا لوظائف الإنسان وخصوصيته. خلاصةً، الذكاء الاصطناعي أداةٌ مفيدةٌ إذا أُحسن استخدامها، وتحتاج إلى تنظيمٍ دوليٍّ لضمان عدم الإساءة.",
       "question": " كلمة \"مراعاة\" تعني:",
       "options": [
         "إهمال",
@@ -779,11 +808,12 @@
         "معارضة"
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Kosakata kata benda «مراعاة» memiliki makna memperhatikan, menghormati, atau memasukkan dalam bahan pertimbangan («أخذ الشيء في الاعتبار»)."
     },
     {
       "id": "hamza_q_060",
       "section": "reading",
+      "passage": "يُستخدم الذكاء الاصطناعي في مجالات عديدة، منها التعليم والطب والصناعة. يساعد الأطباء في تشخيص الأمراض بدقة عالية، ويسهّل على الطلاب التعلّم بالوسائط المتعددة. لكنّ استخدامه يحتاج إلى مراعاة الخصوصية والجوانب الأخلاقية. فالإفراط في استخدامه قد يُشكّل تهديدًا لوظائف الإنسان وخصوصيته. خلاصةً، الذكاء الاصطناعي أداةٌ مفيدةٌ إذا أُحسن استخدامها، وتحتاج إلى تنظيمٍ دوليٍّ لضمان عدم الإساءة.",
       "question": " أي استنتاج صحيح؟",
       "options": [
         "الذكاء الاصطناعي لا فوائد له.",
@@ -792,7 +822,7 @@
         "الذكاء الاصطناعي مخصص للأطباء فقط."
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Konklusi yang tepat dari bacaan adalah keefektifan pemakaian piranti cerdas membutuhkan regulasi moral dari pemakainya («الذكاء الاصطناعي مفيد، لكن استخدامه يحتاج إلى مسؤولية»)."
     },
     {
       "id": "hamza_q_061",
@@ -805,7 +835,7 @@
         "إنَّ الطالبُ مجتهدًا."
       ],
       "correct_index": 1,
-      "explanation": "Jawaban benar: B."
+      "explanation": "Jawaban B. Amil nasakh «إنَّ» bertugas menashabkan isim di depannya menjadi fathah («الطالبَ») dan merafa'kan khabarnya tetap dhammah («مجتهدٌ»)."
     },
     {
       "id": "hamza_q_062",
@@ -818,7 +848,7 @@
         "يدرس"
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Kata syarat «لو» digunakan untuk pengandaian masa lalu yang tidak terjadi, diikuti oleh kata kerja bentuk lampau (fi'il madhi) mukhatab laki-laki: «درستَ»."
     },
     {
       "id": "hamza_q_063",
@@ -831,7 +861,7 @@
         "يُفسد"
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Kata kerja mudhari' «يُنجز» bermakna merampungkan, melaksanakan, atau menyelesaikan tugas, sehingga bersinonim dengan kata «يُتمّ» (menyempurnakan/menyelesaikan)."
     },
     {
       "id": "hamza_q_064",
@@ -841,10 +871,10 @@
         "استثناء",
         "إستثناء",
         "إستنناء",
-        "إستثناء"
+        "أَسْتَثناء"
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Kata benda bentukan (mashdar) dari kata kerja bab 'istaf'ala' tergolong hamzah washal (tanpa menulis hamzah di bawah alif), sehingga ejaan yang benar adalah «استثناء»."
     },
     {
       "id": "hamza_q_065",
@@ -857,7 +887,7 @@
         "حضر المعلمين والطلاب."
       ],
       "correct_index": 0,
-      "explanation": "Jawaban benar: A."
+      "explanation": "Jawaban A. Menurut kaidah tata bahasa Arab fusha, kata kerja di awal kalimat wajib berkedudukan tunggal (mufrad) meskipun fa'il-nya jamak, dan kata benda pengikut (athaf) berharakat mengikuti kata sebelumnya: «حضر المعلم والطلابُ»."
     },
     {
       "id": "hamza_q_066",
@@ -866,10 +896,15 @@
       "question": "اكتب فقرة عن أهمية تنظيم الوقت في حياة الطالب.",
       "prompt_hint": "اذكر فائدتين ومثالًا واحدًا",
       "minimum_words": 80,
-      "options": ["—", "—", "—", "—"],
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas menulis untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan menulis: Susunlah teks minimal 80 kata. Jelaskan minimal dua manfaat utama manajemen waktu bagi akademisi (contoh: disiplin, mereduksi cemas) dan sertakan satu ilustrasi praktis dalam aktivitas sehari-hari."
     },
     {
       "id": "hamza_q_067",
@@ -878,10 +913,15 @@
       "question": "اكتب رسالة قصيرة إلى صديقك تدعوه فيها إلى زيارة مدينتك.",
       "prompt_hint": "اذكر موعد الزيارة وثلاثة أماكن مقترحة",
       "minimum_words": 80,
-      "options": ["—", "—", "—", "—"],
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas menulis untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan menulis: Buatlah surat informal minimal 80 kata. Wajib mencantumkan tanggal kedatangan secara spesifik dan rekomendasikan minimal tiga objek wisata unggulan di daerah Anda."
     },
     {
       "id": "hamza_q_068",
@@ -890,10 +930,15 @@
       "question": "ناقش أثر وسائل التواصل الاجتماعي في تعلّم اللغات.",
       "prompt_hint": "اعرض رأيًا مؤيدًا ورأيًا مخالفًا ثم خلص إلى رأيك",
       "minimum_words": 100,
-      "options": ["—", "—", "—", "—"],
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas menulis untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan menulis: Tulis esai argumentatif minimal 100 kata. Sampaikan pandangan positif (misal: komunitas belajar) dan dampak negatif (misal: distraksi atau bahasa non-baku) kemudian akhiri dengan simpulan argumen pribadi."
     },
     {
       "id": "hamza_q_069",
@@ -902,10 +947,15 @@
       "question": "اكتب ملخصًا للنص الذي قرأته عن العمل التطوعي.",
       "prompt_hint": "اكتب الفكرة الرئيسة وثلاث نقاط داعمة",
       "minimum_words": 80,
-      "options": ["—", "—", "—", "—"],
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas menulis untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan menulis: Buatlah ikhtisar teks kerja sukarela minimal 80 kata. Tuliskan satu gagasan utama teks asal dan jabarkan minimal tiga gagasan pendukung berdasarkan teks bacaan."
     },
     {
       "id": "hamza_q_070",
@@ -914,10 +964,15 @@
       "question": "اكتب مقالًا قصيرًا: هل التعليم عن بُعد بديل كامل للتعليم الحضوري؟",
       "prompt_hint": "قدّم مقدمة وحجتين وخاتمة",
       "minimum_words": 120,
-      "options": ["—", "—", "—", "—"],
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas menulis untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan menulis: Susunlah artikel opini minimal 120 kata. Struktur tulisan harus runtut meliputi: pengenalan topik pembelajaran jarak jauh, dua landasan argumen logis, dan tesis kesimpulan di bagian penutup."
     },
     {
       "id": "hamza_q_071",
@@ -926,10 +981,16 @@
       "question": "عرّف بنفسك وتحدث عن دراستك أو عملك لمدة دقيقة واحدة.",
       "prompt_hint": "اذكر الاسم والمدينة والاهتمامات",
       "preparation_seconds": 30,
-      "options": ["—", "—", "—", "—"],
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas berbicara untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan berbicara: Mulailah perkenalan diri dengan menyapa (salam), sebutkan nama («اسمي...»), domisili («أنا من...»), fokus akademis/karir, dan kegemaran Anda. Bicaralah secara tenang dengan intonasi jelas selama satu menit."
     },
     {
       "id": "hamza_q_072",
@@ -938,10 +999,16 @@
       "question": "صف رحلة قمت بها مؤخرًا، واذكر ما الذي تعلمته منها.",
       "prompt_hint": "تحدث لمدة دقيقة إلى دقيقتين",
       "preparation_seconds": 45,
-      "options": ["—", "—", "—", "—"],
+      "max_recording_seconds": 90,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas berbicara untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan berbicara: Deskripsikan perjalanan wisata atau dinas terakhir Anda. Sebutkan lokasi tujuan, aktivitas bermakna yang dilakukan, serta refleksi pelajaran hidup yang diperoleh. Durasi optimal 1-2 menit."
     },
     {
       "id": "hamza_q_073",
@@ -950,10 +1017,16 @@
       "question": "اشرح كيف تحافظ على صحتك في حياتك اليومية.",
       "prompt_hint": "اذكر الطعام والنوم والرياضة",
       "preparation_seconds": 30,
-      "options": ["—", "—", "—", "—"],
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas berbicara untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan berbicara: Terangkan pola pemeliharaan kebugaran tubuh Anda. Wajib mengulas tiga pilar utama: konsumsi gizi berimbang («طعام صحي»), waktu tidur berkecukupan («النوم الكافي»), dan aktivitas fisik («الرياضة»)."
     },
     {
       "id": "hamza_q_074",
@@ -962,10 +1035,16 @@
       "question": "ناقش فوائد العمل التطوعي للمجتمع وللفرد.",
       "prompt_hint": "قدم مثالًا من محيطك",
       "preparation_seconds": 45,
-      "options": ["—", "—", "—", "—"],
+      "max_recording_seconds": 90,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas berbicara untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan berbicara: Ulaslah kontribusi kegiatan sukarela bagi pertumbuhan mental pelaku (soft skills) maupun kemajuan kolektif warga. Tambahkan satu contoh program riil di daerah terdekat Anda."
     },
     {
       "id": "hamza_q_075",
@@ -974,10 +1053,16 @@
       "question": "عبّر عن رأيك في استخدام الذكاء الاصطناعي في التعليم.",
       "prompt_hint": "اذكر فائدة واحدة وتحديًا واحدًا",
       "preparation_seconds": 45,
-      "options": ["—", "—", "—", "—"],
+      "max_recording_seconds": 90,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
       "correct_index": 0,
-      "scored": false,
-      "explanation": "Tugas berbicara untuk penilaian manual."
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan analisis rasional penggunaan AI di kelas. Uraikan minimal satu sisi kemudahan (misal: personalisasi materi) dan satu ancaman (misal: berkurangnya berpikir mandiri)."
     }
   ]
 }

@@ -28,7 +28,7 @@ const demoAuth: AuthContextValue = {
 }
 
 export function AppAuthProvider({ children }: { children: ReactNode }) {
-  if (!clerkPublishableKey) {
+  if (!cloudEnabled || !clerkPublishableKey) {
     return <AuthContext.Provider value={demoAuth}>{children}</AuthContext.Provider>
   }
 

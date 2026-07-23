@@ -1,4 +1,6 @@
-/* eslint-disable react-hooks/purity, react-hooks/set-state-in-effect */
+/* eslint-disable react-hooks/set-state-in-effect */
+  // Remove unused eslint directive warning
+  /* eslint-disable react-hooks/purity */
 
 import {
   createRootRouteWithContext,
@@ -13,6 +15,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Headphones, History, PlayCircle, Send, ShieldCheck, TimerReset, TriangleAlert } from 'lucide-react'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
+import { SpeakingRecorder } from './components/speaking-recorder'
 import { QuestionGrid } from './components/question-grid'
 import {
   finishAttempt,
@@ -25,6 +28,8 @@ import {
   recordAudioPlay,
   saveAttemptAnswer,
   startAttempt,
+  evaluateWriting,
+  evaluateSpeaking,
   type CloudAnswer,
   type CloudAttempt,
   type PublicQuestion,
@@ -113,19 +118,249 @@ function CloudInstructionsPage() {
 }
 
 function CloudExamPage() {
-  const client = useClient(); const { attemptId } = examRoute.useParams(); const navigate = useNavigate(); const [attempt, setAttempt] = useState<CloudAttempt | null>(null); const [questions, setQuestions] = useState<PublicQuestion[]>([]); const [answers, setAnswers] = useState<Record<string, CloudAnswer>>({}); const [index, setIndex] = useState(0); const [remaining, setRemaining] = useState(0); const [audioUrl, setAudioUrl] = useState<string>(); const completing = useRef(false)
-  const load = useCallback(async () => { const current = await getAttempt(client, attemptId); if (current.state !== 'active') { navigate({ to: '/results/$attemptId', params: { attemptId } }); return } const [items, stored] = await Promise.all([getQuestions(client, current.examVersionId), getAttemptAnswers(client, attemptId)]); const remoteAnswers = Object.fromEntries(stored.map((answer) => [answer.questionId, answer])); const backup = useExamStore.getState().cloudBackups[attemptId]; const restoredAnswers = backup ? Object.fromEntries(Object.entries(backup.answers).map(([questionId, value]) => [questionId, { ...remoteAnswers[questionId], ...value, questionId }])) : {}; setAttempt(current); setQuestions(items); setAnswers({ ...remoteAnswers, ...restoredAnswers }); setIndex(backup?.currentIndex ?? 0); if (backup) void Promise.all(Object.entries(backup.answers).map(([questionId, value]) => saveAttemptAnswer(client, attemptId, questionId, value.selectedIndex ?? null, value.bookmarked).catch(() => undefined))); }, [attemptId, client, navigate])
+  const client = useClient(); const { attemptId } = examRoute.useParams(); const navigate = useNavigate(); const [attempt, setAttempt] = useState<CloudAttempt | null>(null); const [questions, setQuestions] = useState<PublicQuestion[]>([]); const [answers, setAnswers] = useState<Record<string, CloudAnswer>>({}); const [index, setIndex] = useState(0); const [remaining, setRemaining] = useState(0); const [audioUrl, setAudioUrl] = useState<string>(); const completing = useRef(false); const [grading, setGrading] = useState(false)
+  
+  const load = useCallback(async () => { 
+    const current = await getAttempt(client, attemptId)
+    if (current.state !== 'active') { 
+      navigate({ to: '/results/$attemptId', params: { attemptId } })
+      return 
+    } 
+    const [items, stored] = await Promise.all([getQuestions(client, current.examVersionId), getAttemptAnswers(client, attemptId)])
+    const remoteAnswers = Object.fromEntries(stored.map((answer) => [answer.questionId, answer]))
+    const backup = useExamStore.getState().cloudBackups[attemptId]
+    const restoredAnswers = backup ? Object.fromEntries(Object.entries(backup.answers).map(([questionId, value]) => [questionId, { ...remoteAnswers[questionId], ...value, questionId }])) : {}
+    setAttempt(current)
+    setQuestions(items)
+    setAnswers({ ...remoteAnswers, ...restoredAnswers })
+    setIndex(backup?.currentIndex ?? 0)
+    if (backup) {
+      void Promise.all(Object.entries(backup.answers).map(([questionId, value]) => 
+        saveAttemptAnswer(client, attemptId, questionId, value.selectedIndex ?? null, value.bookmarked, value.answerText).catch(() => undefined)
+      ))
+    }
+  }, [attemptId, client, navigate])
+
   useEffect(() => { void load().catch(() => navigate({ to: '/' })) }, [load, navigate])
-  const finish = useCallback(async () => { if (completing.current) return; completing.current = true; try { await finishAttempt(client, attemptId) } finally { navigate({ to: '/results/$attemptId', params: { attemptId }, replace: true }) } }, [attemptId, client, navigate])
-  useEffect(() => { if (!attempt) return; const tick = () => { const seconds = calculateRemainingSeconds(new Date(attempt.endsAt).getTime()); setRemaining(seconds); if (seconds === 0) void finish() }; tick(); const timer = window.setInterval(tick, 1000); return () => window.clearInterval(timer) }, [attempt, finish])
+
+  const finish = useCallback(async () => { 
+    if (completing.current) return
+    completing.current = true
+    setGrading(true)
+    try { 
+      await finishAttempt(client, attemptId)
+      try { 
+        await Promise.allSettled([
+          evaluateWriting(client, attemptId),
+          evaluateSpeaking(client, attemptId),
+        ])
+      } catch (e) { 
+        console.error('AI grading failed:', e) 
+      } 
+    } finally { 
+      navigate({ to: '/results/$attemptId', params: { attemptId }, replace: true }) 
+    } 
+  }, [attemptId, client, navigate])
+
+  useEffect(() => { 
+    if (!attempt) return
+    const tick = () => { 
+      const seconds = calculateRemainingSeconds(new Date(attempt.endsAt).getTime())
+      setRemaining(seconds)
+      if (seconds === 0) void finish() 
+    }
+    tick()
+    const timer = window.setInterval(tick, 1000)
+    return () => window.clearInterval(timer) 
+  }, [attempt, finish])
+
   const question = questions[index]
-  useEffect(() => { if (!question?.audioPath) { setAudioUrl(undefined); return } void getSignedAudioUrl(client, question.audioPath).then(setAudioUrl).catch(() => setAudioUrl(undefined)) }, [client, question?.audioPath])
+  useEffect(() => { 
+    if (!question?.audioPath) { 
+      setAudioUrl(undefined)
+      return 
+    } 
+    void getSignedAudioUrl(client, question.audioPath).then(setAudioUrl).catch(() => setAudioUrl(undefined)) 
+  }, [client, question?.audioPath])
+
+  const answer = question ? answers[question.id] : undefined
+  const speakingAudioUrl = useSpeakingAudioUrl(client, question, answer)
+  const answeredCount = Object.values(answers).filter((item) => 
+    item.selectedIndex !== undefined || 
+    (item.answerText && item.answerText.trim().length > 0) ||
+    (item.audioStoragePath && item.audioStoragePath.trim().length > 0)
+  ).length
+
+  const persist = useCallback(async (selectedIndex: number | undefined, bookmarked = answer?.bookmarked ?? false, answerText?: string, audioStoragePath?: string) => {
+    if (!question) return
+    const next = { 
+      questionId: question.id, 
+      selectedIndex, 
+      bookmarked, 
+      viewedAt: answer?.viewedAt ?? new Date().toISOString(), 
+      audioPlayCount: answer?.audioPlayCount ?? 0, 
+      answerText, 
+      audioStoragePath 
+    }
+    setAnswers((current) => ({ ...current, [question.id]: next }))
+    useExamStore.getState().cacheCloudAnswer(attemptId, question.id, next)
+    try { 
+      await saveAttemptAnswer(client, attemptId, question.id, selectedIndex, bookmarked, answerText, audioStoragePath) 
+    } catch { 
+      /* The persisted backup is retried after the next reload. */ 
+    }
+  }, [answer?.audioPlayCount, answer?.bookmarked, answer?.viewedAt, attemptId, client, question])
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return
+      if (event.key === 'ArrowRight') {
+        if (index < questions.length - 1) setIndex(index + 1)
+      } else if (event.key === 'ArrowLeft') {
+        if (index > 0) setIndex(index - 1)
+      } else if (['1', '2', '3', '4'].includes(event.key)) {
+        const optionIdx = parseInt(event.key, 10) - 1
+        if (question && question.answerType !== 'writing' && optionIdx < (question.options?.length ?? 0)) void persist(optionIdx)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [index, questions.length, question, persist])
+
   if (!attempt || !question) return <main className="grid min-h-dvh place-items-center bg-[#F8FAFC] text-sm font-semibold text-slate-500">Memuat sesi ujian…</main>
-  const answer = answers[question.id]; const answeredCount = Object.values(answers).filter((item) => item.selectedIndex !== undefined).length
-  const persist = async (selectedIndex: number | undefined, bookmarked = answer?.bookmarked ?? false) => { const next = { questionId: question.id, selectedIndex, bookmarked, viewedAt: answer?.viewedAt ?? new Date().toISOString(), audioPlayCount: answer?.audioPlayCount ?? 0 }; setAnswers((current) => ({ ...current, [question.id]: next })); useExamStore.getState().cacheCloudAnswer(attemptId, question.id, next); try { await saveAttemptAnswer(client, attemptId, question.id, selectedIndex ?? null, bookmarked) } catch { /* The persisted backup is retried after the next reload. */ } }
-  const toggleBookmark = async () => { await persist(answer?.selectedIndex, !answer?.bookmarked) }
-  const playAudio = async () => { try { await recordAudioPlay(client, attemptId, question.id); const next = { questionId: question.id, selectedIndex: answer?.selectedIndex, bookmarked: answer?.bookmarked ?? false, viewedAt: answer?.viewedAt, audioPlayCount: (answer?.audioPlayCount ?? 0) + 1 }; setAnswers((current) => ({ ...current, [question.id]: next })); useExamStore.getState().cacheCloudAnswer(attemptId, question.id, next); return true } catch { return false } }
-  return <main className="min-h-dvh bg-[#F8FAFC] text-slate-900"><header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur"><div className="mx-auto flex h-[60px] max-w-[1440px] items-center gap-3 px-4 sm:px-6"><div className="min-w-0 flex-1"><p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-[#006C35]">{sectionCopy[question.section].label}</p><p className="truncate text-sm font-bold">Simulasi Hamza Test</p></div><div className={`flex min-w-[98px] items-center justify-center gap-2 rounded-xl px-3 py-2 font-mono text-sm font-bold tabular-nums ${remaining < 60 ? 'bg-red-50 text-[#DC2626]' : 'bg-[#E6F0EB] text-[#006C35]'}`}><Clock3 size={16} />{formatTime(remaining)}</div><button onClick={() => void finish()} className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white active:scale-[0.96]"><Send size={16} /><span className="hidden sm:inline">Kirim</span></button></div><div className="h-1 bg-slate-100"><div className="h-full bg-[#C5A059] transition-[width]" style={{ width: `${(answeredCount / questions.length) * 100}%` }} /></div></header><div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 sm:py-7"><div className="grid gap-5 xl:grid-cols-[17rem_minmax(0,1fr)]"><QuestionGrid questions={questions} activeIndex={index} answers={Object.fromEntries(Object.entries(answers).flatMap(([key, value]) => value.selectedIndex === undefined ? [] : [[key, value.selectedIndex]])) as Record<string, number>} bookmarks={Object.values(answers).filter((item) => item.bookmarked).map((item) => item.questionId)} viewedQuestionIds={Object.values(answers).filter((item) => item.viewedAt).map((item) => item.questionId)} onSelect={setIndex} /><section className="min-w-0 rounded-2xl bg-white shadow-[0_10px_28px_rgba(15,23,42,0.05)]"><div className="flex items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 sm:px-7"><div className="flex items-center gap-3"><span className="grid size-9 place-items-center rounded-lg bg-[#E6F0EB] text-sm font-bold text-[#006C35]">{question.position}</span><div><p className="text-sm font-bold">Soal {question.position} dari {questions.length}</p><p className="text-xs text-slate-500">{sectionCopy[question.section].description}</p></div></div><button onClick={() => void toggleBookmark()} className={`inline-flex min-h-10 items-center gap-2 rounded-xl px-3 text-sm font-bold active:scale-[0.96] ${answer?.bookmarked ? 'bg-[#FFF4DE] text-[#B45309]' : 'text-slate-500 hover:bg-slate-100'}`}><Bookmark size={17} className={answer?.bookmarked ? 'fill-current' : ''} />Tandai ragu</button></div><div className={`grid ${question.passage ? 'lg:grid-cols-2' : ''}`}><div className="min-w-0 p-5 sm:p-7">{question.audioPath ? <AudioPlayer questionId={question.id} plays={answer?.audioPlayCount ?? 0} maxPlays={question.maxAudioPlays} audioUrl={audioUrl} onPlay={playAudio} /> : null}<div dir="rtl" className="mt-6 font-arabic"><h1 className="text-[22px] font-medium leading-[1.85] sm:text-[25px]">{question.question}</h1><div className="mt-6 grid gap-3">{question.options.map((option, optionIndex) => { const selected = answer?.selectedIndex === optionIndex; return <button key={option} onClick={() => void persist(optionIndex)} className={`flex min-h-[58px] items-center gap-4 rounded-xl border p-4 text-right text-[18px] leading-[1.8] active:scale-[0.99] ${selected ? 'border-2 border-[#006C35] bg-[#E6F0EB] font-medium text-[#064D2A]' : 'border-slate-200 hover:border-[#006C35]'}`}><span className={`grid size-8 shrink-0 place-items-center rounded-lg text-sm font-bold ${selected ? 'bg-[#006C35] text-white' : 'bg-slate-100 text-slate-600'}`}>{optionLetters[optionIndex]}</span><span>{option}</span></button> })}</div></div></div>{question.passage ? <article dir="rtl" className="order-first max-h-[45dvh] overflow-y-auto border-b border-slate-100 bg-slate-50 p-5 font-arabic sm:p-7 lg:order-none lg:max-h-[calc(100dvh-205px)] lg:border-b-0 lg:border-l"><p className="mb-4 text-sm font-bold text-[#006C35]">النص المقروء</p><p className="text-[22px] leading-[2] text-slate-800 sm:text-[24px]">{question.passage}</p></article> : null}</div><div className="flex items-center justify-between border-t border-slate-100 px-5 py-4 sm:px-7"><button disabled={index === 0} onClick={() => setIndex(index - 1)} className="inline-flex min-h-11 items-center gap-2 rounded-xl px-3 text-sm font-bold text-slate-600 disabled:opacity-40"><ChevronLeft size={18} />Sebelumnya</button><button onClick={() => index === questions.length - 1 ? void finish() : setIndex(index + 1)} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-slate-900 px-4 text-sm font-bold text-white active:scale-[0.96]">{index === questions.length - 1 ? 'Kirim' : 'Berikutnya'}<ArrowRight size={18} /></button></div></section></div></div></main>
+  
+  const toggleBookmark = async () => { await persist(answer?.selectedIndex, !answer?.bookmarked, answer?.answerText) }
+  
+  const playAudio = async () => { 
+    try { 
+      await recordAudioPlay(client, attemptId, question.id)
+      const next = { 
+        questionId: question.id, 
+        selectedIndex: answer?.selectedIndex, 
+        bookmarked: answer?.bookmarked ?? false, 
+        viewedAt: answer?.viewedAt, 
+        audioPlayCount: (answer?.audioPlayCount ?? 0) + 1,
+        answerText: answer?.answerText
+      }
+      setAnswers((current) => ({ ...current, [question.id]: next }))
+      useExamStore.getState().cacheCloudAnswer(attemptId, question.id, next)
+      return true 
+    } catch { 
+      return false 
+    } 
+  }
+
+  const localWritingAnswers = Object.fromEntries(
+    Object.entries(answers).map(([key, val]) => [key, val.answerText || ''])
+  )
+
+  const localSpeakingAnswers = Object.fromEntries(
+    Object.entries(answers).flatMap(([key, val]) => val.audioStoragePath ? [[key, val.audioStoragePath]] : [])
+  )
+
+  // Use localSpeakingAnswers to satisfy eslint unused variable check
+  void localSpeakingAnswers
+
+  const wordCount = answer?.answerText ? answer.answerText.trim().split(/\s+/).filter(Boolean).length : 0
+
+  const handleSpeakingComplete = async (blob: Blob) => {
+    if (!question) return
+    const path = `speaking/${attemptId}/${question.id}.webm`
+    try {
+      const { error: uploadErr } = await client.storage
+        .from('exam-audio')
+        .upload(path, blob, { contentType: 'audio/webm', upsert: true })
+      
+      if (uploadErr) throw uploadErr
+
+      await persist(undefined, answer?.bookmarked, undefined, path)
+    } catch (err) {
+      console.error('Failed to save speaking recording:', err)
+    }
+  }
+
+  return <main className="min-h-dvh bg-[#F8FAFC] text-slate-900">
+    {grading && (
+      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-900/60 backdrop-blur-sm text-white">
+        <div className="size-12 animate-spin rounded-full border-4 border-white/25 border-t-white" />
+        <p className="mt-4 text-lg font-bold text-center">Mengevaluasi jawaban esai & berbicara dengan AI...<br /><span className="text-sm font-normal text-slate-300 font-sans">Mohon tunggu sebentar</span></p>
+      </div>
+    )}
+    <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur"><div className="mx-auto flex h-[60px] max-w-[1440px] items-center gap-3 px-4 sm:px-6"><div className="min-w-0 flex-1"><p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-[#006C35]">{sectionCopy[question.section].label}</p><p className="truncate text-sm font-bold">Simulasi Hamza Test</p></div><div className={`flex min-w-[98px] items-center justify-center gap-2 rounded-xl px-3 py-2 font-mono text-sm font-bold tabular-nums ${remaining < 60 ? 'bg-red-50 text-[#DC2626]' : 'bg-[#E6F0EB] text-[#006C35]'}`} aria-live={remaining < 60 ? 'assertive' : 'off'} aria-label={`Sisa waktu: ${Math.floor(remaining / 60)} menit ${remaining % 60} detik`}><Clock3 size={16} aria-hidden="true" />{formatTime(remaining)}</div><button onClick={() => void finish()} className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"><Send size={16} aria-hidden="true" /><span className="hidden sm:inline">Kirim</span></button></div><div className="h-1 bg-slate-100" role="progressbar" aria-valuenow={answeredCount} aria-valuemin={0} aria-valuemax={questions.length} aria-label="Progres terisi"><div className="h-full bg-[#C5A059] transition-[width]" style={{ width: `${(answeredCount / questions.length) * 100}%` }} /></div></header>
+    <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 sm:py-7">
+      <div className="grid gap-5 xl:grid-cols-[17rem_minmax(0,1fr)]">
+        <QuestionGrid 
+          questions={questions} 
+          activeIndex={index} 
+          answers={Object.fromEntries(Object.entries(answers).flatMap(([key, value]) => value.selectedIndex === undefined ? [] : [[key, value.selectedIndex]])) as Record<string, number>} 
+          writingAnswers={localWritingAnswers}
+          speakingAnswers={localSpeakingAnswers}
+          bookmarks={Object.values(answers).filter((item) => item.bookmarked).map((item) => item.questionId)} 
+          viewedQuestionIds={Object.keys(answers)} 
+          onSelect={(idx) => { setIndex(idx); useExamStore.getState().setCloudCurrentIndex(attemptId, idx) }} 
+        />
+        <section className="min-w-0 rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_28px_rgba(15,23,42,0.05)]">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 sm:px-7">
+            <div className="flex items-center gap-3">
+              <span className="grid size-9 place-items-center rounded-lg bg-[#E6F0EB] text-sm font-bold text-[#006C35]">{index + 1}</span>
+              <div>
+                <h1 className="text-sm font-bold text-slate-900">Soal {index + 1} dari {questions.length}</h1>
+                <p className="text-xs text-slate-500">{sectionCopy[question.section].description}</p>
+              </div>
+            </div>
+            <button type="button" onClick={() => void toggleBookmark()} className={`inline-flex min-h-10 items-center gap-2 rounded-xl px-3 text-sm font-bold transition-[transform,background-color,color] active:scale-[0.96] focus-visible:outline-[#C5A059] ${answer?.bookmarked ? 'bg-[#FFF4DE] text-[#B45309]' : 'text-slate-500 hover:bg-slate-100'}`}><Bookmark size={17} className={answer?.bookmarked ? 'fill-current' : ''} />{answer?.bookmarked ? 'Ditandai' : 'Tandai ragu'}</button>
+          </div>
+          <div className={`grid gap-0 ${question.passage ? 'lg:grid-cols-2' : ''}`}>
+            <div className="min-w-0 p-5 sm:p-7">
+              {question.section === 'listening' && <div><AudioPlayer questionId={question.id} plays={answer?.audioPlayCount ?? 0} maxPlays={question.maxAudioPlays} audioUrl={audioUrl} onPlay={playAudio} /></div>}
+              <div dir="rtl" className="mt-6 font-arabic text-right">
+                <h2 className="text-[22px] font-medium leading-[1.85] text-slate-900 sm:text-[25px]">{question.question}</h2>
+                {question.answerType === 'writing' ? (
+                  <div className="mt-6 text-right">
+                    <p className="mb-3 text-right text-sm text-slate-600 font-sans" lang="id">{question.promptHint} · minimum {question.minimumWords ?? 80} kata</p>
+                    <textarea
+                      value={answer?.answerText ?? ''}
+                      onChange={(event) => {
+                        void persist(undefined, answer?.bookmarked, event.target.value)
+                      }}
+                      placeholder="اكتب إجابتك هنا..."
+                      className="min-h-56 w-full rounded-xl border border-slate-200 bg-white p-4 text-right text-lg leading-9 outline-none focus:border-[#006C35] focus:ring-2 focus:ring-[#E6F0EB]"
+                      aria-label="Area jawaban esai bahasa Arab"
+                    />
+                    <div className="mt-2 flex justify-between text-xs text-slate-500 font-sans" lang="id">
+                      <span>{wordCount} kata</span>
+                      <span>Jawaban disimpan otomatis ke akunmu</span>
+                    </div>
+                  </div>
+                ) : question.answerType === 'speaking' ? (
+                  <SpeakingRecorder
+                    questionId={question.id}
+                    preparationSeconds={question.preparationSeconds ?? 30}
+                    maxRecordingSeconds={question.maxRecordingSeconds ?? 60}
+                    existingAudioUrl={speakingAudioUrl}
+                    onRecordingComplete={handleSpeakingComplete}
+                  />
+                ) : (
+                  <div className="mt-6 grid gap-3">
+                    {(question.options || []).map((option, optionIdx) => {
+                      const selected = answer?.selectedIndex === optionIdx
+                      return <button key={option} type="button" onClick={() => void persist(optionIdx, answer?.bookmarked, answer?.answerText)} className={`flex min-h-[58px] w-full items-center gap-4 rounded-xl border p-4 text-right text-[18px] leading-[1.8] transition-[transform,border-color,background-color] active:scale-[0.99] ${selected ? 'border-2 border-[#006C35] bg-[#E6F0EB] font-medium text-[#064D2A]' : 'border-slate-200 bg-white text-slate-800 hover:border-[#006C35]'}`}><span className={`grid size-8 shrink-0 place-items-center rounded-lg text-sm font-bold ${selected ? 'bg-[#006C35] text-white' : 'bg-slate-100 text-slate-600'}`}>{optionLetters[optionIdx]}</span><span>{option}</span></button>
+                    })}
+                  </div>
+                )}
+              </div>
+            </div>
+            {question.passage && <article dir="rtl" className="order-first max-h-[45dvh] overflow-y-auto border-b border-slate-100 bg-slate-50 p-5 font-arabic sm:p-7 lg:order-none lg:max-h-[calc(100dvh-205px)] lg:border-b-0 lg:border-l"><p className="mb-4 text-sm font-bold text-[#006C35] text-right">النص المقروء</p><p className="text-[22px] leading-[2] text-slate-800 sm:text-[24px] text-right">{question.passage}</p></article>}
+          </div>
+          <div className="flex items-center justify-between border-t border-slate-100 px-5 py-4 sm:px-7">
+            <button type="button" onClick={() => setIndex(index - 1)} disabled={index === 0} className="inline-flex min-h-11 items-center gap-2 rounded-xl px-3 text-sm font-bold text-slate-600 hover:bg-slate-100 disabled:opacity-40"><ChevronLeft size={18} />Sebelumnya</button>
+            {index === questions.length - 1 ? <button type="button" onClick={() => void finish()} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white hover:bg-[#00572B] sm:hidden"><Send size={16} />Kirim</button> : <button type="button" onClick={() => setIndex(index + 1)} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-slate-900 px-4 text-sm font-bold text-white hover:bg-slate-700">Berikutnya <ChevronLeft className="rotate-180" size={18} /></button>}
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
 }
 
 function CloudResultsPage() {
@@ -135,10 +370,232 @@ function CloudResultsPage() {
   return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-5xl"><Brand /><section className="mt-7 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"><div className="rounded-3xl bg-[#006C35] p-8 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)]"><span className="grid size-12 place-items-center rounded-2xl bg-white/13"><Check size={25} /></span><p className="mt-6 text-sm font-bold text-emerald-100">Simulasi selesai</p><h1 className="mt-2 text-3xl font-bold">Hasil latihanmu</h1><div className="mt-8 flex items-end gap-4"><span className="text-6xl font-bold tabular-nums">{result.score}</span><span className="mb-2 text-emerald-100">/ 100</span></div><div className="mt-7 flex justify-between rounded-2xl bg-white/10 px-4 py-4"><span className="text-sm text-emerald-50">Level perkiraan</span><span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span></div><p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal dijawab benar.</p></div><section className="rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] sm:p-8"><p className="text-sm font-bold text-[#006C35]">Analisis kompetensi</p><h2 className="mt-1 text-xl font-bold">Performa per seksi</h2><div className="mt-6 h-64"><Suspense fallback={<div className="h-full rounded-xl bg-slate-100" />}><PerformanceChart data={chartData} /></Suspense></div></section></section><div className="mt-6 flex justify-end"><Link to="/review/$attemptId" params={{ attemptId }} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96]"><BookOpenCheck size={17} />Tinjau pembahasan</Link></div></div></main>
 }
 
+const ReviewAudioPlayer: React.FC<{ client?: SupabaseClient; audioPath: string }> = ({ client, audioPath }) => {
+  const [url, setUrl] = useState<string | null>(null)
+  useEffect(() => {
+    if (!client) {
+      setUrl(audioPath)
+      return
+    }
+    let cancelled = false
+    void getSignedAudioUrl(client, audioPath)
+      .then((u) => { if (!cancelled) setUrl(u) })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [client, audioPath])
+
+  if (!url) return <div className="text-xs text-slate-400 font-sans p-2">Membuat tautan rekaman audio...</div>
+  return <audio src={url} controls className="w-full max-w-md mt-3 rounded-lg border border-slate-200 bg-slate-50 p-1" />
+}
+
 function CloudReviewPage() {
   const client = useClient(); const { attemptId } = reviewRoute.useParams(); const [questions, setQuestions] = useState<Awaited<ReturnType<typeof getAttemptReview>>>([])
   useEffect(() => { void getAttemptReview(client, attemptId).then(setQuestions).catch(() => setQuestions([])) }, [attemptId, client])
-  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-4xl"><Link to="/results/$attemptId" params={{ attemptId }} className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-600"><ArrowLeft size={17} />Kembali ke hasil</Link><div className="mt-5 rounded-3xl bg-white p-7 shadow-[0_10px_28px_rgba(15,23,42,0.05)]"><p className="text-sm font-bold text-[#006C35]">Mode tinjau</p><h1 className="mt-1 text-3xl font-bold text-balance">Jawaban dan pembahasan</h1></div><div className="mt-6 space-y-5">{questions.map((question) => { const isCorrect = question.selectedIndex === question.correctIndex; return <article key={question.id} className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_22px_rgba(15,23,42,0.04)]"><div className="flex items-center justify-between border-b border-slate-100 px-5 py-4"><span className="text-sm font-bold">Soal {question.position} · {sectionCopy[question.section].label}</span><span className={`rounded-lg px-3 py-1.5 text-xs font-bold ${isCorrect ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>{isCorrect ? 'Benar' : question.selectedIndex === undefined ? 'Tidak dijawab' : 'Perlu ditinjau'}</span></div><div dir="rtl" className="p-5 font-arabic"><h2 className="text-[20px] font-medium leading-[1.85]">{question.question}</h2><div className="mt-5 grid gap-2.5">{question.options.map((option, optionIndex) => <div key={option} className={`flex items-center gap-3 rounded-xl border p-3.5 text-[17px] leading-8 ${optionIndex === question.correctIndex ? 'border-green-200 bg-green-50 text-green-900' : optionIndex === question.selectedIndex ? 'border-red-200 bg-red-50 text-red-900' : 'border-slate-100 text-slate-600'}`}><span className="grid size-7 shrink-0 place-items-center rounded-md bg-white text-xs font-bold shadow-sm">{optionLetters[optionIndex]}</span><span>{option}</span>{optionIndex === question.correctIndex ? <Check className="mr-auto size-4 text-green-700" /> : null}{optionIndex === question.selectedIndex && optionIndex !== question.correctIndex ? <TriangleAlert className="mr-auto size-4 text-red-600" /> : null}</div>)}</div></div><div className="border-t border-slate-100 bg-[#FFFCF4] px-5 py-4 text-sm leading-6 text-slate-700"><span className="font-bold text-[#8A5A12]">Pembahasan: </span>{question.explanation}</div></article> })}</div></div></main>
+  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-4xl"><Link to="/results/$attemptId" params={{ attemptId }} className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-600"><ArrowLeft size={17} />Kembali ke hasil</Link><div className="mt-5 rounded-3xl bg-white p-7 shadow-[0_10px_28px_rgba(15,23,42,0.05)]"><p className="text-sm font-bold text-[#006C35]">Mode tinjau</p><h1 className="mt-1 text-3xl font-bold text-balance">Jawaban dan pembahasan</h1></div><div className="mt-6 space-y-5">{questions.map((question) => { 
+    if (question.answerType === 'speaking') {
+      const feedback = question.writingFeedback as {
+        pronunciation_score?: number
+        fluency_score?: number
+        relevance_score?: number
+        transcript?: string
+        corrections?: Array<{ original: string; corrected: string; category: string; explanation_id: string }>
+        feedback_id?: string
+        feedback_ar?: string
+      } | undefined
+      const score = question.writingScore ?? 0;
+      return (
+        <article key={question.id} className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_22px_rgba(15,23,42,0.04)]">
+          <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+            <span className="text-sm font-bold">Soal {question.position} · {sectionCopy[question.section].label}</span>
+            <span className={`rounded-lg px-3 py-1.5 text-xs font-bold ${score >= 60 ? 'bg-green-50 text-green-700' : 'bg-yellow-50 text-yellow-700'}`}>Nilai AI: {score} / 100</span>
+          </div>
+          <div className="p-5">
+            <div dir="rtl" className="font-arabic text-right">
+              <h2 className="text-[20px] font-medium leading-[1.85]">{question.question}</h2>
+              {question.audioStoragePath ? (
+                <div className="mt-4 flex flex-col items-end gap-2">
+                  <p className="text-xs text-slate-500 font-sans" lang="id">Rekaman Anda:</p>
+                  <ReviewAudioPlayer client={client} audioPath={question.audioStoragePath} />
+                </div>
+              ) : (
+                <div className="mt-4 text-sm text-slate-400 font-sans" lang="id">(Tidak ada rekaman audio)</div>
+              )}
+
+              {feedback?.transcript && (
+                <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-right text-lg leading-8 text-slate-800">
+                  <p className="text-xs text-slate-500 font-sans mb-1" lang="id">Transkrip Suara (AI):</p>
+                  {feedback.transcript}
+                </div>
+              )}
+            </div>
+            
+            {feedback && (
+              <div className="mt-6 border-t border-slate-100 pt-5 text-sm leading-6">
+                <h3 className="font-bold text-[#006C35] mb-3">Analisis Penilaian AI (Berbicara):</h3>
+                <div className="grid gap-3 sm:grid-cols-3 mb-4">
+                  <div className="rounded-xl bg-slate-50 p-3">
+                    <p className="text-xs text-slate-500">Pelafalan (Makhraj)</p>
+                    <p className="text-lg font-bold text-slate-900">{feedback.pronunciation_score} / 35</p>
+                  </div>
+                  <div className="rounded-xl bg-slate-50 p-3">
+                    <p className="text-xs text-slate-500">Kelancaran (Fluency)</p>
+                    <p className="text-lg font-bold text-slate-900">{feedback.fluency_score} / 35</p>
+                  </div>
+                  <div className="rounded-xl bg-slate-50 p-3">
+                    <p className="text-xs text-slate-500">Kesesuaian Tema</p>
+                    <p className="text-lg font-bold text-slate-900">{feedback.relevance_score} / 30</p>
+                  </div>
+                </div>
+                
+                {feedback.corrections && feedback.corrections.length > 0 && (
+                  <div className="mb-4">
+                    <p className="font-bold text-slate-800 mb-2">Koreksi Pelafalan & Ejaan:</p>
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full text-left border-collapse border border-slate-150">
+                        <thead>
+                          <tr className="bg-slate-50">
+                            <th className="p-2 border border-slate-150 text-right">Lafal Asli</th>
+                            <th className="p-2 border border-slate-150 text-right">Seharusnya</th>
+                            <th className="p-2 border border-slate-150">Kategori</th>
+                            <th className="p-2 border border-slate-150">Penjelasan</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {feedback.corrections.map((corr: { original: string; corrected: string; category: string; explanation_id: string }, idx: number) => (
+                            <tr key={idx} className="hover:bg-slate-50/50">
+                              <td className="p-2 border border-slate-150 font-arabic text-right text-red-600" dir="rtl">{corr.original}</td>
+                              <td className="p-2 border border-slate-150 font-arabic text-right text-green-700" dir="rtl">{corr.corrected}</td>
+                              <td className="p-2 border border-slate-150 text-xs font-semibold text-slate-500">{corr.category}</td>
+                              <td className="p-2 border border-slate-150 text-xs text-slate-600">{corr.explanation_id}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
+                <div className="rounded-xl bg-[#FFFBF4] border border-amber-100 p-4 mb-3">
+                  <p className="font-bold text-[#8A5A12] mb-1">Evaluasi (Bahasa Indonesia):</p>
+                  <p className="text-slate-700">{feedback.feedback_id}</p>
+                </div>
+
+                <div dir="rtl" className="rounded-xl bg-emerald-50/40 border border-emerald-100 p-4 font-arabic text-right">
+                  <p className="font-bold text-[#064D2A] mb-1 font-sans">التقييم العام:</p>
+                  <p className="text-emerald-900 leading-7">{feedback.feedback_ar}</p>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="border-t border-slate-100 bg-[#FFFCF4] px-5 py-4 text-sm leading-6 text-slate-700 sm:px-6"><span className="font-bold text-[#8A5A12]">Pembahasan: </span>{question.explanation.replace(/^Pembahasan:\s*/i, '')}</div>
+        </article>
+      );
+    }
+
+    if (question.answerType === 'writing') {
+      const feedback = question.writingFeedback as {
+        grammar_score?: number
+        vocabulary_score?: number
+        relevance_score?: number
+        corrections?: Array<{ original: string; corrected: string; category: string; explanation_id: string }>
+        feedback_id?: string
+        feedback_ar?: string
+      } | undefined
+      const score = question.writingScore ?? 0;
+      return (
+        <article key={question.id} className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_22px_rgba(15,23,42,0.04)]">
+          <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+            <span className="text-sm font-bold">Soal {question.position} · {sectionCopy[question.section].label}</span>
+            <span className={`rounded-lg px-3 py-1.5 text-xs font-bold ${score >= 60 ? 'bg-green-50 text-green-700' : 'bg-yellow-50 text-yellow-700'}`}>Nilai AI: {score} / 100</span>
+          </div>
+          <div className="p-5">
+            <div dir="rtl" className="font-arabic text-right">
+              <h2 className="text-[20px] font-medium leading-[1.85]">{question.question}</h2>
+              <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-right text-lg leading-8 text-slate-800">
+                {question.answerText || '(Tidak ada jawaban)'}
+              </div>
+            </div>
+            
+            {feedback && (
+              <div className="mt-6 border-t border-slate-100 pt-5 text-sm leading-6">
+                <h3 className="font-bold text-[#006C35] mb-3">Analisis Penilaian AI:</h3>
+                <div className="grid gap-3 sm:grid-cols-3 mb-4">
+                  <div className="rounded-xl bg-slate-50 p-3">
+                    <p className="text-xs text-slate-500">Tata Bahasa</p>
+                    <p className="text-lg font-bold text-slate-900">{feedback.grammar_score} / 35</p>
+                  </div>
+                  <div className="rounded-xl bg-slate-50 p-3">
+                    <p className="text-xs text-slate-500">Kosa Kata</p>
+                    <p className="text-lg font-bold text-slate-900">{feedback.vocabulary_score} / 35</p>
+                  </div>
+                  <div className="rounded-xl bg-slate-50 p-3">
+                    <p className="text-xs text-slate-500">Relevansi</p>
+                    <p className="text-lg font-bold text-slate-900">{feedback.relevance_score} / 30</p>
+                  </div>
+                </div>
+                
+                {feedback.corrections && feedback.corrections.length > 0 && (
+                  <div className="mb-4">
+                    <p className="font-bold text-slate-800 mb-2">Koreksi Kata & Ejaan:</p>
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full text-left border-collapse border border-slate-150">
+                        <thead>
+                          <tr className="bg-slate-50">
+                            <th className="p-2 border border-slate-150 text-right">Asli (Salah)</th>
+                            <th className="p-2 border border-slate-150 text-right">Koreksi (Benar)</th>
+                            <th className="p-2 border border-slate-150">Kategori</th>
+                            <th className="p-2 border border-slate-150">Penjelasan</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {feedback.corrections.map((corr: { original: string; corrected: string; category: string; explanation_id: string }, idx: number) => (
+                            <tr key={idx} className="hover:bg-slate-50/50">
+                              <td className="p-2 border border-slate-150 font-arabic text-right text-red-600" dir="rtl">{corr.original}</td>
+                              <td className="p-2 border border-slate-150 font-arabic text-right text-green-700" dir="rtl">{corr.corrected}</td>
+                              <td className="p-2 border border-slate-150 text-xs font-semibold text-slate-500">{corr.category}</td>
+                              <td className="p-2 border border-slate-150 text-xs text-slate-600">{corr.explanation_id}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
+                <div className="rounded-xl bg-[#FFFBF4] border border-amber-100 p-4 mb-3">
+                  <p className="font-bold text-[#8A5A12] mb-1">Evaluasi (Bahasa Indonesia):</p>
+                  <p className="text-slate-700">{feedback.feedback_id}</p>
+                </div>
+
+                <div dir="rtl" className="rounded-xl bg-emerald-50/40 border border-emerald-100 p-4 font-arabic text-right">
+                  <p className="font-bold text-[#064D2A] mb-1 font-sans">التقييم العام:</p>
+                  <p className="text-emerald-900 leading-7">{feedback.feedback_ar}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </article>
+      );
+    }
+
+    const isCorrect = question.selectedIndex === question.correctIndex; 
+    return <article key={question.id} className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_22px_rgba(15,23,42,0.04)]"><div className="flex items-center justify-between border-b border-slate-100 px-5 py-4"><span className="text-sm font-bold">Soal {question.position} · {sectionCopy[question.section].label}</span><span className={`rounded-lg px-3 py-1.5 text-xs font-bold ${isCorrect ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>{isCorrect ? 'Benar' : question.selectedIndex === undefined ? 'Tidak dijawab' : 'Perlu ditinjau'}</span></div><div dir="rtl" className="p-5 font-arabic text-right"><h2 className="text-[20px] font-medium leading-[1.85]">{question.question}</h2><div className="mt-5 grid gap-2.5">{(question.options || []).map((option, optionIndex) => <div key={option} className={`flex items-center gap-3 rounded-xl border p-3.5 text-[17px] leading-8 ${optionIndex === question.correctIndex ? 'border-green-200 bg-green-50 text-green-900' : optionIndex === question.selectedIndex ? 'border-red-200 bg-red-50 text-red-900' : 'border-slate-100 text-slate-600'}`}><span className="grid size-7 shrink-0 place-items-center rounded-md bg-white text-xs font-bold shadow-sm">{optionLetters[optionIndex]}</span><span>{option}</span>{optionIndex === question.correctIndex ? <Check className="mr-auto size-4 text-green-700" /> : optionIndex === question.selectedIndex ? <TriangleAlert className="mr-auto size-4 text-red-600" /> : null}</div>)}</div></div></article> })}</div></div></main>
+}
+
+function useSpeakingAudioUrl(client: SupabaseClient, question: PublicQuestion | undefined, answer: CloudAnswer | undefined) {
+  const [speakingAudioUrl, setSpeakingAudioUrl] = useState<string | null>(null)
+  useEffect(() => {
+    if (!question || question.answerType !== 'speaking' || !answer?.audioStoragePath) {
+      setSpeakingAudioUrl(null)
+      return
+    }
+    let cancelled = false
+    void getSignedAudioUrl(client, answer.audioStoragePath)
+      .then((url) => { if (!cancelled) setSpeakingAudioUrl(url) })
+      .catch(() => { if (!cancelled) setSpeakingAudioUrl(null) })
+    return () => { cancelled = true }
+  }, [client, question, answer?.audioStoragePath])
+  return speakingAudioUrl
 }
 
 function Brand() { return <Link to="/" className="inline-flex items-center gap-3"><span className="grid size-10 place-items-center rounded-xl bg-[#006C35] text-lg font-bold text-white shadow-sm" dir="rtl">ه</span><span><span className="block text-sm font-bold tracking-tight">Hamza Test</span><span className="block text-xs font-semibold text-slate-500">Simulation</span></span></Link> }

@@ -16,7 +16,6 @@ import {
   ChevronLeft,
   CircleHelp,
   Clock3,
-  Mic,
   Headphones,
   History,
   ListChecks,
@@ -31,12 +30,14 @@ import {
 } from 'lucide-react'
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
+import { SpeakingRecorder } from './components/speaking-recorder'
 import { QuestionGrid } from './components/question-grid'
 import { demoExam } from './data/exam-data'
 import { calculateRemainingSeconds, createSessionResult } from './lib/scoring'
 import { useExamStore } from './store/exam-store'
 import type { ExamFinishReason, Section } from './types'
 import { AppAuthProvider, RequireAuth } from './lib/auth'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import { useSupabaseClient } from './lib/supabase'
 import { getAudioPath } from './lib/audio-assets'
 import { getPublicAudioUrl, getSignedAudioUrl } from './lib/exam-api'
@@ -79,7 +80,7 @@ function AppRuntime() {
 
 function DashboardPage() {
   const navigate = useNavigate()
-  const history = useExamStore((state) => state.history)
+  const history = useExamStore((state) => state.history) || []
   const activeExamId = useExamStore((state) => state.activeExamId)
   const submittedAt = useExamStore((state) => state.submittedAt)
   const hasActiveSession = activeExamId === demoExam.id && !submittedAt
@@ -247,6 +248,12 @@ function ExamPage() {
   const answers = useExamStore((state) => state.answers)
   const bookmarks = useExamStore((state) => state.bookmarks)
   const viewedQuestionIds = useExamStore((state) => state.viewedQuestionIds)
+  const writingAnswers = useExamStore((state) => state.writingAnswers)
+  const setWritingAnswer = useExamStore((state) => state.setWritingAnswer)
+  const setWritingGrades = useExamStore((state) => state.setWritingGrades)
+  const speakingAnswers = useExamStore((state) => state.speakingAnswers)
+  const setSpeakingAnswer = useExamStore((state) => state.setSpeakingAnswer)
+  const setSpeakingGrades = useExamStore((state) => state.setSpeakingGrades)
   const audioPlays = useExamStore((state) => state.audioPlays)
   const setCurrentIndex = useExamStore((state) => state.setCurrentIndex)
   const answerQuestion = useExamStore((state) => state.answerQuestion)
@@ -255,10 +262,13 @@ function ExamPage() {
   const completeExam = useExamStore((state) => state.completeExam)
   const [remaining, setRemaining] = useState(() => calculateRemainingSeconds(endsAt))
   const completionRef = useRef(false)
+  const [speakingBlobs, setSpeakingBlobs] = useState<Record<string, Blob>>({})
   const safeIndex = Math.min(Math.max(currentIndex, 0), demoExam.questions.length - 1)
   const question = demoExam.questions[safeIndex]
-  const answeredCount = Object.keys(answers).length
-  const [taskDrafts, setTaskDrafts] = useState<Record<string, string>>({})
+  const answeredCount = Object.keys(answers).length + 
+    Object.keys(writingAnswers).filter(k => writingAnswers[k] && writingAnswers[k].trim().length > 0).length +
+    Object.keys(speakingAnswers).length
+  const [grading, setGrading] = useState(false)
   const client = useSupabaseClient()
   const [audioUrl, setAudioUrl] = useState<string>()
   const audioPath = getAudioPath(question.shared_asset_id)
@@ -278,12 +288,84 @@ function ExamPage() {
     return () => { cancelled = true }
   }, [audioPath, client])
 
-  const finish = useCallback((reason: ExamFinishReason) => {
+  const finish = useCallback(async (reason: ExamFinishReason) => {
     if (completionRef.current || submittedAt) return
     completionRef.current = true
-    completeExam(createSessionResult(demoExam, answers, reason))
+    setGrading(true)
+    
+    // Evaluate writing using AI if Supabase client is available and cloud function can be run
+    let grades: Record<string, { score: number; feedback: unknown }> = {}
+    if (client) {
+      const writingQs = demoExam.questions.filter((q) => q.answer_type === 'writing')
+      const payload = writingQs.map((q) => ({
+        question_id: q.id,
+        question_text: q.question,
+        student_submission: writingAnswers[q.id] || '',
+      }))
+      
+      try {
+        const { data, error } = await client.functions.invoke<{ success: boolean; data: Array<{ question_id: string; score: number; feedback: unknown }> }>('evaluate-writing', {
+          body: { answers: payload },
+        })
+        if (error) throw error
+        if (data && data.success && Array.isArray(data.data)) {
+          grades = Object.fromEntries(
+            data.data.map((item) => [item.question_id, { score: item.score, feedback: item.feedback }])
+          )
+          setWritingGrades(grades)
+        }
+      } catch (e) {
+        console.error('Mock writing AI grading failed:', e)
+      }
+    }
+
+    // Evaluate speaking using AI if Supabase client is available
+    let sGrades: Record<string, { score: number; feedback: unknown }> = {}
+    if (client && Object.keys(speakingBlobs).length > 0) {
+      const blobToBase64 = (blob: Blob): Promise<string> => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader()
+          reader.onloadend = () => {
+            const base64String = (reader.result as string).split(',')[1]
+            resolve(base64String)
+          }
+          reader.onerror = reject
+          reader.readAsDataURL(blob)
+        })
+      }
+
+      try {
+        const payloadAnswers = await Promise.all(
+          Object.entries(speakingBlobs).map(async ([qId, blob]) => {
+            const base64 = await blobToBase64(blob)
+            const qText = demoExam.questions.find((q) => q.id === qId)?.question || ''
+            return {
+              question_id: qId,
+              question_text: qText,
+              audio_base64: base64,
+            }
+          })
+        )
+
+        const { data, error } = await client.functions.invoke<{ success: boolean; data: Array<{ question_id: string; score: number; feedback: unknown }> }>('evaluate-speaking', {
+          body: { answers: payloadAnswers },
+        })
+        if (error) throw error
+        if (data && data.success && Array.isArray(data.data)) {
+          sGrades = Object.fromEntries(
+            data.data.map((item) => [item.question_id, { score: item.score, feedback: item.feedback }])
+          )
+          setSpeakingGrades(sGrades)
+        }
+      } catch (e) {
+        console.error('Mock speaking AI grading failed:', e)
+      }
+    }
+    
+    completeExam(createSessionResult(demoExam, answers, reason, Date.now(), writingAnswers, grades, sGrades))
+    setGrading(false)
     navigate({ to: '/results', replace: true })
-  }, [answers, completeExam, navigate, submittedAt])
+  }, [answers, completeExam, navigate, submittedAt, client, writingAnswers, setWritingGrades, speakingBlobs, setSpeakingGrades])
 
   useEffect(() => {
     if (activeExamId !== demoExam.id) navigate({ to: '/', replace: true })
@@ -301,9 +383,26 @@ function ExamPage() {
     return () => window.clearInterval(interval)
   }, [endsAt, finish])
 
-  const selectQuestion = (index: number) => {
+  const selectQuestion = useCallback((index: number) => {
     setCurrentIndex(index, demoExam.questions[index].id)
-  }
+  }, [setCurrentIndex])
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return
+      if (event.key === 'ArrowRight') {
+        if (safeIndex < demoExam.questions.length - 1) selectQuestion(safeIndex + 1)
+      } else if (event.key === 'ArrowLeft') {
+        if (safeIndex > 0) selectQuestion(safeIndex - 1)
+      } else if (['1', '2', '3', '4'].includes(event.key)) {
+        const idx = parseInt(event.key, 10) - 1
+        if (idx < (question.options?.length ?? 0)) answerQuestion(question.id, idx)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [safeIndex, question, selectQuestion, answerQuestion])
 
   const submit = () => {
     if (window.confirm(`Kirim jawaban sekarang? ${demoExam.questions.length - answeredCount} soal belum dijawab.`)) finish('manual')
@@ -311,25 +410,39 @@ function ExamPage() {
 
   if (activeExamId !== demoExam.id || submittedAt) return null
 
+  const wordCount = (writingAnswers[question.id] || '').trim().split(/\s+/).filter(Boolean).length
+
   return (
     <main className="min-h-dvh bg-[#F8FAFC] text-slate-900">
+      {grading && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-900/60 backdrop-blur-sm text-white">
+          <div className="size-12 animate-spin rounded-full border-4 border-white/20 border-t-white" />
+          <p className="mt-4 text-lg font-bold text-center">Mengevaluasi jawaban esai dengan AI...<br /><span className="text-sm font-normal text-slate-300 font-sans">Mohon tunggu sebentar</span></p>
+        </div>
+      )}
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 shadow-[0_1px_3px_rgba(15,23,42,0.06)] backdrop-blur">
         <div className="mx-auto flex h-[60px] max-w-[1440px] items-center gap-3 px-4 sm:px-6">
           <div className="min-w-0 flex-1">
             <p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-[#006C35]">{sectionCopy[question.section].label}</p>
             <p className="truncate text-sm font-bold text-slate-800">{demoExam.title}</p>
           </div>
-          <div className={`flex min-w-[98px] items-center justify-center gap-2 rounded-xl px-3 py-2 font-mono text-sm font-bold tabular-nums ${remaining < 60 ? 'bg-red-50 text-[#DC2626]' : 'bg-[#E6F0EB] text-[#006C35]'}`}>
-            <Clock3 size={16} /> {formatTime(remaining)}
+          <div
+            className={`flex min-w-[98px] items-center justify-center gap-2 rounded-xl px-3 py-2 font-mono text-sm font-bold tabular-nums ${remaining < 60 ? 'bg-red-50 text-[#DC2626]' : 'bg-[#E6F0EB] text-[#006C35]'}`}
+            aria-live={remaining < 60 ? 'assertive' : 'off'}
+            aria-label={`Sisa waktu: ${Math.floor(remaining / 60)} menit ${remaining % 60} detik`}
+          >
+            <Clock3 size={16} aria-hidden="true" /> {formatTime(remaining)}
           </div>
-          <button type="button" onClick={submit} className="hidden min-h-10 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B] sm:inline-flex">
-            <Send size={16} /> Kirim
+          <button type="button" onClick={submit} className="hidden min-h-10 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059] sm:inline-flex">
+            <Send size={16} aria-hidden="true" /> Kirim
           </button>
-          <button type="button" onClick={submit} className="grid size-10 place-items-center rounded-xl bg-[#006C35] text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B] sm:hidden" aria-label="Kirim jawaban">
-            <Send size={16} />
+          <button type="button" onClick={submit} className="grid size-10 place-items-center rounded-xl bg-[#006C35] text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059] sm:hidden" aria-label="Kirim jawaban">
+            <Send size={16} aria-hidden="true" />
           </button>
         </div>
-        <div className="h-1 bg-slate-100"><div className="h-full bg-[#C5A059] transition-[width]" style={{ width: `${(answeredCount / demoExam.questions.length) * 100}%` }} /></div>
+        <div className="h-1 bg-slate-100" role="progressbar" aria-valuenow={answeredCount} aria-valuemin={0} aria-valuemax={demoExam.questions.length} aria-label="Progres terisi">
+          <div className="h-full bg-[#C5A059] transition-[width]" style={{ width: `${(answeredCount / demoExam.questions.length) * 100}%` }} />
+        </div>
       </header>
 
       <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 sm:py-7">
@@ -341,19 +454,25 @@ function ExamPage() {
             bookmarks={bookmarks}
             viewedQuestionIds={viewedQuestionIds}
             onSelect={selectQuestion}
+            writingAnswers={writingAnswers}
           />
 
-          <section className="min-w-0 rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_28px_rgba(15,23,42,0.05)]">
+          <section className="min-w-0 rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_28px_rgba(15,23,42,0.05)]" aria-label={`Soal nomor ${safeIndex + 1}`}>
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="grid size-9 place-items-center rounded-lg bg-[#E6F0EB] text-sm font-bold text-[#006C35]">{safeIndex + 1}</span>
                 <div>
-                  <p className="text-sm font-bold text-slate-900">Soal {safeIndex + 1} dari {demoExam.questions.length}</p>
+                  <h1 className="text-sm font-bold text-slate-900">Soal {safeIndex + 1} dari {demoExam.questions.length}</h1>
                   <p className="text-xs text-slate-500">{sectionCopy[question.section].description}</p>
                 </div>
               </div>
-              <button type="button" onClick={() => toggleBookmark(question.id)} className={`inline-flex min-h-10 items-center gap-2 rounded-xl px-3 text-sm font-bold transition-[transform,background-color,color] active:scale-[0.96] ${bookmarks.includes(question.id) ? 'bg-[#FFF4DE] text-[#B45309]' : 'text-slate-500 hover:bg-slate-100'}`}>
-                <Bookmark size={17} className={bookmarks.includes(question.id) ? 'fill-current' : ''} />
+              <button
+                type="button"
+                onClick={() => toggleBookmark(question.id)}
+                className={`inline-flex min-h-10 items-center gap-2 rounded-xl px-3 text-sm font-bold transition-[transform,background-color,color] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059] ${bookmarks.includes(question.id) ? 'bg-[#FFF4DE] text-[#B45309]' : 'text-slate-500 hover:bg-slate-100'}`}
+                aria-pressed={bookmarks.includes(question.id)}
+              >
+                <Bookmark size={17} className={bookmarks.includes(question.id) ? 'fill-current' : ''} aria-hidden="true" />
                 {bookmarks.includes(question.id) ? 'Ditandai' : 'Tandai ragu'}
               </button>
             </div>
@@ -361,35 +480,47 @@ function ExamPage() {
             <div className={`grid gap-0 ${question.passage ? 'lg:grid-cols-2' : ''}`}>
               <div className="min-w-0 p-5 sm:p-7">
                 {question.section === 'listening' && <div><AudioPlayer questionId={question.shared_asset_id ?? question.id} plays={audioPlays[question.shared_asset_id ?? question.id] ?? 0} audioUrl={audioUrl} onPlay={() => markAudioPlay(question.shared_asset_id ?? question.id)} /><p className="mt-2 text-xs text-slate-500">Aset bersama: {question.shared_asset_id ?? question.id}</p></div>}
-                <div dir="rtl" className="mt-6 font-arabic">
-                  <h1 className="text-[22px] font-medium leading-[1.85] text-slate-900 sm:text-[25px]">{question.question}</h1>
+                <div dir="rtl" lang="ar" className="mt-6 font-arabic">
+                  <h2 className="text-[22px] font-medium leading-[1.85] text-slate-900 sm:text-[25px]">{question.question}</h2>
                   {question.answer_type === 'writing' ? (
                     <div className="mt-6">
-                      <p className="mb-3 text-right text-sm text-slate-600">{question.prompt_hint} · minimum {question.minimum_words ?? 80} kata</p>
+                      <p className="mb-3 text-right text-sm text-slate-600 font-sans" lang="id">{question.prompt_hint} · minimum {question.minimum_words ?? 80} kata</p>
                       <textarea
-                        value={taskDrafts[question.id] ?? ''}
-                        onChange={(event) => { setTaskDrafts((drafts) => ({ ...drafts, [question.id]: event.target.value })); answerQuestion(question.id, 0) }}
+                        value={writingAnswers[question.id] ?? ''}
+                        onChange={(event) => { setWritingAnswer(question.id, event.target.value) }}
                         placeholder="اكتب إجابتك هنا..."
                         className="min-h-56 w-full rounded-xl border border-slate-200 bg-white p-4 text-right text-lg leading-9 outline-none focus:border-[#006C35] focus:ring-2 focus:ring-[#E6F0EB]"
+                        aria-label="Area jawaban esai bahasa Arab"
                       />
-                      <p className="mt-2 text-left text-xs text-slate-500">Prototipe: jawaban esai tersimpan sebagai status selesai, belum dinilai otomatis.</p>
+                      <div className="mt-2 flex justify-between text-xs text-slate-500 font-sans text-right" lang="id">
+                        <span>{wordCount} kata</span>
+                        <span>Jawaban disimpan otomatis ke Zustand</span>
+                      </div>
                     </div>
                   ) : question.answer_type === 'speaking' ? (
-                    <div className="mt-6 rounded-2xl border border-dashed border-[#C5A059] bg-[#FFFCF4] p-5 text-center" dir="ltr">
-                      <Mic className="mx-auto text-[#006C35]" size={30} />
-                      <p className="mt-3 font-sans text-sm font-bold text-slate-900">Tugas berbicara · persiapan {question.preparation_seconds ?? 30} detik</p>
-                      <p className="mt-1 font-sans text-sm leading-6 text-slate-600">Rekaman hanyalah mockup tampilan dan belum menyimpan audio.</p>
-                      <button type="button" onClick={() => answerQuestion(question.id, 0)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white"><Mic size={17} /> Tandai rekaman selesai</button>
-                    </div>
-                  ) : <div className="mt-6 grid gap-3">
+                    <SpeakingRecorder
+                      questionId={question.id}
+                      preparationSeconds={question.preparation_seconds ?? 30}
+                      maxRecordingSeconds={question.max_recording_seconds ?? 60}
+                      existingAudioUrl={speakingAnswers[question.id]}
+                      onRecordingComplete={(blob) => {
+                        const url = URL.createObjectURL(blob)
+                        setSpeakingAnswer(question.id, url)
+                        setSpeakingBlobs(prev => ({ ...prev, [question.id]: blob }))
+                        answerQuestion(question.id, 0)
+                      }}
+                    />
+                  ) : <div className="mt-6 grid gap-3" role="radiogroup" aria-label="Pilihan jawaban">
                     {question.options.map((option, index) => {
                       const selected = answers[question.id] === index
                       return (
                         <button
                           key={option}
                           type="button"
+                          role="radio"
+                          aria-checked={selected}
                           onClick={() => answerQuestion(question.id, index)}
-                          className={`flex min-h-[58px] w-full items-center gap-4 rounded-xl border p-4 text-right text-[18px] leading-[1.8] transition-[transform,border-color,background-color,box-shadow] active:scale-[0.99] ${selected ? 'border-2 border-[#006C35] bg-[#E6F0EB] font-medium text-[#064D2A] shadow-[0_1px_2px_rgba(0,108,53,0.12)]' : 'border-slate-200 bg-white text-slate-800 hover:border-[#006C35]'}`}
+                          className={`flex min-h-[58px] w-full items-center gap-4 rounded-xl border p-4 text-right text-[18px] leading-[1.8] transition-[transform,border-color,background-color,box-shadow] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059] ${selected ? 'border-2 border-[#006C35] bg-[#E6F0EB] font-medium text-[#064D2A] shadow-[0_1px_2px_rgba(0,108,53,0.12)]' : 'border-slate-200 bg-white text-slate-800 hover:border-[#006C35]'}`}
                         >
                           <span className={`grid size-8 shrink-0 place-items-center rounded-lg text-sm font-bold ${selected ? 'bg-[#006C35] text-white' : 'bg-slate-100 text-slate-600'}`}>{optionLetters[index]}</span>
                           <span>{option}</span>
@@ -401,7 +532,7 @@ function ExamPage() {
               </div>
 
               {question.passage && (
-                <article dir="rtl" className="order-first max-h-[45dvh] overflow-y-auto border-b border-slate-100 bg-slate-50 p-5 font-arabic sm:p-7 lg:order-none lg:max-h-[calc(100dvh-205px)] lg:border-b-0 lg:border-l">
+                <article dir="rtl" lang="ar" tabIndex={0} aria-label="Teks bacaan Arab" className="order-first max-h-[45dvh] overflow-y-auto border-b border-slate-100 bg-slate-50 p-5 font-arabic focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059] sm:p-7 lg:order-none lg:max-h-[calc(100dvh-205px)] lg:border-b-0 lg:border-l">
                   <p className="mb-4 text-sm font-bold text-[#006C35]">النص المقروء</p>
                   <p className="text-[22px] leading-[2] text-slate-800 sm:text-[24px]">{question.passage}</p>
                 </article>
@@ -435,7 +566,7 @@ function ResultsPage() {
   const history = useExamStore((state) => state.history)
   const activeExamId = useExamStore((state) => state.activeExamId)
   const startExam = useExamStore((state) => state.startExam)
-  const result = useMemo(() => history.find((entry) => entry.completedAt === submittedAt), [history, submittedAt])
+  const result = useMemo(() => (history || []).find((entry) => entry.completedAt === submittedAt), [history, submittedAt])
 
   useEffect(() => {
     if (activeExamId !== demoExam.id || !submittedAt || !result) navigate({ to: '/', replace: true })
@@ -466,7 +597,7 @@ function ResultsPage() {
               <span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span>
             </div>
             <p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal objektif dijawab benar{result.reason === 'timeout' ? '; jawaban dikirim saat waktu habis.' : '.'}</p>
-            <p className="mt-2 text-xs leading-5 text-emerald-50/75">10 tugas menulis dan berbicara pada prototipe belum masuk nilai otomatis.</p>
+            <p className="mt-2 text-xs leading-5 text-emerald-50/75">Tugas menulis dievaluasi oleh AI OpenAI. Tugas berbicara belum masuk nilai otomatis.</p>
           </div>
 
           <section className="rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_12px_32px_rgba(15,23,42,0.06)] sm:p-8">
@@ -494,11 +625,36 @@ function ResultsPage() {
   )
 }
 
+export const ReviewAudioPlayer: React.FC<{ client?: SupabaseClient | null; audioPath: string }> = ({ client, audioPath }) => {
+  const [url, setUrl] = useState<string | null>(client ? null : audioPath)
+  useEffect(() => {
+    if (!client) {
+      return
+    }
+    let cancelled = false
+    void getSignedAudioUrl(client, audioPath)
+      .then((u) => { if (!cancelled) setUrl(u) })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [client, audioPath])
+
+  if (!url) return <div className="text-xs text-slate-400 font-sans p-2">Membuat tautan rekaman audio...</div>
+  return <audio src={url} controls className="w-full max-w-md mt-3 rounded-lg border border-slate-200 bg-slate-50 p-1" />
+}
+
 function ReviewPage() {
   const navigate = useNavigate()
   const activeExamId = useExamStore((state) => state.activeExamId)
   const submittedAt = useExamStore((state) => state.submittedAt)
+  const writingAnswers = useExamStore((state) => state.writingAnswers)
+  const writingGrades = useExamStore((state) => state.writingGrades)
+  const speakingAnswers = useExamStore((state) => state.speakingAnswers)
+  const speakingGrades = useExamStore((state) => state.speakingGrades)
   const answers = useExamStore((state) => state.answers)
+
+  // Use variables to satisfy linter
+  void speakingAnswers
+  void speakingGrades
 
   useEffect(() => {
     if (activeExamId !== demoExam.id || !submittedAt) navigate({ to: '/', replace: true })
@@ -516,6 +672,196 @@ function ReviewPage() {
         </div>
         <div className="mt-6 space-y-5">
           {demoExam.questions.map((question, index) => {
+            if (question.answer_type === 'speaking') {
+              const grade = speakingGrades[question.id]
+              const feedback = grade?.feedback as {
+                pronunciation_score?: number
+                fluency_score?: number
+                relevance_score?: number
+                transcript?: string
+                corrections?: Array<{ original: string; corrected: string; category: string; explanation_id: string }>
+                feedback_id?: string
+                feedback_ar?: string
+              } | undefined
+              const score = grade?.score ?? 0
+              return (
+                <article key={question.id} className="overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_22px_rgba(15,23,42,0.04)]">
+                  <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4 sm:px-6">
+                    <div className="flex items-center gap-3"><span className="grid size-8 place-items-center rounded-lg bg-slate-100 text-sm font-bold text-slate-700">{index + 1}</span><SectionPill section={question.section} /></div>
+                    <span className={`rounded-lg px-3 py-1.5 text-xs font-bold ${score >= 60 ? 'bg-green-50 text-green-700' : 'bg-yellow-50 text-yellow-700'}`}>Nilai AI: {score} / 100</span>
+                  </div>
+                  <div className="p-5">
+                    <div dir="rtl" className="font-arabic text-right">
+                      <h2 className="text-[20px] font-medium leading-[1.85] text-slate-900">{question.question}</h2>
+                      
+                      {speakingAnswers[question.id] ? (
+                        <div className="mt-4 flex flex-col items-end gap-2">
+                          <p className="text-xs text-slate-500 font-sans" lang="id">Rekaman Anda:</p>
+                          <ReviewAudioPlayer audioPath={speakingAnswers[question.id]} />
+                        </div>
+                      ) : (
+                        <div className="mt-4 text-sm text-slate-400 font-sans" lang="id">(Tidak ada rekaman audio)</div>
+                      )}
+
+                      {feedback?.transcript && (
+                        <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-right text-lg leading-8 text-slate-800">
+                          <p className="text-xs text-slate-500 font-sans mb-1" lang="id">Transkrip Suara (AI):</p>
+                          {feedback.transcript}
+                        </div>
+                      )}
+                    </div>
+
+                    {feedback && (
+                      <div className="mt-6 border-t border-slate-100 pt-5 text-sm leading-6">
+                        <h3 className="font-bold text-[#006C35] mb-3">Analisis Penilaian AI (Berbicara):</h3>
+                        <div className="grid gap-3 sm:grid-cols-3 mb-4">
+                          <div className="rounded-xl bg-slate-50 p-3">
+                            <p className="text-xs text-slate-500 font-sans">Pelafalan (Makhraj)</p>
+                            <p className="text-lg font-bold text-slate-900 font-sans">{feedback.pronunciation_score} / 35</p>
+                          </div>
+                          <div className="rounded-xl bg-slate-50 p-3">
+                            <p className="text-xs text-slate-500 font-sans font-medium">Kelancaran (Fluency)</p>
+                            <p className="text-lg font-bold text-slate-900 font-sans">{feedback.fluency_score} / 35</p>
+                          </div>
+                          <div className="rounded-xl bg-slate-50 p-3">
+                            <p className="text-xs text-slate-500 font-sans">Kesesuaian Tema</p>
+                            <p className="text-lg font-bold text-slate-900 font-sans">{feedback.relevance_score} / 30</p>
+                          </div>
+                        </div>
+
+                        {feedback.corrections && feedback.corrections.length > 0 && (
+                          <div className="mb-4">
+                            <p className="font-bold text-slate-800 mb-2">Koreksi Pelafalan & Ejaan:</p>
+                            <div className="overflow-x-auto">
+                              <table className="min-w-full text-left border-collapse border border-slate-150">
+                                <thead>
+                                  <tr className="bg-slate-50">
+                                    <th className="p-2 border border-slate-150 text-right">Lafal Asli</th>
+                                    <th className="p-2 border border-slate-150 text-right">Seharusnya</th>
+                                    <th className="p-2 border border-slate-150">Kategori</th>
+                                    <th className="p-2 border border-slate-150">Penjelasan</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {feedback.corrections.map((corr: { original: string; corrected: string; category: string; explanation_id: string }, idx: number) => (
+                                    <tr key={idx} className="hover:bg-slate-50/50">
+                                      <td className="p-2 border border-slate-150 font-arabic text-right text-red-600" dir="rtl">{corr.original}</td>
+                                      <td className="p-2 border border-slate-150 font-arabic text-right text-green-700" dir="rtl">{corr.corrected}</td>
+                                      <td className="p-2 border border-slate-150 text-xs font-semibold text-slate-500">{corr.category}</td>
+                                      <td className="p-2 border border-slate-150 text-xs text-slate-600">{corr.explanation_id}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="rounded-xl bg-[#FFFBF4] border border-amber-100 p-4 mb-3">
+                          <p className="font-bold text-[#8A5A12] mb-1">Evaluasi (Bahasa Indonesia):</p>
+                          <p className="text-slate-700">{feedback.feedback_id}</p>
+                        </div>
+
+                        <div dir="rtl" className="rounded-xl bg-emerald-50/40 border border-emerald-100 p-4 font-arabic text-right">
+                          <p className="font-bold text-[#064D2A] mb-1 font-sans">التقييم العام:</p>
+                          <p className="text-emerald-900 leading-7">{feedback.feedback_ar}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="border-t border-slate-100 bg-[#FFFCF4] px-5 py-4 text-sm leading-6 text-slate-700 sm:px-6"><span className="font-bold text-[#8A5A12]">Pembahasan: </span>{question.explanation.replace(/^Pembahasan:\s*/i, '')}</div>
+                </article>
+              )
+            }
+
+            if (question.answer_type === 'writing') {
+              const grade = writingGrades[question.id]
+              const feedback = grade?.feedback as {
+                grammar_score?: number
+                vocabulary_score?: number
+                relevance_score?: number
+                corrections?: Array<{ original: string; corrected: string; category: string; explanation_id: string }>
+                feedback_id?: string
+                feedback_ar?: string
+              } | undefined
+              const score = grade?.score ?? 0
+              return (
+                <article key={question.id} className="overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_22px_rgba(15,23,42,0.04)]">
+                  <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4 sm:px-6">
+                    <div className="flex items-center gap-3"><span className="grid size-8 place-items-center rounded-lg bg-slate-100 text-sm font-bold text-slate-700">{index + 1}</span><SectionPill section={question.section} /></div>
+                    <span className={`rounded-lg px-3 py-1.5 text-xs font-bold ${score >= 60 ? 'bg-green-50 text-green-700' : 'bg-yellow-50 text-yellow-700'}`}>Nilai AI: {score} / 100</span>
+                  </div>
+                  <div className="p-5">
+                    <div dir="rtl" className="font-arabic text-right">
+                      <h2 className="text-[20px] font-medium leading-[1.85] text-slate-900">{question.question}</h2>
+                      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-right text-lg leading-8 text-slate-800">
+                        {writingAnswers[question.id] || '(Tidak ada jawaban)'}
+                      </div>
+                    </div>
+
+                    {feedback && (
+                      <div className="mt-6 border-t border-slate-100 pt-5 text-sm leading-6">
+                        <h3 className="font-bold text-[#006C35] mb-3">Analisis Penilaian AI:</h3>
+                        <div className="grid gap-3 sm:grid-cols-3 mb-4">
+                          <div className="rounded-xl bg-slate-50 p-3">
+                            <p className="text-xs text-slate-500 font-sans">Tata Bahasa</p>
+                            <p className="text-lg font-bold text-slate-900 font-sans">{feedback.grammar_score} / 35</p>
+                          </div>
+                          <div className="rounded-xl bg-slate-50 p-3">
+                            <p className="text-xs text-slate-500 font-sans">Kosa Kata</p>
+                            <p className="text-lg font-bold text-slate-900 font-sans">{feedback.vocabulary_score} / 35</p>
+                          </div>
+                          <div className="rounded-xl bg-slate-50 p-3">
+                            <p className="text-xs text-slate-500 font-sans">Relevansi</p>
+                            <p className="text-lg font-bold text-slate-900 font-sans">{feedback.relevance_score} / 30</p>
+                          </div>
+                        </div>
+
+                        {feedback.corrections && feedback.corrections.length > 0 && (
+                          <div className="mb-4">
+                            <p className="font-bold text-slate-800 mb-2">Koreksi Kata & Ejaan:</p>
+                            <div className="overflow-x-auto">
+                              <table className="min-w-full text-left border-collapse border border-slate-150">
+                                <thead>
+                                  <tr className="bg-slate-50">
+                                    <th className="p-2 border border-slate-150 text-right">Asli (Salah)</th>
+                                    <th className="p-2 border border-slate-150 text-right">Koreksi (Benar)</th>
+                                    <th className="p-2 border border-slate-150">Kategori</th>
+                                    <th className="p-2 border border-slate-150">Penjelasan</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {feedback.corrections.map((corr: { original: string; corrected: string; category: string; explanation_id: string }, idx: number) => (
+                                    <tr key={idx} className="hover:bg-slate-50/50">
+                                      <td className="p-2 border border-slate-150 font-arabic text-right text-red-600" dir="rtl">{corr.original}</td>
+                                      <td className="p-2 border border-slate-150 font-arabic text-right text-green-700" dir="rtl">{corr.corrected}</td>
+                                      <td className="p-2 border border-slate-150 text-xs font-semibold text-slate-500">{corr.category}</td>
+                                      <td className="p-2 border border-slate-150 text-xs text-slate-600">{corr.explanation_id}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="rounded-xl bg-[#FFFBF4] border border-amber-100 p-4 mb-3">
+                          <p className="font-bold text-[#8A5A12] mb-1">Evaluasi (Bahasa Indonesia):</p>
+                          <p className="text-slate-700">{feedback.feedback_id}</p>
+                        </div>
+
+                        <div dir="rtl" className="rounded-xl bg-emerald-50/40 border border-emerald-100 p-4 font-arabic text-right">
+                          <p className="font-bold text-[#064D2A] mb-1 font-sans">التقييم العام:</p>
+                          <p className="text-emerald-900 leading-7">{feedback.feedback_ar}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="border-t border-slate-100 bg-[#FFFCF4] px-5 py-4 text-sm leading-6 text-slate-700 sm:px-6"><span className="font-bold text-[#8A5A12]">Pembahasan: </span>{question.explanation.replace(/^Pembahasan:\s*/i, '')}</div>
+                </article>
+              )
+            }
+
             const answer = answers[question.id]
             const isCorrect = answer === question.correct_index
             return (
@@ -524,7 +870,7 @@ function ReviewPage() {
                   <div className="flex items-center gap-3"><span className="grid size-8 place-items-center rounded-lg bg-slate-100 text-sm font-bold text-slate-700">{index + 1}</span><SectionPill section={question.section} /></div>
                   <span className={`rounded-lg px-3 py-1.5 text-xs font-bold ${isCorrect ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>{isCorrect ? 'Benar' : answer === undefined ? 'Tidak dijawab' : 'Perlu ditinjau'}</span>
                 </div>
-                <div dir="rtl" className="p-5 font-arabic sm:p-6">
+                <div dir="rtl" className="p-5 font-arabic sm:p-6 text-right">
                   <h2 className="text-[20px] font-medium leading-[1.85] text-slate-900">{question.question}</h2>
                   <div className="mt-5 grid gap-2.5">
                     {question.options.map((option, optionIndex) => {

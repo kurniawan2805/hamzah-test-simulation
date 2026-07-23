@@ -14,6 +14,7 @@ export const questionSchema = z.object({
   prompt_hint: z.string().optional(),
   minimum_words: z.number().int().positive().optional(),
   preparation_seconds: z.number().int().positive().optional(),
+  max_recording_seconds: z.number().int().positive().optional(),
   scored: z.boolean().optional(),
 })
 
