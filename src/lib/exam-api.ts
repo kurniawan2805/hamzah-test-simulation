@@ -208,6 +208,7 @@ export async function getAttemptReview(client: SupabaseClient, attemptId: string
     options: row.options ? asOptions(row.options) : null,
     passage: row.passage ? asString(row.passage) : undefined,
     maxAudioPlays: 2,
+    answerType: asString(row.answer_type || 'multiple_choice') as ReviewQuestion['answerType'],
     selectedIndex: row.selected_index === null ? undefined : asNumber(row.selected_index),
     correctIndex: row.correct_index === null || row.correct_index === undefined ? undefined : asNumber(row.correct_index),
     explanation: asString(row.explanation || ''),
