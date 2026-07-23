@@ -123,7 +123,7 @@ async function seed() {
       audio_path: (q.shared_asset_id && AUDIO_MAP[q.shared_asset_id]) || q.audio_url || null,
       // The database contract keeps this column non-null; speaking items do
       // not use audio playback, but still receive the schema default value.
-      max_audio_plays: 2,
+      max_audio_plays: 1,
       answer_type: q.answer_type || 'multiple_choice',
       prompt_hint: q.prompt_hint || null,
       minimum_words: q.minimum_words || null,

@@ -40,7 +40,7 @@ const makePracticeTone = () => {
   return URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' }))
 }
 
-export function AudioPlayer({ questionId, plays, onPlay, audioUrl, maxPlays = 2 }: AudioPlayerProps) {
+export function AudioPlayer({ questionId, plays, onPlay, audioUrl, maxPlays = 1 }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null)
   const practiceToneUrl = useMemo(() => (audioUrl ? null : makePracticeTone()), [audioUrl])
   const [isPlaying, setIsPlaying] = useState(false)

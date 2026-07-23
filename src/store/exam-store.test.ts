@@ -31,13 +31,12 @@ describe('exam session storage', () => {
     expect(session.endsAt).toBe((session.startedAt ?? 0) + 600_000)
   })
 
-  it('keeps an audio question limited to two play starts', () => {
+  it('keeps an audio question limited to one play starts', () => {
     const { markAudioPlay } = useExamStore.getState()
 
     expect(markAudioPlay('hamza_q_001')).toBe(true)
-    expect(markAudioPlay('hamza_q_001')).toBe(true)
     expect(markAudioPlay('hamza_q_001')).toBe(false)
-    expect(useExamStore.getState().audioPlays.hamza_q_001).toBe(2)
+    expect(useExamStore.getState().audioPlays.hamza_q_001).toBe(1)
   })
 
   it('preserves answers and bookmarks as user navigates', () => {

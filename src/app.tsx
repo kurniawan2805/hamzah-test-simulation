@@ -226,7 +226,7 @@ function InstructionsPage() {
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             <Instruction icon={<Clock3 />} title="Waktu berjalan" text={`Selesaikan ${demoExam.questions.length} soal dalam ${demoExam.durationMinutes} menit.`} />
-            <Instruction icon={<Headphones />} title="Cek audio" text="Setiap audio hanya dapat dimulai paling banyak dua kali." />
+            <Instruction icon={<Headphones />} title="Cek audio" text="Setiap audio hanya dapat dimulai paling banyak satu kali." />
             <Instruction icon={<Bookmark />} title="Tandai ragu" text="Gunakan ikon bookmark untuk kembali ke soal yang perlu diperiksa." />
             <Instruction icon={<Send />} title="Kirim jawaban" text="Jawaban terkirim otomatis saat waktu habis." />
           </div>

@@ -97,7 +97,7 @@ export const useExamStore = create<ExamState>()(
         })),
       markAudioPlay: (questionId) => {
         const plays = get().audioPlays[questionId] ?? 0
-        if (plays >= 2) return false
+        if (plays >= 1) return false
         set((state) => ({ audioPlays: { ...state.audioPlays, [questionId]: plays + 1 } }))
         return true
       },
