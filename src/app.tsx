@@ -36,7 +36,7 @@ import { demoExam } from './data/exam-data'
 import { calculateRemainingSeconds, createSessionResult } from './lib/scoring'
 import { useExamStore } from './store/exam-store'
 import type { ExamFinishReason, Section } from './types'
-import { AppAuthProvider, RequireAuth } from './lib/auth'
+import { AppAuthProvider, RequireAuth, useAppAuth } from './lib/auth'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { useSupabaseClient } from './lib/supabase'
 import { getAudioPath } from './lib/audio-assets'
@@ -277,6 +277,7 @@ function ExamPage() {
     Object.keys(speakingAnswers).length
   const [grading, setGrading] = useState(false)
   const client = useSupabaseClient()
+  const { enabled: authEnabled, isSignedIn } = useAppAuth()
   const [audioUrl, setAudioUrl] = useState<string>()
   const audioPath = getAudioPath(question.shared_asset_id)
 
@@ -302,7 +303,9 @@ function ExamPage() {
     
     // Evaluate writing using AI if Supabase client is available and cloud function can be run
     let grades: Record<string, { score: number; feedback: unknown }> = {}
-    if (client) {
+    // Edge Functions require a Supabase-compatible JWT. Demo auth deliberately
+    // has no token, so do not invoke protected cloud functions from demo mode.
+    if (client && authEnabled && isSignedIn) {
       const writingQs = demoExam.questions.filter((q) => q.answer_type === 'writing')
       const payload = writingQs.map((q) => ({
         question_id: q.id,
@@ -328,7 +331,7 @@ function ExamPage() {
 
     // Evaluate speaking using AI if Supabase client is available
     let sGrades: Record<string, { score: number; feedback: unknown }> = {}
-    if (client && Object.keys(speakingBlobs).length > 0) {
+    if (client && authEnabled && isSignedIn && Object.keys(speakingBlobs).length > 0) {
       const blobToBase64 = (blob: Blob): Promise<string> => {
         return new Promise((resolve, reject) => {
           const reader = new FileReader()
@@ -381,7 +384,7 @@ function ExamPage() {
     })
     setGrading(false)
     navigate({ to: '/results', replace: true })
-  }, [answers, completeExam, navigate, submittedAt, client, writingAnswers, setWritingGrades, speakingBlobs, setSpeakingGrades])
+  }, [answers, completeExam, navigate, submittedAt, client, authEnabled, isSignedIn, writingAnswers, setWritingGrades, speakingBlobs, setSpeakingGrades])
 
   useEffect(() => {
     if (activeExamId !== demoExam.id) navigate({ to: '/', replace: true })

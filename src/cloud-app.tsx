@@ -189,6 +189,7 @@ function CloudExamPage() {
 
   const answer = question ? answers[question.id] : undefined
   const speakingAudioUrl = useSpeakingAudioUrl(client, question, answer)
+  const speakingAudioLoading = question?.answerType === 'speaking' && speakingAudioUrl === undefined
   const answeredCount = Object.values(answers).filter((item) => 
     item.selectedIndex !== undefined || 
     (item.answerText && item.answerText.trim().length > 0) ||
@@ -342,14 +343,20 @@ function CloudExamPage() {
                   </div>
                 ) : question.answerType === 'speaking' ? (
                   <>
-                    <SpeakingRecorder
-                      key={`${question.id}:${speakingAudioUrl ?? ''}`}
-                      questionId={question.id}
-                      preparationSeconds={question.preparationSeconds ?? 30}
-                      maxRecordingSeconds={question.maxRecordingSeconds ?? 60}
-                      existingAudioUrl={speakingAudioUrl}
-                      onRecordingComplete={handleSpeakingComplete}
-                    />
+                    {speakingAudioLoading ? (
+                      <div className="mt-6 rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center font-sans text-sm text-slate-500" role="status">
+                        Memuat rekaman tersimpan…
+                      </div>
+                    ) : (
+                      <SpeakingRecorder
+                        key={`${question.id}:${speakingAudioUrl ?? ''}`}
+                        questionId={question.id}
+                        preparationSeconds={question.preparationSeconds ?? 30}
+                        maxRecordingSeconds={question.maxRecordingSeconds ?? 60}
+                        existingAudioUrl={speakingAudioUrl}
+                        onRecordingComplete={handleSpeakingComplete}
+                      />
+                    )}
                     {speakingSaveError ? <p className="mt-3 text-sm font-semibold text-red-700" role="alert">{speakingSaveError}</p> : null}
                   </>
                 ) : (
@@ -594,12 +601,12 @@ function CloudReviewPage() {
 }
 
 function useSpeakingAudioUrl(client: SupabaseClient, question: PublicQuestion | undefined, answer: CloudAnswer | undefined) {
-  const [speakingAudioUrl, setSpeakingAudioUrl] = useState<string | null>(null)
+  const [speakingAudioUrl, setSpeakingAudioUrl] = useState<string | null | undefined>(undefined)
   const [prevQuestionId, setPrevQuestionId] = useState<string | undefined>(undefined)
 
   if (question?.id !== prevQuestionId) {
     setPrevQuestionId(question?.id)
-    setSpeakingAudioUrl(null)
+    setSpeakingAudioUrl(undefined)
   }
 
   useEffect(() => {
