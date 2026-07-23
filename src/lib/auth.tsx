@@ -49,9 +49,10 @@ function ClerkAuthBridge({ children }: { children: ReactNode }) {
     isSignedIn: Boolean(isSignedIn),
     userId: userId ?? null,
     displayName: user?.fullName ?? user?.primaryEmailAddress?.emailAddress ?? 'Peserta',
-    // Clerk "supabase" JWT template is required because it sets the "aud" and "role" claims
-    // to "authenticated", which are required by Supabase RLS and GoTrue verification.
-    getToken: () => getToken({ template: 'supabase' }),
+    // Supabase Third-Party Auth verifies Clerk's native session JWT. Do not use the
+    // deprecated Clerk "supabase" JWT template here; its issuer/signing setup can be
+    // rejected by the Edge Functions gateway with 401.
+    getToken,
     signOut,
   }
 
