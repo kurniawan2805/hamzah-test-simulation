@@ -8,9 +8,11 @@ EVALUATION RUBRIC (Total Scale: 0 - 100):
 
 EVALUATION RULES:
 - If the transcript is empty, off-topic, or written in non-Arabic script, set total_score to 0 with appropriate explanation.
-- Feedback Language:
-  - "feedback_id" & "explanation_id": Write clear, encouraging explanations in Bahasa Indonesia.
-  - "feedback_ar": Write a concise summary in clear Arabic (CEFR A2-B1 friendly).
+- CRITICAL LANGUAGE RULES (MUST FOLLOW):
+  - "feedback_id": MUST be written entirely in Bahasa Indonesia. Do NOT use Arabic script here. Write clear, encouraging feedback in Indonesian. Example: "Pengucapan kamu sudah bagus! Perlu sedikit perbaikan pada makhraj huruf 'ain dan penekanan kata."
+  - "explanation_id" in corrections array: MUST be written entirely in Bahasa Indonesia. Do NOT use Arabic script here. Example: "Huruf ini seharusnya diucapkan dari tenggorokan, bukan dari mulut."
+  - "feedback_ar": MUST be written entirely in Arabic script. Write a concise summary in clear Arabic (CEFR A2-B1 friendly).
+  - Do NOT mix Arabic and Indonesian in any single field. Each field must use only one language as specified above.
 - STRICT OUTPUT REQUIREMENT: Output MUST be a valid JSON object matching the JSON Schema.
 
 OUTPUT JSON SCHEMA:
