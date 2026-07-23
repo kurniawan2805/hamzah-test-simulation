@@ -485,6 +485,7 @@ function ExamPage() {
             viewedQuestionIds={viewedQuestionIds}
             onSelect={selectQuestion}
             writingAnswers={writingAnswers}
+            speakingAnswers={speakingAnswers}
           />
 
           <section className="min-w-0 rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_28px_rgba(15,23,42,0.05)]" aria-label={`Soal nomor ${safeIndex + 1}`}>
@@ -529,6 +530,7 @@ function ExamPage() {
                     </div>
                   ) : question.answer_type === 'speaking' ? (
                     <SpeakingRecorder
+                      key={question.id}
                       questionId={question.id}
                       preparationSeconds={question.preparation_seconds ?? 30}
                       maxRecordingSeconds={question.max_recording_seconds ?? 60}
@@ -603,7 +605,7 @@ function ResultsPage() {
   }, [activeExamId, navigate, result, submittedAt])
 
   if (!result) return null
-  const chartData = Object.entries(result.sectionScores).map(([section, score]) => ({ name: sectionCopy[section as Section].label, score }))
+  const chartData = sectionsInTestOrder(demoExam.questions).map((section) => ({ name: sectionCopy[section].label, description: sectionCopy[section].description, score: result.sectionScores[section] ?? 0 }))
   const retry = () => {
     startExam(demoExam.id, demoExam.durationMinutes)
     navigate({ to: '/exam' })
@@ -638,7 +640,7 @@ function ResultsPage() {
               </div>
               <CircleHelp size={21} className="text-slate-400" aria-label="Skor per kompetensi" />
             </div>
-            <div className="mt-6 h-64" aria-label="Grafik batang performa per kompetensi">
+            <div className="mt-6 h-72" aria-label="Grafik batang performa per kompetensi">
               <Suspense fallback={<div className="h-full rounded-xl bg-slate-100" aria-label="Memuat grafik" />}>
                 <PerformanceChart data={chartData} />
               </Suspense>
@@ -653,6 +655,10 @@ function ResultsPage() {
       </div>
     </main>
   )
+}
+
+function sectionsInTestOrder(questions: Array<{ section: Section }>) {
+  return [...new Set(questions.map((question) => question.section))]
 }
 
 export const ReviewAudioPlayer: React.FC<{ client?: SupabaseClient | null; audioPath: string }> = ({ client, audioPath }) => {

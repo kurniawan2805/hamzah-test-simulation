@@ -58,6 +58,8 @@ export type ReviewQuestion = PublicQuestion & {
   answerText?: string
   writingScore?: number
   writingFeedback?: unknown
+  speakingScore?: number
+  speakingFeedback?: unknown
   audioStoragePath?: string
 }
 
@@ -215,6 +217,8 @@ export async function getAttemptReview(client: SupabaseClient, attemptId: string
     answerText: row.answer_text ? asString(row.answer_text) : undefined,
     writingScore: row.writing_score !== null && row.writing_score !== undefined ? asNumber(row.writing_score) : undefined,
     writingFeedback: row.writing_feedback || undefined,
+    speakingScore: row.speaking_score !== null && row.speaking_score !== undefined ? asNumber(row.speaking_score) : undefined,
+    speakingFeedback: row.speaking_feedback || undefined,
     audioStoragePath: row.audio_storage_path ? asString(row.audio_storage_path) : undefined,
   }))
 }

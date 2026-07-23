@@ -31,12 +31,6 @@ export const SpeakingRecorder: React.FC<SpeakingRecorderProps> = ({
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const timerIntervalRef = useRef<number | null>(null)
 
-  // Sync existing URL on mount / prop change
-  const lastSyncUrlRef = useRef<string | null>(null)
-  if (existingAudioUrl !== lastSyncUrlRef.current) {
-    lastSyncUrlRef.current = existingAudioUrl
-  }
-
   const stopTimer = () => {
     if (timerIntervalRef.current) {
       window.clearInterval(timerIntervalRef.current)
@@ -54,16 +48,7 @@ export const SpeakingRecorder: React.FC<SpeakingRecorderProps> = ({
     }
   }
 
-  // Sync existingAudioUrl safely on change
-  const [lastQuestionId, setLastQuestionId] = useState(questionId)
-  if (questionId !== lastQuestionId) {
-    setLastQuestionId(questionId)
-    setAudioUrl(existingAudioUrl)
-    setStage(existingAudioUrl ? 'completed' : 'idle')
-    setError(null)
-  }
-
-  // Clean up timers and audio on unmount or question change
+  // Keep the recorder state aligned with the active question and persisted answer.
   useEffect(() => {
     return () => {
       stopTimer()

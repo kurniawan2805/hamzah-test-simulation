@@ -49,7 +49,9 @@ function ClerkAuthBridge({ children }: { children: ReactNode }) {
     isSignedIn: Boolean(isSignedIn),
     userId: userId ?? null,
     displayName: user?.fullName ?? user?.primaryEmailAddress?.emailAddress ?? 'Peserta',
-    getToken,
+    // Supabase Edge Functions verify the Clerk-issued Supabase JWT template.
+    // The default Clerk session token is not accepted by Supabase's JWT verifier.
+    getToken: () => getToken({ template: 'supabase' }),
     signOut,
   }
 

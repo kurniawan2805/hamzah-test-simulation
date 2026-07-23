@@ -177,7 +177,8 @@ serve(async (req) => {
 
     for (const item of (answers || [])) {
       const audioPath = item.audio_storage_path;
-      const questionText = item.exam_questions.question;
+      const qData = Array.isArray(item.exam_questions) ? item.exam_questions[0] : item.exam_questions;
+      const questionText = qData?.question ?? "";
 
       if (!audioPath) {
         evaluations.push({

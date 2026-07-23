@@ -150,14 +150,17 @@ function CloudExamPage() {
     setGrading(true)
     try { 
       await finishAttempt(client, attemptId)
-      try { 
-        await Promise.allSettled([
-          evaluateWriting(client, attemptId),
-          evaluateSpeaking(client, attemptId),
-        ])
-      } catch (e) { 
-        console.error('AI grading failed:', e) 
-      } 
+      const aiResults = await Promise.allSettled([
+        evaluateWriting(client, attemptId),
+        evaluateSpeaking(client, attemptId),
+      ])
+      for (const result of aiResults) {
+        if (result.status === 'rejected') {
+          console.error('AI grading failed:', result.reason)
+        } else {
+          console.log('AI grading result:', result.value)
+        }
+      }
     } finally { 
       navigate({ to: '/results/$attemptId', params: { attemptId }, replace: true }) 
     } 
@@ -340,6 +343,7 @@ function CloudExamPage() {
                 ) : question.answerType === 'speaking' ? (
                   <>
                     <SpeakingRecorder
+                      key={`${question.id}:${speakingAudioUrl ?? ''}`}
                       questionId={question.id}
                       preparationSeconds={question.preparationSeconds ?? 30}
                       maxRecordingSeconds={question.maxRecordingSeconds ?? 60}
@@ -373,8 +377,8 @@ function CloudExamPage() {
 function CloudResultsPage() {
   const client = useClient(); const { attemptId } = resultsRoute.useParams(); const navigate = useNavigate(); const [result, setResult] = useState<CloudAttempt | null>(null)
   useEffect(() => { void getAttempt(client, attemptId).then((attempt) => { if (attempt.state === 'active') navigate({ to: '/exam/$attemptId', params: { attemptId }, replace: true }); else setResult(attempt) }).catch(() => navigate({ to: '/' })) }, [attemptId, client, navigate])
-  if (!result) return null; const chartData = Object.entries(result.sectionScores ?? {}).map(([section, score]) => ({ name: sectionCopy[section as Section].label, score }))
-  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-5xl"><Brand /><section className="mt-7 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"><div className="rounded-3xl bg-[#006C35] p-8 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)]"><span className="grid size-12 place-items-center rounded-2xl bg-white/13"><Check size={25} /></span><p className="mt-6 text-sm font-bold text-emerald-100">Simulasi selesai</p><h1 className="mt-2 text-3xl font-bold">Hasil latihanmu</h1><div className="mt-8 flex items-end gap-4"><span className="text-6xl font-bold tabular-nums">{result.score}</span><span className="mb-2 text-emerald-100">/ 100</span></div><div className="mt-7 flex justify-between rounded-2xl bg-white/10 px-4 py-4"><span className="text-sm text-emerald-50">Level perkiraan</span><span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span></div><p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal dijawab benar.</p></div><section className="rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] sm:p-8"><p className="text-sm font-bold text-[#006C35]">Analisis kompetensi</p><h2 className="mt-1 text-xl font-bold">Performa per seksi</h2><div className="mt-6 h-64"><Suspense fallback={<div className="h-full rounded-xl bg-slate-100" />}><PerformanceChart data={chartData} /></Suspense></div></section></section><div className="mt-6 flex justify-end"><Link to="/review/$attemptId" params={{ attemptId }} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96]"><BookOpenCheck size={17} />Tinjau pembahasan</Link></div></div></main>
+  if (!result) return null; const chartOrder: Section[] = ['listening', 'reading', 'grammar', 'structures', 'writing', 'speaking']; const chartData = chartOrder.filter((section) => section in (result.sectionScores ?? {})).map((section) => ({ name: sectionCopy[section].label, description: sectionCopy[section].description, score: result.sectionScores?.[section] ?? 0 }))
+  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-5xl"><Brand /><section className="mt-7 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"><div className="rounded-3xl bg-[#006C35] p-8 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)]"><span className="grid size-12 place-items-center rounded-2xl bg-white/13"><Check size={25} /></span><p className="mt-6 text-sm font-bold text-emerald-100">Simulasi selesai</p><h1 className="mt-2 text-3xl font-bold">Hasil latihanmu</h1><div className="mt-8 flex items-end gap-4"><span className="text-6xl font-bold tabular-nums">{result.score}</span><span className="mb-2 text-emerald-100">/ 100</span></div><div className="mt-7 flex justify-between rounded-2xl bg-white/10 px-4 py-4"><span className="text-sm text-emerald-50">Level perkiraan</span><span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span></div><p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal dijawab benar.</p></div><section className="rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] sm:p-8"><p className="text-sm font-bold text-[#006C35]">Analisis kompetensi</p><h2 className="mt-1 text-xl font-bold">Performa per seksi</h2><p className="mt-2 text-sm text-slate-500">Batang mengikuti urutan seksi saat ujian. Garis emas menunjukkan target 60.</p><div className="mt-4 h-72"><Suspense fallback={<div className="h-full rounded-xl bg-slate-100" />}><PerformanceChart data={chartData} /></Suspense></div></section></section><div className="mt-6 flex justify-end"><Link to="/review/$attemptId" params={{ attemptId }} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B]"><BookOpenCheck size={17} />Tinjau pembahasan</Link></div></div></main>
 }
 
 const ReviewAudioPlayer: React.FC<{ client?: SupabaseClient; audioPath: string }> = ({ client, audioPath }) => {
@@ -400,7 +404,7 @@ function CloudReviewPage() {
   useEffect(() => { void getAttemptReview(client, attemptId).then(setQuestions).catch(() => setQuestions([])) }, [attemptId, client])
   return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-4xl"><Link to="/results/$attemptId" params={{ attemptId }} className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-600"><ArrowLeft size={17} />Kembali ke hasil</Link><div className="mt-5 rounded-3xl bg-white p-7 shadow-[0_10px_28px_rgba(15,23,42,0.05)]"><p className="text-sm font-bold text-[#006C35]">Mode tinjau</p><h1 className="mt-1 text-3xl font-bold text-balance">Jawaban dan pembahasan</h1></div><div className="mt-6 space-y-5">{questions.map((question) => { 
     if (question.answerType === 'speaking') {
-      const feedback = question.writingFeedback as {
+      const feedback = question.speakingFeedback as {
         pronunciation_score?: number
         fluency_score?: number
         relevance_score?: number
@@ -409,7 +413,7 @@ function CloudReviewPage() {
         feedback_id?: string
         feedback_ar?: string
       } | undefined
-      const score = question.writingScore ?? 0;
+      const score = question.speakingScore ?? 0;
       return (
         <article key={question.id} className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_22px_rgba(15,23,42,0.04)]">
           <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
@@ -591,6 +595,13 @@ function CloudReviewPage() {
 
 function useSpeakingAudioUrl(client: SupabaseClient, question: PublicQuestion | undefined, answer: CloudAnswer | undefined) {
   const [speakingAudioUrl, setSpeakingAudioUrl] = useState<string | null>(null)
+  const [prevQuestionId, setPrevQuestionId] = useState<string | undefined>(undefined)
+
+  if (question?.id !== prevQuestionId) {
+    setPrevQuestionId(question?.id)
+    setSpeakingAudioUrl(null)
+  }
+
   useEffect(() => {
     if (!question || question.answerType !== 'speaking' || !answer?.audioStoragePath) {
       setSpeakingAudioUrl(null)
