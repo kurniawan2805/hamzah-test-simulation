@@ -1,7 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 
 import { ClerkProvider, SignIn, UserButton, useAuth, useClerk, useUser } from '@clerk/react'
-import { createContext, useContext, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, type ReactNode } from 'react'
+import { posthog } from './posthog'
 
 type AuthContextValue = {
   enabled: boolean
@@ -43,6 +44,21 @@ function ClerkAuthBridge({ children }: { children: ReactNode }) {
   const { getToken, isLoaded, isSignedIn, userId } = useAuth()
   const { user } = useUser()
   const { signOut } = useClerk()
+
+  useEffect(() => {
+    if (isLoaded && isSignedIn && userId) {
+      const properties: Record<string, string> = {}
+      if (user?.fullName) properties.name = user.fullName
+      if (user?.primaryEmailAddress?.emailAddress) properties.email = user.primaryEmailAddress.emailAddress
+      posthog.identify(userId, properties)
+    }
+  }, [isLoaded, isSignedIn, userId, user?.fullName, user?.primaryEmailAddress?.emailAddress])
+
+  const wrappedSignOut = async () => {
+    posthog.reset()
+    await signOut()
+  }
+
   const value: AuthContextValue = {
     enabled: true,
     isLoaded,
@@ -52,7 +68,7 @@ function ClerkAuthBridge({ children }: { children: ReactNode }) {
     // This Clerk instance is configured with the Supabase JWT template shown in
     // Clerk Dashboard, including aud/role=authenticated.
     getToken: () => getToken({ template: 'supabase' }),
-    signOut,
+    signOut: wrappedSignOut,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

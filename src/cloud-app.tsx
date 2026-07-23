@@ -38,6 +38,7 @@ import {
 import { AccountMenu } from './lib/auth'
 import { AUDIO_BUCKET } from './lib/audio-assets'
 import { calculateRemainingSeconds } from './lib/scoring'
+import { posthog } from './lib/posthog'
 import { useExamStore } from './store/exam-store'
 import type { Section } from './types'
 
@@ -100,7 +101,7 @@ function CloudDashboardPage() {
     <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
       <section className="grid gap-7 rounded-[28px] bg-[#006C35] px-7 py-9 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)] md:grid-cols-[1.25fr_0.75fr] md:px-10">
         <div><p className="inline-flex rounded-full bg-white/12 px-3 py-1.5 text-sm font-semibold text-emerald-50">CBT mandiri · tersimpan di akunmu</p><h1 className="mt-5 max-w-xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">Bangun kesiapanmu sebelum Hamza Test.</h1><p className="mt-4 max-w-xl leading-7 text-emerald-50/85 text-pretty">Latih ritme ujian yang fokus: waktu terbatas, audio berkuota, dan analisis kompetensi.</p>
-          {activeAttempt ? <button onClick={() => navigate({ to: '/exam/$attemptId', params: { attemptId: activeAttempt.id } })} className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#006C35] active:scale-[0.96]"><TimerReset size={18} />Lanjutkan {activeExam?.title ?? 'ujian'}<ArrowRight size={17} /></button> : null}
+          {activeAttempt ? <button onClick={() => { posthog.capture('exam_resumed', { attempt_id: activeAttempt.id, mode: 'cloud' }); navigate({ to: '/exam/$attemptId', params: { attemptId: activeAttempt.id } }) }} className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#006C35] active:scale-[0.96]"><TimerReset size={18} />Lanjutkan {activeExam?.title ?? 'ujian'}<ArrowRight size={17} /></button> : null}
         </div>
         <div className="grid content-end gap-3 sm:grid-cols-3 md:grid-cols-1"><Metric icon={<Clock3 size={19} />} label="Sesi tersimpan" value={`${attempts.length} attempt`} /><Metric icon={<BookOpenCheck size={19} />} label="Paket terbit" value={`${exams.length} paket`} /><Metric icon={<Headphones size={19} />} label="Audio" value="Maks. 2x" /></div>
       </section>
@@ -114,8 +115,8 @@ function CloudDashboardPage() {
 function CloudInstructionsPage() {
   const client = useClient(); const { versionId } = instructionsRoute.useParams(); const navigate = useNavigate(); const [exam, setExam] = useState<PublishedExam | null>(null); const [starting, setStarting] = useState(false); const [error, setError] = useState('')
   useEffect(() => { void getPublishedExams(client).then((items) => setExam(items.find((item) => item.id === versionId) ?? null)).catch(() => setError('Paket ujian tidak tersedia.')) }, [client, versionId])
-  const begin = async () => { setStarting(true); try { const attempt = await startAttempt(client, versionId); navigate({ to: '/exam/$attemptId', params: { attemptId: attempt.id } }) } catch (reason) { setError(reason instanceof Error ? reason.message : 'Ujian belum dapat dimulai.') } finally { setStarting(false) } }
-  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 sm:px-8 sm:py-12"><div className="mx-auto max-w-3xl"><Link to="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-600"><ArrowLeft size={17} />Kembali ke dashboard</Link><section className="mt-5 rounded-3xl bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.06)] sm:p-9"><span className="grid size-12 place-items-center rounded-2xl bg-[#E6F0EB] text-[#006C35]"><ShieldCheck size={24} /></span><p className="mt-6 text-sm font-bold text-[#006C35]">Sebelum memulai</p><h1 className="mt-1 text-3xl font-bold text-balance">{exam?.title ?? 'Memuat paket…'}</h1><p className="mt-4 leading-7 text-slate-600">Timer mulai saat kamu menekan tombol mulai. Jawaban disimpan ke akunmu dan akan tetap tersedia setelah refresh.</p><div className="mt-8 grid gap-3 sm:grid-cols-2"><Instruction icon={<Clock3 />} title="Waktu berjalan" text={`${exam?.durationMinutes ?? '—'} menit untuk menyelesaikan tes.`} /><Instruction icon={<Headphones />} title="Cek audio" text="Setiap audio hanya boleh diputar satu kali." /><Instruction icon={<Bookmark />} title="Tandai ragu" text="Kembali ke soal yang perlu diperiksa." /><Instruction icon={<Send />} title="Kirim jawaban" text="Ujian terkunci otomatis saat waktu habis." /></div>{error ? <p className="mt-5 text-sm font-semibold text-red-700">{error}</p> : null}<button disabled={!exam || starting} onClick={() => void begin()} className="mt-8 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96] disabled:opacity-50"><PlayCircle size={18} />{starting ? 'Menyiapkan…' : 'Saya siap, mulai ujian'}</button></section></div></main>
+  const begin = async () => { setStarting(true); try { const attempt = await startAttempt(client, versionId); posthog.capture('exam_started', { attempt_id: attempt.id, exam_version_id: versionId, mode: 'cloud', duration_minutes: exam?.durationMinutes }); navigate({ to: '/exam/$attemptId', params: { attemptId: attempt.id } }) } catch (reason) { setError(reason instanceof Error ? reason.message : 'Ujian belum dapat dimulai.') } finally { setStarting(false) } }
+  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 sm:px-8 sm:py-12"><div className="mx-auto max-w-3xl"><Link to="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-600"><ArrowLeft size={17} />Kembali ke dashboard</Link><section className="mt-5 rounded-3xl bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.06)] sm:p-9"><span className="grid size-12 place-items-center rounded-2xl bg-[#E6F0EB] text-[#006C35]"><ShieldCheck size={24} /></span><p className="mt-6 text-sm font-bold text-[#006C35]">Sebelum memulai</p><h1 className="mt-1 text-3xl font-bold text-balance">{exam?.title ?? 'Memuat paket…'}</h1><p className="mt-4 leading-7 text-slate-600">Timer mulai saat kamu menekan tombol mulai. Jawaban disimpan ke akunmu dan akan tetap tersedia setelah refresh.</p><div className="mt-8 grid gap-3 sm:grid-cols-2"><Instruction icon={<Clock3 />} title="Waktu berjalan" text={`${exam?.durationMinutes ?? '—'} menit untuk menyelesaikan tes.`} /><Instruction icon={<Headphones />} title="Cek audio" text="Setiap audio hanya boleh diputar dua kali." /><Instruction icon={<Bookmark />} title="Tandai ragu" text="Kembali ke soal yang perlu diperiksa." /><Instruction icon={<Send />} title="Kirim jawaban" text="Ujian terkunci otomatis saat waktu habis." /></div>{error ? <p className="mt-5 text-sm font-semibold text-red-700">{error}</p> : null}<button disabled={!exam || starting} onClick={() => void begin()} className="mt-8 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96] disabled:opacity-50"><PlayCircle size={18} />{starting ? 'Menyiapkan…' : 'Saya siap, mulai ujian'}</button></section></div></main>
 }
 
 function CloudExamPage() {
@@ -148,7 +149,7 @@ function CloudExamPage() {
     if (completing.current) return
     completing.current = true
     setGrading(true)
-    try { 
+    try {
       await finishAttempt(client, attemptId)
       const aiResults = await Promise.allSettled([
         evaluateWriting(client, attemptId),
@@ -161,8 +162,9 @@ function CloudExamPage() {
           console.log('AI grading result:', result.value)
         }
       }
-    } finally { 
-      navigate({ to: '/results/$attemptId', params: { attemptId }, replace: true }) 
+      posthog.capture('exam_submitted', { attempt_id: attemptId, mode: 'cloud', answered_count: answeredCount, total_questions: questions.length })
+    } finally {
+      navigate({ to: '/results/$attemptId', params: { attemptId }, replace: true })
     } 
   }, [attemptId, client, navigate])
 
@@ -235,10 +237,10 @@ function CloudExamPage() {
 
   if (!attempt || !question) return <main className="grid min-h-dvh place-items-center bg-[#F8FAFC] text-sm font-semibold text-slate-500">Memuat sesi ujian…</main>
   
-  const toggleBookmark = async () => { await persist(answer?.selectedIndex, !answer?.bookmarked, answer?.answerText) }
+  const toggleBookmark = async () => { const willBookmark = !answer?.bookmarked; await persist(answer?.selectedIndex, willBookmark, answer?.answerText); posthog.capture('question_bookmarked', { section: question.section, is_bookmarked: willBookmark, mode: 'cloud' }) }
   
-  const playAudio = async () => { 
-    try { 
+  const playAudio = async () => {
+    try {
       await recordAudioPlay(client, attemptId, question.id)
       const sharedQuestions = questions.filter(
         (q) => q.audioPath && q.audioPath === question.audioPath
@@ -261,10 +263,12 @@ function CloudExamPage() {
         }
         return updated
       })
-      return true 
-    } catch { 
-      return false 
-    } 
+      const finalAns = answers[question.id]
+      posthog.capture('audio_played', { section: question.section, play_number: (finalAns?.audioPlayCount ?? 0) + 1, mode: 'cloud' })
+      return true
+    } catch {
+      return false
+    }
   }
 
   const localWritingAnswers = Object.fromEntries(
@@ -293,6 +297,7 @@ function CloudExamPage() {
       if (uploadErr) throw uploadErr
 
       await persist(undefined, answer?.bookmarked, undefined, path)
+      posthog.capture('speaking_recording_completed', { section: question.section, mode: 'cloud' })
     } catch (err) {
       console.error('Failed to save speaking recording:', err)
       setSpeakingSaveError('Rekaman belum tersimpan ke akun. Coba rekam ulang.')
@@ -396,7 +401,7 @@ function CloudResultsPage() {
   const client = useClient(); const { attemptId } = resultsRoute.useParams(); const navigate = useNavigate(); const [result, setResult] = useState<CloudAttempt | null>(null)
   useEffect(() => { void getAttempt(client, attemptId).then((attempt) => { if (attempt.state === 'active') navigate({ to: '/exam/$attemptId', params: { attemptId }, replace: true }); else setResult(attempt) }).catch(() => navigate({ to: '/' })) }, [attemptId, client, navigate])
   if (!result) return null; const chartOrder: Section[] = ['listening', 'reading', 'grammar', 'structures', 'writing', 'speaking']; const chartData = chartOrder.filter((section) => section in (result.sectionScores ?? {})).map((section) => ({ name: sectionCopy[section].label, description: sectionCopy[section].description, score: result.sectionScores?.[section] ?? 0 }))
-  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-5xl"><Brand /><section className="mt-7 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"><div className="rounded-3xl bg-[#006C35] p-8 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)]"><span className="grid size-12 place-items-center rounded-2xl bg-white/13"><Check size={25} /></span><p className="mt-6 text-sm font-bold text-emerald-100">Simulasi selesai</p><h1 className="mt-2 text-3xl font-bold">Hasil latihanmu</h1><div className="mt-8 flex items-end gap-4"><span className="text-6xl font-bold tabular-nums">{result.score}</span><span className="mb-2 text-emerald-100">/ 100</span></div><div className="mt-7 flex justify-between rounded-2xl bg-white/10 px-4 py-4"><span className="text-sm text-emerald-50">Level perkiraan</span><span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span></div><p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal dijawab benar.</p></div><section className="rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] sm:p-8"><p className="text-sm font-bold text-[#006C35]">Analisis kompetensi</p><h2 className="mt-1 text-xl font-bold">Performa per seksi</h2><p className="mt-2 text-sm text-slate-500">Batang mengikuti urutan seksi saat ujian. Garis emas menunjukkan target 60.</p><div className="mt-4 h-72"><Suspense fallback={<div className="h-full rounded-xl bg-slate-100" />}><PerformanceChart data={chartData} /></Suspense></div></section></section><div className="mt-6 flex justify-end"><Link to="/review/$attemptId" params={{ attemptId }} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B]"><BookOpenCheck size={17} />Tinjau pembahasan</Link></div></div></main>
+  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-5xl"><Brand /><section className="mt-7 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"><div className="rounded-3xl bg-[#006C35] p-8 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)]"><span className="grid size-12 place-items-center rounded-2xl bg-white/13"><Check size={25} /></span><p className="mt-6 text-sm font-bold text-emerald-100">Simulasi selesai</p><h1 className="mt-2 text-3xl font-bold">Hasil latihanmu</h1><div className="mt-8 flex items-end gap-4"><span className="text-6xl font-bold tabular-nums">{result.score}</span><span className="mb-2 text-emerald-100">/ 100</span></div><div className="mt-7 flex justify-between rounded-2xl bg-white/10 px-4 py-4"><span className="text-sm text-emerald-50">Level perkiraan</span><span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span></div><p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal dijawab benar.</p></div><section className="rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] sm:p-8"><p className="text-sm font-bold text-[#006C35]">Analisis kompetensi</p><h2 className="mt-1 text-xl font-bold">Performa per seksi</h2><p className="mt-2 text-sm text-slate-500">Batang mengikuti urutan seksi saat ujian. Garis emas menunjukkan target 60.</p><div className="mt-4 h-72"><Suspense fallback={<div className="h-full rounded-xl bg-slate-100" />}><PerformanceChart data={chartData} /></Suspense></div></section></section><div className="mt-6 flex justify-end"><Link to="/review/$attemptId" params={{ attemptId }} onClick={() => posthog.capture('exam_review_started', { attempt_id: attemptId, mode: 'cloud', score: result.score, cefr: result.cefr })} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96]"><BookOpenCheck size={17} />Tinjau pembahasan</Link></div></div></main>
 }
 
 const ReviewAudioPlayer: React.FC<{ client?: SupabaseClient; audioPath: string }> = ({ client, audioPath }) => {

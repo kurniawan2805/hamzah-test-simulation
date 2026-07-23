@@ -42,10 +42,9 @@ import { useSupabaseClient } from './lib/supabase'
 import { getAudioPath } from './lib/audio-assets'
 import { getPublicAudioUrl, getSignedAudioUrl } from './lib/exam-api'
 import { CloudApp } from './cloud-app'
+import { posthog } from './lib/analytics'
 
 const PerformanceChart = lazy(() => import('./components/performance-chart'))
-
-import { posthog } from './lib/analytics'
 
 const sectionCopy: Record<Section, { label: string; description: string }> = {
   listening: { label: 'Istima’', description: 'Pemahaman mendengar' },
@@ -110,7 +109,14 @@ function DashboardPage() {
             </p>
             <button
               type="button"
-              onClick={() => navigate({ to: hasActiveSession ? '/exam' : '/instructions' })}
+              onClick={() => {
+                if (hasActiveSession) {
+                  posthog.capture('exam_resumed', { exam_id: demoExam.id, mode: 'local' })
+                  navigate({ to: '/exam' })
+                } else {
+                  navigate({ to: '/instructions' })
+                }
+              }}
               className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#006C35] shadow-sm transition-[transform,box-shadow] active:scale-[0.96]"
             >
               {hasActiveSession ? <TimerReset size={18} /> : <PlayCircle size={18} />}
@@ -190,8 +196,9 @@ function QuestionBankPage() {
     if (!draft.question.trim() || draft.options.some((option) => !option.trim()) || !draft.explanation.trim()) { setMessage('Lengkapi pertanyaan, 4 opsi, dan pembahasan.'); return }
     const next = [...questions.filter((question) => question.id !== draft.id), draft]
     setQuestions(next); localStorage.setItem(questionStorageKey, JSON.stringify(next)); setDraft(emptyQuestion()); setMessage('Soal tersimpan di perangkat ini.')
+    posthog.capture('question_bank_question_saved', { section: draft.section, total_questions: next.length })
   }
-  const removeQuestion = (id: string) => { const next = questions.filter((question) => question.id !== id); setQuestions(next); localStorage.setItem(questionStorageKey, JSON.stringify(next)) }
+  const removeQuestion = (id: string) => { const next = questions.filter((question) => question.id !== id); setQuestions(next); localStorage.setItem(questionStorageKey, JSON.stringify(next)); posthog.capture('question_bank_question_deleted', { total_questions: next.length }) }
   return <main className="min-h-dvh bg-[#F8FAFC] text-slate-900"><header className="border-b border-slate-200/80 bg-white"><div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8"><Brand /><Link to="/" className="text-sm font-bold text-slate-600">Kembali</Link></div></header><div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-12"><p className="text-sm font-bold text-[#006C35]">MVP · Modul 1</p><h1 className="mt-1 text-3xl font-bold tracking-tight">Bank soal</h1><p className="mt-3 max-w-2xl leading-7 text-slate-600">Buat soal pilihan ganda dan tentukan satu jawaban benar. Data sementara disimpan di browser.</p><div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]"><form onSubmit={saveQuestion} className="rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] sm:p-8"><h2 className="text-xl font-bold">Buat soal baru</h2><label className="mt-6 block text-sm font-bold">Kompetensi<select value={draft.section} onChange={(event) => setDraft({ ...draft, section: event.target.value as Section })} className="mt-2 min-h-11 w-full rounded-xl border border-slate-200 px-3"><option value="listening">Istima’ · Listening</option><option value="reading">Qira’ah · Reading</option><option value="grammar">Tarkib · Grammar</option><option value="structures">Tarākīb · Structures</option></select></label><label className="mt-5 block text-sm font-bold">Pertanyaan<textarea dir="rtl" value={draft.question} onChange={(event) => setDraft({ ...draft, question: event.target.value })} placeholder="Tulis pertanyaan bahasa Arab…" className="font-arabic mt-2 min-h-28 w-full rounded-xl border border-slate-200 p-3 text-lg" /></label><fieldset className="mt-5"><legend className="text-sm font-bold">Opsi jawaban <span className="font-normal text-slate-500">(radio = kunci)</span></legend><div className="mt-2 grid gap-3">{draft.options.map((option, index) => <div key={index} className="flex items-center gap-2"><input type="radio" name="correct" checked={draft.correct_index === index} onChange={() => setDraft({ ...draft, correct_index: index })} className="size-4 accent-[#006C35]" /><input dir="rtl" value={option} onChange={(event) => updateOption(index, event.target.value)} placeholder={`Opsi ${index + 1}`} className="font-arabic min-h-11 min-w-0 flex-1 rounded-xl border border-slate-200 px-3 text-lg" /></div>)}</div></fieldset><label className="mt-5 block text-sm font-bold">Pembahasan<textarea value={draft.explanation} onChange={(event) => setDraft({ ...draft, explanation: event.target.value })} placeholder="Mengapa jawaban ini benar?" className="mt-2 min-h-24 w-full rounded-xl border border-slate-200 p-3" /></label>{message ? <p className="mt-4 rounded-xl bg-[#FFF7E8] p-3 text-sm font-semibold text-[#8A5A12]">{message}</p> : null}<button type="submit" className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 py-3 text-sm font-bold text-white"><Save size={17} />Simpan soal</button></form><section className="rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] sm:p-8"><div className="flex items-center justify-between"><h2 className="text-xl font-bold">Soal tersimpan</h2><span className="text-sm font-bold text-slate-500">{questions.length} soal</span></div>{questions.length === 0 ? <p className="mt-6 rounded-2xl bg-slate-50 p-5 text-sm leading-6 text-slate-500">Belum ada soal.</p> : <div className="mt-5 space-y-3">{questions.map((question, index) => <article key={question.id} className="rounded-2xl border border-slate-200 p-4"><div className="flex items-start justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-wide text-[#006C35]">Soal {index + 1} · {question.section}</p><p dir="rtl" className="font-arabic mt-2 text-lg leading-8">{question.question}</p><p className="mt-2 text-xs text-slate-500">Kunci: opsi {question.correct_index + 1}</p></div><div className="flex shrink-0 gap-1"><button type="button" onClick={() => { setDraft(question); setMessage('Mode edit aktif.') }} className="rounded-lg px-2 py-1 text-xs font-bold text-[#006C35]">Edit</button><button type="button" onClick={() => removeQuestion(question.id)} aria-label="Hapus soal" className="rounded-lg p-2 text-red-600"><Trash2 size={16} /></button></div></div></article>)}</div>}</section></div></div></main>
 }
 
@@ -205,9 +212,9 @@ function InstructionsPage() {
   const start = () => {
     if (!resuming) {
       startExam(demoExam.id, demoExam.durationMinutes)
-      posthog.capture('exam_started', { exam_id: demoExam.id, duration_minutes: demoExam.durationMinutes })
+      posthog.capture('exam_started', { exam_id: demoExam.id, mode: 'local', total_questions: demoExam.questions.length, duration_minutes: demoExam.durationMinutes })
     } else {
-      posthog.capture('exam_resumed', { exam_id: demoExam.id })
+      posthog.capture('exam_resumed', { exam_id: demoExam.id, mode: 'local' })
     }
     navigate({ to: '/exam' })
   }
@@ -372,15 +379,17 @@ function ExamPage() {
       }
     }
     
-    const resultObj = createSessionResult(demoExam, answers, reason, Date.now(), writingAnswers, grades, sGrades)
-    completeExam(resultObj)
-    posthog.capture('exam_completed', {
+    const sessionResult = createSessionResult(demoExam, answers, reason, Date.now(), writingAnswers, grades, sGrades)
+    completeExam(sessionResult)
+    posthog.capture('exam_submitted', {
       exam_id: demoExam.id,
+      mode: 'local',
       reason,
-      score: resultObj.score,
-      cefr: resultObj.cefr,
-      total_questions: resultObj.totalQuestions,
-      correct_count: resultObj.correctCount
+      score: sessionResult.score,
+      cefr: sessionResult.cefr,
+      correct_count: sessionResult.correctCount,
+      total_questions: sessionResult.totalQuestions,
+      answered_count: Object.keys(answers).length + Object.keys(writingAnswers).filter(k => writingAnswers[k]?.trim().length > 0).length + Object.keys(speakingAnswers).length,
     })
     setGrading(false)
     navigate({ to: '/results', replace: true })
@@ -543,6 +552,7 @@ function ExamPage() {
                         setSpeakingAnswer(question.id, url)
                         setSpeakingBlobs(prev => ({ ...prev, [question.id]: blob }))
                         answerQuestion(question.id, 0)
+                        posthog.capture('speaking_recording_completed', { section: question.section, mode: 'local' })
                       }}
                     />
                   ) : <div className="mt-6 grid gap-3" role="radiogroup" aria-label="Pilihan jawaban">
@@ -610,6 +620,7 @@ function ResultsPage() {
   if (!result) return null
   const chartData = sectionsInTestOrder(demoExam.questions).map((section) => ({ name: sectionCopy[section].label, description: sectionCopy[section].description, score: result.sectionScores[section] ?? 0 }))
   const retry = () => {
+    posthog.capture('exam_retried', { exam_id: demoExam.id, mode: 'local', score: result.score, cefr: result.cefr })
     startExam(demoExam.id, demoExam.durationMinutes)
     navigate({ to: '/exam' })
   }
@@ -653,7 +664,7 @@ function ResultsPage() {
 
         <section className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
           <button type="button" onClick={retry} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 transition-[transform,background-color] active:scale-[0.96] hover:bg-slate-50"><TimerReset size={17} /> Ulangi simulasi</button>
-          <Link to="/review" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B]"><BookOpenCheck size={17} /> Tinjau pembahasan</Link>
+          <Link to="/review" onClick={() => posthog.capture('exam_review_started', { exam_id: demoExam.id, mode: 'local', score: result.score, cefr: result.cefr })} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B]"><BookOpenCheck size={17} /> Tinjau pembahasan</Link>
         </section>
       </div>
     </main>
