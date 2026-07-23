@@ -16,6 +16,7 @@
     "@supabase/supabase-js": "^2.110.8",
     "@tanstack/react-router": "latest",
     "lucide-react": "latest",
+    "posthog-js": "^1.142.0",
     "react": "latest",
     "react-dom": "latest",
     "recharts": "latest",

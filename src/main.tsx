@@ -1,11 +1,31 @@
-import { StrictMode } from 'react'
+import { Component, type ReactNode, StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { posthog } from './lib/posthog'
 import { App } from './app'
 import './styles.css'
 
+class PostHogErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false }
+
+  static getDerivedStateFromError(): { hasError: boolean } {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error: Error): void {
+    posthog.captureException(error)
+  }
+
+  render(): ReactNode {
+    if (this.state.hasError) return null
+    return this.props.children
+  }
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <PostHogErrorBoundary>
+      <App />
+    </PostHogErrorBoundary>
   </StrictMode>,
 )
 
