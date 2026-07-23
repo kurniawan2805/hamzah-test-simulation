@@ -4,7 +4,7 @@ React/Vite CBT MVP untuk simulasi Hamza Test. Saat environment Clerk dan Supabas
 
 ## Setup cloud MVP
 
-1. Buat aplikasi Clerk, lalu aktifkan integrasi **Connect with Supabase**. Gunakan token sesi Clerk native; jangan memakai JWT template Clerk lama bernama `supabase`.
+1. Buat aplikasi Clerk, lalu buat JWT template bernama `supabase` dengan claim `aud` dan `role` bernilai `authenticated`.
 2. Buat proyek Supabase dan tambahkan Clerk pada **Authentication → Third-Party Auth**. Pastikan domain/issuer Clerk yang terdaftar sama dengan instance yang dipakai publishable key. Token sesi harus mempunyai claim `role: authenticated`.
 3. Terapkan migration di `supabase/migrations/` ke proyek tersebut. Migration ini membuat tabel paket, versi, soal publik, answer key private, attempt, RLS, RPC, serta bucket `exam-audio` private.
 4. Di Supabase Dashboard, masukkan `exam_packages`, `exam_versions`, `exam_questions`, lalu answer key di `private.exam_answer_keys`. Ubah versi menjadi `published` setelah semua soal dan key lengkap.
