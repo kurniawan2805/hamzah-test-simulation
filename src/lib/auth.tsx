@@ -1,8 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { ClerkProvider, SignIn, UserButton, useAuth, useClerk, useUser } from '@clerk/react'
-import { createContext, useContext, useEffect, type ReactNode } from 'react'
-import { posthog } from './posthog'
+import { ClerkProvider, SignIn, UserButton, useAuth, useClerk, useUser } from "@clerk/react"
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import { posthog } from "./posthog"
+
+export type UserRole = "user" | "admin"
 
 type AuthContextValue = {
   enabled: boolean
@@ -10,40 +12,58 @@ type AuthContextValue = {
   isSignedIn: boolean
   userId: string | null
   displayName: string
+  role: UserRole
+  setRole: (role: UserRole) => void
   getToken: () => Promise<string | null>
   signOut: () => Promise<void>
 }
 
 const clerkPublishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
-const cloudEnabled = import.meta.env.VITE_ENABLE_CLOUD === 'true'
+const cloudEnabled = import.meta.env.VITE_ENABLE_CLOUD === "true"
 const AuthContext = createContext<AuthContextValue | null>(null)
 
 const demoAuth: AuthContextValue = {
   enabled: false,
   isLoaded: true,
   isSignedIn: true,
-  userId: 'demo-user',
-  displayName: 'Mode demo',
+  userId: "demo-user",
+  displayName: "Peserta Demo",
+  role: "user",
+  setRole: () => undefined,
   getToken: async () => null,
   signOut: async () => undefined,
 }
 
 export function AppAuthProvider({ children }: { children: ReactNode }) {
+  const [role, setRoleState] = useState<UserRole>(() => {
+    return (localStorage.getItem("hamza_demo_role") as UserRole) || "user"
+  })
+
+  const setRole = (newRole: UserRole) => {
+    setRoleState(newRole)
+    localStorage.setItem("hamza_demo_role", newRole)
+  }
+
   if (!cloudEnabled || !clerkPublishableKey) {
-    return <AuthContext.Provider value={demoAuth}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{ ...demoAuth, role, setRole }}>{children}</AuthContext.Provider>
   }
 
   return (
     <ClerkProvider publishableKey={clerkPublishableKey} afterSignOutUrl="/">
-      <ClerkAuthBridge>{children}</ClerkAuthBridge>
+      <ClerkAuthBridge activeRole={role} onSetRole={setRole}>{children}</ClerkAuthBridge>
     </ClerkProvider>
   )
 }
 
-function ClerkAuthBridge({ children }: { children: ReactNode }) {
+function ClerkAuthBridge({ children, activeRole, onSetRole }: { children: ReactNode; activeRole: UserRole; onSetRole: (role: UserRole) => void }) {
   const { getToken, isLoaded, isSignedIn, userId } = useAuth()
   const { user } = useUser()
   const { signOut } = useClerk()
+
+  const detectedRole: UserRole =
+    (user?.publicMetadata?.role as UserRole) ||
+    (user?.unsafeMetadata?.role as UserRole) ||
+    activeRole
 
   useEffect(() => {
     if (isLoaded && isSignedIn && userId) {
@@ -64,10 +84,10 @@ function ClerkAuthBridge({ children }: { children: ReactNode }) {
     isLoaded,
     isSignedIn: Boolean(isSignedIn),
     userId: userId ?? null,
-    displayName: user?.fullName ?? user?.primaryEmailAddress?.emailAddress ?? 'Peserta',
-    // This Clerk instance is configured with the Supabase JWT template shown in
-    // Clerk Dashboard, including aud/role=authenticated.
-    getToken: () => getToken({ template: 'supabase' }),
+    displayName: user?.fullName ?? user?.primaryEmailAddress?.emailAddress ?? "Peserta",
+    role: detectedRole,
+    setRole: onSetRole,
+    getToken: () => getToken({ template: "supabase" }),
     signOut: wrappedSignOut,
   }
 
@@ -76,7 +96,7 @@ function ClerkAuthBridge({ children }: { children: ReactNode }) {
 
 export function useAppAuth() {
   const value = useContext(AuthContext)
-  if (!value) throw new Error('useAppAuth must be used inside AppAuthProvider')
+  if (!value) throw new Error("useAppAuth must be used inside AppAuthProvider")
   return value
 }
 
@@ -103,10 +123,10 @@ export function RequireAuth({ children }: { children: ReactNode }) {
               routing="hash"
               appearance={{
                 variables: {
-                  colorPrimary: '#006C35',
-                  colorBackground: '#FFFFFF',
-                  borderRadius: '0.9rem',
-                  fontFamily: 'Arial, Helvetica, sans-serif',
+                  colorPrimary: "#006C35",
+                  colorBackground: "#FFFFFF",
+                  borderRadius: "0.9rem",
+                  fontFamily: "Arial, Helvetica, sans-serif",
                 },
               }}
             />
@@ -120,6 +140,24 @@ export function RequireAuth({ children }: { children: ReactNode }) {
 
 export function AccountMenu() {
   const auth = useAppAuth()
-  if (auth.enabled) return <UserButton userProfileMode="modal" />
-  return <span className="rounded-full bg-[#E6F0EB] px-3 py-1.5 text-xs font-bold text-[#006C35]">Mode demo</span>
+  return (
+    <div className="flex items-center gap-2.5">
+      <button
+        type="button"
+        onClick={() => auth.setRole(auth.role === "admin" ? "user" : "admin")}
+        title="Beralih peran (Admin / Peserta)"
+        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-transform active:scale-[0.96] ${
+          auth.role === "admin"
+            ? "bg-amber-100 text-amber-900 border border-amber-300 shadow-sm"
+            : "bg-[#E6F0EB] text-[#006C35]"
+        }`}
+      >
+        <span className={`size-2 rounded-full ${auth.role === "admin" ? "bg-amber-600" : "bg-[#006C35]"}`} />
+        Role: {auth.role === "admin" ? "Admin" : "Peserta"}
+      </button>
+      {auth.enabled ? <UserButton userProfileMode="modal" /> : (
+        <span className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">Mode demo</span>
+      )}
+    </div>
+  )
 }

@@ -248,3 +248,49 @@ export async function getSignedAudioUrl(client: SupabaseClient, path: string): P
 export function getPublicAudioUrl(client: SupabaseClient, path: string): string {
   return client.storage.from(AUDIO_BUCKET).getPublicUrl(path).data.publicUrl
 }
+
+
+export type AdminAttempt = CloudAttempt & {
+  userId: string
+  examTitle: string
+}
+
+export async function getAdminAllAttempts(client: SupabaseClient): Promise<AdminAttempt[]> {
+  const { data, error } = await client.rpc("get_admin_all_attempts")
+  if (error) throw error
+  return asRows(data).map((row) => ({
+    ...toAttempt(row),
+    userId: asString(row.user_id),
+    examTitle: asString(row.exam_title),
+  }))
+}
+
+export async function getAdminAttemptReview(client: SupabaseClient, attemptId: string): Promise<ReviewQuestion[]> {
+  const { data, error } = await client.rpc("get_admin_attempt_review", { p_attempt_id: attemptId })
+  if (error) throw error
+  return asRows(data).map((row) => ({
+    id: asString(row.question_id),
+    position: asNumber(row.position),
+    section: asString(row.section) as Section,
+    question: asString(row.question),
+    options: row.options ? asOptions(row.options) : null,
+    passage: row.passage ? asString(row.passage) : undefined,
+    maxAudioPlays: 2,
+    answerType: asString(row.answer_type || "multiple_choice") as ReviewQuestion["answerType"],
+    selectedIndex: row.selected_index === null ? undefined : asNumber(row.selected_index),
+    correctIndex: row.correct_index === null || row.correct_index === undefined ? undefined : asNumber(row.correct_index),
+    explanation: asString(row.explanation || ""),
+    answerText: row.answer_text ? asString(row.answer_text) : undefined,
+    writingScore: row.writing_score !== null && row.writing_score !== undefined ? asNumber(row.writing_score) : undefined,
+    writingFeedback: row.writing_feedback || undefined,
+    speakingScore: row.speaking_score !== null && row.speaking_score !== undefined ? asNumber(row.speaking_score) : undefined,
+    speakingFeedback: row.speaking_feedback || undefined,
+    audioStoragePath: row.audio_storage_path ? asString(row.audio_storage_path) : undefined,
+  }))
+}
+
+export async function adminUpsertQuestion(client: SupabaseClient, questionData: Record<string, unknown>): Promise<string> {
+  const { data, error } = await client.rpc("admin_upsert_question", questionData)
+  if (error) throw error
+  return asString(data)
+}

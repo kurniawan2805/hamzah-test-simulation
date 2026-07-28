@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import type { SessionResult } from '../types'
+import type { Question, SessionResult } from '../types'
 
 export interface CloudSessionBackup {
   currentIndex: number
@@ -23,6 +23,9 @@ interface ExamState {
   viewedQuestionIds: string[]
   audioPlays: Record<string, number>
   history: SessionResult[]
+  customQuestions: Question[]
+  saveCustomQuestion: (question: Question) => void
+  deleteCustomQuestion: (id: string) => void
   cloudBackups: Record<string, CloudSessionBackup>
   startExam: (examId: string, durationMinutes: number) => void
   setCurrentIndex: (index: number, questionId: string) => void
@@ -61,6 +64,9 @@ export const useExamStore = create<ExamState>()(
     (set, get) => ({
       ...emptySession,
       history: [],
+      customQuestions: [],
+      saveCustomQuestion: (q) => set((state) => ({ customQuestions: [...state.customQuestions.filter((item) => item.id !== q.id), q] })),
+      deleteCustomQuestion: (id) => set((state) => ({ customQuestions: state.customQuestions.filter((item) => item.id !== id) })),
       cloudBackups: {},
       startExam: (examId, durationMinutes) => {
         const now = Date.now()
@@ -146,6 +152,7 @@ export const useExamStore = create<ExamState>()(
           viewedQuestionIds: state.viewedQuestionIds,
           audioPlays: state.audioPlays,
           history: state.history,
+          customQuestions: state.customQuestions,
           cloudBackups: state.cloudBackups,
         }),
     },

@@ -12,7 +12,7 @@ import {
   useNavigate,
 } from '@tanstack/react-router'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Headphones, History, PlayCircle, Send, ShieldCheck, TimerReset, TriangleAlert } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Headphones, History, PlayCircle, Save, Search, Send, ShieldCheck, Sparkles, TimerReset, TriangleAlert, User, Users, X } from 'lucide-react'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
 import { SpeakingRecorder } from './components/speaking-recorder'
@@ -34,8 +34,13 @@ import {
   type CloudAttempt,
   type PublicQuestion,
   type PublishedExam,
+  type ReviewQuestion,
+  getAdminAllAttempts,
+  getAdminAttemptReview,
+  adminUpsertQuestion,
+  type AdminAttempt,
 } from './lib/exam-api'
-import { AccountMenu } from './lib/auth'
+import { AccountMenu, useAppAuth } from './lib/auth'
 import { AUDIO_BUCKET } from './lib/audio-assets'
 import { calculateRemainingSeconds } from './lib/scoring'
 import { posthog } from './lib/posthog'
@@ -72,45 +77,647 @@ function useClient() {
 function CloudDashboardPage() {
   const client = useClient()
   const navigate = useNavigate()
+  const auth = useAppAuth()
+  const isAdmin = auth.role === "admin"
+
   const [exams, setExams] = useState<PublishedExam[]>([])
   const [attempts, setAttempts] = useState<CloudAttempt[]>([])
-  const [error, setError] = useState('')
+  const [adminAttempts, setAdminAttempts] = useState<AdminAttempt[]>([])
+  const [error, setError] = useState("")
+
+  const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank">("packages")
+  const [searchTerm, setSearchTerm] = useState("")
+  const [inspectAttemptId, setInspectAttemptId] = useState<string | null>(null)
+  const [inspectQuestions, setInspectQuestions] = useState<ReviewQuestion[]>([])
+
+  // Admin Question Form state
+  const [draft, setDraft] = useState({
+    examVersionId: "",
+    position: 1,
+    section: "reading" as Section,
+    question: "",
+    options: ["", "", "", ""],
+    correctIndex: 0,
+    explanation: "",
+    passage: "",
+    audioPath: "",
+  })
+  const [formMsg, setFormMsg] = useState("")
 
   useEffect(() => {
     void Promise.all([
       getPublishedExams(client),
-      client.from('attempts').select('id, exam_version_id, state, started_at, ends_at, completed_at, score, correct_count, total_questions, cefr, section_scores, finish_reason').order('created_at', { ascending: false }).limit(8),
+      client.from("attempts").select("id, exam_version_id, state, started_at, ends_at, completed_at, score, correct_count, total_questions, cefr, section_scores, finish_reason").order("created_at", { ascending: false }).limit(20),
     ]).then(([published, response]) => {
       if (response.error) throw response.error
       setExams(published)
+      if (published.length > 0) {
+        setDraft((prev) => ({ ...prev, examVersionId: published[0].id }))
+      }
       setAttempts((response.data ?? []).map((row: Record<string, unknown>) => ({
-        id: String(row.id), examVersionId: String(row.exam_version_id), state: row.state as CloudAttempt['state'],
+        id: String(row.id), examVersionId: String(row.exam_version_id), state: row.state as CloudAttempt["state"],
         startedAt: String(row.started_at), endsAt: String(row.ends_at), completedAt: row.completed_at ?? undefined,
         score: row.score ?? undefined, correctCount: row.correct_count ?? undefined, totalQuestions: row.total_questions ?? undefined,
-        cefr: row.cefr as CloudAttempt['cefr'] | undefined, sectionScores: row.section_scores as CloudAttempt['sectionScores'], finishReason: row.finish_reason as CloudAttempt['finishReason'] | undefined,
+        cefr: row.cefr as CloudAttempt["cefr"] | undefined, sectionScores: row.section_scores as CloudAttempt["sectionScores"], finishReason: row.finish_reason as CloudAttempt["finishReason"] | undefined,
       })))
-    }).catch((reason: unknown) => setError(reason instanceof Error ? reason.message : 'Paket ujian belum dapat dimuat.'))
+    }).catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Paket ujian belum dapat dimuat."))
   }, [client])
 
-  const activeAttempt = attempts.find((attempt) => attempt.state === 'active' && new Date(attempt.endsAt).getTime() > Date.now())
-  const activeExam = exams.find((exam) => exam.id === activeAttempt?.examVersionId)
-  const latestScore = attempts.find((attempt) => attempt.state !== 'active')
+  useEffect(() => {
+    if (isAdmin) {
+      void getAdminAllAttempts(client).then(setAdminAttempts).catch(() => {})
+    }
+  }, [client, isAdmin])
 
-  return <main className="min-h-dvh bg-[#F8FAFC] text-slate-900">
-    <header className="border-b border-slate-200/80 bg-white"><div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8"><Brand /><AccountMenu /></div></header>
-    <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
-      <section className="grid gap-7 rounded-[28px] bg-[#006C35] px-7 py-9 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)] md:grid-cols-[1.25fr_0.75fr] md:px-10">
-        <div><p className="inline-flex rounded-full bg-white/12 px-3 py-1.5 text-sm font-semibold text-emerald-50">CBT mandiri · tersimpan di akunmu</p><h1 className="mt-5 max-w-xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">Bangun kesiapanmu sebelum Hamza Test.</h1><p className="mt-4 max-w-xl leading-7 text-emerald-50/85 text-pretty">Latih ritme ujian yang fokus: waktu terbatas, audio berkuota, dan analisis kompetensi.</p>
-          {activeAttempt ? <button onClick={() => { posthog.capture('exam_resumed', { attempt_id: activeAttempt.id, mode: 'cloud' }); navigate({ to: '/exam/$attemptId', params: { attemptId: activeAttempt.id } }) }} className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#006C35] active:scale-[0.96]"><TimerReset size={18} />Lanjutkan {activeExam?.title ?? 'ujian'}<ArrowRight size={17} /></button> : null}
+  useEffect(() => {
+    if (inspectAttemptId) {
+      const fetchReview = isAdmin ? getAdminAttemptReview(client, inspectAttemptId) : getAttemptReview(client, inspectAttemptId)
+      void fetchReview.then(setInspectQuestions).catch(() => setInspectQuestions([]))
+    }
+  }, [client, inspectAttemptId, isAdmin])
+
+  const activeAttempt = attempts.find((attempt) => attempt.state === "active" && new Date(attempt.endsAt).getTime() > Date.now())
+  const activeExam = exams.find((exam) => exam.id === activeAttempt?.examVersionId)
+  const completedAttempts = attempts.filter((a) => a.state !== "active")
+  const latestScore = completedAttempts[0]
+
+  const totalSessions = completedAttempts.length
+  const avgScore = totalSessions > 0 ? Math.round(completedAttempts.reduce((acc, a) => acc + (a.score || 0), 0) / totalSessions) : 0
+  const maxScore = totalSessions > 0 ? Math.max(...completedAttempts.map((a) => a.score || 0)) : 0
+
+  const filteredMyHistory = completedAttempts.filter((a) => {
+    const dateStr = formatDate(a.completedAt).toLowerCase()
+    return dateStr.includes(searchTerm.toLowerCase()) || String(a.score || "").includes(searchTerm)
+  })
+
+  const filteredAllAttempts = adminAttempts.filter((a) => {
+    const term = searchTerm.toLowerCase()
+    return a.userId.toLowerCase().includes(term) || a.examTitle.toLowerCase().includes(term) || String(a.score || "").includes(term)
+  })
+
+  const handleAdminSaveQuestion = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!draft.question.trim() || draft.options.some((o) => !o.trim()) || !draft.explanation.trim() || !draft.examVersionId) {
+      setFormMsg("Lengkapi ID versi paket, pertanyaan Arab, 4 opsi, dan pembahasan.")
+      return
+    }
+    try {
+      await adminUpsertQuestion(client, {
+        p_exam_version_id: draft.examVersionId,
+        p_position: draft.position,
+        p_section: draft.section,
+        p_question: draft.question.trim(),
+        p_options: draft.options,
+        p_correct_index: draft.correctIndex,
+        p_explanation: draft.explanation.trim(),
+        p_passage: draft.passage.trim() || null,
+        p_audio_path: draft.audioPath.trim() || null,
+      })
+      setFormMsg("Soal berhasil disimpan ke database cloud!")
+      setDraft((prev) => ({ ...prev, question: "", options: ["", "", "", ""], explanation: "", passage: "", position: prev.position + 1 }))
+      setTimeout(() => setFormMsg(""), 3000)
+    } catch (err) {
+      setFormMsg(err instanceof Error ? err.message : "Gagal menyimpan soal ke cloud DB.")
+    }
+  }
+
+  return (
+    <main className="min-h-dvh bg-[#F8FAFC] text-slate-900">
+      <header className="border-b border-slate-200/80 bg-white sticky top-0 z-20">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+          <Brand />
+          <AccountMenu />
         </div>
-        <div className="grid content-end gap-3 sm:grid-cols-3 md:grid-cols-1"><Metric icon={<Clock3 size={19} />} label="Sesi tersimpan" value={`${attempts.length} attempt`} /><Metric icon={<BookOpenCheck size={19} />} label="Paket terbit" value={`${exams.length} paket`} /><Metric icon={<Headphones size={19} />} label="Audio" value="Maks. 2x" /></div>
-      </section>
-      {error ? <p className="mt-6 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p> : null}
-      <section className="mt-10 grid gap-6 lg:grid-cols-[1.4fr_0.6fr]"><div className="rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] sm:p-7"><p className="text-sm font-bold text-[#006C35]">Paket tersedia</p><h2 className="mt-1 text-xl font-bold">Pilih format latihan</h2><div className="mt-6 grid gap-3">{exams.map((exam) => <article key={exam.id} className="rounded-2xl border border-[#E6F0EB] bg-[#FCFFFD] p-5"><div className="flex flex-wrap items-center justify-between gap-4"><div><h3 className="font-bold">{exam.title}</h3><p className="mt-1 text-sm text-slate-600">{exam.subtitle}</p></div><button onClick={() => navigate({ to: '/instructions/$versionId', params: { versionId: exam.id } })} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white active:scale-[0.96]"><PlayCircle size={17} />Mulai</button></div><p className="mt-4 text-sm text-slate-600"><Clock3 className="mr-2 inline size-4" />{exam.durationMinutes} menit · Full Test</p></article>)}</div></div>
-        <aside className="rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] sm:p-7"><div className="flex items-center gap-3"><span className="grid size-10 place-items-center rounded-xl bg-[#FFF7E8] text-[#C5A059]"><History size={20} /></span><div><p className="text-sm font-bold">Riwayat terakhir</p><p className="text-xs text-slate-500">Tersimpan di akun</p></div></div>{latestScore ? <div className="mt-7"><p className="text-4xl font-bold tabular-nums text-[#006C35]">{latestScore.score}</p><p className="mt-1 text-sm text-slate-500">{formatDate(latestScore.completedAt)}</p><span className="mt-3 inline-block rounded-lg bg-[#E6F0EB] px-3 py-1.5 text-sm font-bold text-[#006C35]">CEFR {latestScore.cefr}</span></div> : <p className="mt-7 rounded-2xl bg-slate-50 p-4 text-sm leading-6 text-slate-500">Belum ada hasil ujian.</p>}</aside></section>
-    </div>
-  </main>
+      </header>
+
+      <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-10">
+        {/* KPI Banner / Metrics Summary */}
+        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100">
+            <div className="flex items-center justify-between text-slate-500">
+              <span className="text-xs font-bold uppercase tracking-wider">Total Sesi</span>
+              <span className="grid size-9 place-items-center rounded-xl bg-[#E6F0EB] text-[#006C35]"><History size={18} /></span>
+            </div>
+            <p className="mt-3 text-3xl font-bold tabular-nums text-slate-900">{totalSessions}</p>
+            <p className="mt-1 text-xs text-slate-500">Sesi ujian cloud tersimpan</p>
+          </div>
+
+          <div className="rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100">
+            <div className="flex items-center justify-between text-slate-500">
+              <span className="text-xs font-bold uppercase tracking-wider">Rata-rata Skor</span>
+              <span className="grid size-9 place-items-center rounded-xl bg-blue-50 text-blue-600"><Sparkles size={18} /></span>
+            </div>
+            <p className="mt-3 text-3xl font-bold tabular-nums text-slate-900">{avgScore}</p>
+            <p className="mt-1 text-xs text-slate-500">Nilai rata-rata akunmu</p>
+          </div>
+
+          <div className="rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100">
+            <div className="flex items-center justify-between text-slate-500">
+              <span className="text-xs font-bold uppercase tracking-wider">Skor Tertinggi</span>
+              <span className="grid size-9 place-items-center rounded-xl bg-[#FFF7E8] text-[#C5A059]"><BookOpenCheck size={18} /></span>
+            </div>
+            <p className="mt-3 text-3xl font-bold tabular-nums text-[#006C35]">{maxScore}</p>
+            <p className="mt-1 text-xs text-slate-500">Hasil pengerjaan terbaik</p>
+          </div>
+
+          <div className="rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100">
+            <div className="flex items-center justify-between text-slate-500">
+              <span className="text-xs font-bold uppercase tracking-wider">Level Terbaru</span>
+              <span className="grid size-9 place-items-center rounded-xl bg-emerald-50 text-[#006C35]"><ShieldCheck size={18} /></span>
+            </div>
+            <p className="mt-3 text-3xl font-bold tabular-nums text-slate-900">{latestScore ? `CEFR ${latestScore.cefr}` : "—"}</p>
+            <p className="mt-1 text-xs text-slate-500">{latestScore ? formatDate(latestScore.completedAt) : "Belum ada sesi"}</p>
+          </div>
+        </section>
+
+        {/* Unified Navigation Tabs */}
+        <div className="mt-8 flex flex-wrap items-center gap-2 border-b border-slate-200/80 pb-3">
+          <button
+            type="button"
+            onClick={() => setActiveTab("packages")}
+            className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
+              activeTab === "packages" ? "bg-[#006C35] text-white shadow-sm" : "bg-white text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <PlayCircle size={17} /> Format Ujian
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab("my_history")}
+            className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
+              activeTab === "my_history" ? "bg-[#006C35] text-white shadow-sm" : "bg-white text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <History size={17} /> Riwayat Saya {completedAttempts.length > 0 && <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs tabular-nums">{completedAttempts.length}</span>}
+          </button>
+
+          {isAdmin && (
+            <>
+              <div className="h-5 w-px bg-slate-300 mx-1 hidden sm:block" />
+              <button
+                type="button"
+                onClick={() => setActiveTab("all_history")}
+                className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
+                  activeTab === "all_history" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100"
+                }`}
+              >
+                <Users size={17} /> History Semua User
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveTab("user_mgmt")}
+                className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
+                  activeTab === "user_mgmt" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100"
+                }`}
+              >
+                <User size={17} /> Manajemen User
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveTab("question_bank")}
+                className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
+                  activeTab === "question_bank" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100"
+                }`}
+              >
+                <BookOpenCheck size={17} /> Input & Revisi Soal
+              </button>
+            </>
+          )}
+        </div>
+
+        {error ? <p className="mt-6 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p> : null}
+
+        {/* Tab 1: Format Ujian */}
+        {activeTab === "packages" && (
+          <div className="mt-6 space-y-8">
+            <section className="grid gap-7 rounded-[28px] bg-[#006C35] px-7 py-9 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)] md:grid-cols-[1.25fr_0.75fr] md:px-10">
+              <div>
+                <p className="inline-flex rounded-full bg-white/12 px-3 py-1.5 text-sm font-semibold text-emerald-50">CBT mandiri · tersimpan di akunmu</p>
+                <h1 className="mt-5 max-w-xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">Bangun kesiapanmu sebelum Hamza Test.</h1>
+                <p className="mt-4 max-w-xl leading-7 text-emerald-50/85 text-pretty">Latih ritme ujian yang fokus: waktu terbatas, audio berkuota, dan analisis kompetensi.</p>
+                {activeAttempt ? (
+                  <button
+                    onClick={() => {
+                      posthog.capture("exam_resumed", { attempt_id: activeAttempt.id, mode: "cloud" })
+                      navigate({ to: "/exam/$attemptId", params: { attemptId: activeAttempt.id } })
+                    }}
+                    className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#006C35] transition-transform active:scale-[0.96]"
+                  >
+                    <TimerReset size={18} /> Lanjutkan {activeExam?.title ?? "ujian"} <ArrowRight size={17} />
+                  </button>
+                ) : null}
+              </div>
+              <div className="grid content-end gap-3 sm:grid-cols-3 md:grid-cols-1">
+                <Metric icon={<Clock3 size={19} />} label="Sesi tersimpan" value={`${attempts.length} attempt`} />
+                <Metric icon={<BookOpenCheck size={19} />} label="Paket terbit" value={`${exams.length} paket`} />
+                <Metric icon={<Headphones size={19} />} label="Audio" value="Maks. 2x" />
+              </div>
+            </section>
+
+            <section className="grid gap-6 lg:grid-cols-[1.4fr_0.6fr]">
+              <div className="rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100 sm:p-7">
+                <p className="text-sm font-bold text-[#006C35]">Paket tersedia</p>
+                <h2 className="mt-1 text-xl font-bold">Pilih format latihan</h2>
+                <div className="mt-6 grid gap-3">
+                  {exams.map((exam) => (
+                    <article key={exam.id} className="rounded-2xl border border-[#E6F0EB] bg-[#FCFFFD] p-5">
+                      <div className="flex flex-wrap items-center justify-between gap-4">
+                        <div>
+                          <h3 className="font-bold">{exam.title}</h3>
+                          <p className="mt-1 text-sm text-slate-600">{exam.subtitle}</p>
+                        </div>
+                        <button
+                          onClick={() => navigate({ to: "/instructions/$versionId", params: { versionId: exam.id } })}
+                          className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-transform active:scale-[0.96]"
+                        >
+                          <PlayCircle size={17} /> Mulai
+                        </button>
+                      </div>
+                      <p className="mt-4 text-sm text-slate-600">
+                        <Clock3 className="mr-2 inline size-4" /> {exam.durationMinutes} menit · Full Test
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+
+              <aside className="rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100 sm:p-7">
+                <div className="flex items-center gap-3">
+                  <span className="grid size-10 place-items-center rounded-xl bg-[#FFF7E8] text-[#C5A059]"><History size={20} /></span>
+                  <div>
+                    <p className="text-sm font-bold">Riwayat terakhir</p>
+                    <p className="text-xs text-slate-500">Tersimpan di akun cloud</p>
+                  </div>
+                </div>
+                {latestScore ? (
+                  <div className="mt-7">
+                    <p className="text-4xl font-bold tabular-nums text-[#006C35]">{latestScore.score}</p>
+                    <p className="mt-1 text-sm text-slate-500">{formatDate(latestScore.completedAt)}</p>
+                    <div className="mt-4 flex gap-2">
+                      <span className="rounded-lg bg-[#E6F0EB] px-3 py-1.5 text-sm font-bold text-[#006C35]">CEFR {latestScore.cefr}</span>
+                      <button
+                        onClick={() => navigate({ to: "/review/$attemptId", params: { attemptId: latestScore.id } })}
+                        className="rounded-lg border border-[#006C35] px-3 py-1.5 text-sm font-bold text-[#006C35] transition-transform active:scale-[0.96]"
+                      >
+                        Pembahasan
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="mt-7 rounded-2xl bg-slate-50 p-4 text-sm leading-6 text-slate-500">Belum ada hasil ujian.</p>
+                )}
+              </aside>
+            </section>
+          </div>
+        )}
+
+        {/* Tab 2: Riwayat Ujian Saya */}
+        {activeTab === "my_history" && (
+          <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100 sm:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h2 className="text-xl font-bold text-slate-900">Riwayat Ujian Saya</h2>
+                <p className="mt-1 text-sm text-slate-600">Daftar sesi latihan yang tersimpan di akun cloud kamu.</p>
+              </div>
+              <div className="relative w-full sm:w-64">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={17} />
+                <input
+                  type="text"
+                  placeholder="Cari tanggal/skor..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 pl-9 pr-4 py-2 text-sm focus:border-[#006C35] focus:outline-none"
+                />
+              </div>
+            </div>
+
+            {filteredMyHistory.length === 0 ? (
+              <div className="mt-8 rounded-2xl bg-slate-50 p-8 text-center text-sm text-slate-500">
+                <History className="mx-auto text-slate-400 mb-2" size={32} />
+                {completedAttempts.length === 0 ? "Belum ada riwayat ujian cloud tersimpan." : "Tidak ditemukan riwayat yang sesuai."}
+              </div>
+            ) : (
+              <div className="mt-6 overflow-x-auto">
+                <table className="w-full text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-200 text-xs font-bold uppercase text-slate-500">
+                      <th className="py-3 px-4">Tanggal Selesai</th>
+                      <th className="py-3 px-4 text-center">Jawaban Benar</th>
+                      <th className="py-3 px-4 text-center">Skor Akhir</th>
+                      <th className="py-3 px-4 text-center">Level CEFR</th>
+                      <th className="py-3 px-4 text-right">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {filteredMyHistory.map((item) => (
+                      <tr key={item.id} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="py-4 px-4 font-medium text-slate-900 tabular-nums">{formatDate(item.completedAt)}</td>
+                        <td className="py-4 px-4 text-center tabular-nums font-semibold text-slate-600">{item.correctCount} / {item.totalQuestions}</td>
+                        <td className="py-4 px-4 text-center font-bold tabular-nums text-lg text-[#006C35]">{item.score}</td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="inline-block rounded-lg bg-[#E6F0EB] px-2.5 py-1 text-xs font-bold text-[#006C35]">{item.cefr}</span>
+                        </td>
+                        <td className="py-4 px-4 text-right">
+                          <button
+                            type="button"
+                            onClick={() => navigate({ to: "/review/$attemptId", params: { attemptId: item.id } })}
+                            className="inline-flex items-center gap-1.5 rounded-lg bg-[#006C35] px-3 py-1.5 text-xs font-bold text-white transition-transform active:scale-[0.96]"
+                          >
+                            <BookOpenCheck size={14} /> Lihat Pembahasan
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Tab 3 (Admin): History Semua User */}
+        {isAdmin && activeTab === "all_history" && (
+          <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] border border-amber-100 sm:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Portal Admin Supabase</div>
+                <h2 className="text-xl font-bold text-slate-900">History Semua Peserta</h2>
+                <p className="mt-1 text-sm text-slate-600">Daftar seluruh pengerjaan ujian peserta di database cloud.</p>
+              </div>
+              <div className="relative w-full sm:w-64">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={17} />
+                <input
+                  type="text"
+                  placeholder="Cari user ID/skor/paket..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 pl-9 pr-4 py-2 text-sm focus:border-amber-600 focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-slate-200 text-xs font-bold uppercase text-slate-500">
+                    <th className="py-3 px-4">User ID / Email</th>
+                    <th className="py-3 px-4">Paket Ujian</th>
+                    <th className="py-3 px-4">Tanggal</th>
+                    <th className="py-3 px-4 text-center">Benar</th>
+                    <th className="py-3 px-4 text-center">Skor</th>
+                    <th className="py-3 px-4 text-center">CEFR</th>
+                    <th className="py-3 px-4 text-right">Aksi Admin</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {filteredAllAttempts.map((item) => (
+                    <tr key={item.id} className="hover:bg-amber-50/30 transition-colors">
+                      <td className="py-4 px-4 font-mono text-xs font-semibold text-slate-800">{item.userId}</td>
+                      <td className="py-4 px-4 font-semibold text-slate-700">{item.examTitle}</td>
+                      <td className="py-4 px-4 font-medium text-slate-600 tabular-nums">{formatDate(item.completedAt)}</td>
+                      <td className="py-4 px-4 text-center tabular-nums text-slate-600">{item.correctCount} / {item.totalQuestions}</td>
+                      <td className="py-4 px-4 text-center font-bold tabular-nums text-lg text-amber-800">{item.score}</td>
+                      <td className="py-4 px-4 text-center">
+                        <span className="inline-block rounded-lg bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900">{item.cefr}</span>
+                      </td>
+                      <td className="py-4 px-4 text-right">
+                        <button
+                          type="button"
+                          onClick={() => setInspectAttemptId(item.id)}
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-amber-800 px-3 py-1.5 text-xs font-bold text-white transition-transform active:scale-[0.96]"
+                        >
+                          <BookOpenCheck size={14} /> Inspeksi Jawaban
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {/* Tab 4 (Admin): Manajemen User */}
+        {isAdmin && activeTab === "user_mgmt" && (
+          <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] border border-amber-100 sm:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Portal Admin Supabase</div>
+                <h2 className="text-xl font-bold text-slate-900">Manajemen User & Hak Akses</h2>
+                <p className="mt-1 text-sm text-slate-600">Pengaturan role admin dan peserta terdaftar.</p>
+              </div>
+            </div>
+
+            <div className="mt-6 rounded-2xl bg-amber-50/50 p-5 border border-amber-200">
+              <h3 className="font-bold text-amber-900">Status Akun Terhubung</h3>
+              <p className="mt-1 text-sm text-amber-800">
+                Akun aktif: <strong className="font-semibold">{auth.displayName}</strong> | Role terdeteksi: <strong className="uppercase font-bold">{auth.role}</strong>
+              </p>
+              <button
+                type="button"
+                onClick={() => auth.setRole(auth.role === "admin" ? "user" : "admin")}
+                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-amber-800 px-4 py-2 text-xs font-bold text-white transition-transform active:scale-[0.96]"
+              >
+                Ganti Role Pengujian (Simulasi Local/Cloud)
+              </button>
+            </div>
+          </section>
+        )}
+
+        {/* Tab 5 (Admin): Input & Revisi Soal */}
+        {isAdmin && activeTab === "question_bank" && (
+          <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] border border-amber-100 sm:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+              <div>
+                <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Editor DB Supabase</div>
+                <h2 className="text-xl font-bold text-slate-900">Input / Revisi Soal Cloud</h2>
+                <p className="mt-1 text-sm text-slate-600">Tambah atau perbarui soal ke tabel `exam_questions` dan `private.exam_answer_keys`.</p>
+              </div>
+            </div>
+
+            <form onSubmit={handleAdminSaveQuestion} className="mt-6 space-y-4 rounded-2xl border border-slate-200 bg-slate-50/50 p-6">
+              <div className="grid gap-4 sm:grid-cols-3">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Paket Ujian
+                  <select
+                    value={draft.examVersionId}
+                    onChange={(e) => setDraft({ ...draft, examVersionId: e.target.value })}
+                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
+                  >
+                    {exams.map((ex) => (
+                      <option key={ex.id} value={ex.id}>{ex.title} (ID: {ex.id.slice(0, 8)}...)</option>
+                    ))}
+                  </select>
+                </label>
+
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Nomor Posisi
+                  <input
+                    type="number"
+                    min={1}
+                    value={draft.position}
+                    onChange={(e) => setDraft({ ...draft, position: parseInt(e.target.value, 10) || 1 })}
+                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
+                  />
+                </label>
+
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Seksi / Kompetensi
+                  <select
+                    value={draft.section}
+                    onChange={(e) => setDraft({ ...draft, section: e.target.value as Section })}
+                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
+                  >
+                    <option value="listening">Istima’ (Listening)</option>
+                    <option value="reading">Qira’ah (Reading)</option>
+                    <option value="grammar">Tarkib (Grammar)</option>
+                    <option value="structures">Tarākīb (Structures)</option>
+                    <option value="writing">Kitābah (Writing)</option>
+                    <option value="speaking">Muḥādatsah (Speaking)</option>
+                  </select>
+                </label>
+              </div>
+
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Pertanyaan Bahasa Arab (RTL)
+                <textarea
+                  dir="rtl"
+                  value={draft.question}
+                  onChange={(e) => setDraft({ ...draft, question: e.target.value })}
+                  placeholder="أدخل نص السؤال هنا..."
+                  className="font-arabic mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-lg text-right"
+                />
+              </label>
+
+              <fieldset>
+                <legend className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Opsi Jawaban & Radio Kunci
+                </legend>
+                <div className="mt-2 space-y-2.5">
+                  {draft.options.map((opt, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="correct_index_cloud"
+                        checked={draft.correctIndex === i}
+                        onChange={() => setDraft({ ...draft, correctIndex: i })}
+                        className="size-4 accent-[#006C35]"
+                      />
+                      <span className="text-xs font-bold text-slate-500 w-5">{optionLetters[i]}</span>
+                      <input
+                        dir="rtl"
+                        value={opt}
+                        onChange={(e) => {
+                          const newOpts = [...draft.options]
+                          newOpts[i] = e.target.value
+                          setDraft({ ...draft, options: newOpts })
+                        }}
+                        placeholder={`Opsi ${i + 1}`}
+                        className="font-arabic min-h-10 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-right"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </fieldset>
+
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Pembahasan Kunci
+                <textarea
+                  value={draft.explanation}
+                  onChange={(e) => setDraft({ ...draft, explanation: e.target.value })}
+                  placeholder="Pembahasan lengkap kunci jawaban..."
+                  className="mt-1.5 min-h-20 w-full rounded-xl border border-slate-200 bg-white p-3 text-sm"
+                />
+              </label>
+
+              {formMsg ? <p className="rounded-xl bg-amber-100 p-3 text-xs font-bold text-amber-900">{formMsg}</p> : null}
+
+              <button
+                type="submit"
+                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-6 text-sm font-bold text-white transition-transform active:scale-[0.96]"
+              >
+                <Save size={17} /> Simpan ke Supabase Cloud DB
+              </button>
+            </form>
+          </section>
+        )}
+      </div>
+
+      {/* Inspect Attempt Modal */}
+      {inspectAttemptId && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 overflow-y-auto">
+          <div className="relative w-full max-w-3xl rounded-3xl bg-white p-6 shadow-2xl max-h-[90dvh] overflow-y-auto sm:p-8">
+            <button
+              type="button"
+              onClick={() => setInspectAttemptId(null)}
+              className="absolute right-5 top-5 rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="border-b border-slate-100 pb-4">
+              <span className="rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900">Inspeksi Jawaban Peserta (Admin)</span>
+              <h2 className="mt-2 text-2xl font-bold text-slate-900">Detail Attempt ID: {inspectAttemptId.slice(0, 8)}...</h2>
+            </div>
+
+            <div className="mt-6 space-y-4">
+              {inspectQuestions.map((q: ReviewQuestion, idx: number) => (
+                <div key={q.id || idx} className="rounded-2xl border border-slate-200 p-4">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-2 mb-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#006C35]">Soal {q.position || idx + 1} · {q.section}</span>
+                    <span className={`text-xs font-bold rounded-lg px-2.5 py-1 ${q.selectedIndex === q.correctIndex ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
+                      {q.selectedIndex === q.correctIndex ? "Benar" : "Salah / Berbeda"}
+                    </span>
+                  </div>
+                  <p dir="rtl" className="font-arabic text-right text-lg leading-8 text-slate-900 mb-3">{q.question}</p>
+                  <div className="grid gap-2">
+                    {(q.options || []).map((opt: string, oIdx: number) => {
+                      const isCorrectKey = oIdx === q.correctIndex
+                      const isUserChoice = oIdx === q.selectedIndex
+                      return (
+                        <div
+                          key={oIdx}
+                          dir="rtl"
+                          className={`flex items-center justify-between rounded-xl border p-3 font-arabic text-base ${
+                            isCorrectKey ? "border-green-300 bg-green-50 text-green-900 font-bold" : isUserChoice ? "border-red-300 bg-red-50 text-red-900" : "border-slate-100 text-slate-700"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="grid size-6 place-items-center rounded bg-white text-xs font-bold font-sans shadow-sm">{optionLetters[oIdx]}</span>
+                            <span>{opt}</span>
+                          </div>
+                          {isCorrectKey && <Check className="size-4 text-green-700 font-sans" />}
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <div className="mt-3 rounded-xl bg-[#FFFBF4] border border-amber-100 p-3 text-xs leading-6 text-slate-700">
+                    <span className="font-bold text-[#8A5A12]">Pembahasan: </span>
+                    {q.explanation}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setInspectAttemptId(null)}
+                className="rounded-xl bg-[#006C35] px-5 py-2.5 text-sm font-bold text-white transition-transform active:scale-[0.96]"
+              >
+                Tutup Inspeksi
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </main>
+  )
 }
+
 
 function CloudInstructionsPage() {
   const client = useClient(); const { versionId } = instructionsRoute.useParams(); const navigate = useNavigate(); const [exam, setExam] = useState<PublishedExam | null>(null); const [starting, setStarting] = useState(false); const [error, setError] = useState('')
@@ -162,11 +769,11 @@ function CloudExamPage() {
           console.log('AI grading result:', result.value)
         }
       }
-      posthog.capture('exam_submitted', { attempt_id: attemptId, mode: 'cloud', answered_count: answeredCount, total_questions: questions.length })
+      posthog.capture('exam_submitted', { attempt_id: attemptId, mode: 'cloud', total_questions: questions.length })
     } finally {
       navigate({ to: '/results/$attemptId', params: { attemptId }, replace: true })
     } 
-  }, [attemptId, client, navigate])
+  }, [attemptId, client, navigate, questions.length])
 
   useEffect(() => { 
     if (!attempt) return
