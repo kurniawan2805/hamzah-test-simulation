@@ -198,7 +198,12 @@ function CloudExamPage() {
     (item.audioStoragePath && item.audioStoragePath.trim().length > 0)
   ).length
 
-  const persist = useCallback(async (selectedIndex: number | undefined, bookmarked = answer?.bookmarked ?? false, answerText?: string, audioStoragePath?: string) => {
+  const persist = useCallback(async (
+    selectedIndex: number | undefined = answer?.selectedIndex,
+    bookmarked = answer?.bookmarked ?? false,
+    answerText: string | undefined = answer?.answerText,
+    audioStoragePath: string | undefined = answer?.audioStoragePath
+  ) => {
     if (!question) return
     const next = { 
       questionId: question.id, 
@@ -216,7 +221,7 @@ function CloudExamPage() {
     } catch { 
       /* The persisted backup is retried after the next reload. */ 
     }
-  }, [answer?.audioPlayCount, answer?.bookmarked, answer?.viewedAt, attemptId, client, question])
+  }, [answer, attemptId, client, question])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
