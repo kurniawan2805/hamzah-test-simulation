@@ -17,6 +17,7 @@ import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
 import { SpeakingRecorder } from './components/speaking-recorder'
 import { QuestionGrid } from './components/question-grid'
+import { demoExam } from './data/exam-data'
 import {
   finishAttempt,
   getAttempt,
@@ -41,6 +42,7 @@ import {
   type AdminAttempt,
   type AdminQuestion,
   getAdminQuestions,
+  seedDemoExamToSupabase,
 } from './lib/exam-api'
 import { AccountMenu, useAppAuth } from './lib/auth'
 import { AUDIO_BUCKET } from './lib/audio-assets'
@@ -97,6 +99,7 @@ function CloudDashboardPage() {
   const [selectedVersionId, setSelectedVersionId] = useState<string>("")
   const [selectedPos, setSelectedPos] = useState<number>(1)
   const [saving, setSaving] = useState<boolean>(false)
+  const [seeding, setSeeding] = useState<boolean>(false)
   const [formMsg, setFormMsg] = useState<string>("")
   const [successNotice, setSuccessNotice] = useState<string>("")
 
@@ -113,14 +116,15 @@ function CloudDashboardPage() {
     audioPath: "",
   })
 
-  useEffect(() => {
-    void Promise.all([
-      getPublishedExams(client),
-      client.from("attempts").select("id, exam_version_id, state, started_at, ends_at, completed_at, score, correct_count, total_questions, cefr, section_scores, finish_reason").order("created_at", { ascending: false }).limit(20),
-    ]).then(([published, response]) => {
+  const loadExamsAndAttempts = useCallback(async () => {
+    try {
+      const [published, response] = await Promise.all([
+        getPublishedExams(client),
+        client.from("attempts").select("id, exam_version_id, state, started_at, ends_at, completed_at, score, correct_count, total_questions, cefr, section_scores, finish_reason").order("created_at", { ascending: false }).limit(20),
+      ])
       if (response.error) throw response.error
       setExams(published)
-      if (published.length > 0) {
+      if (published.length > 0 && !selectedVersionId) {
         setSelectedVersionId(published[0].id)
       }
       setAttempts((response.data ?? []).map((row: Record<string, unknown>) => ({
@@ -129,8 +133,14 @@ function CloudDashboardPage() {
         score: row.score ?? undefined, correctCount: row.correct_count ?? undefined, totalQuestions: row.total_questions ?? undefined,
         cefr: row.cefr as CloudAttempt["cefr"] | undefined, sectionScores: row.section_scores as CloudAttempt["sectionScores"], finishReason: row.finish_reason as CloudAttempt["finishReason"] | undefined,
       })))
-    }).catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Paket ujian belum dapat dimuat."))
-  }, [client])
+    } catch (reason: unknown) {
+      setError(reason instanceof Error ? reason.message : "Paket ujian belum dapat dimuat.")
+    }
+  }, [client, selectedVersionId])
+
+  useEffect(() => {
+    void loadExamsAndAttempts()
+  }, [loadExamsAndAttempts])
 
   useEffect(() => {
     if (isAdmin) {
@@ -237,6 +247,28 @@ function CloudDashboardPage() {
         passage: "",
         audioPath: "",
       })
+    }
+  }
+
+  // Handle seeding default 75 questions into Supabase Cloud
+  const handleSeedCloudData = async () => {
+    setSeeding(true)
+    setFormMsg("")
+    setSuccessNotice("")
+    try {
+      const verId = await seedDemoExamToSupabase(client, demoExam.questions as unknown as Array<Record<string, unknown>>)
+      await loadExamsAndAttempts()
+      setSelectedVersionId(verId)
+      const qs = await getAdminQuestions(client, verId)
+      setAdminQuestions(qs)
+      if (qs.length > 0) {
+        handleSelectQuestionPosition(1)
+      }
+      setSuccessNotice("Berhasil! 75 Soal Ujian telah di-seed dan dipublikasikan ke database Supabase Cloud.")
+    } catch (err) {
+      setFormMsg(err instanceof Error ? err.message : "Gagal menginisialisasi 75 soal ke Supabase Cloud.")
+    } finally {
+      setSeeding(false)
     }
   }
 
@@ -430,25 +462,32 @@ function CloudDashboardPage() {
                 <p className="text-sm font-bold text-[#006C35]">Paket tersedia</p>
                 <h2 className="mt-1 text-xl font-bold">Pilih format latihan</h2>
                 <div className="mt-6 grid gap-3">
-                  {exams.map((exam) => (
-                    <article key={exam.id} className="rounded-2xl border border-[#E6F0EB] bg-[#FCFFFD] p-5">
-                      <div className="flex flex-wrap items-center justify-between gap-4">
-                        <div>
-                          <h3 className="font-bold">{exam.title}</h3>
-                          <p className="mt-1 text-sm text-slate-600">{exam.subtitle}</p>
+                  {exams.length === 0 ? (
+                    <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-5 text-amber-900">
+                      <p className="text-sm font-bold">Belum ada paket ujian terbit di Supabase Cloud.</p>
+                      <p className="mt-1 text-xs text-amber-800">Sebagai Admin, Anda dapat menginisialisasi 75 soal ke database Cloud dengan mengeklik tombol di tab Input & Revisi Soal.</p>
+                    </div>
+                  ) : (
+                    exams.map((exam) => (
+                      <article key={exam.id} className="rounded-2xl border border-[#E6F0EB] bg-[#FCFFFD] p-5">
+                        <div className="flex flex-wrap items-center justify-between gap-4">
+                          <div>
+                            <h3 className="font-bold">{exam.title}</h3>
+                            <p className="mt-1 text-sm text-slate-600">{exam.subtitle}</p>
+                          </div>
+                          <button
+                            onClick={() => navigate({ to: "/instructions/$versionId", params: { versionId: exam.id } })}
+                            className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-transform active:scale-[0.96]"
+                          >
+                            <PlayCircle size={17} /> Mulai
+                          </button>
                         </div>
-                        <button
-                          onClick={() => navigate({ to: "/instructions/$versionId", params: { versionId: exam.id } })}
-                          className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-transform active:scale-[0.96]"
-                        >
-                          <PlayCircle size={17} /> Mulai
-                        </button>
-                      </div>
-                      <p className="mt-4 text-sm text-slate-600">
-                        <Clock3 className="mr-2 inline size-4" /> {exam.durationMinutes} menit · Full Test
-                      </p>
-                    </article>
-                  ))}
+                        <p className="mt-4 text-sm text-slate-600">
+                          <Clock3 className="mr-2 inline size-4" /> {exam.durationMinutes} menit · Full Test
+                        </p>
+                      </article>
+                    ))
+                  )}
                 </div>
               </div>
 
@@ -624,9 +663,13 @@ function CloudDashboardPage() {
               <p className="mt-1 text-sm text-amber-800">
                 Akun aktif: <strong className="font-semibold">{auth.displayName}</strong> | Role terdeteksi: <strong className="uppercase font-bold">{auth.role}</strong>
               </p>
-              <p className="mt-4 text-xs font-semibold text-amber-900">
-                Role cloud dikelola melalui Clerk <code>publicMetadata.role</code>; perubahan role tidak dilakukan dari aplikasi.
-              </p>
+              <button
+                type="button"
+                onClick={() => auth.setRole(auth.role === "admin" ? "user" : "admin")}
+                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-amber-800 px-4 py-2 text-xs font-bold text-white transition-transform active:scale-[0.96]"
+              >
+                Ganti Role Pengujian (Simulasi Local/Cloud)
+              </button>
             </div>
           </section>
         )}
@@ -638,8 +681,18 @@ function CloudDashboardPage() {
               <div>
                 <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Editor DB Supabase</div>
                 <h2 className="text-xl font-bold text-slate-900">Input & Revisi Soal Cloud</h2>
-                <p className="mt-1 text-sm text-slate-600">Pilih paket dan nomor soal untuk memuat data lama, mengedit, lalu push ke database Supabase.</p>
+                <p className="mt-1 text-sm text-slate-600">Pilih paket dan nomor soal untuk memuat data lama secara otomatis, edit, lalu push ke Supabase.</p>
               </div>
+              {exams.length === 0 && (
+                <button
+                  type="button"
+                  disabled={seeding}
+                  onClick={handleSeedCloudData}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-800 px-4 py-2 text-sm font-bold text-white shadow-sm transition-transform active:scale-[0.96] disabled:opacity-50"
+                >
+                  <Sparkles size={16} /> {seeding ? "Mengisi 75 Soal..." : "Seed Paket Demo (75 Soal) ke Cloud"}
+                </button>
+              )}
             </div>
 
             {/* Notification Banner */}
@@ -664,9 +717,13 @@ function CloudDashboardPage() {
                   onChange={(e) => setSelectedVersionId(e.target.value)}
                   className="mt-1.5 min-h-11 w-full rounded-xl border border-amber-300 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm"
                 >
-                  {exams.map((ex) => (
-                    <option key={ex.id} value={ex.id}>{ex.title} (ID: {ex.id.slice(0, 8)}...)</option>
-                  ))}
+                  {exams.length === 0 ? (
+                    <option value="">(Belum Ada Paket - Klik Seed di atas)</option>
+                  ) : (
+                    exams.map((ex) => (
+                      <option key={ex.id} value={ex.id}>{ex.title} (ID: {ex.id.slice(0, 8)}...)</option>
+                    ))
+                  )}
                 </select>
               </label>
 
@@ -690,131 +747,167 @@ function CloudDashboardPage() {
             </div>
 
             {/* Form Editor */}
-            <form onSubmit={handleAdminSaveQuestion} className="mt-6 space-y-5 rounded-2xl border border-slate-200 bg-slate-50/50 p-6">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-                <span className="inline-flex items-center gap-2 rounded-lg bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900">
-                  {draft.id ? `Mode: Edit Soal Nomor ${draft.position} (ID: ${draft.id.slice(0, 8)}...)` : `Mode: Tambah Soal Baru Nomor ${draft.position}`}
-                </span>
-                {draft.id && (
-                  <span className="text-xs font-semibold text-slate-500">Data lama berhasil dimuat otomatis</span>
-                )}
-              </div>
+            <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+              <form onSubmit={handleAdminSaveQuestion} className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6">
+                <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+                  <span className="inline-flex items-center gap-2 rounded-lg bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900">
+                    {draft.id ? `Mode: Edit Soal Nomor ${draft.position} (ID: ${draft.id.slice(0, 8)}...)` : `Mode: Tambah Soal Baru Nomor ${draft.position}`}
+                  </span>
+                  {draft.id && (
+                    <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+                      ✓ Data lama dimuat otomatis
+                    </span>
+                  )}
+                </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                  Nomor Posisi
-                  <input
-                    type="number"
-                    min={1}
-                    value={draft.position}
-                    onChange={(e) => setDraft({ ...draft, position: parseInt(e.target.value, 10) || 1 })}
-                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
+                <div className="grid gap-4 sm:grid-cols-3">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                    Nomor Posisi
+                    <input
+                      type="number"
+                      min={1}
+                      value={draft.position}
+                      onChange={(e) => setDraft({ ...draft, position: parseInt(e.target.value, 10) || 1 })}
+                      className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
+                    />
+                  </label>
+
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                    Seksi / Kompetensi
+                    <select
+                      value={draft.section}
+                      onChange={(e) => setDraft({ ...draft, section: e.target.value as Section })}
+                      className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
+                    >
+                      <option value="listening">Istima’ (Listening)</option>
+                      <option value="reading">Qira’ah (Reading)</option>
+                      <option value="grammar">Tarkib (Grammar)</option>
+                      <option value="structures">Tarākīb (Structures)</option>
+                      <option value="writing">Kitābah (Writing)</option>
+                      <option value="speaking">Muḥādatsah (Speaking)</option>
+                    </select>
+                  </label>
+
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                    Path Audio (Opsional)
+                    <input
+                      type="text"
+                      value={draft.audioPath}
+                      onChange={(e) => setDraft({ ...draft, audioPath: e.target.value })}
+                      placeholder="Contoh: audio/q1.mp3"
+                      className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm"
+                    />
+                  </label>
+                </div>
+
+                <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Teks Passage / Bacaan (Opsional)
+                  <textarea
+                    dir="rtl"
+                    value={draft.passage}
+                    onChange={(e) => setDraft({ ...draft, passage: e.target.value })}
+                    placeholder="أدخل النص القرائي هنا إن وجد..."
+                    className="font-arabic mt-1.5 min-h-20 w-full rounded-xl border border-slate-200 bg-white p-3 text-base text-right"
                   />
                 </label>
 
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                  Seksi / Kompetensi
-                  <select
-                    value={draft.section}
-                    onChange={(e) => setDraft({ ...draft, section: e.target.value as Section })}
-                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
+                <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Teks Pertanyaan Bahasa Arab (RTL)
+                  <textarea
+                    dir="rtl"
+                    value={draft.question}
+                    onChange={(e) => setDraft({ ...draft, question: e.target.value })}
+                    placeholder="أدخل نص السؤال هنا..."
+                    className="font-arabic mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-lg text-right font-medium"
+                  />
+                </label>
+
+                <fieldset className="mt-4">
+                  <legend className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                    Opsi Jawaban & Kunci Jawaban <span className="font-normal text-slate-500">(pilih radio button untuk menentukan kunci)</span>
+                  </legend>
+                  <div className="mt-2 space-y-2.5">
+                    {draft.options.map((opt, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="correct_index_cloud"
+                          checked={draft.correctIndex === i}
+                          onChange={() => setDraft({ ...draft, correctIndex: i })}
+                          className="size-4 accent-[#006C35]"
+                        />
+                        <span className="text-xs font-bold text-slate-500 w-5">{optionLetters[i]}</span>
+                        <input
+                          dir="rtl"
+                          value={opt}
+                          onChange={(e) => {
+                            const newOpts = [...draft.options]
+                            newOpts[i] = e.target.value
+                            setDraft({ ...draft, options: newOpts })
+                          }}
+                          placeholder={`Opsi ${optionLetters[i]}`}
+                          className="font-arabic min-h-10 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-right"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Pembahasan Kunci (Penjelasan Arab & Indonesia)
+                  <textarea
+                    value={draft.explanation}
+                    onChange={(e) => setDraft({ ...draft, explanation: e.target.value })}
+                    placeholder="Tuliskan pembahasan terstruktur di sini..."
+                    className="mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-sm leading-6"
+                  />
+                </label>
+
+                {formMsg ? <p className="mt-3 rounded-xl bg-red-100 p-3 text-xs font-bold text-red-900">{formMsg}</p> : null}
+
+                <div className="mt-5 pt-2">
+                  <button
+                    type="submit"
+                    disabled={saving}
+                    className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-6 text-sm font-bold text-white transition-transform active:scale-[0.96] disabled:opacity-50"
                   >
-                    <option value="listening">Istima’ (Listening)</option>
-                    <option value="reading">Qira’ah (Reading)</option>
-                    <option value="grammar">Tarkib (Grammar)</option>
-                    <option value="structures">Tarākīb (Structures)</option>
-                    <option value="writing">Kitābah (Writing)</option>
-                    <option value="speaking">Muḥādatsah (Speaking)</option>
-                  </select>
-                </label>
+                    <Save size={17} /> {saving ? "Menyimpan & Push ke Supabase..." : "Simpan & Push ke Supabase Cloud"}
+                  </button>
+                </div>
+              </form>
 
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                  Path Audio (Opsional)
-                  <input
-                    type="text"
-                    value={draft.audioPath}
-                    onChange={(e) => setDraft({ ...draft, audioPath: e.target.value })}
-                    placeholder="Contoh: audio/q1.mp3"
-                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm"
-                  />
-                </label>
-              </div>
+              <div>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-base font-bold text-slate-900">Daftar Soal Tersimpan</h3>
+                  <span className="text-xs font-bold text-slate-500 tabular-nums">{adminQuestions.length} Soal Total</span>
+                </div>
 
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                Teks Passage / Bacaan (Opsional)
-                <textarea
-                  dir="rtl"
-                  value={draft.passage}
-                  onChange={(e) => setDraft({ ...draft, passage: e.target.value })}
-                  placeholder="أدخل النص القرائي هنا إن وجد..."
-                  className="font-arabic mt-1.5 min-h-20 w-full rounded-xl border border-slate-200 bg-white p-3 text-base text-right"
-                />
-              </label>
-
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                Pertanyaan Bahasa Arab (RTL)
-                <textarea
-                  dir="rtl"
-                  value={draft.question}
-                  onChange={(e) => setDraft({ ...draft, question: e.target.value })}
-                  placeholder="أدخل نص السؤال هنا..."
-                  className="font-arabic mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-lg text-right font-medium"
-                />
-              </label>
-
-              <fieldset>
-                <legend className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                  Opsi Jawaban & Kunci Jawaban <span className="font-normal text-slate-500">(pilih radio button untuk menentukan kunci)</span>
-                </legend>
-                <div className="mt-2 space-y-2.5">
-                  {draft.options.map((opt, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="correct_index_cloud"
-                        checked={draft.correctIndex === i}
-                        onChange={() => setDraft({ ...draft, correctIndex: i })}
-                        className="size-4 accent-[#006C35]"
-                      />
-                      <span className="text-xs font-bold text-slate-500 w-5">{optionLetters[i]}</span>
-                      <input
-                        dir="rtl"
-                        value={opt}
-                        onChange={(e) => {
-                          const newOpts = [...draft.options]
-                          newOpts[i] = e.target.value
-                          setDraft({ ...draft, options: newOpts })
-                        }}
-                        placeholder={`Opsi ${optionLetters[i]}`}
-                        className="font-arabic min-h-10 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-right"
-                      />
-                    </div>
+                <div className="mt-4 space-y-3 max-h-[500px] overflow-y-auto pr-1">
+                  {adminQuestions.map((q) => (
+                    <article
+                      key={q.id}
+                      onClick={() => handleSelectQuestionPosition(q.position)}
+                      className={`cursor-pointer rounded-xl border p-4 transition-all ${
+                        selectedPos === q.position ? "border-[#006C35] bg-[#E6F0EB]/30 ring-2 ring-[#006C35]" : "border-slate-200 bg-white hover:bg-slate-50"
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <span className="text-xs font-bold uppercase tracking-wider text-[#006C35]">No {q.position} · {q.section}</span>
+                          <p dir="rtl" className="font-arabic mt-1.5 text-base text-right leading-7">{q.question}</p>
+                          <p className="mt-1 text-xs text-slate-500">
+                            Kunci: Opsi {optionLetters[q.correctIndex]} ({(q.options || [])[q.correctIndex] || ""})
+                          </p>
+                        </div>
+                        <span className="rounded-lg bg-emerald-50 px-2.5 py-1 text-xs font-bold text-[#006C35] shrink-0">
+                          Edit
+                        </span>
+                      </div>
+                    </article>
                   ))}
                 </div>
-              </fieldset>
-
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                Pembahasan Kunci (Penjelasan Arab & Indonesia)
-                <textarea
-                  value={draft.explanation}
-                  onChange={(e) => setDraft({ ...draft, explanation: e.target.value })}
-                  placeholder="Tuliskan pembahasan terstruktur di sini..."
-                  className="mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-sm leading-6"
-                />
-              </label>
-
-              {formMsg ? <p className="rounded-xl bg-red-100 p-3 text-xs font-bold text-red-900">{formMsg}</p> : null}
-
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={saving}
-                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-6 text-sm font-bold text-white transition-transform active:scale-[0.96] disabled:opacity-50"
-                >
-                  <Save size={17} /> {saving ? "Menyimpan & Push ke Supabase..." : "Simpan & Push ke Supabase Cloud"}
-                </button>
               </div>
-            </form>
+            </div>
           </section>
         )}
       </div>

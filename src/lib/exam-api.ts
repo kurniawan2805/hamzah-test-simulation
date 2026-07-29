@@ -317,3 +317,57 @@ export async function getAdminQuestions(client: SupabaseClient, examVersionId: s
     explanation: asString(row.explanation || ""),
   }))
 }
+
+
+export async function seedDemoExamToSupabase(client: SupabaseClient, questions: Array<Record<string, unknown>>): Promise<string> {
+  // 1. Create or get package
+  let pkgId: string
+  const { data: existingPkg } = await client.from("exam_packages").select("id").eq("slug", "hamza-test-full-1").maybeSingle()
+  if (existingPkg?.id) {
+    pkgId = asString(existingPkg.id)
+  } else {
+    const { data: newPkg, error: pkgErr } = await client.from("exam_packages").insert({
+      slug: "hamza-test-full-1",
+      title: "Hamza Test · Simulation (Full Test)",
+      subtitle: "Simulasi ujian bahasa Arab 6 seksi · 75 nomor",
+      description: "Paket latihan standar Hamza Test dengan timer 60 menit dan analisis 6 seksi.",
+    }).select("id").single()
+    if (pkgErr) throw pkgErr
+    pkgId = asString(newPkg.id)
+  }
+
+  // 2. Create or get version
+  let versionId: string
+  const { data: existingVer } = await client.from("exam_versions").select("id").eq("package_id", pkgId).eq("version_number", 1).maybeSingle()
+  if (existingVer?.id) {
+    versionId = asString(existingVer.id)
+  } else {
+    const { data: newVer, error: verErr } = await client.from("exam_versions").insert({
+      package_id: pkgId,
+      version_number: 1,
+      duration_minutes: 60,
+      status: "published",
+      published_at: new Date().toISOString(),
+    }).select("id").single()
+    if (verErr) throw verErr
+    versionId = asString(newVer.id)
+  }
+
+  // 3. Upsert questions in batch or sequence
+  for (let i = 0; i < questions.length; i++) {
+    const q = questions[i]
+    await adminUpsertQuestion(client, {
+      p_exam_version_id: versionId,
+      p_position: i + 1,
+      p_section: asString(q.section),
+      p_question: asString(q.question),
+      p_options: q.options,
+      p_correct_index: asNumber(q.correct_index),
+      p_explanation: asString(q.explanation || ""),
+      p_passage: q.passage ? asString(q.passage) : null,
+      p_audio_path: q.audio_url ? asString(q.audio_url) : null,
+    })
+  }
+
+  return versionId
+}
