@@ -624,13 +624,9 @@ function CloudDashboardPage() {
               <p className="mt-1 text-sm text-amber-800">
                 Akun aktif: <strong className="font-semibold">{auth.displayName}</strong> | Role terdeteksi: <strong className="uppercase font-bold">{auth.role}</strong>
               </p>
-              <button
-                type="button"
-                onClick={() => auth.setRole(auth.role === "admin" ? "user" : "admin")}
-                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-amber-800 px-4 py-2 text-xs font-bold text-white transition-transform active:scale-[0.96]"
-              >
-                Ganti Role Pengujian (Simulasi Local/Cloud)
-              </button>
+              <p className="mt-4 text-xs font-semibold text-amber-900">
+                Role cloud dikelola melalui Clerk <code>publicMetadata.role</code>; perubahan role tidak dilakukan dari aplikasi.
+              </p>
             </div>
           </section>
         )}

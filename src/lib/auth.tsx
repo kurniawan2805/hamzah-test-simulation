@@ -50,20 +50,19 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <ClerkProvider publishableKey={clerkPublishableKey} afterSignOutUrl="/">
-      <ClerkAuthBridge activeRole={role} onSetRole={setRole}>{children}</ClerkAuthBridge>
+      <ClerkAuthBridge>{children}</ClerkAuthBridge>
     </ClerkProvider>
   )
 }
 
-function ClerkAuthBridge({ children, activeRole, onSetRole }: { children: ReactNode; activeRole: UserRole; onSetRole: (role: UserRole) => void }) {
+function ClerkAuthBridge({ children }: { children: ReactNode }) {
   const { getToken, isLoaded, isSignedIn, userId } = useAuth()
   const { user } = useUser()
   const { signOut } = useClerk()
 
-  const detectedRole: UserRole =
-    (user?.publicMetadata?.role as UserRole) ||
-    (user?.unsafeMetadata?.role as UserRole) ||
-    activeRole
+  // Cloud authorization is controlled exclusively by Clerk public metadata.
+  // Never trust unsafe metadata or the demo role stored in localStorage here.
+  const detectedRole: UserRole = user?.publicMetadata?.role === "admin" ? "admin" : "user"
 
   useEffect(() => {
     if (isLoaded && isSignedIn && userId) {
@@ -86,7 +85,7 @@ function ClerkAuthBridge({ children, activeRole, onSetRole }: { children: ReactN
     userId: userId ?? null,
     displayName: user?.fullName ?? user?.primaryEmailAddress?.emailAddress ?? "Peserta",
     role: detectedRole,
-    setRole: onSetRole,
+    setRole: () => undefined,
     getToken: () => getToken({ template: "supabase" }),
     signOut: wrappedSignOut,
   }
@@ -142,19 +141,16 @@ export function AccountMenu() {
   const auth = useAppAuth()
   return (
     <div className="flex items-center gap-2.5">
-      <button
-        type="button"
-        onClick={() => auth.setRole(auth.role === "admin" ? "user" : "admin")}
-        title="Beralih peran (Admin / Peserta)"
-        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-transform active:scale-[0.96] ${
+      <span
+        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold ${
           auth.role === "admin"
             ? "bg-amber-100 text-amber-900 border border-amber-300 shadow-sm"
             : "bg-[#E6F0EB] text-[#006C35]"
         }`}
       >
         <span className={`size-2 rounded-full ${auth.role === "admin" ? "bg-amber-600" : "bg-[#006C35]"}`} />
-        Role: {auth.role === "admin" ? "Admin" : "Peserta"}
-      </button>
+        {auth.role === "admin" ? "Admin" : "Peserta"}
+      </span>
       {auth.enabled ? <UserButton userProfileMode="modal" /> : (
         <span className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">Mode demo</span>
       )}
