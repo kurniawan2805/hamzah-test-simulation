@@ -294,3 +294,26 @@ export async function adminUpsertQuestion(client: SupabaseClient, questionData: 
   if (error) throw error
   return asString(data)
 }
+
+
+export type AdminQuestion = PublicQuestion & {
+  correctIndex: number
+  explanation: string
+}
+
+export async function getAdminQuestions(client: SupabaseClient, examVersionId: string): Promise<AdminQuestion[]> {
+  const { data, error } = await client.rpc("get_admin_questions", { p_exam_version_id: examVersionId })
+  if (error) throw error
+  return asRows(data).map((row) => ({
+    id: asString(row.id),
+    position: asNumber(row.position),
+    section: asString(row.section) as Section,
+    question: asString(row.question),
+    options: row.options ? asOptions(row.options) : null,
+    passage: row.passage ? asString(row.passage) : undefined,
+    audioPath: row.audio_path ? asString(row.audio_path) : undefined,
+    maxAudioPlays: 2,
+    correctIndex: asNumber(row.correct_index),
+    explanation: asString(row.explanation || ""),
+  }))
+}

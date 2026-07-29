@@ -145,22 +145,54 @@ function DashboardPage() {
   })
 
   // Visual Question Bank Form State
-  const [draft, setDraft] = useState<Partial<Question>>({
-    section: "reading",
-    question: "",
-    options: ["", "", "", ""],
-    correct_index: 0,
-    explanation: "",
-    passage: "",
-  })
+    const allDemoQuestions = useMemo(() => [...demoExam.questions, ...customQuestions], [customQuestions])
+
+  const [selectedPos, setSelectedPos] = useState<number>(1)
   const [questionMsg, setQuestionMsg] = useState("")
+  const [successNotice, setSuccessNotice] = useState("")
+
+  const [draft, setDraft] = useState<Partial<Question>>(() => {
+    const first = allDemoQuestions[0]
+    return first ? { ...first } : { section: "reading", question: "", options: ["", "", "", ""], correct_index: 0, explanation: "", passage: "" }
+  })
+
+  // Handle selecting a question position in Demo mode
+  const handleSelectQuestionPosition = (pos: number) => {
+    setSelectedPos(pos)
+    setQuestionMsg("")
+    setSuccessNotice("")
+    const existing = allDemoQuestions[pos - 1]
+    if (existing) {
+      setDraft({ ...existing, options: existing.options ? [...existing.options] : ["", "", "", ""] })
+    } else {
+      setDraft({
+        id: `q_custom_${Date.now()}`,
+        section: "reading",
+        question: "",
+        options: ["", "", "", ""],
+        correct_index: 0,
+        explanation: "",
+        passage: "",
+      })
+    }
+  }
 
   const handleSaveQuestion = (e: React.FormEvent) => {
     e.preventDefault()
+    setQuestionMsg("")
+    setSuccessNotice("")
+
     if (!draft.question?.trim() || draft.options?.some((o) => !o.trim()) || !draft.explanation?.trim()) {
       setQuestionMsg("Lengkapi pertanyaan Arab, 4 opsi jawaban, dan pembahasan.")
       return
     }
+
+    const isEditing = Boolean(draft.id && allDemoQuestions.some((q) => q.id === draft.id))
+    const actionLabel = isEditing ? `memperbarui Soal Nomor ${selectedPos}` : `menambahkan Soal Baru Nomor ${selectedPos}`
+
+    const confirmed = window.confirm(`Apakah Anda yakin ingin ${actionLabel} pada Paket Simulasi Demo?`)
+    if (!confirmed) return
+
     const newQuestion: Question = {
       id: draft.id || `q_custom_${Date.now()}`,
       section: draft.section || "reading",
@@ -173,12 +205,9 @@ function DashboardPage() {
       answer_type: "multiple_choice",
     }
     saveCustomQuestion(newQuestion)
-    setDraft({ section: "reading", question: "", options: ["", "", "", ""], correct_index: 0, explanation: "", passage: "" })
-    setQuestionMsg("Soal berhasil disimpan ke bank soal!")
-    setTimeout(() => setQuestionMsg(""), 3000)
+    setSuccessNotice(`Berhasil! Soal Nomor ${selectedPos} telah diperbarui dan tersimpan di bank soal lokal.`)
   }
-
-  return (
+return (
     <main className="min-h-dvh bg-[#F8FAFC] text-slate-900">
       <header className="border-b border-slate-200/80 bg-white sticky top-0 z-20">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
@@ -569,22 +598,71 @@ function DashboardPage() {
           <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-amber-100 sm:p-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
               <div>
-                <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Editor Bank Soal</div>
+                <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Editor Bank Soal Demo</div>
                 <h2 className="text-xl font-bold text-slate-900">Input & Revisi Soal Bahasa Arab</h2>
-                <p className="mt-1 text-sm text-slate-600">Tambah atau perbarui nomor soal, teks Arab (RTL), kunci jawaban, dan pembahasan terstruktur.</p>
+                <p className="mt-1 text-sm text-slate-600">Pilih nomor soal untuk memuat data lama secara otomatis, edit, lalu simpan perubahan.</p>
               </div>
             </div>
 
+            {/* Success Notification Banner */}
+            {successNotice && (
+              <div className="mt-5 flex items-start justify-between rounded-2xl border border-emerald-300 bg-emerald-50 p-4 text-emerald-900">
+                <div className="flex items-center gap-2">
+                  <Check className="size-5 shrink-0 text-[#006C35]" />
+                  <span className="text-sm font-bold">{successNotice}</span>
+                </div>
+                <button type="button" onClick={() => setSuccessNotice("")} className="text-emerald-700 hover:text-emerald-950">
+                  <X size={18} />
+                </button>
+              </div>
+            )}
+
+            {/* Selection Controls: Package & Question Position */}
+            <div className="mt-6 grid gap-4 rounded-2xl bg-amber-50/50 p-5 border border-amber-200 sm:grid-cols-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-amber-900">
+                1. Paket Ujian
+                <select disabled className="mt-1.5 min-h-11 w-full rounded-xl border border-amber-300 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm">
+                  <option>{demoExam.title} (Demo Full Test)</option>
+                </select>
+              </label>
+
+              <label className="block text-xs font-bold uppercase tracking-wider text-amber-900">
+                2. Pilih Nomor Soal (Auto-Load Data)
+                <select
+                  value={selectedPos}
+                  onChange={(e) => handleSelectQuestionPosition(parseInt(e.target.value, 10) || 1)}
+                  className="mt-1.5 min-h-11 w-full rounded-xl border border-amber-300 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm"
+                >
+                  {allDemoQuestions.map((q, idx) => (
+                    <option key={q.id} value={idx + 1}>
+                      Nomor {idx + 1} ({q.section.toUpperCase()}) — {q.question.slice(0, 30)}...
+                    </option>
+                  ))}
+                  <option value={allDemoQuestions.length + 1}>
+                    + Tambah Soal Baru (Nomor {allDemoQuestions.length + 1})
+                  </option>
+                </select>
+              </label>
+            </div>
+
+            {/* Form Editor */}
             <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <form onSubmit={handleSaveQuestion} className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6">
-                <h3 className="text-base font-bold text-slate-900">Form Input / Edit Soal</h3>
+                <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+                  <span className="inline-flex items-center gap-2 rounded-lg bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900">
+                    {draft.id ? `Mode: Edit Soal Nomor ${selectedPos} (ID: ${draft.id})` : `Mode: Tambah Soal Baru Nomor ${selectedPos}`}
+                  </span>
+                  {draft.id && (
+                    <span className="text-xs font-semibold text-slate-500">Data lama dimuat otomatis</span>
+                  )}
+                </div>
 
-                <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-slate-600">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
                   Kompetensi / Seksi
                   <select
                     value={draft.section}
                     onChange={(e) => setDraft({ ...draft, section: e.target.value as Section })}
-                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold"
+                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
                   >
                     <option value="listening">Istima’ (Listening)</option>
                     <option value="reading">Qira’ah (Reading)</option>
@@ -596,19 +674,30 @@ function DashboardPage() {
                 </label>
 
                 <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Teks Passage / Bacaan (Opsional)
+                  <textarea
+                    dir="rtl"
+                    value={draft.passage || ""}
+                    onChange={(e) => setDraft({ ...draft, passage: e.target.value })}
+                    placeholder="أدخل النص القرائي هنا إن وجد..."
+                    className="font-arabic mt-1.5 min-h-20 w-full rounded-xl border border-slate-200 bg-white p-3 text-base text-right"
+                  />
+                </label>
+
+                <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-slate-600">
                   Teks Pertanyaan (Arab RTL)
                   <textarea
                     dir="rtl"
-                    value={draft.question}
+                    value={draft.question || ""}
                     onChange={(e) => setDraft({ ...draft, question: e.target.value })}
                     placeholder="أدخل السؤال هنا..."
-                    className="font-arabic mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-lg text-right"
+                    className="font-arabic mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-lg text-right font-medium"
                   />
                 </label>
 
                 <fieldset className="mt-4">
                   <legend className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                    Opsi Jawaban & Kunci <span className="font-normal text-slate-500">(pilih radio untuk kunci)</span>
+                    Opsi Jawaban & Kunci <span className="font-normal text-slate-500">(pilih radio button untuk menentukan kunci)</span>
                   </legend>
                   <div className="mt-2 space-y-2.5">
                     {draft.options?.map((opt, i) => (
@@ -630,7 +719,7 @@ function DashboardPage() {
                             newOpts[i] = e.target.value
                             setDraft({ ...draft, options: newOpts })
                           }}
-                          placeholder={`Opsi ${i + 1}`}
+                          placeholder={`Opsi ${optionLetters[i]}`}
                           className="font-arabic min-h-10 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-right"
                         />
                       </div>
@@ -641,43 +730,40 @@ function DashboardPage() {
                 <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-slate-600">
                   Pembahasan Kunci
                   <textarea
-                    value={draft.explanation}
+                    value={draft.explanation || ""}
                     onChange={(e) => setDraft({ ...draft, explanation: e.target.value })}
                     placeholder="Jelaskan alasan mengapa opsi kunci adalah jawaban yang tepat..."
-                    className="mt-1.5 min-h-20 w-full rounded-xl border border-slate-200 bg-white p-3 text-sm"
+                    className="mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-sm leading-6"
                   />
                 </label>
 
-                {questionMsg ? <p className="mt-3 rounded-xl bg-amber-100 p-3 text-xs font-bold text-amber-900">{questionMsg}</p> : null}
+                {questionMsg ? <p className="mt-3 rounded-xl bg-red-100 p-3 text-xs font-bold text-red-900">{questionMsg}</p> : null}
 
                 <div className="mt-5 flex gap-3">
                   <button
                     type="submit"
-                    className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white transition-transform active:scale-[0.96]"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white transition-transform active:scale-[0.96]"
                   >
-                    <Save size={16} /> Simpan ke Bank Soal
+                    <Save size={17} /> Simpan Perubahan Soal
                   </button>
-                  {draft.id ? (
-                    <button
-                      type="button"
-                      onClick={() => setDraft({ section: "reading", question: "", options: ["", "", "", ""], correct_index: 0, explanation: "", passage: "" })}
-                      className="rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-600 hover:bg-slate-100"
-                    >
-                      Batal Edit
-                    </button>
-                  ) : null}
                 </div>
               </form>
 
               <div>
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-bold text-slate-900">Soal Tersimpan</h3>
-                  <span className="text-xs font-bold text-slate-500 tabular-nums">{demoExam.questions.length + customQuestions.length} Soal Total</span>
+                  <h3 className="text-base font-bold text-slate-900">Daftar Soal</h3>
+                  <span className="text-xs font-bold text-slate-500 tabular-nums">{allDemoQuestions.length} Soal Total</span>
                 </div>
 
                 <div className="mt-4 space-y-3 max-h-[500px] overflow-y-auto pr-1">
-                  {[...demoExam.questions, ...customQuestions].map((q, idx) => (
-                    <article key={q.id} className="rounded-xl border border-slate-200 bg-white p-4">
+                  {allDemoQuestions.map((q, idx) => (
+                    <article
+                      key={q.id}
+                      onClick={() => handleSelectQuestionPosition(idx + 1)}
+                      className={`cursor-pointer rounded-xl border p-4 transition-all ${
+                        selectedPos === idx + 1 ? "border-[#006C35] bg-[#E6F0EB]/30 ring-2 ring-[#006C35]" : "border-slate-200 bg-white hover:bg-slate-50"
+                      }`}
+                    >
                       <div className="flex items-start justify-between gap-2">
                         <div>
                           <span className="text-xs font-bold uppercase tracking-wider text-[#006C35]">No {idx + 1} · {q.section}</span>
@@ -687,15 +773,14 @@ function DashboardPage() {
                         <div className="flex shrink-0 gap-1">
                           <button
                             type="button"
-                            onClick={() => setDraft(q)}
-                            className="rounded-lg bg-emerald-50 px-2 py-1 text-xs font-bold text-[#006C35]"
+                            className="rounded-lg bg-emerald-50 px-2.5 py-1 text-xs font-bold text-[#006C35]"
                           >
                             Edit
                           </button>
                           {q.id.startsWith("q_custom_") && (
                             <button
                               type="button"
-                              onClick={() => deleteCustomQuestion(q.id)}
+                              onClick={(e) => { e.stopPropagation(); deleteCustomQuestion(q.id); }}
                               className="rounded-lg p-1 text-red-600 hover:bg-red-50"
                             >
                               <Trash2 size={15} />
@@ -710,6 +795,7 @@ function DashboardPage() {
             </div>
           </section>
         )}
+
       </div>
 
       {/* Review Modal for inspecting attempts */}

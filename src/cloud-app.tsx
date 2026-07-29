@@ -39,6 +39,8 @@ import {
   getAdminAttemptReview,
   adminUpsertQuestion,
   type AdminAttempt,
+  type AdminQuestion,
+  getAdminQuestions,
 } from './lib/exam-api'
 import { AccountMenu, useAppAuth } from './lib/auth'
 import { AUDIO_BUCKET } from './lib/audio-assets'
@@ -83,6 +85,7 @@ function CloudDashboardPage() {
   const [exams, setExams] = useState<PublishedExam[]>([])
   const [attempts, setAttempts] = useState<CloudAttempt[]>([])
   const [adminAttempts, setAdminAttempts] = useState<AdminAttempt[]>([])
+  const [adminQuestions, setAdminQuestions] = useState<AdminQuestion[]>([])
   const [error, setError] = useState("")
 
   const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank">("packages")
@@ -90,8 +93,15 @@ function CloudDashboardPage() {
   const [inspectAttemptId, setInspectAttemptId] = useState<string | null>(null)
   const [inspectQuestions, setInspectQuestions] = useState<ReviewQuestion[]>([])
 
-  // Admin Question Form state
+  // Admin Question Editor state
+  const [selectedVersionId, setSelectedVersionId] = useState<string>("")
+  const [selectedPos, setSelectedPos] = useState<number>(1)
+  const [saving, setSaving] = useState<boolean>(false)
+  const [formMsg, setFormMsg] = useState<string>("")
+  const [successNotice, setSuccessNotice] = useState<string>("")
+
   const [draft, setDraft] = useState({
+    id: undefined as string | undefined,
     examVersionId: "",
     position: 1,
     section: "reading" as Section,
@@ -102,7 +112,6 @@ function CloudDashboardPage() {
     passage: "",
     audioPath: "",
   })
-  const [formMsg, setFormMsg] = useState("")
 
   useEffect(() => {
     void Promise.all([
@@ -112,7 +121,7 @@ function CloudDashboardPage() {
       if (response.error) throw response.error
       setExams(published)
       if (published.length > 0) {
-        setDraft((prev) => ({ ...prev, examVersionId: published[0].id }))
+        setSelectedVersionId(published[0].id)
       }
       setAttempts((response.data ?? []).map((row: Record<string, unknown>) => ({
         id: String(row.id), examVersionId: String(row.exam_version_id), state: row.state as CloudAttempt["state"],
@@ -128,6 +137,47 @@ function CloudDashboardPage() {
       void getAdminAllAttempts(client).then(setAdminAttempts).catch(() => {})
     }
   }, [client, isAdmin])
+
+  // Load questions when selected package changes or tab becomes question_bank
+  useEffect(() => {
+    if (isAdmin && selectedVersionId) {
+      void getAdminQuestions(client, selectedVersionId)
+        .then((qs) => {
+          setAdminQuestions(qs)
+          if (qs.length > 0) {
+            const first = qs[0]
+            setSelectedPos(first.position)
+            setDraft({
+              id: first.id,
+              examVersionId: selectedVersionId,
+              position: first.position,
+              section: first.section,
+              question: first.question,
+              options: first.options ? [...first.options] : ["", "", "", ""],
+              correctIndex: first.correctIndex ?? 0,
+              explanation: first.explanation || "",
+              passage: first.passage || "",
+              audioPath: first.audioPath || "",
+            })
+          } else {
+            setSelectedPos(1)
+            setDraft({
+              id: undefined,
+              examVersionId: selectedVersionId,
+              position: 1,
+              section: "reading",
+              question: "",
+              options: ["", "", "", ""],
+              correctIndex: 0,
+              explanation: "",
+              passage: "",
+              audioPath: "",
+            })
+          }
+        })
+        .catch(() => setAdminQuestions([]))
+    }
+  }, [client, isAdmin, selectedVersionId])
 
   useEffect(() => {
     if (inspectAttemptId) {
@@ -155,14 +205,65 @@ function CloudDashboardPage() {
     return a.userId.toLowerCase().includes(term) || a.examTitle.toLowerCase().includes(term) || String(a.score || "").includes(term)
   })
 
+  // Handle auto-population when selecting a question position
+  const handleSelectQuestionPosition = (pos: number) => {
+    setSelectedPos(pos)
+    setFormMsg("")
+    setSuccessNotice("")
+    const existing = adminQuestions.find((q) => q.position === pos)
+    if (existing) {
+      setDraft({
+        id: existing.id,
+        examVersionId: selectedVersionId,
+        position: existing.position,
+        section: existing.section,
+        question: existing.question,
+        options: existing.options ? [...existing.options] : ["", "", "", ""],
+        correctIndex: existing.correctIndex ?? 0,
+        explanation: existing.explanation || "",
+        passage: existing.passage || "",
+        audioPath: existing.audioPath || "",
+      })
+    } else {
+      setDraft({
+        id: undefined,
+        examVersionId: selectedVersionId,
+        position: pos,
+        section: "reading",
+        question: "",
+        options: ["", "", "", ""],
+        correctIndex: 0,
+        explanation: "",
+        passage: "",
+        audioPath: "",
+      })
+    }
+  }
+
   const handleAdminSaveQuestion = async (e: React.FormEvent) => {
     e.preventDefault()
+    setFormMsg("")
+    setSuccessNotice("")
+
     if (!draft.question.trim() || draft.options.some((o) => !o.trim()) || !draft.explanation.trim() || !draft.examVersionId) {
-      setFormMsg("Lengkapi ID versi paket, pertanyaan Arab, 4 opsi, dan pembahasan.")
+      setFormMsg("Mohon lengkapi teks pertanyaan Arab, 4 opsi jawaban, dan pembahasan.")
       return
     }
+
+    const selectedPkg = exams.find((ex) => ex.id === draft.examVersionId)
+    const pkgTitle = selectedPkg?.title || "Paket Ujian"
+    const isEditing = Boolean(draft.id)
+    const actionLabel = isEditing ? `memperbarui Soal Nomor ${draft.position}` : `menambahkan Soal Baru Nomor ${draft.position}`
+
+    const confirmSubmit = window.confirm(
+      `Apakah Anda yakin ingin ${actionLabel} pada "${pkgTitle}" dan mempublikasikannya ke database Supabase Cloud?`
+    )
+    if (!confirmSubmit) return
+
+    setSaving(true)
     try {
-      await adminUpsertQuestion(client, {
+      const qid = await adminUpsertQuestion(client, {
+        p_question_id: draft.id || null,
         p_exam_version_id: draft.examVersionId,
         p_position: draft.position,
         p_section: draft.section,
@@ -173,11 +274,18 @@ function CloudDashboardPage() {
         p_passage: draft.passage.trim() || null,
         p_audio_path: draft.audioPath.trim() || null,
       })
-      setFormMsg("Soal berhasil disimpan ke database cloud!")
-      setDraft((prev) => ({ ...prev, question: "", options: ["", "", "", ""], explanation: "", passage: "", position: prev.position + 1 }))
-      setTimeout(() => setFormMsg(""), 3000)
+
+      // Refresh list of questions from Supabase
+      const updatedQs = await getAdminQuestions(client, draft.examVersionId)
+      setAdminQuestions(updatedQs)
+
+      // Update draft with returned qid
+      setDraft((prev) => ({ ...prev, id: qid }))
+      setSuccessNotice(`Berhasil! Soal Nomor ${draft.position} pada "${pkgTitle}" telah diperbarui dan dipush ke database Supabase Cloud (ID: ${qid.slice(0, 8)}...).`)
     } catch (err) {
-      setFormMsg(err instanceof Error ? err.message : "Gagal menyimpan soal ke cloud DB.")
+      setFormMsg(err instanceof Error ? err.message : "Gagal menyimpan soal ke database Supabase Cloud.")
+    } finally {
+      setSaving(false)
     }
   }
 
@@ -533,26 +641,70 @@ function CloudDashboardPage() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
               <div>
                 <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Editor DB Supabase</div>
-                <h2 className="text-xl font-bold text-slate-900">Input / Revisi Soal Cloud</h2>
-                <p className="mt-1 text-sm text-slate-600">Tambah atau perbarui soal ke tabel `exam_questions` dan `private.exam_answer_keys`.</p>
+                <h2 className="text-xl font-bold text-slate-900">Input & Revisi Soal Cloud</h2>
+                <p className="mt-1 text-sm text-slate-600">Pilih paket dan nomor soal untuk memuat data lama, mengedit, lalu push ke database Supabase.</p>
               </div>
             </div>
 
-            <form onSubmit={handleAdminSaveQuestion} className="mt-6 space-y-4 rounded-2xl border border-slate-200 bg-slate-50/50 p-6">
-              <div className="grid gap-4 sm:grid-cols-3">
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                  Paket Ujian
-                  <select
-                    value={draft.examVersionId}
-                    onChange={(e) => setDraft({ ...draft, examVersionId: e.target.value })}
-                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 font-semibold text-sm"
-                  >
-                    {exams.map((ex) => (
-                      <option key={ex.id} value={ex.id}>{ex.title} (ID: {ex.id.slice(0, 8)}...)</option>
-                    ))}
-                  </select>
-                </label>
+            {/* Notification Banner */}
+            {successNotice && (
+              <div className="mt-5 flex items-start justify-between rounded-2xl border border-emerald-300 bg-emerald-50 p-4 text-emerald-900">
+                <div className="flex items-center gap-2">
+                  <Check className="size-5 shrink-0 text-[#006C35]" />
+                  <span className="text-sm font-bold">{successNotice}</span>
+                </div>
+                <button type="button" onClick={() => setSuccessNotice("")} className="text-emerald-700 hover:text-emerald-950">
+                  <X size={18} />
+                </button>
+              </div>
+            )}
 
+            {/* Selection Controls: Package & Question Number */}
+            <div className="mt-6 grid gap-4 rounded-2xl bg-amber-50/50 p-5 border border-amber-200 sm:grid-cols-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-amber-900">
+                1. Pilih Paket Ujian
+                <select
+                  value={selectedVersionId}
+                  onChange={(e) => setSelectedVersionId(e.target.value)}
+                  className="mt-1.5 min-h-11 w-full rounded-xl border border-amber-300 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm"
+                >
+                  {exams.map((ex) => (
+                    <option key={ex.id} value={ex.id}>{ex.title} (ID: {ex.id.slice(0, 8)}...)</option>
+                  ))}
+                </select>
+              </label>
+
+              <label className="block text-xs font-bold uppercase tracking-wider text-amber-900">
+                2. Pilih Nomor Soal (Auto-Load Data)
+                <select
+                  value={selectedPos}
+                  onChange={(e) => handleSelectQuestionPosition(parseInt(e.target.value, 10) || 1)}
+                  className="mt-1.5 min-h-11 w-full rounded-xl border border-amber-300 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm"
+                >
+                  {adminQuestions.map((q) => (
+                    <option key={q.id} value={q.position}>
+                      Nomor {q.position} ({q.section.toUpperCase()}) — {q.question.slice(0, 30)}...
+                    </option>
+                  ))}
+                  <option value={adminQuestions.length + 1}>
+                    + Tambah Soal Baru (Nomor {adminQuestions.length + 1})
+                  </option>
+                </select>
+              </label>
+            </div>
+
+            {/* Form Editor */}
+            <form onSubmit={handleAdminSaveQuestion} className="mt-6 space-y-5 rounded-2xl border border-slate-200 bg-slate-50/50 p-6">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                <span className="inline-flex items-center gap-2 rounded-lg bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900">
+                  {draft.id ? `Mode: Edit Soal Nomor ${draft.position} (ID: ${draft.id.slice(0, 8)}...)` : `Mode: Tambah Soal Baru Nomor ${draft.position}`}
+                </span>
+                {draft.id && (
+                  <span className="text-xs font-semibold text-slate-500">Data lama berhasil dimuat otomatis</span>
+                )}
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3">
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
                   Nomor Posisi
                   <input
@@ -579,7 +731,29 @@ function CloudDashboardPage() {
                     <option value="speaking">Muḥādatsah (Speaking)</option>
                   </select>
                 </label>
+
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Path Audio (Opsional)
+                  <input
+                    type="text"
+                    value={draft.audioPath}
+                    onChange={(e) => setDraft({ ...draft, audioPath: e.target.value })}
+                    placeholder="Contoh: audio/q1.mp3"
+                    className="mt-1.5 min-h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm"
+                  />
+                </label>
               </div>
+
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Teks Passage / Bacaan (Opsional)
+                <textarea
+                  dir="rtl"
+                  value={draft.passage}
+                  onChange={(e) => setDraft({ ...draft, passage: e.target.value })}
+                  placeholder="أدخل النص القرائي هنا إن وجد..."
+                  className="font-arabic mt-1.5 min-h-20 w-full rounded-xl border border-slate-200 bg-white p-3 text-base text-right"
+                />
+              </label>
 
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
                 Pertanyaan Bahasa Arab (RTL)
@@ -588,13 +762,13 @@ function CloudDashboardPage() {
                   value={draft.question}
                   onChange={(e) => setDraft({ ...draft, question: e.target.value })}
                   placeholder="أدخل نص السؤال هنا..."
-                  className="font-arabic mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-lg text-right"
+                  className="font-arabic mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-lg text-right font-medium"
                 />
               </label>
 
               <fieldset>
                 <legend className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                  Opsi Jawaban & Radio Kunci
+                  Opsi Jawaban & Kunci Jawaban <span className="font-normal text-slate-500">(pilih radio button untuk menentukan kunci)</span>
                 </legend>
                 <div className="mt-2 space-y-2.5">
                   {draft.options.map((opt, i) => (
@@ -615,7 +789,7 @@ function CloudDashboardPage() {
                           newOpts[i] = e.target.value
                           setDraft({ ...draft, options: newOpts })
                         }}
-                        placeholder={`Opsi ${i + 1}`}
+                        placeholder={`Opsi ${optionLetters[i]}`}
                         className="font-arabic min-h-10 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-right"
                       />
                     </div>
@@ -624,23 +798,26 @@ function CloudDashboardPage() {
               </fieldset>
 
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
-                Pembahasan Kunci
+                Pembahasan Kunci (Penjelasan Arab & Indonesia)
                 <textarea
                   value={draft.explanation}
                   onChange={(e) => setDraft({ ...draft, explanation: e.target.value })}
-                  placeholder="Pembahasan lengkap kunci jawaban..."
-                  className="mt-1.5 min-h-20 w-full rounded-xl border border-slate-200 bg-white p-3 text-sm"
+                  placeholder="Tuliskan pembahasan terstruktur di sini..."
+                  className="mt-1.5 min-h-24 w-full rounded-xl border border-slate-200 bg-white p-3 text-sm leading-6"
                 />
               </label>
 
-              {formMsg ? <p className="rounded-xl bg-amber-100 p-3 text-xs font-bold text-amber-900">{formMsg}</p> : null}
+              {formMsg ? <p className="rounded-xl bg-red-100 p-3 text-xs font-bold text-red-900">{formMsg}</p> : null}
 
-              <button
-                type="submit"
-                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-6 text-sm font-bold text-white transition-transform active:scale-[0.96]"
-              >
-                <Save size={17} /> Simpan ke Supabase Cloud DB
-              </button>
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={saving}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-6 text-sm font-bold text-white transition-transform active:scale-[0.96] disabled:opacity-50"
+                >
+                  <Save size={17} /> {saving ? "Menyimpan & Push ke Supabase..." : "Simpan & Push ke Supabase Cloud"}
+                </button>
+              </div>
             </form>
           </section>
         )}
@@ -717,7 +894,6 @@ function CloudDashboardPage() {
     </main>
   )
 }
-
 
 function CloudInstructionsPage() {
   const client = useClient(); const { versionId } = instructionsRoute.useParams(); const navigate = useNavigate(); const [exam, setExam] = useState<PublishedExam | null>(null); const [starting, setStarting] = useState(false); const [error, setError] = useState('')
