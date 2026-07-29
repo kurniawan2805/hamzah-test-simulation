@@ -18,6 +18,7 @@ import {
   Clock3,
   Headphones,
   History,
+  Grid,
   ListChecks,
   PlayCircle,
   Save,
@@ -257,7 +258,7 @@ return (
         </section>
 
         {/* Unified Navigation Tabs */}
-        <div className="mt-8 flex flex-wrap items-center gap-2 border-b border-slate-200/80 pb-3">
+        <div className="mt-8 flex items-center gap-2 border-b border-slate-200/80 pb-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth -mx-5 px-5 sm:mx-0 sm:px-0 shrink-0">
           <button
             type="button"
             onClick={() => setActiveTab("packages")}
@@ -963,6 +964,8 @@ function ExamPage() {
 
   const [remainingSeconds, setRemainingSeconds] = useState(0)
   const completingRef = useRef(false)
+  const [isMobileGridOpen, setIsMobileGridOpen] = useState(false)
+  const [isPassageExpanded, setIsPassageExpanded] = useState(true)
 
   const customQuestionsState = useExamStore((state) => state.customQuestions)
   const customQuestions = useMemo(() => customQuestionsState || [], [customQuestionsState])
@@ -1045,9 +1048,23 @@ function ExamPage() {
               </button>
             </div>
 
-            {currentQuestion.passage && (
-              <div dir="rtl" className="font-arabic mt-5 rounded-2xl bg-slate-50 p-4 text-right text-lg leading-8 text-slate-800 border border-slate-200">
-                {currentQuestion.passage}
+           {currentQuestion.passage && (
+              <div className="mt-5 rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2.5 bg-slate-100/80 border-b border-slate-200/60 lg:hidden">
+                  <span className="text-xs font-bold text-slate-700">Teks Bacaan (Qira’ah)</span>
+                  <button
+                    type="button"
+                    onClick={() => setIsPassageExpanded(!isPassageExpanded)}
+                    className="text-xs font-bold text-[#006C35] hover:underline"
+                  >
+                    {isPassageExpanded ? "Ciutkan Teks" : "Tampilkan Teks"}
+                  </button>
+                </div>
+                {isPassageExpanded && (
+                  <div dir="rtl" className="font-arabic p-4 text-right text-lg leading-8 text-slate-800">
+                    {currentQuestion.passage}
+                  </div>
+                )}
               </div>
             )}
 
@@ -1061,7 +1078,7 @@ function ExamPage() {
                       key={option}
                       type="button"
                       onClick={() => answerQuestion(currentQuestion.id, optionIdx)}
-                      className={`flex items-center justify-between rounded-2xl border p-4 text-right transition-all active:scale-[0.98] ${
+                      className={`flex min-h-[52px] items-center justify-between rounded-2xl border p-4 text-right transition-all active:scale-[0.98] ${
                         isSelected
                           ? "border-[#006C35] bg-[#E6F0EB]/50 text-[#006C35] font-bold shadow-sm"
                           : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
@@ -1078,7 +1095,7 @@ function ExamPage() {
             </div>
           </div>
 
-          <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-5">
+          <div className="mt-8 hidden items-center justify-between border-t border-slate-100 pt-5 lg:flex">
             <button
               type="button"
               disabled={currentIndex === 0}
@@ -1099,7 +1116,7 @@ function ExamPage() {
           </div>
         </section>
 
-        <aside className="rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100">
+        <aside className="hidden rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-slate-100 lg:block">
           <h3 className="font-bold text-slate-900 border-b border-slate-100 pb-3">Navigasi Soal</h3>
           <QuestionGrid
             questions={questions}
@@ -1111,6 +1128,79 @@ function ExamPage() {
           />
         </aside>
       </div>
+
+      {/* Mobile Sticky Bottom Navigation Bar */}
+      <div className="sticky bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur border-t border-slate-200 px-4 py-3 shadow-lg lg:hidden pb-safe flex items-center justify-between gap-2">
+        <button
+          type="button"
+          disabled={currentIndex === 0}
+          onClick={() => setCurrentIndex(currentIndex - 1, questions[currentIndex - 1]?.id || "")}
+          className="inline-flex min-h-11 items-center gap-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 disabled:opacity-40"
+        >
+          <ChevronLeft size={16} /> Prev
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setIsMobileGridOpen(true)}
+          className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#E6F0EB] px-3.5 py-2 text-xs font-bold text-[#006C35] hover:bg-[#d8e8de] active:scale-[0.97]"
+        >
+          <Grid size={15} className="text-[#006C35]" />
+          <span>Soal {currentIndex + 1}/{questions.length}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => toggleBookmark(currentQuestion.id)}
+          className={`inline-flex min-h-11 items-center justify-center rounded-xl p-2.5 text-xs font-bold transition-all ${
+            bookmarks.includes(currentQuestion.id) ? "bg-amber-100 text-amber-900 border border-amber-300" : "bg-slate-100 text-slate-600"
+          }`}
+          aria-label="Tandai Ragu"
+        >
+          <Bookmark size={16} fill={bookmarks.includes(currentQuestion.id) ? "currentColor" : "none"} />
+        </button>
+
+        <button
+          type="button"
+          disabled={currentIndex === questions.length - 1}
+          onClick={() => setCurrentIndex(currentIndex + 1, questions[currentIndex + 1]?.id || "")}
+          className="inline-flex min-h-11 items-center gap-1 rounded-xl bg-[#006C35] px-3.5 py-2 text-xs font-bold text-white disabled:opacity-40 active:scale-[0.96]"
+        >
+          Next <ArrowRight size={16} />
+        </button>
+      </div>
+
+      {/* Mobile Question Grid Drawer Modal */}
+      {isMobileGridOpen && (
+        <div className="fixed inset-0 z-50 flex flex-col justify-end bg-slate-900/60 backdrop-blur-xs lg:hidden">
+          <div className="max-h-[85vh] overflow-y-auto rounded-t-3xl bg-white p-5 shadow-2xl pb-safe">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+              <div>
+                <h3 className="font-bold text-slate-900">Daftar Soal Simulasi</h3>
+                <p className="text-xs text-slate-500">Pilih nomor soal untuk berpindah</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMobileGridOpen(false)}
+                className="grid size-9 place-items-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <QuestionGrid
+              questions={questions}
+              activeIndex={currentIndex}
+              answers={answers}
+              bookmarks={bookmarks}
+              viewedQuestionIds={viewedQuestionIds}
+              onSelect={(idx) => {
+                setCurrentIndex(idx, questions[idx]?.id || "")
+                setIsMobileGridOpen(false)
+              }}
+            />
+          </div>
+        </div>
+      )}
     </main>
   )
 }

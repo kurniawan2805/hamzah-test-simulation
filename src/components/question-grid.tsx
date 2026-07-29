@@ -29,10 +29,10 @@ export function QuestionGrid({
           <h2 className="text-sm font-bold text-slate-900">Navigasi soal</h2>
           <p className="mt-0.5 text-xs text-slate-500">Pilih nomor untuk berpindah.</p>
         </div>
-        <Bookmark size={18} className="text-[#D97706]" aria-hidden="true" />
-      </div>
-      <div className="mt-4">
-        <div className="grid grid-cols-8 gap-1.5 sm:grid-cols-8 md:grid-cols-7 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-5" role="group" aria-label="Daftar nomor soal">
+      <Bookmark size={18} className="text-[#D97706]" aria-hidden="true" />
+    </div>
+    <div className="mt-4">
+        <div className="grid grid-cols-6 gap-2 sm:grid-cols-8 md:grid-cols-7 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-5" role="group" aria-label="Daftar nomor soal">
         {questions.map((question, index) => {
           const isAnswered = (question.id in answers) || 
             (writingAnswers[question.id] && writingAnswers[question.id].trim().length > 0) ||
@@ -60,7 +60,7 @@ export function QuestionGrid({
               key={question.id}
               type="button"
               onClick={() => onSelect(index)}
-              className={`relative grid aspect-square w-full place-items-center rounded-md text-[11px] font-bold transition-[transform,box-shadow,background-color] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059] ${stateClass} ${isActive ? 'ring-2 ring-[#006C35] ring-offset-2' : ''}`}
+              className={`relative grid aspect-square min-h-10 w-full place-items-center rounded-lg text-xs font-bold transition-[transform,box-shadow,background-color] active:scale-[0.94] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059] ${stateClass} ${isActive ? 'ring-2 ring-[#006C35] ring-offset-2' : ''}`}
               aria-label={statusText}
               aria-current={isActive ? 'true' : undefined}
             >

@@ -12,7 +12,7 @@ import {
   useNavigate,
 } from '@tanstack/react-router'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Headphones, History, PlayCircle, Save, Search, Send, ShieldCheck, Sparkles, TimerReset, TriangleAlert, User, Users, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Grid, Headphones, History, PlayCircle, Save, Search, Send, ShieldCheck, Sparkles, TimerReset, TriangleAlert, User, Users, X } from 'lucide-react'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
 import { SpeakingRecorder } from './components/speaking-recorder'
@@ -371,7 +371,7 @@ function CloudDashboardPage() {
         </section>
 
         {/* Unified Navigation Tabs */}
-        <div className="mt-8 flex flex-wrap items-center gap-2 border-b border-slate-200/80 pb-3">
+        <div className="mt-8 flex items-center gap-2 border-b border-slate-200/80 pb-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth -mx-5 px-5 sm:mx-0 sm:px-0 shrink-0">
           <button
             type="button"
             onClick={() => setActiveTab("packages")}
@@ -992,7 +992,7 @@ function CloudInstructionsPage() {
 }
 
 function CloudExamPage() {
-  const client = useClient(); const { attemptId } = examRoute.useParams(); const navigate = useNavigate(); const [attempt, setAttempt] = useState<CloudAttempt | null>(null); const [questions, setQuestions] = useState<PublicQuestion[]>([]); const [answers, setAnswers] = useState<Record<string, CloudAnswer>>({}); const [index, setIndex] = useState(0); const [remaining, setRemaining] = useState(0); const [audioUrl, setAudioUrl] = useState<string>(); const completing = useRef(false); const [grading, setGrading] = useState(false); const [speakingSaveError, setSpeakingSaveError] = useState<string | null>(null)
+  const client = useClient(); const { attemptId } = examRoute.useParams(); const navigate = useNavigate(); const [attempt, setAttempt] = useState<CloudAttempt | null>(null); const [questions, setQuestions] = useState<PublicQuestion[]>([]); const [answers, setAnswers] = useState<Record<string, CloudAnswer>>({}); const [index, setIndex] = useState(0); const [remaining, setRemaining] = useState(0); const [audioUrl, setAudioUrl] = useState<string>(); const completing = useRef(false); const [grading, setGrading] = useState(false); const [speakingSaveError, setSpeakingSaveError] = useState<string | null>(null); const [isMobileGridOpen, setIsMobileGridOpen] = useState(false)
   
   const load = useCallback(async () => { 
     const current = await getAttempt(client, attemptId)
@@ -1189,19 +1189,21 @@ function CloudExamPage() {
       </div>
     )}
     <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur"><div className="mx-auto flex h-[60px] max-w-[1440px] items-center gap-3 px-4 sm:px-6"><div className="min-w-0 flex-1"><p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-[#006C35]">{sectionCopy[question.section].label}</p><p className="truncate text-sm font-bold">Simulasi Hamza Test</p></div><div className={`flex min-w-[98px] items-center justify-center gap-2 rounded-xl px-3 py-2 font-mono text-sm font-bold tabular-nums ${remaining < 60 ? 'bg-red-50 text-[#DC2626]' : 'bg-[#E6F0EB] text-[#006C35]'}`} aria-live={remaining < 60 ? 'assertive' : 'off'} aria-label={`Sisa waktu: ${Math.floor(remaining / 60)} menit ${remaining % 60} detik`}><Clock3 size={16} aria-hidden="true" />{formatTime(remaining)}</div><button onClick={() => void finish()} className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"><Send size={16} aria-hidden="true" /><span className="hidden sm:inline">Kirim</span></button></div><div className="h-1 bg-slate-100" role="progressbar" aria-valuenow={answeredCount} aria-valuemin={0} aria-valuemax={questions.length} aria-label="Progres terisi"><div className="h-full bg-[#C5A059] transition-[width]" style={{ width: `${(answeredCount / questions.length) * 100}%` }} /></div></header>
-    <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 sm:py-7">
-      <div className="grid gap-5 xl:grid-cols-[17rem_minmax(0,1fr)]">
-        <QuestionGrid 
-          questions={questions} 
-          activeIndex={index} 
-          answers={Object.fromEntries(Object.entries(answers).flatMap(([key, value]) => value.selectedIndex === undefined ? [] : [[key, value.selectedIndex]])) as Record<string, number>} 
-          writingAnswers={localWritingAnswers}
-          speakingAnswers={localSpeakingAnswers}
-          bookmarks={Object.values(answers).filter((item) => item.bookmarked).map((item) => item.questionId)} 
-          viewedQuestionIds={Object.keys(answers)} 
-          onSelect={(idx) => { setIndex(idx); useExamStore.getState().setCloudCurrentIndex(attemptId, idx) }} 
-        />
-        <section className="min-w-0 rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_28px_rgba(15,23,42,0.05)]">
+   <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 sm:py-7">
+     <div className="grid gap-5 xl:grid-cols-[17rem_minmax(0,1fr)]">
+        <div className="hidden xl:block">
+          <QuestionGrid 
+            questions={questions} 
+            activeIndex={index} 
+            answers={Object.fromEntries(Object.entries(answers).flatMap(([key, value]) => value.selectedIndex === undefined ? [] : [[key, value.selectedIndex]])) as Record<string, number>} 
+            writingAnswers={localWritingAnswers}
+            speakingAnswers={localSpeakingAnswers}
+            bookmarks={Object.values(answers).filter((item) => item.bookmarked).map((item) => item.questionId)} 
+            viewedQuestionIds={Object.keys(answers)} 
+            onSelect={(idx) => { setIndex(idx); useExamStore.getState().setCloudCurrentIndex(attemptId, idx) }} 
+          />
+        </div>
+       <section className="min-w-0 rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_28px_rgba(15,23,42,0.05)]">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 sm:px-7">
             <div className="flex items-center gap-3">
               <span className="grid size-9 place-items-center rounded-lg bg-[#E6F0EB] text-sm font-bold text-[#006C35]">{index + 1}</span>
@@ -1271,6 +1273,78 @@ function CloudExamPage() {
         </section>
       </div>
     </div>
+
+    {/* Mobile Sticky Bottom Navigation Bar */}
+    <div className="sticky bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur border-t border-slate-200 px-4 py-3 shadow-lg xl:hidden pb-safe flex items-center justify-between gap-2">
+      <button
+        type="button"
+        disabled={index === 0}
+        onClick={() => setIndex(index - 1)}
+        className="inline-flex min-h-11 items-center gap-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 disabled:opacity-40"
+      >
+        <ChevronLeft size={16} /> Prev
+      </button>
+
+      <button
+        type="button"
+        onClick={() => setIsMobileGridOpen(true)}
+        className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#E6F0EB] px-3.5 py-2 text-xs font-bold text-[#006C35] hover:bg-[#d8e8de] active:scale-[0.97]"
+      >
+        <Grid size={15} className="text-[#006C35]" />
+        <span>Soal {index + 1}/{questions.length}</span>
+      </button>
+
+      <button
+        type="button"
+        onClick={() => void toggleBookmark()}
+        className={`inline-flex min-h-11 items-center justify-center rounded-xl p-2.5 text-xs font-bold transition-all ${
+          answer?.bookmarked ? "bg-amber-100 text-amber-900 border border-amber-300" : "bg-slate-100 text-slate-600"
+        }`}
+        aria-label="Tandai Ragu"
+      >
+        <Bookmark size={16} fill={answer?.bookmarked ? "currentColor" : "none"} />
+      </button>
+
+      <button
+        type="button"
+        disabled={index === questions.length - 1}
+        onClick={() => setIndex(index + 1)}
+        className="inline-flex min-h-11 items-center gap-1 rounded-xl bg-[#006C35] px-3.5 py-2 text-xs font-bold text-white disabled:opacity-40 active:scale-[0.96]"
+      >
+        Next <ArrowRight size={16} />
+      </button>
+    </div>
+
+    {/* Mobile Question Grid Drawer Modal */}
+    {isMobileGridOpen && (
+      <div className="fixed inset-0 z-50 flex flex-col justify-end bg-slate-900/60 backdrop-blur-xs xl:hidden">
+        <div className="max-h-[85vh] overflow-y-auto rounded-t-3xl bg-white p-5 shadow-2xl pb-safe">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+            <div>
+              <h3 className="font-bold text-slate-900">Daftar Soal Simulasi</h3>
+              <p className="text-xs text-slate-500">Pilih nomor soal untuk berpindah</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsMobileGridOpen(false)}
+              className="grid size-9 place-items-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"
+            >
+              <X size={18} />
+            </button>
+          </div>
+          <QuestionGrid 
+            questions={questions} 
+            activeIndex={index} 
+            answers={Object.fromEntries(Object.entries(answers).flatMap(([key, value]) => value.selectedIndex === undefined ? [] : [[key, value.selectedIndex]])) as Record<string, number>} 
+            writingAnswers={localWritingAnswers}
+            speakingAnswers={localSpeakingAnswers}
+            bookmarks={Object.values(answers).filter((item) => item.bookmarked).map((item) => item.questionId)} 
+            viewedQuestionIds={Object.keys(answers)} 
+            onSelect={(idx) => { setIndex(idx); useExamStore.getState().setCloudCurrentIndex(attemptId, idx); setIsMobileGridOpen(false) }} 
+          />
+        </div>
+      </div>
+    )}
   </main>
 }
 
