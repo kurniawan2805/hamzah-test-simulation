@@ -251,6 +251,42 @@ export function UserManagement({
       })
     }
 
+    if (mode === 'cloud' && packageAssignments && packageAssignments.length > 0) {
+      packageAssignments.forEach((pa) => {
+        const target = pa.userId.toLowerCase()
+        let existing = userMap.get(target)
+        if (!existing) {
+          for (const u of userMap.values()) {
+            if (u.id.toLowerCase() === target || u.email.toLowerCase() === target) {
+              existing = u
+              break
+            }
+          }
+        }
+        if (!existing) {
+          const isEmail = target.includes('@')
+          const displayName = isEmail ? target.split('@')[0] : `Peserta (${target.slice(0, 8)})`
+          userMap.set(target, {
+            id: target,
+            name: displayName,
+            email: isEmail ? target : `${target.slice(0, 8)}@cloud.user`,
+            role: 'user',
+            joinedAt: pa.assignedAt,
+            lastActive: pa.assignedAt,
+            totalAttempts: 0,
+            completedAttempts: 0,
+            activeAttempts: 0,
+            avgScore: 0,
+            highestScore: 0,
+            bestCefr: 'A2',
+            strongestSection: '-',
+            sectionAverages: {},
+            attempts: [],
+          })
+        }
+      })
+    }
+
     if (mode === 'demo') {
       const mockUsers: Array<{ id: string; name: string; email: string; role: 'admin' | 'user'; score: number; cefr: string }> = [
         { id: 'admin-001', name: 'Admin Utama', email: 'admin@hamza.test', role: 'admin', score: 88, cefr: 'C1' },
