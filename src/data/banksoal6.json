@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal6",
+  "title": "اختبار همزة التجريبي - النموذج 6",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج السادس",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_06_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_01",
+      "question": "كم عدد دور النشر المشاركة في معرض الكتاب؟",
+      "options": [
+        "مائة دار نشر",
+        "أكثر من أربعمائة دار نشر",
+        "خمسون دار نشر فقط",
+        "ألف دار نشر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jumlah penerbit yang berpartisipasi adalah lebih dari 400 penerbit («أكثر من أربعمائة دار نشر»)."
+    },
+    {
+      "id": "hamza_q_06_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_01",
+      "question": "ما المجالات الفكرية للكتب المعروضة؟",
+      "options": [
+        "الرياضة والألعاب فقط",
+        "الفكر والأدب والعلوم",
+        "الطبخ والتجميل فقط",
+        "الإعلانات التجارية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Bidang buku yang dipamerkan mencakup pemikiran, sastra, dan sains («الفكر والأدب والعلوم»)."
+    },
+    {
+      "id": "hamza_q_06_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_02",
+      "question": "ما التعريف الأساسي للذكاء العاطفي في النص؟",
+      "options": [
+        "الحفظ السريع للنصوص",
+        "قدرة الفرد على فهم وإدارة مشاعره ومشاعر الآخرين",
+        "سرعة حل المسائل الرياضية",
+        "التحدث بلغات متعددة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kecerdasan emosional adalah kemampuan memahami dan mengelola emosi diri & orang lain («قدرة الفرد على فهم وإدارة مشاعره ومشاعر الآخرين»)."
+    },
+    {
+      "id": "hamza_q_06_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_02",
+      "question": "كيف ينعكس الذكاء العاطفي على بيئة العمل؟",
+      "options": [
+        "يزيد من الخلافات",
+        "يساعد في التعامل مع الضغوط بنجاح",
+        "يؤدي إلى العزلة",
+        "يقلل من الإنتاجية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kecerdasan emosional membantu mengatasi tekanan di lingkungan kerja secara sukses («يساعد في التعامل مع الضغوط بنجاح»)."
+    },
+    {
+      "id": "hamza_q_06_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_02",
+      "question": "ما المجال الاجتماعي المستفيد من الذكاء العاطفي؟",
+      "options": [
+        "تحسين العلاقات الشخصية",
+        "إلغاء التواصل الاجتماعي",
+        "زيادة التكاليف المالية",
+        "الاعتماد على الآلات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Manfaat sosial utamanya adalah memperطرق hubungan antar-pribadi («تحسين العلاقات الشخصية»)."
+    },
+    {
+      "id": "hamza_q_06_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_03",
+      "question": "على ماذا تعتمد الزراعة العضوية في النص؟",
+      "options": [
+        "المبيدات الكيميائية المكثفة",
+        "استخدام السماد الطبيعي وتجنب المبيدات الضارة",
+        "المياه الملوثة",
+        "الآلات الثقيلة فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pertanian organik mengandalkan pupuk alami dan menghindari pestisida kimia («استخدام السماد الطبيعي وتجنب المبيدات الضارة»)."
+    },
+    {
+      "id": "hamza_q_06_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_03",
+      "question": "ما الميزة الرئيسية للأغذية العضوية؟",
+      "options": [
+        "أغذية صحية وآمنة",
+        "أغذية رخيصة ومغشوشة",
+        "أغذية سريعة التلف بدون فائدة",
+        "أغذية مستوردة فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Keunggulan utamanya menghasilkan pangan sehat dan aman («أغذية صحية وآمنة»)."
+    },
+    {
+      "id": "hamza_q_06_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_03",
+      "question": "ما العناصر البيئية المحمية بهذه الزراعة؟",
+      "options": [
+        "التربة والمياه الجوفية",
+        "الهواء في المدن فقط",
+        "المباني والآثار",
+        "السفن البحرية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Komponen lingkungan yang dilindungi mencakup tanah dan air tanah («التربة والمياه الجوفية»)."
+    },
+    {
+      "id": "hamza_q_06_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_04",
+      "question": "ما هدف تشفير البيانات في النص؟",
+      "options": [
+        "حذف البيانات تلقائياً",
+        "منع عمليات التجسس والاختراق",
+        "زيادة سرعة التحميل فقط",
+        "تغيير لغة الحاسوب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan enkripsi data adalah mencegah spionase dan peretasan («منع عمليات التجسس والاختراق»)."
+    },
+    {
+      "id": "hamza_q_06_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b06_04",
+      "question": "كيف يعمل تشفير البيانات وفق الفقرة؟",
+      "options": [
+        "يحول البيانات إلى رموز غير مفهومة إلا بمفتاح خاص",
+        "يطبع البيانات على الورق",
+        "يرسل المعلومات لجميع الناس",
+        "يحذف كلمات المرور"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Enkripsi mengubah data menjadi kode tak tertebak kecuali pemilik kunci spesifik («يحول البيانات إلى رموز غير مفهومة إلا بمفتاح خاص»)."
+    },
+    {
+      "id": "hamza_q_06_011",
+      "section": "reading",
+      "passage": "اخترع غوتنبرغ الطباعة في القرن الخامس عشر، مما أحدث ثورة هائلة في انتشار المعرفة والإنسانيات. أتاحت الطباعة طباعة آلاف النسخ من الكتب بتكلفة منخفضة، مما سمح لعامة الناس بالتعلم والتثقيف بعد أن كان المحتوى محصوراً في فئات محددة.",
+      "question": "من المخترع المذكور للطباعة في النص ومتى اخترعها؟",
+      "options": [
+        "ابن الهيثم في القرن العاشر",
+        "غوتنبرغ في القرن الخامس عشر",
+        "نيوتن في القرن السابع عشر",
+        "دا فينشي في القرن السادس عشر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Penemu mesin cetak adalah Gutenberg pada abad ke-15 («غوتنبرغ في القرن الخامس عشر»)."
+    },
+    {
+      "id": "hamza_q_06_012",
+      "section": "reading",
+      "passage": "اخترع غوتنبرغ الطباعة في القرن الخامس عشر، مما أحدث ثورة هائلة في انتشار المعرفة والإنسانيات. أتاحت الطباعة طباعة آلاف النسخ من الكتب بتكلفة منخفضة، مما سمح لعامة الناس بالتعلم والتثقيف بعد أن كان المحتوى محصوراً في فئات محددة.",
+      "question": "ما الثورة المعرفية التي أحدثها اختراع الطباعة؟",
+      "options": [
+        "انتشار الكتب والمعرفة بتكلفة منخفضة",
+        "إلغاء المدارس والجامعات",
+        "وقف ترجمة الكتب",
+        "زيادة أسعار الكتب"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Dampaknya melahirkan penyebaran pengetahuan dan buku berbiaya murah («انتشار الكتب والمعرفة بتكلفة منخفضة»)."
+    },
+    {
+      "id": "hamza_q_06_013",
+      "section": "reading",
+      "passage": "اخترع غوتنبرغ الطباعة في القرن الخامس عشر، مما أحدث ثورة هائلة في انتشار المعرفة والإنسانيات. أتاحت الطباعة طباعة آلاف النسخ من الكتب بتكلفة منخفضة، مما سمح لعامة الناس بالتعلم والتثقيف بعد أن كان المحتوى محصوراً في فئات محددة.",
+      "question": "كيف كان المحتوى المعرفي قبل اختراع الطباعة؟",
+      "options": [
+        "متاحاً للجميع مجاناً",
+        "محصوراً في فئات محددة",
+        "منشوراً عبر الإنترنت",
+        "غير موجود إطلاقاً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Konten bacaan sebelum mesin cetak terbatas pada kalangan tertentu saja («محصوراً في فئات محددة»)."
+    },
+    {
+      "id": "hamza_q_06_014",
+      "section": "reading",
+      "passage": "اخترع غوتنبرغ الطباعة في القرن الخامس عشر، مما أحدث ثورة هائلة في انتشار المعرفة والإنسانيات. أتاحت الطباعة طباعة آلاف النسخ من الكتب بتكلفة منخفضة، مما سمح لعامة الناس بالتعلم والتثقيف بعد أن كان المحتوى محصوراً في فئات محددة.",
+      "question": "ما الأثر الاجتماعي المباشر للطباعة في النص؟",
+      "options": [
+        "السماح لعامة الناس بالتعلم والتثقيف",
+        "إغلاق المكتبات العامة",
+        "قلة التأليف والأدب",
+        "منع الناس من القراءة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Efek sosialnya memberi akses publik luas untuk belajar dan berwawasan («السماح لعامة الناس بالتعلم والتثقيف»)."
+    },
+    {
+      "id": "hamza_q_06_015",
+      "section": "reading",
+      "passage": "اخترع غوتنبرغ الطباعة في القرن الخامس عشر، مما أحدث ثورة هائلة في انتشار المعرفة والإنسانيات. أتاحت الطباعة طباعة آلاف النسخ من الكتب بتكلفة منخفضة، مما سمح لعامة الناس بالتعلم والتثقيف بعد أن كان المحتوى محصوراً في فئات محددة.",
+      "question": "ما الفكرة المحورية للنص؟",
+      "options": [
+        "طريقة صنع الورق",
+        "الأثر التاريخي والمعرفي لاختراع الطباعة",
+        "حياة العلماء في أوروبا",
+        "تاريخ المكتبات الرقمية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah dampak sejarah keilmuan penemuan mesin cetak («الأثر التاريخي والمعرفي لاختراع الطباعة»)."
+    },
+    {
+      "id": "hamza_q_06_016",
+      "section": "reading",
+      "passage": "يتكون الذكاء العاطفي من أربعة أبعاد رئيسية: الوعي الذاتي، وإدارة الذات، والوعي الاجتماعي، وإدارة العلاقات. تؤكد الأبحاث الإدارية أن القادة الذين يتمتعون بذكاء عاطفي مرتفع يحققون مستويات أعلى من رضا الموظفين والإنتاجية المؤسسية.",
+      "question": "كم عدد الأبعاد الرئيسية للذكاء العاطفي في النص؟",
+      "options": [
+        "بعدان فقط",
+        "أربعة أبعاد رئيسية",
+        "خمسة أبعاد",
+        "ثمانية أبعاد"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dimensi utama EQ berjumlah 4 komponen («أربعة أبعاد رئيسية»)."
+    },
+    {
+      "id": "hamza_q_06_017",
+      "section": "reading",
+      "passage": "يتكون الذكاء العاطفي من أربعة أبعاد رئيسية: الوعي الذاتي، وإدارة الذات، والوعي الاجتماعي، وإدارة العلاقات. تؤكد الأبحاث الإدارية أن القادة الذين يتمتعون بذكاء عاطفي مرتفع يحققون مستويات أعلى من رضا الموظفين والإنتاجية المؤسسية.",
+      "question": "ما البعدان المرتبطان بالذات في هذا المفهوم؟",
+      "options": [
+        "الوعي الاجتماعي والتعاطف",
+        "الوعي الذاتي وإدارة الذات",
+        "إدارة العلاقات والقيادة",
+        "التحليل المالي والنوم"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua dimensi internal diri adalah kesadaran diri dan manajemen diri («الوعي الذاتي وإدارة الذات»)."
+    },
+    {
+      "id": "hamza_q_06_018",
+      "section": "reading",
+      "passage": "يتكون الذكاء العاطفي من أربعة أبعاد رئيسية: الوعي الذاتي، وإدارة الذات، والوعي الاجتماعي، وإدارة العلاقات. تؤكد الأبحاث الإدارية أن القادة الذين يتمتعون بذكاء عاطفي مرتفع يحققون مستويات أعلى من رضا الموظفين والإنتاجية المؤسسية.",
+      "question": "ما نتيجه تمتع القادة بذكاء عاطفي مرتفع؟",
+      "options": [
+        "زيادة استقالة الموظفين",
+        "رضا أعلى للموظفين وإنتاجية مؤسسية مرتفعة",
+        "بطء اتخاذ القرارات",
+        "انخفاض الأرباح"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pemimpin berskor EQ tinggi meraih kepuasan staf & produktivitas organisasi lebih tinggi («رضا أعلى للموظفين وإنتاجية مؤسسية مرتفعة»)."
+    },
+    {
+      "id": "hamza_q_06_019",
+      "section": "reading",
+      "passage": "يتكون الذكاء العاطفي من أربعة أبعاد رئيسية: الوعي الذاتي، وإدارة الذات، والوعي الاجتماعي، وإدارة العلاقات. تؤكد الأبحاث الإدارية أن القادة الذين يتمتعون بذكاء عاطفي مرتفع يحققون مستويات أعلى من رضا الموظفين والإنتاجية المؤسسية.",
+      "question": "ما مصدر نتائج هذه الأبعاد في الفقرة؟",
+      "options": [
+        "التجارب الشخصية",
+        "الأبحاث الإدارية المؤكدة",
+        "الأحلام والظنون",
+        "مجموعات التواصل فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Temuan ini dikonfirmasi oleh riset manajemen («الأبحاث الإدارية المؤكدة»)."
+    },
+    {
+      "id": "hamza_q_06_020",
+      "section": "reading",
+      "passage": "يتكون الذكاء العاطفي من أربعة أبعاد رئيسية: الوعي الذاتي، وإدارة الذات، والوعي الاجتماعي، وإدارة العلاقات. تؤكد الأبحاث الإدارية أن القادة الذين يتمتعون بذكاء عاطفي مرتفع يحققون مستويات أعلى من رضا الموظفين والإنتاجية المؤسسية.",
+      "question": "ما العنوان الأنسب لهذا النص؟",
+      "options": [
+        "طرق حساب الذكاء العقلي",
+        "أبعاد الذكاء العاطفي وأثره في القيادة",
+        "كيف تصبح مدراء مؤسسة",
+        "أهمية التخطيط الإستراتيجي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling pas adalah dimensi kecerdasan emosional dan pengaruhnya dalam kepemimpinan («أبعاد الذكاء العاطفي وأثره في القيادة»)."
+    },
+    {
+      "id": "hamza_q_06_021",
+      "section": "reading",
+      "passage": "تساهم الممارسات الزراعية المستدامة في الحد من تآكل التربة وتدهورها. إن اتباع دورة زراعية منتظمة وزراعة المحاصيل الغطائية يجدد خصوبة الأرض ويحمي المحاصيل من الآفات الطبيعية دون الحاجة للكيماويات.",
+      "question": "ما المشكلة الأرضية التي تحد منها الزراعة المستدامة؟",
+      "options": [
+        "توسع المدن",
+        "تآكل التربة وتدهورها",
+        "فيضان البحار",
+        "ارتفاع التلال"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pertanian berkelanjutan menekan perusakan dan erosi tanah («تآكل التربة وتدهورها»)."
+    },
+    {
+      "id": "hamza_q_06_022",
+      "section": "reading",
+      "passage": "تساهم الممارسات الزراعية المستدامة في الحد من تآكل التربة وتدهورها. إن اتباع دورة زراعية منتظمة وزراعة المحاصيل الغطائية يجدد خصوبة الأرض ويحمي المحاصيل من الآفات الطبيعية دون الحاجة للكيماويات.",
+      "question": "ما الوسيلة المذكورة لتجديد خصوبة الأرض؟",
+      "options": [
+        "ترك الأرض بوراً للأبد",
+        "اتباع دورة زراعية وزراعة محاصيل غطائية",
+        "رش السموم الكيميائية",
+        "حفر الآبار العميقة فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Memperbarui kesuburan tanah dilakukan lewat rotasi tanam dan tanaman penutup («اتباع دورة زراعية وزراعة محاصيل غطائية»)."
+    },
+    {
+      "id": "hamza_q_06_023",
+      "section": "reading",
+      "passage": "تساهم الممارسات الزراعية المستدامة في الحد من تآكل التربة وتدهورها. إن اتباع دورة زراعية منتظمة وزراعة المحاصيل الغطائية يجدد خصوبة الأرض ويحمي المحاصيل من الآفات الطبيعية دون الحاجة للكيماويات.",
+      "question": "كيف تحمي هذه الممارسات المحاصيل من الآفات؟",
+      "options": [
+        "دون الحاجة للكيماويات الضارة",
+        "باستخدام المبيدات السامة",
+        "بتغطية المزارع بالزجاج",
+        "بالرش الجوي اليومي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Perlindungan hama alami tercapai tanpa bergantung pada bahan kimia («دون الحاجة للكيماويات الضارة»)."
+    },
+    {
+      "id": "hamza_q_06_024",
+      "section": "reading",
+      "passage": "تساهم الممارسات الزراعية المستدامة في الحد من تآكل التربة وتدهورها. إن اتباع دورة زراعية منتظمة وزراعة المحاصيل الغطائية يجدد خصوبة الأرض ويحمي المحاصيل من الآفات الطبيعية دون الحاجة للكيماويات.",
+      "question": "ما فائدة المحاصيل الغطائية في النص؟",
+      "options": [
+        "حماية التربة وتجديد الخصوبة",
+        "تغذية الطيور فقط",
+        "بيعها بأسعار مرتفعة فقط",
+        "تثبيت الأشجار الكبيرة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tanaman penutup tanah berfungsi melindungi tanah dan menyuplai kelembaban/kesuburan («حماية التربة وتجديد الخصوبة»)."
+    },
+    {
+      "id": "hamza_q_06_025",
+      "section": "reading",
+      "passage": "تساهم الممارسات الزراعية المستدامة في الحد من تآكل التربة وتدهورها. إن اتباع دورة زراعية منتظمة وزراعة المحاصيل الغطائية يجدد خصوبة الأرض ويحمي المحاصيل من الآفات الطبيعية دون الحاجة للكيماويات.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "أنواع الأسمدة الكيماوية",
+        "فوائد الزراعة المستدامة لحماية التربة",
+        "طرق تسويق الخضار",
+        "تاريخ الآلات الزراعية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah manfaat pertanian berkelanjutan untuk kelestarian tanah («فوائد الزراعة المستدامة لحماية التربة»)."
+    },
+    {
+      "id": "hamza_q_06_026",
+      "section": "reading",
+      "passage": "يعتبر تشفير البيانات التماثلي وغير التماثلي حجر الزاوية في المعاملات البنكية الرقمية. يضمن التشفير حماية بيانات بطاقات الائتمان والتحويلات المالية من سرقة الهوية أثناء الانتقال عبر شبكة الإنترنت العالمية.",
+      "question": "ما المجال المالي الاستراتيجي الذي يحميه التشفير في النص؟",
+      "options": [
+        "شراء العقارات نقداً",
+        "المعاملات البنكية الرقمية والتحويلات",
+        "طباعة العملات الورقية",
+        "بيع الأسهم التقليدية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Enkripsi melindungi transaksi perbankan digital dan transfer keuangan («المعاملات البنكية الرقمية والتحويلات»)."
+    },
+    {
+      "id": "hamza_q_06_027",
+      "section": "reading",
+      "passage": "يعتبر تشفير البيانات التماثلي وغير التماثلي حجر الزاوية في المعاملات البنكية الرقمية. يضمن التشفير حماية بيانات بطاقات الائتمان والتحويلات المالية من سرقة الهوية أثناء الانتقال عبر شبكة الإنترنت العالمية.",
+      "question": "ما نوعا التشفير المذكوران في الفقرة؟",
+      "options": [
+        "التشفير البسيط واليدوي",
+        "التشفير التماثلي وغير التماثلي",
+        "التشفير الصوتي والمرئي",
+        "التشفير السري والعلني"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua jenis enkripsi yang disebut adalah simetris dan asimetris («التشفير التماثلي وغير التماثلي»)."
+    },
+    {
+      "id": "hamza_q_06_028",
+      "section": "reading",
+      "passage": "يعتبر تشفير البيانات التماثلي وغير التماثلي حجر الزاوية في المعاملات البنكية الرقمية. يضمن التشفير حماية بيانات بطاقات الائتمان والتحويلات المالية من سرقة الهوية أثناء الانتقال عبر شبكة الإنترنت العالمية.",
+      "question": "ما الخطر الرقمي الذي يمنعه التشفير البنكي؟",
+      "options": [
+        "سرقة الهوية واختراق البيانات البنكية",
+        "تأخر وصول الرسائل النصية",
+        "فقدان بطاقة البنك المادية",
+        "ارتفاع فائدة القروض"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Enkripsi mencegah pencurian identitas dan peretasan data perbankan («سرقة الهوية واختراق البيانات البنكية»)."
+    },
+    {
+      "id": "hamza_q_06_029",
+      "section": "reading",
+      "passage": "يعتبر تشفير البيانات التماثلي وغير التماثلي حجر الزاوية في المعاملات البنكية الرقمية. يضمن التشفير حماية بيانات بطاقات الائتمان والتحويلات المالية من سرقة الهوية أثناء الانتقال عبر شبكة الإنترنت العالمية.",
+      "question": "متى يتم حماية البيانات البنكية حسب النص؟",
+      "options": [
+        "عند طباعتها",
+        "أثناء الانتقال عبر شبكة الإنترنت العالمية",
+        "عند إغلاق الحساب",
+        "في البنوك القديمة فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Perlindungan aktif terjadi saat transmisi lalu lintas data via internet («أثناء الانتقال عبر شبكة الإنترنت العالمية»)."
+    },
+    {
+      "id": "hamza_q_06_030",
+      "section": "reading",
+      "passage": "يعتبر تشفير البيانات التماثلي وغير التماثلي حجر الزاوية في المعاملات البنكية الرقمية. يضمن التشفير حماية بيانات بطاقات الائتمان والتحويلات المالية من سرقة الهوية أثناء الانتقال عبر شبكة الإنترنت العالمية.",
+      "question": "ما الأهمية الكبرى للتشفير في الاقتصاد الرقمي؟",
+      "options": [
+        "بناء الثقة وحماية الأصول المالية الرقمية",
+        "تقليل سرعة التحويلات",
+        "زيادة رسوم الخدمة",
+        "استبدال البنوك بالشركات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Peran vitalnya membangun kepercayaan dan mengamankan aset finansial digital («بناء الثقة وحماية الأصول المالية الرقمية»)."
+    },
+    {
+      "id": "hamza_q_06_031",
+      "section": "reading",
+      "passage": "التعلم المستمر هو استراتيجية فردية لمواكبة التغيرات السريعة في سوق العمل. الأشخاص الذين يخصصون وقتاً أسبوعياً لقراءة الكتب الحديثة واكتساب مهارات جديدة يكونون أكثر قدرة على التكيف مع التطورات التقنية والمهنية.",
+      "question": "ما الهدف من استراتيجية التعلم المستمر في النص؟",
+      "options": [
+        "الحصول على التقاعد المبكر",
+        "مواكبة التغيرات السريعة في سوق العمل",
+        "ترك الوظيفة الحالية",
+        "زيادة ساعات الفراغ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan belajar terus-menerus adalah mengikuti dinamika perubahan pasar kerja («مواكبة التغيرات السريعة في سوق العمل»)."
+    },
+    {
+      "id": "hamza_q_06_032",
+      "section": "reading",
+      "passage": "التعلم المستمر هو استراتيجية فردية لمواكبة التغيرات السريعة في سوق العمل. الأشخاص الذين يخصصون وقتاً أسبوعياً لقراءة الكتب الحديثة واكتساب مهارات جديدة يكونون أكثر قدرة على التكيف مع التطورات التقنية والمهنية.",
+      "question": "ما السلوك الإيجابي الذي يقوم به الأفراد المتكيفون؟",
+      "options": [
+        "تجاهل الدورات التدريبية",
+        "تخصيص وقت أسبوعي للقراءة واكتساب المهارات",
+        "الاعتماد على مهارات الماضي فقط",
+        "العمل دون توقف"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Perilaku positifnya meluangkan waktu mingguan untuk membaca dan mengasah keterampilan («تخصيص وقت أسبوعي للقراءة واكتساب المهارات»)."
+    },
+    {
+      "id": "hamza_q_06_033",
+      "section": "reading",
+      "passage": "التعلم المستمر هو استراتيجية فردية لمواكبة التغيرات السريعة في سوق العمل. الأشخاص الذين يخصصون وقتاً أسبوعياً لقراءة الكتب الحديثة واكتساب مهارات جديدة يكونون أكثر قدرة على التكيف مع التطورات التقنية والمهنية.",
+      "question": "ما نتيجة التعلم المستمر على القدرة المهنية؟",
+      "options": [
+        "القدرة على التكيف مع التطورات التقنية والمهنية",
+        "فقدان التركيز في العمل",
+        "التردد في اتخاذ القرارات",
+        "صعوبة التواصل مع زملائه"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Hasilnya adalah kemahiran beradaptasi dengan kemajuan teknologi dan karir («القدرة على التكيف مع التطورات التقنية والمهنية»)."
+    },
+    {
+      "id": "hamza_q_06_034",
+      "section": "reading",
+      "passage": "التعلم المستمر هو استراتيجية فردية لمواكبة التغيرات السريعة في سوق العمل. الأشخاص الذين يخصصون وقتاً أسبوعياً لقراءة الكتب الحديثة واكتساب مهارات جديدة يكونون أكثر قدرة على التكيف مع التطورات التقنية والمهنية.",
+      "question": "كم مرة يُنصح بتخصيص وقت للتعلم حسب النص؟",
+      "options": [
+        "مرة في السنة",
+        "وقتاً أسبوعياً",
+        "مرة كل شهرين",
+        "في العطلات الطويلة فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Anjuran alokasi waktu dipatok secara mingguan («وقتاً أسبوعياً»)."
+    },
+    {
+      "id": "hamza_q_06_035",
+      "section": "reading",
+      "passage": "التعلم المستمر هو استراتيجية فردية لمواكبة التغيرات السريعة في سوق العمل. الأشخاص الذين يخصصون وقتاً أسبوعياً لقراءة الكتب الحديثة واكتساب مهارات جديدة يكونون أكثر قدرة على التكيف مع التطورات التقنية والمهنية.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طرق اختيار الوظيفة الأولى",
+        "أهمية التعلم المستمر في النجاح المهني",
+        "كيف تشتري الكتب الإلكترونية",
+        "أنواع المهارات اليدوية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah pentingnya lifelong learning dalam meraih keberhasilan profesional («أهمية التعلم المستمر في النجاح المهني»)."
+    },
+    {
+      "id": "hamza_q_06_036",
+      "section": "reading",
+      "passage": "التغذية المتوازنة تؤثر بشكل مباشر على وظائف المخ والدماغ. أظهرت الأبحاث أن تناول الأطعمة الغنية بأوميغا ثلاثة والمواد المضادة للأكسدة يعزز الذاكرة ويقلل من مخاطر تراجع القدرات الذهنية مع تقدم العمر.",
+      "question": "ما العضو البشري الذي تؤثر عليه التغذية المتوازنة في النص؟",
+      "options": [
+        "العظام والعضلات فقط",
+        "وظائف المخ والدماغ",
+        "الجلد والشعر فقط",
+        "الأسنان والأظافر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pola makan seimbang mempengaruhi secara langsung kinerja otak («وظائف المخ والدماغ»)."
+    },
+    {
+      "id": "hamza_q_06_037",
+      "section": "reading",
+      "passage": "التغذية المتوازنة تؤثر بشكل مباشر على وظائف المخ والدماغ. أظهرت الأبحاث أن تناول الأطعمة الغنية بأوميغا ثلاثة والمواد المضادة للأكسدة يعزز الذاكرة ويقلل من مخاطر تراجع القدرات الذهنية مع تقدم العمر.",
+      "question": "ما المكونات الغذائية المذكورة لتعزيز الذاكرة؟",
+      "options": [
+        "السكريات والدهون المشبعة",
+        "أوميغا ثلاثة والمواد المضادة للأكسدة",
+        "الملح والكافيين بكثرة",
+        "المشروبات الغازية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Nutrisi penguat daya ingat yang disebut adalah omega-3 dan antioksidan («أوميغا ثلاثة والمواد المضادة للأكسدة»)."
+    },
+    {
+      "id": "hamza_q_06_038",
+      "section": "reading",
+      "passage": "التغذية المتوازنة تؤثر بشكل مباشر على وظائف المخ والدماغ. أظهرت الأبحاث أن تناول الأطعمة الغنية بأوميغا ثلاثة والمواد المضادة للأكسدة يعزز الذاكرة ويقلل من مخاطر تراجع القدرات الذهنية مع تقدم العمر.",
+      "question": "ما الأثر الوقائي لهذه التغذية مع تقدم العمر؟",
+      "options": [
+        "تقليل مخاطر تراجع القدرات الذهنية",
+        "إيقاف الشيب",
+        "زيادة الطول",
+        "منع الشيخوخة بالكامل"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Dampak protektifnya mengurangi risiko penurunan fungsi kognitif mental saat menua («تقليل مخاطر تراجع القدرات الذهنية»)."
+    },
+    {
+      "id": "hamza_q_06_039",
+      "section": "reading",
+      "passage": "التغذية المتوازنة تؤثر بشكل مباشر على وظائف المخ والدماغ. أظهرت الأبحاث أن تناول الأطعمة الغنية بأوميغا ثلاثة والمواد المضادة للأكسدة يعزز الذاكرة ويقلل من مخاطر تراجع القدرات الذهنية مع تقدم العمر.",
+      "question": "ما مصدر هذه المعلومات الطبية في النص؟",
+      "options": [
+        "الأبحاث العلمية الطبية",
+        "المجلات العامة",
+        "تجارب الأصدقاء",
+        "الإعلانات التجارية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Informasi ini bersumber dari riset ilmiah medis («الأبحاث العلمية الطبية»)."
+    },
+    {
+      "id": "hamza_q_06_040",
+      "section": "reading",
+      "passage": "التغذية المتوازنة تؤثر بشكل مباشر على وظائف المخ والدماغ. أظهرت الأبحاث أن تناول الأطعمة الغنية بأوميغا ثلاثة والمواد المضادة للأكسدة يعزز الذاكرة ويقلل من مخاطر تراجع القدرات الذهنية مع تقدم العمر.",
+      "question": "ما النصيحة الرئيسية المستفادة من الفقرة؟",
+      "options": [
+        "تناول الأطعمة الغنية بالنفع وتجنب الضارة بدماغك",
+        "تقليل الوجبات إلى وجبة واحدة",
+        "ترك الرياضة والاهتمام بالأكل فقط",
+        "تناول الفيتامينات الكيميائية فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pesan utamanya adalah mengonsumsi nutrisi kaya antioksidan demi kesehatan otak («تناول الأطعمة الغنية بالنفع وتجنب الضارة بدماغك»)."
+    },
+    {
+      "id": "hamza_q_06_041",
+      "section": "grammar",
+      "question": "اختر الفعل الصحيح المبني للمجهول: ______ الكتابُ بدقةٍ.",
+      "options": [
+        "قُرِئَ",
+        "قَرَأَ",
+        "يَقْرَأُ",
+        "قَارِئٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il madhi mabni lil-majhul ditandai dhammah di awal kasrah sebelum akhir: «قُرِئَ»."
+    },
+    {
+      "id": "hamza_q_06_042",
+      "section": "grammar",
+      "question": "ما إعراب (مستشاراً) في: عينتُ علياً مستشاراً؟",
+      "options": [
+        "مفعول به ثاني منصوب",
+        "مفعول به أول",
+        "حال",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «مستشاراً» kedudukannya maf'ul bih kedua dari fi'il penunjuk pelantikan («عيّن»)."
+    },
+    {
+      "id": "hamza_q_06_043",
+      "section": "grammar",
+      "question": "اختر اسم التفضيل المجرور بالإضافة: هذا ______ الطلابِ.",
+      "options": [
+        "أفضلُ",
+        "أفضلَ",
+        "أفضلٍ",
+        "الأفضلَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism tafdhil marfu' sebagai mubtada'/khabar dan mudhaf: «أفضلُ الطلابِ»."
+    },
+    {
+      "id": "hamza_q_06_044",
+      "section": "grammar",
+      "question": "حدد المفعول فيه (ظرف المكان) في: يقف المعلمُ أمامَ الطلابِ.",
+      "options": [
+        "يقف",
+        "المعلمُ",
+        "أمامَ",
+        "الطلابِ"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban C. Zharaf makan yang menjelaskan lokasi berdiri adalah «أمامَ»."
+    },
+    {
+      "id": "hamza_q_06_045",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (مدينة)؟",
+      "options": [
+        "مدن",
+        "مدنيون",
+        "مدينات",
+        "مداين"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Jamak taksir dari «مدينة» adalah «مدن»."
+    },
+    {
+      "id": "hamza_q_06_046",
+      "section": "grammar",
+      "question": "اختر النعت السببي المرفوع: حضر رجلٌ ______ أبوهُ.",
+      "options": [
+        "كريمٌ",
+        "كريماً",
+        "كريمٍ",
+        "الكريمُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Na'at sababi marfu' yang menyesuaikan harakat man'ut sebelumnya: «كريمٌ أبوهُ»."
+    },
+    {
+      "id": "hamza_q_06_047",
+      "section": "grammar",
+      "question": "اختر أداة الشرط غير الجازمة:",
+      "options": [
+        "إذا",
+        "إنْ",
+        "مَن",
+        "ما"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Adawat syarat ghairu jazimah contohnya «إذا»."
+    },
+    {
+      "id": "hamza_q_06_048",
+      "section": "grammar",
+      "question": "ما إعراب (طالبتين) في: كافأتُ طالبتينِ مجتهدتينِ؟",
+      "options": [
+        "مفعول به منصوب بالياء",
+        "فاعل مرفوع",
+        "مبتدأ",
+        "خبر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «طالبتينِ» maf'ul bih muthanna manshub ditandai ya'."
+    },
+    {
+      "id": "hamza_q_06_049",
+      "section": "grammar",
+      "question": "حدد المصدر الميمي من الفعل (قدم):",
+      "options": [
+        "مَقْدَم",
+        "قادم",
+        "مقدوم",
+        "تقديم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Masdar mimi berwazan مَفْعَل هو «مَقْدَم»."
+    },
+    {
+      "id": "hamza_q_06_050",
+      "section": "grammar",
+      "question": "اختر الفعل المتعدي لشخصين (مفعولين):",
+      "options": [
+        "أعطى",
+        "خرج",
+        "جلس",
+        "قام"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il muta'addi ilaa maf'ulayni contohnya «أعطى»."
+    },
+    {
+      "id": "hamza_q_06_051",
+      "section": "grammar",
+      "question": "ما نوع الكلمة (مكتبة)؟",
+      "options": [
+        "اسم مكان",
+        "اسم زمان",
+        "اسم فاعل",
+        "اسم مفعول"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «مكتبة» adalah ism makan (tempat penyimpanan buku)."
+    },
+    {
+      "id": "hamza_q_06_052",
+      "section": "grammar",
+      "question": "اختر الضمير المتصل في محل جر بالإضافة:",
+      "options": [
+        "كتابُكَ جديدٌ",
+        "كَتَبْتُ الدرسَ",
+        "ساعدني محمدٌ",
+        "خرجوا جميعاً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kaf al-khithab pada «كتابُكَ» fi mahalli jarrin bil-idhafah."
+    },
+    {
+      "id": "hamza_q_06_053",
+      "section": "grammar",
+      "question": "حدد المنادى الشبيه بالمضاف المنصوب:",
+      "options": [
+        "يا طالعاً جَبَلاً احتَرِسْ",
+        "يا طالعُ الجبلِ",
+        "يا طالعٌ",
+        "يا رجلُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Munada shabih bil-mudhaf manshub dan bertanwin: «يا طالعاً جَبَلاً»."
+    },
+    {
+      "id": "hamza_q_06_054",
+      "section": "grammar",
+      "question": "اختر الكلمة المصغرة الصحيحة لكلمة (نهر):",
+      "options": [
+        "نهير",
+        "أنهار",
+        "نهيرات",
+        "منهر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tashghir dari isim thulathi «نهر» berwazan فُعَيْل هو «نهير»."
+    },
+    {
+      "id": "hamza_q_06_055",
+      "section": "grammar",
+      "question": "ما إعراب (جميعُهم) في: حضر الطلابُ جميعُهم؟",
+      "options": [
+        "توكيد معنوي مرفوع",
+        "فاعل",
+        "مفعول به",
+        "بدل"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «جميعُهم» kedudukannya tawkid ma'nawi marfu' mengikuti mu'akkad («الطلابُ»)."
+    },
+    {
+      "id": "hamza_q_06_056",
+      "section": "grammar",
+      "question": "حدد الفعل الناقص من أخوات كاد (الرشروع):",
+      "options": [
+        "شرعَ",
+        "كان",
+        "أصبح",
+        "بات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il al-furu' min af'al ash-shuru' contohnya «شرعَ» (mulai)."
+    },
+    {
+      "id": "hamza_q_06_057",
+      "section": "grammar",
+      "question": "اختر الاستثناء المنقطع:",
+      "options": [
+        "وصل المسافرون إلا أمتعتَهم",
+        "حضر الطلاب إلا علياً",
+        "ما جاء إلا أحمدُ",
+        "قرأتُ الكتبَ إلا كتاباً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Istithna munqati' karena mustathna (barang/bagasi) berbeda jenis dari mustathna minhu (orang/musafir)."
+    },
+    {
+      "id": "hamza_q_06_058",
+      "section": "grammar",
+      "question": "ما وزن كلمة (ميزان)؟",
+      "options": [
+        "مفعال",
+        "مفعل",
+        "فعال",
+        "تفعال"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Wazan ism alat «ميزان» (berasal dari وزن) adalah «مفعال»."
+    },
+    {
+      "id": "hamza_q_06_059",
+      "section": "grammar",
+      "question": "اختر الفعل المضارع المرفوع بثبوت النون:",
+      "options": [
+        "هم يكتبون",
+        "هم لم يكتبوا",
+        "هم لن يكتبوا",
+        "اكتبوا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' marfu' af'al al-khamsah ditandai thubut an-nun: «يكتبون»."
+    },
+    {
+      "id": "hamza_q_06_060",
+      "section": "grammar",
+      "question": "ما إعراب كلمة (حقاً) في: شهدتُ بالحقِ حقاً؟",
+      "options": [
+        "مفعول مطلق منصوب",
+        "حال",
+        "تمييز",
+        "مفعول به"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «حقاً» kedudukannya maf'ul mutlaq manshub."
+    },
+    {
+      "id": "hamza_q_06_061",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح لأسلوب التعجب القياسي:",
+      "options": [
+        "ما أجملَ الابتسامةَ في وجوهِ الناسِ!",
+        "ما أجملُ الابتسامةُ في وجوهِ الناسِ!",
+        "ما أجملَ الابتسامةُ في وجوهِ الناسِ!",
+        "أجملْ بالابتسامةَ في وجوهِ الناسِ!"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Shighat ta'ajjub «ما أفعلَ + المفعول به المنصوب»: «ما أجملَ الابتسامةَ!»."
+    },
+    {
+      "id": "hamza_q_06_062",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح للنعت والمنعوت المعرف بـ أل:",
+      "options": [
+        "رأيتُ الطالبَ الجديدَ يقرأُ",
+        "رأيتُ الطالبُ الجديدُ يقرأُ",
+        "رأيتُ الطالبَ جديداً يقرأُ",
+        "رأيتُ الطالبُ الجديدَ يقرأُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Na'at ma'rifah manshub mengikuti man'ut maf'ul bih manshub: «الطالبَ الجديدَ»."
+    },
+    {
+      "id": "hamza_q_06_063",
+      "section": "structures",
+      "question": "حدد التركيب الإضافي الصحيح لجمع المؤنث السالم:",
+      "options": [
+        "معلماتُ المدرسةِ متميزاتٌ",
+        "معلماتٌ المدرسةِ متميزاتٌ",
+        "معلماتٍ المدرسةِ متميزاتٌ",
+        "المعلماتُ المدرسةِ متميزاتٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Mudhaf tanpa tanwin dan alif lam: «معلماتُ المدرسةِ»."
+    },
+    {
+      "id": "hamza_q_06_064",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح للجملة المعطوفة بـ (فاء الترتيب والتعقيب):",
+      "options": [
+        "دخلَ الرئيسُ فـالوزراءُ",
+        "دخلَ الرئيسُ ثمّ الوزراءُ",
+        "دخلَ الرئيسُ أو الوزراءُ",
+        "دخلَ الرئيسُ بل الوزراءُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf 'athaf fa' menunjukkan urutan langsung tanpa jedا lama: «فـالوزراءُ»."
+    },
+    {
+      "id": "hamza_q_06_065",
+      "section": "structures",
+      "question": "اختر الصيغة الصحيحة للفاعل المستتر في الجملة:",
+      "options": [
+        "أحمدُ خرجَ من الفصلِ مسرعاً",
+        "أحمدُ خرجوا من الفصلِ",
+        "أحمدُ خرجتْ من الفصلِ",
+        "أحمدُ خرجنا من الفصلِ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fa'il مستتر تقديره هو يعود على أحمد: «خرجَ» (هو)."
+    },
+    {
+      "id": "hamza_q_06_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب مقالاً عن أهمية معرض الكتاب ودوره في نشر الثقافة والأدب.",
+      "prompt_hint": "اذكر انطباعك عن تنوع الكتب وتفاعل الجمهور",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tulis esai minimal 80 kata ulasan keseruan pamerان buku dan perannya memajukan minat baca masyarakat."
+    },
+    {
+      "id": "hamza_q_06_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش أبعاد الذكاء العاطفي وكيف يساهم في نجاح العلاقات والعمل.",
+      "prompt_hint": "اعرض ميزتين للشخص الذي يمتلك ذكاءً عاطفياً مرتفعاً",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata keunggulan individu berkecerdasan emosional tinggi di tempat kerja dan keluarga."
+    },
+    {
+      "id": "hamza_q_06_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن فوائد الزراعة العضوية مقارنة بالزراعة الكيميائية.",
+      "prompt_hint": "ركز على سلامة الغذاء وحماية التربة والمياه الجوفية",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Paparkan minimal 70 kata analisis keunggulan produk pangan organik bagi kesehatan dan ekosistem tanah."
+    },
+    {
+      "id": "hamza_q_06_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن أهمية تشفير البيانات للأمن الرقمي والمعاملات البنكية.",
+      "prompt_hint": "اذكر الخطر الرقمي الذي يمنعه التشفير للمستخدمين",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat narasi minimal 70 kata fungsi enkripsi siber dalam melindungi privasi data dan transaksi perbankan."
+    },
+    {
+      "id": "hamza_q_06_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف خطتك الشخصية للتعلم المستمر وتطوير مهاراتك الأسبوعية.",
+      "prompt_hint": "حدد كتاباً أو مهارة تقنية تنوي تعلمها قريباً",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan komitmen tertulis minimal 80 kata mengenai jadwal belajar mandiri dan penguasaan skill baru Anda."
+    },
+    {
+      "id": "hamza_q_06_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "حدثنا عن آخر كتاب أو رواية قرأتها وما العبرة المستفادة منها.",
+      "prompt_hint": "اذكر عنوان الكتاب وفكرته الرئيسية خلال دقيقة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Bagikan ulasan lisan 1 menit buku atau novel terbaru yang Anda baca beserta hikmah utamanya."
+    },
+    {
+      "id": "hamza_q_06_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "كيف تتصرف عندما تقع في مواقف ضاغطة في العمل أو الدراسة؟",
+      "prompt_hint": "وضح دور الذكاء العاطفي في ضبط انفعالاتك",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Jelaskan cara lisan 60 detik Anda mengendalikan emosi saat berhadapan dengan situasi stres/deadline."
+    },
+    {
+      "id": "hamza_q_06_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما رأيك في الأغذية العضوية؟ هل تشتريها رغماً عن ارتفاع سعرها؟",
+      "prompt_hint": "عبر عن رأيك وموقفك الشخصي بوضوح",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan pendapat lisan 1 menit pandangan Anda tentang produk makanan organik dan harganya."
+    },
+    {
+      "id": "hamza_q_06_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "هل تهتم بتغيير كلمات المرور وتشفير بياناتك الرقمية؟ ولماذا؟",
+      "prompt_hint": "اذكر خطوتين تقوم بهما لحماية حساباتك",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan secara lisan 60 detik kebiasaan keamanan siber Anda dalam mengamankan sandi dan akun pribadi."
+    },
+    {
+      "id": "hamza_q_06_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما المهارة الجديدة التي تطمح لتعلمها هذا العام وكيف ستكتسبها؟",
+      "prompt_hint": "حدد اسم المهارة والوسيلة المتبعة للتعلم",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Ceritakan target keahlian baru lisan 1 menit yang ingin Anda kuasai beserta strategi pembelajarannya."
+    }
+  ]
+}

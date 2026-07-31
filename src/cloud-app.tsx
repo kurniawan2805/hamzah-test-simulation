@@ -50,6 +50,7 @@ import {
   adminTogglePackagePublic,
   getAdminPackageAssignments,
   type AdminPackageAssignment,
+  syncUserProfile,
 } from './lib/exam-api'
 import { AccountMenu, useAppAuth } from './lib/auth'
 import { AUDIO_BUCKET } from './lib/audio-assets'
@@ -149,6 +150,12 @@ function CloudDashboardPage() {
   useEffect(() => {
     void loadExamsAndAttempts()
   }, [loadExamsAndAttempts])
+
+  useEffect(() => {
+    if (auth.userId) {
+      void syncUserProfile(client, auth.displayName, auth.email)
+    }
+  }, [client, auth.userId, auth.displayName, auth.email])
 
   useEffect(() => {
     if (isAdmin) {

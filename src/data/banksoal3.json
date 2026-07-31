@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal3",
+  "title": "اختبار همزة التجريبي - النموذج 3",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج الثالث",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_03_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_01",
+      "question": "ما الفعالية التي ينظمها المركز الثقافي العربي؟",
+      "options": [
+        "مهرجان السينما",
+        "أسبوعًا للغة العربية والخط العربي",
+        "مسابقة رياضية",
+        "معرض التجارة الإلكترونية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Acara yang diselenggarakan adalah pekan bahasa Arab dan kaligrafi Arab («أسبوعًا للغة العربية والخط العربي»)."
+    },
+    {
+      "id": "hamza_q_03_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_01",
+      "question": "ما أنواع الخطوط المذكورة في المحاضرات؟",
+      "options": [
+        "النسخ والرقعة",
+        "الكوفي والديواني",
+        "الفارسي والثلوث",
+        "الاندلسي والمغربي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jenis kaligrafi yang disebutkan dalam kuliah umum adalah Kufi dan Diwani («الكوفي والديواني»)."
+    },
+    {
+      "id": "hamza_q_03_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_02",
+      "question": "ما القطاع الذي شهد نموًا كبيرًا؟",
+      "options": [
+        "الزراعة التقليدية",
+        "التجارة الإلكترونية",
+        "الصيد البحري",
+        "صناعة السيارات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sektor yang mengalami pertumbuhan pesat adalah e-commerce / perdagangan elektronik («التجارة الإلكترونية»)."
+    },
+    {
+      "id": "hamza_q_03_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_02",
+      "question": "لماذا يفضل المستهلكون الشراء عبر الإنترنت؟",
+      "options": [
+        "لارتفاع الأسعار",
+        "لما يوفره من وقت وجهد وتنوع في الخيارات",
+        "لأنه يتطلب السفر",
+        "لعدم وجود ضمان للمنتجات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Konsumen menyukai belanja online karena menghemat waktu, tenaga, dan ragام pilihan («لما يوفره من وقت وجهد وتنوع في الخيارات»)."
+    },
+    {
+      "id": "hamza_q_03_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_02",
+      "question": "ما الخدمة المريحة المذكورة في الشراء الإلكتروني؟",
+      "options": [
+        "الدفع نقداً فقط",
+        "التوصيل المنزلي",
+        "الاستلام من المصنع",
+        "الشحن البحري البطيء"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Layanan nyaman yang disebutkan adalah pengiriman langsung ke rumah («التوصيل المنزلي»)."
+    },
+    {
+      "id": "hamza_q_03_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_03",
+      "question": "ما هدف إطلاق الأقمار الصناعية الجديدة؟",
+      "options": [
+        "بث القنوات التلفزيونية",
+        "مراقبة الطقس ودراسة التغيرات المناخية",
+        "التعدين في الفضاء",
+        "الاتصالات الهاتفية فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan peluncurان satelit adalah memantau cuaca dan mempelajari perubahan iklim («مراقبة الطقس ودراسة التغيرات المناخية»)."
+    },
+    {
+      "id": "hamza_q_03_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_03",
+      "question": "كيف تساعد الصور عالية الدقة العلماء؟",
+      "options": [
+        "في زيادة التكاليف",
+        "في التنبؤ بالعواصف وحماية الشواطئ",
+        "في بناء البيوت",
+        "في تعليم الأطفال"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Foto resolusi tinggi membantu ilmuwan memprediksi badai dan melindungi pesisir («في التنبؤ بالعواصف وحماية الشواطئ»)."
+    },
+    {
+      "id": "hamza_q_03_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_03",
+      "question": "من الجهه التي أطلقت الأقمار الصناعية؟",
+      "options": [
+        "جامعة محلية",
+        "وكالة الفضاء العربية",
+        "شركة اتصالات خاصة",
+        "مؤسسة طيران تجاري"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pihak yang meluncurkan satelit adalah Badan Antariksa Arab («وكالة الفضاء العربية»)."
+    },
+    {
+      "id": "hamza_q_03_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_04",
+      "question": "ما الفعالية المقامة في المدينة الرياضية؟",
+      "options": [
+        "بطولة كرة القدم",
+        "بطولة السباحة السنوية",
+        "سباق السيارات",
+        "مهرجان الركض"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Acara yang diadakan adalah kejuaraan renang tahunan («بطولة السباحة السنوية»)."
+    },
+    {
+      "id": "hamza_q_03_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b03_04",
+      "question": "ما الهدف الرئيسي من هذه البطولة؟",
+      "options": [
+        "بيع التذاكر فقط",
+        "اكتشاف المواهب الشابة وإعدادهم دوليًا",
+        "تجميل المسبح",
+        "تدريب الحكام فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan utamanya adalah menemukan bakat muda dan mempersiapkan mereka untuk ajang internasional («اكتشاف المواهب الشابة وإعدادهم دوليًا»)."
+    },
+    {
+      "id": "hamza_q_03_011",
+      "section": "reading",
+      "passage": "تُعتبر اللغة العربية من أقدم اللغات وأكثرها غنى بالمعاني والمفردات. نزل بها القرآن الكريم مما منحها مكانة عظيمة في قلوب المسلمين. وتتميز العربية بنظامها الصرفي الدقيق وقدرتها على استيعاب العلوم الحديثة والمصطلحات التقنية المعاصرة.",
+      "question": "ما السبب الرئيسي لمكانة اللغة العربية العظيمة في قلوب المسلمين؟",
+      "options": [
+        "انتشارها في التجارة",
+        "نزول القرآن الكريم بها",
+        "سهولة كتابتها",
+        "عدد حروفها الهجائية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keagungan bahasa Arab bagi umat Islam terutama karena diturunkannya Al-Qur'an dalam bahasa Arab («نزول القرآن الكريم بها»)."
+    },
+    {
+      "id": "hamza_q_03_012",
+      "section": "reading",
+      "passage": "تُعتبر اللغة العربية من أقدم اللغات وأكثرها غنى بالمعاني والمفردات. نزل بها القرآن الكريم مما منحها مكانة عظيمة في قلوب المسلمين. وتتميز العربية بنظامها الصرفي الدقيق وقدرتها على استيعاب العلوم الحديثة والمصطلحات التقنية المعاصرة.",
+      "question": "بماذا تتميز اللغة العربية في نظامها اللغوي؟",
+      "options": [
+        "بقلة المفردات",
+        "بنظامها الصرفي الدقيق وقدرتها على استيعاب العلوم",
+        "بعدم وجود قواعد ثابتة",
+        "بصعوبة النطق بها"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Bahasa Arab kelebihannya ada pada sistem morfologi (sharaf) yang akurat dan kemampuan menyerap ilmu («بنظامها الصرفي الدقيق وقدرتها على استيعاب العلوم»)."
+    },
+    {
+      "id": "hamza_q_03_013",
+      "section": "reading",
+      "passage": "تُعتبر اللغة العربية من أقدم اللغات وأكثرها غنى بالمعاني والمفردات. نزل بها القرآن الكريم مما منحها مكانة عظيمة في قلوب المسلمين. وتتميز العربية بنظامها الصرفي الدقيق وقدرتها على استيعاب العلوم الحديثة والمصطلحات التقنية المعاصرة.",
+      "question": "ما مرادف كلمة (غنى) في النص؟",
+      "options": [
+        "فقر",
+        "ثراء ووفرة",
+        "ضعف",
+        "قسوة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «غنى» dalam konteks ini bermakna kekayaan dan kelimpahan kosakata («ثراء ووفرة»)."
+    },
+    {
+      "id": "hamza_q_03_014",
+      "section": "reading",
+      "passage": "تُعتبر اللغة العربية من أقدم اللغات وأكثرها غنى بالمعاني والمفردات. نزل بها القرآن الكريم مما منحها مكانة عظيمة في قلوب المسلمين. وتتميز العربية بنظامها الصرفي الدقيق وقدرتها على استيعاب العلوم الحديثة والمصطلحات التقنية المعاصرة.",
+      "question": "كيف تتعامل العربية مع المصطلحات التقنية المعاصرة؟",
+      "options": [
+        "ترفضها تمامًا",
+        "تستوعبها وتصوغ لها كلمات مناسبة",
+        "تستبدلها باللغات القديمة",
+        "تقتصر على الكلمات التاريخية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Bahasa Arab mampu menyerap dan menyelaraskan istilah-istilah teknologi modern («تستوعبها وتصوغ لها كلمات مناسبة»)."
+    },
+    {
+      "id": "hamza_q_03_015",
+      "section": "reading",
+      "passage": "تُعتبر اللغة العربية من أقدم اللغات وأكثرها غنى بالمعاني والمفردات. نزل بها القرآن الكريم مما منحها مكانة عظيمة في قلوب المسلمين. وتتميز العربية بنظامها الصرفي الدقيق وقدرتها على استيعاب العلوم الحديثة والمصطلحات التقنية المعاصرة.",
+      "question": "ما العنوان الأنسب لهذه الفقرة؟",
+      "options": [
+        "تاريخ الخطوط العربية",
+        "خصائص ومكانة اللغة العربية",
+        "قواعد النحو العربي",
+        "طريقة تعلم اللغات الأجنبية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling sesuai adalah keistimewaan dan kedudukan bahasa Arab («خصائص ومكانة اللغة العربية»)."
+    },
+    {
+      "id": "hamza_q_03_016",
+      "section": "reading",
+      "passage": "يُعد الاقتصاد الرقمي ركيزة أساسية لتنمية المجتمعات الحديثة. يعتمد هذا الاقتصاد على شبكات الاتصالات عالية السرعة والحوسبة السحابية. يتيح الاقتصاد الرقمي للشركات الناشئة الوصول إلى أسواق عالمية وتوفير فرص عمل جديدة للشباب المبتكرين.",
+      "question": "ما الركيزة الأساسية لتنمية المجتمعات الحديثة في النص؟",
+      "options": [
+        "الاقتصاد الزراعي",
+        "الاقتصاد الرقمي",
+        "التجارة التقليدية",
+        "الصيد البري"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Teks menyebutkan ekonomi digital sebagai pilar utama pembangunan masyarakat modern («الاقتصاد الرقمي»)."
+    },
+    {
+      "id": "hamza_q_03_017",
+      "section": "reading",
+      "passage": "يُعد الاقتصاد الرقمي ركيزة أساسية لتنمية المجتمعات الحديثة. يعتمد هذا الاقتصاد على شبكات الاتصالات عالية السرعة والحوسبة السحابية. يتيح الاقتصاد الرقمي للشركات الناشئة الوصول إلى أسواق عالمية وتوفير فرص عمل جديدة للشباب المبتكرين.",
+      "question": "على ماذا يعتمد الاقتصاد الرقمي؟",
+      "options": [
+        "على المواشي والحيوانات",
+        "على شبكات الاتصالات والحوسبة السحابية",
+        "على العمل اليدوي فقط",
+        "على الفحم والحطب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ekonomi digital bergantung pada jaringan telekomunikasi dan cloud computing («على شبكات الاتصالات والحوسبة السحابية»)."
+    },
+    {
+      "id": "hamza_q_03_018",
+      "section": "reading",
+      "passage": "يُعد الاقتصاد الرقمي ركيزة أساسية لتنمية المجتمعات الحديثة. يعتمد هذا الاقتصاد على شبكات الاتصالات عالية السرعة والحوسبة السحابية. يتيح الاقتصاد الرقمي للشركات الناشئة الوصول إلى أسواق عالمية وتوفير فرص عمل جديدة للشباب المبتكرين.",
+      "question": "كيف يستفيد الشباب المبتكرون من هذا الاقتصاد؟",
+      "options": [
+        "بتوفير فرص عمل جديدة في أسواق عالمية",
+        "بالسفر المستمر",
+        "بالاعتماد على القروض فقط",
+        "بترك التعليم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ekonomi digital menyediakan peluang kerja baru bagi pemuda di pasar global («بتوفير فرص عمل جديدة في أسواق عالمية»)."
+    },
+    {
+      "id": "hamza_q_03_019",
+      "section": "reading",
+      "passage": "يُعد الاقتصاد الرقمي ركيزة أساسية لتنمية المجتمعات الحديثة. يعتمد هذا الاقتصاد على شبكات الاتصالات عالية السرعة والحوسبة السحابية. يتيح الاقتصاد الرقمي للشركات الناشئة الوصول إلى أسواق عالمية وتوفير فرص عمل جديدة للشباب المبتكرين.",
+      "question": "ما الميزة المتاحة للشركات الناشئة؟",
+      "options": [
+        "الوصول إلى أسواق عالمية",
+        "العمل داخل مدينة واحدة فقط",
+        "تقليل الإنتاج",
+        "إلغاء التسويق"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Keuntungannya adalah dapat menjangkau pasar internasional («الوصول إلى أسواق عالمية»)."
+    },
+    {
+      "id": "hamza_q_03_020",
+      "section": "reading",
+      "passage": "يُعد الاقتصاد الرقمي ركيزة أساسية لتنمية المجتمعات الحديثة. يعتمد هذا الاقتصاد على شبكات الاتصالات عالية السرعة والحوسبة السحابية. يتيح الاقتصاد الرقمي للشركات الناشئة الوصول إلى أسواق عالمية وتوفير فرص عمل جديدة للشباب المبتكرين.",
+      "question": "ما الفكرة الرئيسية للنص؟",
+      "options": [
+        "مخاطر شبكة الإنترنت",
+        "أهمية الاقتصاد الرقمي ومميزاته",
+        "كيف تصبح مهندس اتصالات",
+        "تاريخ البنوك التقليدية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah pentingnya ekonomi digital dan keunggulannya («أهمية الاقتصاد الرقمي ومميزاته»)."
+    },
+    {
+      "id": "hamza_q_03_021",
+      "section": "reading",
+      "passage": "استكشاف الفضاء يفتح أمام البشرية آفاقاً واسعة لفهم الكون. من خلال التلسكوبات الفضائية، تمكن العلماء من اكتشاف كواكب جديدة خارج المجموعة الشمسية. هذه الاكتشافات تساعد في الإجابة عن أسئلة أصل الكواكب وإمكانية وجود حياة في أماكن أخرى.",
+      "question": "ما الأداة العلمية التي مكنت العلماء من اكتشاف كواكب جديدة؟",
+      "options": [
+        "المجهر الإلكتروني",
+        "التلسكوبات الفضائية",
+        "النظارات المكبرة",
+        "الكاميرات الرقمية البسيطة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Alat ilmiah yang membantu penemuan planet baru adalah teleskop luar angkasa («التلسكوبات الفضائية»)."
+    },
+    {
+      "id": "hamza_q_03_022",
+      "section": "reading",
+      "passage": "استكشاف الفضاء يفتح أمام البشرية آفاقاً واسعة لفهم الكون. من خلال التلسكوبات الفضائية، تمكن العلماء من اكتشاف كواكب جديدة خارج المجموعة الشمسية. هذه الاكتشافات تساعد في الإجابة عن أسئلة أصل الكواكب وإمكانية وجود حياة في أماكن أخرى.",
+      "question": "أين تقع الكواكب الجديدة المكتشفة؟",
+      "options": [
+        "داخل المحيطات",
+        "خارج المجموعة الشمسية",
+        "على سطح القمر فقط",
+        "في باطن الأرض"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Planet baru yang ditemukan berada di luar tata surya («خارج المجموعة الشمسية»)."
+    },
+    {
+      "id": "hamza_q_03_023",
+      "section": "reading",
+      "passage": "استكشاف الفضاء يفتح أمام البشرية آفاقاً واسعة لفهم الكون. من خلال التلسكوبات الفضائية، تمكن العلماء من اكتشاف كواكب جديدة خارج المجموعة الشمسية. هذه الاكتشافات تساعد في الإجابة عن أسئلة أصل الكواكب وإمكانية وجود حياة في أماكن أخرى.",
+      "question": "ما الأسئلة التي تساعد هذه الاكتشافات في الإجابة عنها؟",
+      "options": [
+        "أسئلة الطقس اليومي",
+        "أسئلة أصل الكواكب وإمكانية وجود حياة أخرى",
+        "طريقة بناء السفن",
+        "كيفية زراعة النباتات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Penemuan ilmiah membantu menjawab asal-usul planet dan kemungkinan adanya kehidupan di tempat lain («أسئلة أصل الكواكب وإمكانية وجود حياة أخرى»)."
+    },
+    {
+      "id": "hamza_q_03_024",
+      "section": "reading",
+      "passage": "استكشاف الفضاء يفتح أمام البشرية آفاقاً واسعة لفهم الكون. من خلال التلسكوبات الفضائية، تمكن العلماء من اكتشاف كواكب جديدة خارج المجموعة الشمسية. هذه الاكتشافات تساعد في الإجابة عن أسئلة أصل الكواكب وإمكانية وجود حياة في أماكن أخرى.",
+      "question": "ما هدف استكشاف الفضاء بشكل عام؟",
+      "options": [
+        "فهم الكون وتوسيع الآفاق المعرفية",
+        "التخلص من النفايات",
+        "إنشاء مدن صناعية فورية",
+        "تغيير مدار الأرض"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tujuan eksplorasi luar angkasa adalah memahami alam semesta dan memperluas wawasan («فهم الكون وتوسيع الآفاق المعرفية»)."
+    },
+    {
+      "id": "hamza_q_03_025",
+      "section": "reading",
+      "passage": "استكشاف الفضاء يفتح أمام البشرية آفاقاً واسعة لفهم الكون. من خلال التلسكوبات الفضائية، تمكن العلماء من اكتشاف كواكب جديدة خارج المجموعة الشمسية. هذه الاكتشافات تساعد في الإجابة عن أسئلة أصل الكواكب وإمكانية وجود حياة في أماكن أخرى.",
+      "question": "ما الكلمة المضادة لـ (اكتشاف)؟",
+      "options": [
+        "معرفة",
+        "إخفاء وتغطية",
+        "ظهور",
+        "بحث"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Antonim kata iktishaf (penemuan) adalah ikhfa'/taghtiyah (menyembunyikan/menutupi) («إخفاء وتغطية»)."
+    },
+    {
+      "id": "hamza_q_03_026",
+      "section": "reading",
+      "passage": "اللياقة البدنية لا تعني فقط البناء العضلي، بل تشمل السلامة القلبية والمرونة والقدرة على التحمل. الصبر والاستمرار في التمارين الرياضية مع اتباع نظام غذائي متوازن هو السر الحقيقي للحفاظ على صحة المستدامة.",
+      "question": "ما مفهوم اللياقة البدنية كما توضحه الفقرة؟",
+      "options": [
+        "البناء العضلي فقط",
+        "تشمل السلامة القلبية والمرونة والتحمل",
+        "سرعة الركض فقط",
+        "قلة الأكل وزيادة النوم"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kebugaran fisik mencakup kesehatan jantung, kelenturan, dan daya tahan («تشمل السلامة القلبية والمرونة والتحمل»)."
+    },
+    {
+      "id": "hamza_q_03_027",
+      "section": "reading",
+      "passage": "اللياقة البدنية لا تعني فقط البناء العضلي، بل تشمل السلامة القلبية والمرونة والقدرة على التحمل. الصبر والاستمرار في التمارين الرياضية مع اتباع نظام غذائي متوازن هو السر الحقيقي للحفاظ على صحة المستدامة.",
+      "question": "ما السر الحقيقي للحفاظ على الصحة المستدامة؟",
+      "options": [
+        "تناول الأدوية يوميًا",
+        "الصبر والاستمرار في التمارين مع نظام غذائي متوازن",
+        "النوم الطويل دون حركة",
+        "الاعتماد على المكملات الغذائية فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kunci utama kesehatan berkelanjutan adalah kesabaran, olahraga rutin, dan diet seimbang («الصبر والاستمرار في التمارين مع نظام غذائي متوازن»)."
+    },
+    {
+      "id": "hamza_q_03_028",
+      "section": "reading",
+      "passage": "اللياقة البدنية لا تعني فقط البناء العضلي، بل تشمل السلامة القلبية والمرونة والقدرة على التحمل. الصبر والاستمرار في التمارين الرياضية مع اتباع نظام غذائي متوازن هو السر الحقيقي للحفاظ على صحة المستدامة.",
+      "question": "ما أهمية النظام الغذائي المتوازن؟",
+      "options": [
+        "زيادة الدهون",
+        "دعم الصحة مع التمارين الرياضية",
+        "استبدال النوم",
+        "تقليل الطاقة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pola makan seimbang mendukung kesehatan fisik bersama latihan teratur («دعم الصحة مع التمارين الرياضية»)."
+    },
+    {
+      "id": "hamza_q_03_029",
+      "section": "reading",
+      "passage": "اللياقة البدنية لا تعني فقط البناء العضلي، بل تشمل السلامة القلبية والمرونة والقدرة على التحمل. الصبر والاستمرار في التمارين الرياضية مع اتباع نظام غذائي متوازن هو السر الحقيقي للحفاظ على صحة المستدامة.",
+      "question": "ما العنصر النفسي المهم المذكور للوصول إلى اللياقة؟",
+      "options": [
+        "الغضب",
+        "الصبر والاستمرار",
+        "السرعة العشوائية",
+        "التكاسل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Elemen mental penting yang disebutkan adalah kesabaran dan konsistensi («الصبر والاستمرار»)."
+    },
+    {
+      "id": "hamza_q_03_030",
+      "section": "reading",
+      "passage": "اللياقة البدنية لا تعني فقط البناء العضلي، بل تشمل السلامة القلبية والمرونة والقدرة على التحمل. الصبر والاستمرار في التمارين الرياضية مع اتباع نظام غذائي متوازن هو السر الحقيقي للحفاظ على صحة المستدامة.",
+      "question": "ما الفكرة الرئيسية للنص؟",
+      "options": [
+        "طريقة رفع الأثقال",
+        "المفهوم الشامل للياقة البدنية والصحة",
+        "أنواع الأغذية السريعة",
+        "فوائد النوم ليلًا"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah konsep menyeluruh kebugaran fisik dan kesehatan («المفهوم الشامل للياقة البدنية والصحة»)."
+    },
+    {
+      "id": "hamza_q_03_031",
+      "section": "reading",
+      "passage": "تتميز الحضارة العربية الإسلامية بالاهتمام الكبير بالعلوم والمكتبات. كانت مدينة بغداد وقرطبة مركزين علميين يقصدهما طلبة العلم من مختلف أنحاء العالم لترجمة المخطوطات والتعلم على أيدي كبار العلماء.",
+      "question": "بماذا تميزت الحضارة العربية الإسلامية في النص؟",
+      "options": [
+        "بالتجارة البحرية فقط",
+        "بالاهتمام الكبير بالعلوم والمكتبات",
+        "بالبناء الجبلي",
+        "بإلغاء الترجمة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Peradaban Arab-Islam terkenal akan perhatian besar terhadap ilmu pengetahuan dan perpustakaan («بالاهتمام الكبير بالعلوم والمكتبات»)."
+    },
+    {
+      "id": "hamza_q_03_032",
+      "section": "reading",
+      "passage": "تتميز الحضارة العربية الإسلامية بالاهتمام الكبير بالعلوم والمكتبات. كانت مدينة بغداد وقرطبة مركزين علميين يقصدهما طلبة العلم من مختلف أنحاء العالم لترجمة المخطوطات والتعلم على أيدي كبار العلماء.",
+      "question": "ما المدينتان اللتان ذكرتا كمركزين علميين؟",
+      "options": [
+        "القاهرة ودمشق",
+        "بغداد وقرطبة",
+        "مكة والمدينة",
+        "تونس وفاس"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua kota pusat keilmuan yang disebutkan adalah Baghdad dan Cordoba («بغداد وقرطبة»)."
+    },
+    {
+      "id": "hamza_q_03_033",
+      "section": "reading",
+      "passage": "تتميز الحضارة العربية الإسلامية بالاهتمام الكبير بالعلوم والمكتبات. كانت مدينة بغداد وقرطبة مركزين علميين يقصدهما طلبة العلم من مختلف أنحاء العالم لترجمة المخطوطات والتعلم على أيدي كبار العلماء.",
+      "question": "لماذا كان طلبة العلم يقصدون هذه المراكز؟",
+      "options": [
+        "للشراء والتجارة",
+        "لترجمة المخطوطات والتعلم على أيدي العلماء",
+        "للسياحة الشاطئية",
+        "لصيد الأسماك"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Para penuntut ilmu datang untuk menerjemahkan manuskrip dan belajar kepada para ulama/ilmuwan («لترجمة المخطوطات والتعلم على أيدي العلماء»)."
+    },
+    {
+      "id": "hamza_q_03_034",
+      "section": "reading",
+      "passage": "تتميز الحضارة العربية الإسلامية بالاهتمام الكبير بالعلوم والمكتبات. كانت مدينة بغداد وقرطبة مركزين علميين يقصدهما طلبة العلم من مختلف أنحاء العالم لترجمة المخطوطات والتعلم على أيدي كبار العلماء.",
+      "question": "ما النشاط العلمي البارز المذكور في النص؟",
+      "options": [
+        "ترجمة المخطوطات",
+        "طباعة الكتب بالآلات الحديثة",
+        "صناعة الهواتف",
+        "برمجة الحواسيب"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kegiatan ilmiah menonjol yang disebut adalah menerjemahkan manuskrip («ترجمة المخطوطات»)."
+    },
+    {
+      "id": "hamza_q_03_035",
+      "section": "reading",
+      "passage": "تتميز الحضارة العربية الإسلامية بالاهتمام الكبير بالعلوم والمكتبات. كانت مدينة بغداد وقرطبة مركزين علميين يقصدهما طلبة العلم من مختلف أنحاء العالم لترجمة المخطوطات والتعلم على أيدي كبار العلماء.",
+      "question": "ما الدرس المستفاد من التراث العلمي للحضارة؟",
+      "options": [
+        "تجاهل التاريخ",
+        "تقدير العلم والتعلم المستمر",
+        "الانغلاق على الذات",
+        "ترك الترجمة والبحث"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pelajaran utamanya adalah menghargai ilmu dan terus belajar («تقدير العلم والتعلم المستمر»)."
+    },
+    {
+      "id": "hamza_q_03_036",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية في تقليل الاعتماد على الوقود الأحفوري الذي يسبب انبعاثات غازات الاحتباس الحراري. إن تركيب الألواح الشمسية فوق أسطح المنازل يوفر طاقة نظيفة ورخيصة على المدى الطويل.",
+      "question": "ما فائدة الطاقة الشمسية المباشرة المذكورة؟",
+      "options": [
+        "زيادة التلوث",
+        "تقليل الاعتماد على الوقود الأحفوري",
+        "رفع أسعار الكهرباء",
+        "إيقاف عمل المصانع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat langsung energi surya adalah mengurangi ketergantungan pada bahan bakar fosil («تقليل الاعتماد على الوقود الأحفوري»)."
+    },
+    {
+      "id": "hamza_q_03_037",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية في تقليل الاعتماد على الوقود الأحفوري الذي يسبب انبعاثات غازات الاحتباس الحراري. إن تركيب الألواح الشمسية فوق أسطح المنازل يوفر طاقة نظيفة ورخيصة على المدى الطويل.",
+      "question": "ما العيب الرئيسي للوقود الأحفوري في النص؟",
+      "options": [
+        "صعوبة نقله",
+        "تسببه في انبعاثات غازات الاحتباس الحراري",
+        "قلة وجوده في الأرض",
+        "عدم إنتاجه للحرارة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kelemahan bahan bakar fosil adalah menghasilkan emisi gas rumah kaca («تسببه في انبعاثات غازات الاحتباس الحراري»)."
+    },
+    {
+      "id": "hamza_q_03_038",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية في تقليل الاعتماد على الوقود الأحفوري الذي يسبب انبعاثات غازات الاحتباس الحراري. إن تركيب الألواح الشمسية فوق أسطح المنازل يوفر طاقة نظيفة ورخيصة على المدى الطويل.",
+      "question": "أين يُقترح تركيب الألواح الشمسية؟",
+      "options": [
+        "في باطن الأرض",
+        "فوق أسطح المنازل",
+        "تحت الماء",
+        "داخل الحدائق المغلقة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pemasangan panel surya disarankan di atas atap rumah («فوق أسطح المنازل»)."
+    },
+    {
+      "id": "hamza_q_03_039",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية في تقليل الاعتماد على الوقود الأحفوري الذي يسبب انبعاثات غازات الاحتباس الحراري. إن تركيب الألواح الشمسية فوق أسطح المنازل يوفر طاقة نظيفة ورخيصة على المدى الطويل.",
+      "question": "ما صفة الطاقة الناتجة عن الألواح الشمسية؟",
+      "options": [
+        "طاقة ملوثة ومكلفة",
+        "طاقة نظيفة ورخيصة على المدى الطويل",
+        "طاقة خطيرة وسريعة النفاد",
+        "طاقة لا يمكن تخزينها"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sifat energi surya adalah bersih dan murah dalam jangka panjang («طاقة نظيفة ورخيصة على المدى الطويل»)."
+    },
+    {
+      "id": "hamza_q_03_040",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية في تقليل الاعتماد على الوقود الأحفوري الذي يسبب انبعاثات غازات الاحتباس الحراري. إن تركيب الألواح الشمسية فوق أسطح المنازل يوفر طاقة نظيفة ورخيصة على المدى الطويل.",
+      "question": "ما الهدف البيئي العام لتشجيع الطاقة الشمسية؟",
+      "options": [
+        "حماية الكوكب وتقليل التغير المناخي",
+        "زيادة استخدام النفط",
+        "تدمير الأراضي الزراعية",
+        "تشجيع التلوث الخفيف"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tujuan lingkungan utamanya adalah menjaga bumi dan menekan perubahan iklim («حماية الكوكب وتقليل التغير المناخي»)."
+    },
+    {
+      "id": "hamza_q_03_041",
+      "section": "grammar",
+      "question": "اختر اسم الفاعل الصحيح من الفعل (كتب):",
+      "options": [
+        "مكتوب",
+        "كاتب",
+        "كتابة",
+        "مكتب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ism fa'il dari fi'il thulathi «كتب» adalah «كاتب»."
+    },
+    {
+      "id": "hamza_q_03_042",
+      "section": "grammar",
+      "question": "ما إعراب (الطلابُ) في: نجحَ الطلابُ في الامتحان؟",
+      "options": [
+        "مفعول به",
+        "فاعل مرفوع بالضمة",
+        "مبتدأ",
+        "خبر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «الطلابُ» kedudukannya fa'il marfu' dengan dhammah."
+    },
+    {
+      "id": "hamza_q_03_043",
+      "section": "grammar",
+      "question": "حدد اسم المفعول من الفعل (سمع):",
+      "options": [
+        "سامع",
+        "مسموع",
+        "سماع",
+        "سامعون"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ism maf'ul dari fi'il thulathi «سمع» mengikuti wazan مَفْعُول yaitu «مسموع»."
+    },
+    {
+      "id": "hamza_q_03_044",
+      "section": "grammar",
+      "question": "اختر الكلمة المناسبة: لم ______ المهندسُ العملَ بعدُ.",
+      "options": [
+        "يكتملُ",
+        "يكتملْ",
+        "يكتملَ",
+        "يكتملِ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fi'il mudhari' majzum setelah «لم» berharakat sukun: «يكتملْ»."
+    },
+    {
+      "id": "hamza_q_03_045",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (رجل)؟",
+      "options": [
+        "رجلون",
+        "رجال",
+        "رجالات",
+        "مرجوع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jamak taksir dari «رجل» adalah «رجال»."
+    },
+    {
+      "id": "hamza_q_03_046",
+      "section": "grammar",
+      "question": "اختر التمييز المناسب: اشتريتُ عشرينَ ______.",
+      "options": [
+        "كتابٌ",
+        "كتابًا",
+        "كتابٍ",
+        "الكتبَ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tamyiz 'adad (20-90) harus berupa isim mufrad manshub: «كتابًا»."
+    },
+    {
+      "id": "hamza_q_03_047",
+      "section": "grammar",
+      "question": "حدد أداة الشرط في: إنْ تدرسْ تنجحْ.",
+      "options": [
+        "تدرس",
+        "تنجح",
+        "إنْ",
+        "أحمد"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban C. Harf/adawat syarat jazimah pada kalimat tersebut adalah «إنْ»."
+    },
+    {
+      "id": "hamza_q_03_048",
+      "section": "grammar",
+      "question": "ما إعراب كلمة (مساءً) في: وصل المسافرُ مساءً؟",
+      "options": [
+        "ظرف زمان منصوب",
+        "ظرف مكان",
+        "حال",
+        "تمريز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «مساءً» adalah zharaf zaman manshub menunjukkan waktu kejadian."
+    },
+    {
+      "id": "hamza_q_03_049",
+      "section": "grammar",
+      "question": "اختر الفعل الصحيح: الطالبان ______ بالمسابقة.",
+      "options": [
+        "فازَ",
+        "فازا",
+        "فازوا",
+        "فزنَ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fi'il madhi muthanna yang bersesuaian dengan alif al-ithnayn adalah «فازا»."
+    },
+    {
+      "id": "hamza_q_03_050",
+      "section": "grammar",
+      "question": "اختر الحال المناسب: رجع الجنديُّ ______.",
+      "options": [
+        "منتصرٌ",
+        "منتصرًا",
+        "منتصرٍ",
+        "المنتصرُ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Hal (penjelas keadaan fa'il) berbentuk nakirah manshub: «منتصرًا»."
+    },
+    {
+      "id": "hamza_q_03_051",
+      "section": "grammar",
+      "question": "ما نوع الاستثناء في: ما حضر إلا عليٌّ؟",
+      "options": [
+        "تام مثبت",
+        "مفرغ (ناقص منفي)",
+        "تام منفي",
+        "منقطع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Istithna muffarragh/naqis manfi karena mustathna minhu tidak disebutkan dan diawali nafi."
+    },
+    {
+      "id": "hamza_q_03_052",
+      "section": "grammar",
+      "question": "اختر اسم المكان من الفعل (طبخ):",
+      "options": [
+        "طابخ",
+        "مطبخ",
+        "مطبوخ",
+        "طباخ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ism makan dari «طبخ» pada wazan مَفْعَل adalah «مطبخ»."
+    },
+    {
+      "id": "hamza_q_03_053",
+      "section": "grammar",
+      "question": "حدد الفعل المعتل الآخر (الناقص):",
+      "options": [
+        "كتب",
+        "دعا",
+        "جلس",
+        "أكل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fi'il naqis (berakhir huruf 'illat) contohnya «دعا»."
+    },
+    {
+      "id": "hamza_q_03_054",
+      "section": "grammar",
+      "question": "ما إعراب كلمة (أبي) في: زارني أبي؟",
+      "options": [
+        "فاعل مرفوع بالضمة المقدرة",
+        "مفعول به",
+        "مبتدأ",
+        "خبر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «أبي» adalah fa'il marfu' dengan dhammah muqaddarah karena idhafah ke ya' al-mutakallim."
+    },
+    {
+      "id": "hamza_q_03_055",
+      "section": "grammar",
+      "question": "اختر حرف العطف المناسب: دخل المعلمُ ______ الطلابُ.",
+      "options": [
+        "في",
+        "ثم",
+        "إلى",
+        "عن"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Harf 'athaf yang menunjukkan urutan berjarak waktu (taratub ma'a tarakhi) adalah «ثم»."
+    },
+    {
+      "id": "hamza_q_03_056",
+      "section": "grammar",
+      "question": "حدد الممنوع من الصرف لعلميته وعجمته:",
+      "options": [
+        "محمد",
+        "إبراهيم",
+        "علي",
+        "صالح"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Isim alam a'jami yang mamnu' min ash-sharf contohnya «إبراهيم»."
+    },
+    {
+      "id": "hamza_q_03_057",
+      "section": "grammar",
+      "question": "اختر التوكيد اللفظي الصحيح:",
+      "options": [
+        "حضر المعلمُ المعلمُ",
+        "حضر المعلمُ نفسُه",
+        "حضر المعلمُ عينُه",
+        "حضر المعلمُ جميعُهم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tawkid lafzhi dilakukan dengan mengulang kata yang sama: «المعلمُ المعلمُ»."
+    },
+    {
+      "id": "hamza_q_03_058",
+      "section": "grammar",
+      "question": "ما وزَن كلمة (استغفار)؟",
+      "options": [
+        "استفعال",
+        "تفعيل",
+        "مفاعلة",
+        "افتعال"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Wazan masdar dari fi'il istaf'ala (استغفر) adalah «استفعال»."
+    },
+    {
+      "id": "hamza_q_03_059",
+      "section": "grammar",
+      "question": "اختر المبتدأ المناسب: ______ نورٌ يضيء العقول.",
+      "options": [
+        "العلمَ",
+        "العلمُ",
+        "العلمِ",
+        "علماً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Mubtada' marfu' dengan dhammah: «العلمُ»."
+    },
+    {
+      "id": "hamza_q_03_060",
+      "section": "grammar",
+      "question": "حدد الفعل المبني للمجهول:",
+      "options": [
+        "كَتَبَ",
+        "كُتِبَ",
+        "يَكْتُبُ",
+        "كاتِب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fi'il mabni lil-majhul ditandai dhammah di awal dan kasrah sebelum akhir pada madhi: «كُتِبَ»."
+    },
+    {
+      "id": "hamza_q_03_061",
+      "section": "structures",
+      "question": "اختر التركيب الموصول الصحيح: هذا هو الرجلُ ______ ساعدني.",
+      "options": [
+        "التي",
+        "الذي",
+        "الذين",
+        "اللتان"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ism maushul untuk mufrad mudzakkar aqil «الرجلُ» adalah «الذي»."
+    },
+    {
+      "id": "hamza_q_03_062",
+      "section": "structures",
+      "question": "اختر ترتيب المفعولين الصحيح: أعطى المعلمُ ______ هاديةً.",
+      "options": [
+        "الطالبَ",
+        "الطالبُ",
+        "الطالبِ",
+        "الطالبٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Maf'ul bih pertama dari fi'il «أعطى» adalah manshub: «الطالبَ»."
+    },
+    {
+      "id": "hamza_q_03_063",
+      "section": "structures",
+      "question": "حدد التركيب الصحيح لـ (إن وأخواتها):",
+      "options": [
+        "لعلّ النصرُ قريبٌ",
+        "لعلّ النصرَ قريبٌ",
+        "لعلّ النصرَ قريبًا",
+        "لعلّ النصرُ قريبًا"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Harf «لعلّ» ينصب الاسم («النصرَ») ويرفع الخبر («قريبٌ»)."
+    },
+    {
+      "id": "hamza_q_03_064",
+      "section": "structures",
+      "question": "اختر أسلوب التفضيل الصحيح:",
+      "options": [
+        "أحمدُ أكبرُ من عليٍّ",
+        "أحمدُ كبيرٌ من عليٍّ",
+        "أحمدُ أكبرَ من عليٍّ",
+        "أحمدُ كبُرَ من عليٍّ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism tafdhil selaras wazan أفعل diikuti harf jar min: «أكبرُ من عليٍّ»."
+    },
+    {
+      "id": "hamza_q_03_065",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح للجملة الشرطية:",
+      "options": [
+        "مَن يجتهدْ ينجحْ",
+        "مَن يجتهدُ ينجحُ",
+        "مَن يجتهدَ ينجحَ",
+        "مَن يجتهدْ ينجحُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il syarat dan jawab syarat keduanya majzum berharakat sukun: «يجتهدْ ... ينجحْ»."
+    },
+    {
+      "id": "hamza_q_03_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب مقالاً قصيراً عن دور اللغة العربية في تواصل الشعوب والثقافات.",
+      "prompt_hint": "اذكر أهمية اللغة العربية تاريخياً وحاضراً",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan esai minimal 80 kata mengenai peran bahasa Arab dalam menjembatani komunikasi antar-bangsa."
+    },
+    {
+      "id": "hamza_q_03_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن فوائد التجارة الإلكترونية مقارنة بالتجارة التقليدية.",
+      "prompt_hint": "سلط الضوء على سرعة التوصيل وتنوع المنتجات",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata keunggulan e-commerce dibanding toko fisik dalam hal efisiensi dan kelengkapan variasi."
+    },
+    {
+      "id": "hamza_q_03_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن أهمية استكشاف الفضاء والتقنيات الناتجة عنه.",
+      "prompt_hint": "اذكر اختراعاً تكنولوجياً استفادت منه البشرية من علوم الفضاء",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tulis karangan minimal 70 kata tentang eksplorasi luar angkasa dan kontribusi teknologi turunannya bagi kehidupan."
+    },
+    {
+      "id": "hamza_q_03_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش طرق الحفاظ على اللياقة البدنية في ظل التطور التكنولوجي.",
+      "prompt_hint": "اعرض خطة أسبوعية مبسطة للرياضة والتروية",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat opini minimal 80 kata berisi strategi menjaga kesehatan fisik di era serba digital beserta contoh jadwal harian."
+    },
+    {
+      "id": "hamza_q_03_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف إنجازاً علمياً أو تاريخياً تعتز به في الحضارة الإسلامية.",
+      "prompt_hint": "اختر شخصية أو مكتبة أو اختراعاً تاريخياً",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata tentang pencapaian sains/sejarah peradaban Islam yang Anda kagumi."
+    },
+    {
+      "id": "hamza_q_03_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "حدثنا عن خطتك لتطوير مهاراتك في اللغة العربية خلال الأشهر القادمة.",
+      "prompt_hint": "اذكر الوسائل مثل القراءة والمستمع والاستمرار",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan rencana lisan 1 menit mengenai strategi meningkatkan maharah bahasa Arab Anda."
+    },
+    {
+      "id": "hamza_q_03_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "عبر عن تجربتك في التسوق عبر الإنترنت وموقفك من الشراء الإلكتروني.",
+      "prompt_hint": "اذكر تجربة إيجابية أو سلبيات مررت بها",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Ceritakan pengalaman lisan 60 detik saat belanja online beserta penilaian kelebihan/kekurangannya."
+    },
+    {
+      "id": "hamza_q_03_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما رأيك في استكشاف الفضاء؟ هل ترغب في السفر إلى الفضاء مستقبلاً؟",
+      "prompt_hint": "وضح أسباب موافقتك أو تحفظك",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan pendapat lisan 1 menit mengenai eksplorasi antariksa dan keinginan pribadi Anda."
+    },
+    {
+      "id": "hamza_q_03_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "صف جدولك الرياضي أو كيف تحافظ على نشاطك اليومي.",
+      "prompt_hint": "اذكر الرياضة المفضلة وأوقات ممارستها",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Jelaskan secara lisan 60 detik rutinitas olahraga atau upaya Anda menjaga vitalitas harian."
+    },
+    {
+      "id": "hamza_q_03_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "تحدث عن شخصية تاريخية أو عالم عربي أثر في نمط تفكيرك.",
+      "prompt_hint": "اذكر اسم الشخصية وإنجازاتها الرئيسية",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Ceritakan selama 1 menit tokoh ilmuwan/sejarah Arab yang memberi Anda inspirasi."
+    }
+  ]
+}

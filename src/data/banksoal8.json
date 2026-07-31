@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal8",
+  "title": "اختبار همزة التجريبي - النموذج 8",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج الثامن",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_08_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_01",
+      "question": "ما الخدمات التي تقدمها حاضنات الأعمال للمشاريع الناشئة؟",
+      "options": [
+        "بيع المنتجات فقط",
+        "الدعم الفني والتمويل وتوفير مساحات العمل",
+        "إلغاء القوانين",
+        "التدريب الرياضي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Layanan inkubator bisnis mencakup bantuan teknis, pendanaan awal, dan ruang kerja bersama («الدعم الفني والتمويل وتوفير مساحات العمل»)."
+    },
+    {
+      "id": "hamza_q_08_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_01",
+      "question": "ما الأثر الرئيسي لدعم حاضنات الأعمال؟",
+      "options": [
+        "زيادة الديون",
+        "تقليل نسبة الفشل وتوجيه رواد الأعمال",
+        "تأخير المشاريع",
+        "رفع الضرائب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat utamanya adalah menekan angka kegagalan dan membimbing wirausahawan («تقليل نسبة الفشل وتوجيه رواد الأعمال»)."
+    },
+    {
+      "id": "hamza_q_08_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_02",
+      "question": "على ماذا يؤكد ميثاق الإعلام في النص؟",
+      "options": [
+        "السرعة العشوائية",
+        "الالتزام بالشفافية ونقل الأخبار من مصادر موثوقة",
+        "زيادة الإعلانات",
+        "نشر الأخبار دون تحقق"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kode etik media menekankan transparansi dan pengambilan berita dari sumber terpercaya («الالتزام بالشفافية ونقل الأخبار من مصادر موثوقة»)."
+    },
+    {
+      "id": "hamza_q_08_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_02",
+      "question": "ما الفائدة الاجتماعية للإعلام المسؤول؟",
+      "options": [
+        "إلغاء الحوار",
+        "نشر التوعية المجتمعية والحد من الشائعات",
+        "زيادة القلق",
+        "تقليل الأخبار العالمية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat sosial media bertanggung jawab adalah menyebarkan edukasi dan menekan rumor («نشر التوعية المجتمعية والحد من الشائعات»)."
+    },
+    {
+      "id": "hamza_q_08_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_02",
+      "question": "ما الذي يحد منه الإعلام المسؤول على شبكة الإنترنت؟",
+      "options": [
+        "الشائعات والمعلومات المغلوطة",
+        "قراءة الكتب",
+        "استخدام الحواسيب",
+        "سرعة الإنترنت"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Media bertanggung jawab meminimalisasi kabar bohong dan hoaks («الشائعات والمعلومات المغلوطة»)."
+    },
+    {
+      "id": "hamza_q_08_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_03",
+      "question": "ما الفائدة الرئيسية لنظام الري بالتنقيط الذكي؟",
+      "options": [
+        "زيادة استهلاك المياه",
+        "توفير كميات كبيرة من المياه في الزراعة",
+        "إتلاف التربة",
+        "زيادة وقت العمل اليدوي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat utama irigasi tetes pintar adalah menghemat volume air secara signifikan («توفير كميات كبيرة من المياه في الزراعة»)."
+    },
+    {
+      "id": "hamza_q_08_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_03",
+      "question": "كيف يحدد النظام كمية المياه لكل نبات؟",
+      "options": [
+        "عبر التخمين اليومي",
+        "عبر مستشعرات التربة الرقمية",
+        "عبر حالة الطقس العامة فقط",
+        "يدوياً بالسقي التقليدي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Penetapan kuota air tiap tanaman diukur presisi via sensor tanah digital («عبر مستشعرات التربة الرقمية»)."
+    },
+    {
+      "id": "hamza_q_08_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_03",
+      "question": "ما المجال الذي يطبَّق فيه هذا النظام الذكي؟",
+      "options": [
+        "القطاع الزراعي",
+        "صناعة السيارات",
+        "البناء والعقارات",
+        "التعدين الجبلي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Sistem irigasi pintar diterapkan dalam sektor pertanian («القطاع الزراعي»)."
+    },
+    {
+      "id": "hamza_q_08_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_04",
+      "question": "كم عدد ساعات النوم الموصى بها في النص؟",
+      "options": [
+        "أربع ساعات",
+        "سبع إلى ثماني ساعات",
+        "عشر ساعات",
+        "خمس ساعات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Durasi tidur ideal yang disarankan adalah 7 hingga 8 jam («سبع إلى ثماني ساعات»)."
+    },
+    {
+      "id": "hamza_q_08_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b08_04",
+      "question": "ما النصيحة المقدمة لضمان جودة نوم أفضل؟",
+      "options": [
+        "تناول القهوة قبل النوم",
+        "تجنب الشاشات الإلكترونية ساعة قبل النوم",
+        "الرياضة العنيفة ليلًا",
+        "إضاءة الغرفة بالكامل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sarannya adalah menghindari paparan layar gadget 1 jam sebelum tidur («تجنب الشاشات الإلكترونية ساعة قبل النوم»)."
+    },
+    {
+      "id": "hamza_q_08_011",
+      "section": "reading",
+      "passage": "تُشكل ريادة الأعمال محرِكًا أساسيًا للابتكار والتنمية الاقتصادية. تُتيح الشركات الناشئة فرص عمل جديدة للشباب وتطرح حلولاً تكنولوجية متطورة تلبي احتياجات الأسواق الحالية. ورغم ذلك، تتطلب الريادة قدرة على تحمل المخاطر والتكيف السريع مع التغيرات.",
+      "question": "ما الوصف الذي أُطلق على ريادة الأعمال في النص؟",
+      "options": [
+        "عبء على الاقتصاد",
+        "محرك أساسي للابتكار والتنمية الاقتصادية",
+        "نشاط تقليدي قديم",
+        "بديل للتعليم الجامعي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kewirausahaan dijuluki sebagai penggerak utama inovasi dan pertumbuhan ekonomi («محرك أساسي للابتكار والتنمية الاقتصادية»)."
+    },
+    {
+      "id": "hamza_q_08_012",
+      "section": "reading",
+      "passage": "تُشكل ريادة الأعمال محرِكًا أساسيًا للابتكار والتنمية الاقتصادية. تُتيح الشركات الناشئة فرص عمل جديدة للشباب وتطرح حلولاً تكنولوجية متطورة تلبي احتياجات الأسواق الحالية. ورغم ذلك، تتطلب الريادة قدرة على تحمل المخاطر والتكيف السريع مع التغيرات.",
+      "question": "ما الفوائد التي تطرحها الشركات الناشئة في الأسواق؟",
+      "options": [
+        "توفير فرص عمل جديدة وحلول تكنولوجية متطورة",
+        "زيادة الاستيراد من الخارج",
+        "إلغاء المنافسة التجارية",
+        "رفع تكلفة الخدمات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Startup menyediakan lapangan kerja baru dan solusi teknologi mutakhir («توفير فرص عمل جديدة وحلول تكنولوجية متطورة»)."
+    },
+    {
+      "id": "hamza_q_08_013",
+      "section": "reading",
+      "passage": "تُشكل ريادة الأعمال محرِكًا أساسيًا للابتكار والتنمية الاقتصادية. تُتيح الشركات الناشئة فرص عمل جديدة للشباب وتطرح حلولاً تكنولوجية متطورة تلبي احتياجات الأسواق الحالية. ورغم ذلك، تتطلب الريادة قدرة على تحمل المخاطر والتكيف السريع مع التغيرات.",
+      "question": "ما المهارة النفسية المطلوبة لرواد الأعمال في الفقرة؟",
+      "options": [
+        "القدرة على تحمل المخاطر والتكيف السريع",
+        "التخوف من التجربة",
+        "الانعزال عن السوق",
+        "الاعتماد الكامل على الحكومة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pengusaha dituntut memiliki kemampuan menanggung risiko dan adaptasi cepat («القدرة على تحمل المخاطر والتكيف السريع»)."
+    },
+    {
+      "id": "hamza_q_08_014",
+      "section": "reading",
+      "passage": "تُشكل ريادة الأعمال محرِكًا أساسيًا للابتكار والتنمية الاقتصادية. تُتيح الشركات الناشئة فرص عمل جديدة للشباب وتطرح حلولاً تكنولوجية متطورة تلبي احتياجات الأسواق الحالية. ورغم ذلك، تتطلب الريادة قدرة على تحمل المخاطر والتكيف السريع مع التغيرات.",
+      "question": "ما الفئة التي تتلقى أكثر فرص العمل الجديدة من الريادة؟",
+      "options": [
+        "الشباب",
+        "المتقاعدون",
+        "المرضى",
+        "الأجانب فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kelompok penerima peluang kerja utama adalah kalangan pemuda («الشباب»)."
+    },
+    {
+      "id": "hamza_q_08_015",
+      "section": "reading",
+      "passage": "تُشكل ريادة الأعمال محرِكًا أساسيًا للابتكار والتنمية الاقتصادية. تُتيح الشركات الناشئة فرص عمل جديدة للشباب وتطرح حلولاً تكنولوجية متطورة تلبي احتياجات الأسواق الحالية. ورغم ذلك، تتطلب الريادة قدرة على تحمل المخاطر والتكيف السريع مع التغيرات.",
+      "question": "ما العنوان الأنسب لهذا النص؟",
+      "options": [
+        "تاريخ البنوك العالمية",
+        "أهمية ومتطلبات ريادة الأعمال",
+        "كيف تشتري أسهماً في البورصة",
+        "أنواع الوظائف الحكومية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling sesuai adalah pentingnya dan tuntutan kewirausahaan («أهمية ومتطلبات ريادة الأعمال»)."
+    },
+    {
+      "id": "hamza_q_08_016",
+      "section": "reading",
+      "passage": "تلتزم وسائل الإعلام الأخلاقية بمبادئ الموضوعية والحياد عند نقل الحوادث والأخبار. يضمن الصحفي الناجح التحقق من مصادر المعلومات وتجنب الإثارة الصحفية التي قد تضلل الرأي العام أو تثير الفتن.",
+      "question": "ما المبادئ التي تلتزم بها وسائل الإعلام الأخلاقية؟",
+      "options": [
+        "الإثارة والسرعة",
+        "الموضوعية والحياد عند نقل الأخبار",
+        "التحيز لطرف واحد",
+        "إخفاء الحقائق"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Prinsip etika media mencakup objektivitas dan netralitas dalam pemberitaan («الموضوعية والحياد عند نقل الأخبار»)."
+    },
+    {
+      "id": "hamza_q_08_017",
+      "section": "reading",
+      "passage": "تلتزم وسائل الإعلام الأخلاقية بمبادئ الموضوعية والحياد عند نقل الحوادث والأخبار. يضمن الصحفي الناجح التحقق من مصادر المعلومات وتجنب الإثارة الصحفية التي قد تضلل الرأي العام أو تثير الفتن.",
+      "question": "ما الخطوة الواجبة على الصحفي الناجح قبل نشر التقرير؟",
+      "options": [
+        "التحقق من مصادر المعلومات",
+        "كتابة العنوان المثير أولاً",
+        "نشر التقرير فوراً دون مراجعة",
+        "تعديل الصور إلكترونياً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Jurnalis handal wajib memverifikasi keabsahan sumber informasi («التحقق من مصادر المعلومات»)."
+    },
+    {
+      "id": "hamza_q_08_018",
+      "section": "reading",
+      "passage": "تلتزم وسائل الإعلام الأخلاقية بمبادئ الموضوعية والحياد عند نقل الحوادث والأخبار. يضمن الصحفي الناجح التحقق من مصادر المعلومات وتجنب الإثارة الصحفية التي قد تضلل الرأي العام أو تثير الفتن.",
+      "question": "ما الخطر الذي تجنبه الإعلام الموضوعي في النص؟",
+      "options": [
+        "تضليل الرأي العام وإثارة الفتن",
+        "زيادة عدد القراء",
+        "تحسين جودة الطباعة",
+        "توفير الحبر الورقي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Etika jurnalisme menghindari penyesatan opini publik dan provokasi («تضليل الرأي العام وإثارة الفتن»)."
+    },
+    {
+      "id": "hamza_q_08_019",
+      "section": "reading",
+      "passage": "تلتزم وسائل الإعلام الأخلاقية بمبادئ الموضوعية والحياد عند نقل الحوادث والأخبار. يضمن الصحفي الناجح التحقق من مصادر المعلومات وتجنب الإثارة الصحفية التي قد تضلل الرأي العام أو تثير الفتن.",
+      "question": "ما الكلمة التي تعبر عن عدم التحيز في الصحافة؟",
+      "options": [
+        "الموضوعية والحياد",
+        "الإثارة",
+        "التضليل",
+        "السرعة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Frasa «الموضوعية والحياد» mendeskripsikan independensi dalam pers."
+    },
+    {
+      "id": "hamza_q_08_020",
+      "section": "reading",
+      "passage": "تلتزم وسائل الإعلام الأخلاقية بمبادئ الموضوعية والحياد عند نقل الحوادث والأخبار. يضمن الصحفي الناجح التحقق من مصادر المعلومات وتجنب الإثارة الصحفية التي قد تضلل الرأي العام أو تثير الفتن.",
+      "question": "ما الفكرة المحورية للنص؟",
+      "options": [
+        "طرق التصوير الصحفي",
+        "أخلاقيات ومبادئ الصحافة والإعلام",
+        "تاريخ ظهور التلفزيون",
+        "كيف تصنع صحيفة ورقية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah etika dan pilar-pilar pers berintegritas («أخلاقيات ومبادئ الصحافة والإعلام»)."
+    },
+    {
+      "id": "hamza_q_08_021",
+      "section": "reading",
+      "passage": "يُشكل نقص المياه العذبة أحد أكثر التحديات البيئية خطورة في المناطق الجافة. يساعد الابتكار في تقنيات تحلية مياه البحر وإعادة تدوير المياه العادمة في توفير إمدادات مستدامة للزراعة والاستخدام البشري.",
+      "question": "ما التحدي البيئي الرئيسي المذكور في المناطق الجافة؟",
+      "options": [
+        "كثرة الأمطار",
+        "نقص المياه العذبة",
+        "انخفاض درجات الحرارة",
+        "تآكل الصخور"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tantangan lingkungan utama di wilayah kering adalah krisis air bersih («نقص المياه العذبة»)."
+    },
+    {
+      "id": "hamza_q_08_022",
+      "section": "reading",
+      "passage": "يُشكل نقص المياه العذبة أحد أكثر التحديات البيئية خطورة في المناطق الجافة. يساعد الابتكار في تقنيات تحلية مياه البحر وإعادة تدوير المياه العادمة في توفير إمدادات مستدامة للزراعة والاستخدام البشري.",
+      "question": "ما التقنيتان الحديثتان المذكورتان لمعالجة نقص المياه؟",
+      "options": [
+        "حفر الآبار فقط",
+        "تحلية مياه البحر وإعادة تدوير المياه العادمة",
+        "نقل الجليد من القطبين",
+        "تجميع مياه الأمطار بدلاء"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua teknologi solusi mencakup desalinasi air laut dan daur ulang air limbah («تحلية مياه البحر وإعادة تدوير المياه العادمة»)."
+    },
+    {
+      "id": "hamza_q_08_023",
+      "section": "reading",
+      "passage": "يُشكل نقص المياه العذبة أحد أكثر التحديات البيئية خطورة في المناطق الجافة. يساعد الابتكار في تقنيات تحلية مياه البحر وإعادة تدوير المياه العادمة في توفير إمدادات مستدامة للزراعة والاستخدام البشري.",
+      "question": "ما المجال الحيوي المستفيد من إمدادات المياه الجديدة؟",
+      "options": [
+        "الزراعة والاستخدام البشري",
+        "الصناعات النفطية فقط",
+        "سباقات السيارات",
+        "التعدين الفضائي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Sektor penerima manfaatnya mencakup pertanian dan konsumsi manusia («الزراعة والاستخدام البشري»)."
+    },
+    {
+      "id": "hamza_q_08_024",
+      "section": "reading",
+      "passage": "يُشكل نقص المياه العذبة أحد أكثر التحديات البيئية خطورة في المناطق الجافة. يساعد الابتكار في تقنيات تحلية مياه البحر وإعادة تدوير المياه العادمة في توفير إمدادات مستدامة للزراعة والاستخدام البشري.",
+      "question": "ما صفة الإمدادات المائية الناتجة عن التقنيات الحديثة؟",
+      "options": [
+        "إمدادات مؤقتة ومكلفة",
+        "إمدادات مستدامة وآمنة",
+        "إمدادات ملوثة",
+        "إمدادات سريعة النفاد"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pasokan air yang dihasilkan bersifat berkelanjutan dan terjamin («إمداد مستدامة وآمنة»)."
+    },
+    {
+      "id": "hamza_q_08_025",
+      "section": "reading",
+      "passage": "يُشكل نقص المياه العذبة أحد أكثر التحديات البيئية خطورة في المناطق الجافة. يساعد الابتكار في تقنيات تحلية مياه البحر وإعادة تدوير المياه العادمة في توفير إمدادات مستدامة للزراعة والاستخدام البشري.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "أنواع الأسماك البحرية",
+        "تقنيات التغلب على نقص المياه العذبة",
+        "تاريخ السدود المائية",
+        "كيف تعمل طلمبات المياه"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah teknologi inovatif mengatasi kelangkaan air bersih («تقنيات التغلب على نقص المياه العذبة»)."
+    },
+    {
+      "id": "hamza_q_08_026",
+      "section": "reading",
+      "passage": "يعتبر النوم العميق والمنتظم شرطاً أساسياً لتجديد الطاقة العصبية وتقوية الذاكرة. يُظهر البحث العلمي أن اضطرابات النوم المزمنة تزيد من مخاطر الإصابة بأمراض القلب وضغط الدم والسكري.",
+      "question": "ما الوظيفة الفيزيولوجية للنوم العميق في النص؟",
+      "options": [
+        "تدمير الخلايا",
+        "تجديد الطاقة العصبية وتقوية الذاكرة",
+        "زيادة الوزن السريع",
+        "إبطاء الهضم فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fungsi biologis tidur lelap adalah memulihkan energi saraf dan menguatkan memori («تجديد الطاقة العصبية وتقوية الذاكرة»)."
+    },
+    {
+      "id": "hamza_q_08_027",
+      "section": "reading",
+      "passage": "يعتبر النوم العميق والمنتظم شرطاً أساسياً لتجديد الطاقة العصبية وتقوية الذاكرة. يُظهر البحث العلمي أن اضطرابات النوم المزمنة تزيد من مخاطر الإصابة بأمراض القلب وضغط الدم والسكري.",
+      "question": "ما المخاطر الصحية الناتجة عن اضطرابات النوم المزمنة؟",
+      "options": [
+        "زيادة اللياقة البدنية",
+        "مخاطر الإصابة بأمراض القلب وضغط الدم والسكري",
+        "تحسين الذاكرة",
+        "قوة الإبصار"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gangguan tidur kronis meningkatkan risiko penyakit jantung, hipertensi, & diabetes («مخاطر الإصابة بأمراض القلب وضغط الدم والسكري»)."
+    },
+    {
+      "id": "hamza_q_08_028",
+      "section": "reading",
+      "passage": "يعتبر النوم العميق والمنتظم شرطاً أساسياً لتجديد الطاقة العصبية وتقوية الذاكرة. يُظهر البحث العلمي أن اضطرابات النوم المزمنة تزيد من مخاطر الإصابة بأمراض القلب وضغط الدم والسكري.",
+      "question": "ما نوع البحث المعتمد عليه في تقديم هذه النتائج؟",
+      "options": [
+        "البحث العلمي الطبي",
+        "الملاحظات الصحفية",
+        "الأحداث التاريخية",
+        "القصص الخيالية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Informasi kesehatan bersumber dari riset medis ilmiah («البحث العلمي الطبي»)."
+    },
+    {
+      "id": "hamza_q_08_029",
+      "section": "reading",
+      "passage": "يعتبر النوم العميق والمنتظم شرطاً أساسياً لتجديد الطاقة العصبية وتقوية الذاكرة. يُظهر البحث العلمي أن اضطرابات النوم المزمنة تزيد من مخاطر الإصابة بأمراض القلب وضغط الدم والسكري.",
+      "question": "ما صفة النوم المطلوب في الفقرة؟",
+      "options": [
+        "النوم المتقطع",
+        "النوم العميق والمنتظم",
+        "النوم في النهار فقط",
+        "النوم القصير جداً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kualitas tidur yang dituntut adalah nyenyak dan teratur («النوم العميق والمنتظم»)."
+    },
+    {
+      "id": "hamza_q_08_030",
+      "section": "reading",
+      "passage": "يعتبر النوم العميق والمنتظم شرطاً أساسياً لتجديد الطاقة العصبية وتقوية الذاكرة. يُظهر البحث العلمي أن اضطرابات النوم المزمنة تزيد من مخاطر الإصابة بأمراض القلب وضغط الدم والسكري.",
+      "question": "ما النصيحة الطبية المستفادة من النص؟",
+      "options": [
+        "المحافظة على نمط نوم منتظم لحماية الجهاز العصبي والقلب",
+        "السهر المتكرر",
+        "اعتماد المنبهات كبديل للنوم",
+        "عدم الاهتمام بساعات النوم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Rekomendasi medisnya adalah memelihara kebiasaan tidur teratur demi kesehatan jantung & saraf («المحافظة على نمط نوم منتظم لحماية الجهاز العصبي والقلب»)."
+    },
+    {
+      "id": "hamza_q_08_031",
+      "section": "reading",
+      "passage": "تساهم العمارة الخضراء المستدامة في تصميم مبانٍ تعتمد على الإضاءة الطبيعية والتهوية الذكية واستخدام مواد بناء صديقة للبيئة. تساعد هذه المباني في تقليل استهلاك الطاقة الكهربائية بنسب تصل إلى أربعين بالمائة.",
+      "question": "ما المفهوم المعماري الذي يناقشه النص؟",
+      "options": [
+        "العمارة الكلاسيكية",
+        "العمارة الخضراء المستدامة",
+        "البناء بالخرسانة الثقيلة",
+        "تصميم الأبراج الزجاجية القديمة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Konsep arsitektur yang diulas adalah arsitektur hijau berkelanjutan («العمارة الخضراء المستدامة»)."
+    },
+    {
+      "id": "hamza_q_08_032",
+      "section": "reading",
+      "passage": "تساهم العمارة الخضراء المستدامة في تصميم مبانٍ تعتمد على الإضاءة الطبيعية والتهوية الذكية واستخدام مواد بناء صديقة للبيئة. تساعد هذه المباني في تقليل استهلاك الطاقة الكهربائية بنسب تصل إلى أربعين بالمائة.",
+      "question": "ما العناصر الطبيعية التي يعتمد عليها تصميم المباني الخضراء؟",
+      "options": [
+        "المكينات الضخمة",
+        "الإضاءة الطبيعية والتهوية الذكية ومواد صديقة للبيئة",
+        "الوقود الأحفوري",
+        "الإضاءة الصناعية طوال اليوم"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Elemen alami bangunan hijau mencakup pencahayaan alami dan ventilasi pintar («الإضاءة الطبيعية والتهوية الذكية ومواد صديقة للبيئة»)."
+    },
+    {
+      "id": "hamza_q_08_033",
+      "section": "reading",
+      "passage": "تساهم العمارة الخضراء المستدامة في تصميم مبانٍ تعتمد على الإضاءة الطبيعية والتهوية الذكية واستخدام مواد بناء صديقة للبيئة. تساعد هذه المباني في تقليل استهلاك الطاقة الكهربائية بنسب تصل إلى أربعين بالمائة.",
+      "question": "كم النسبة المئوية لتقليل استهلاك الطاقة في هذه المباني؟",
+      "options": [
+        "عشرة بالمائة",
+        "تصل إلى أربعين بالمائة",
+        "خمسون بالمائة",
+        "تسعون بالمائة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Bangunan ramah lingkungan mampu menekan konsumsi energi hingga 40% («تصل إلى أربعين بالمائة»)."
+    },
+    {
+      "id": "hamza_q_08_034",
+      "section": "reading",
+      "passage": "تساهم العمارة الخضراء المستدامة في تصميم مبانٍ تعتمد على الإضاءة الطبيعية والتهوية الذكية واستخدام مواد بناء صديقة للبيئة. تساعد هذه المباني في تقليل استهلاك الطاقة الكهربائية بنسب تصل إلى أربعين بالمائة.",
+      "question": "ما ميزة مواد البناء المستخدمة في هذا النظام؟",
+      "options": [
+        "مواد ملوثة ورخيصة",
+        "مواد صديقة للبيئة",
+        "مواد مستوردة نادرة",
+        "مواد بلاستيكية ضارة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Bahan bangunan berkarakter ramah lingkungan («مواد صديقة للبيئة»)."
+    },
+    {
+      "id": "hamza_q_08_035",
+      "section": "reading",
+      "passage": "تساهم العمارة الخضراء المستدامة في تصميم مبانٍ تعتمد على الإضاءة الطبيعية والتهوية الذكية واستخدام مواد بناء صديقة للبيئة. تساعد هذه المباني في تقليل استهلاك الطاقة الكهربائية بنسب تصل إلى أربعين بالمائة.",
+      "question": "ما الفكرة المحورية للنص؟",
+      "options": [
+        "طرق دهان الجدران",
+        "فوائد العمارة الخضراء في ترشيد الطاقة والبيئة",
+        "تاريخ البناء بالخرسانة",
+        "كيف تشتري شقة سكنية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah manfaat green building dalam efisiensi energi & pelestarian alam («فوائد العمارة الخضراء في ترشيد الطاقة والبيئة»)."
+    },
+    {
+      "id": "hamza_q_08_036",
+      "section": "reading",
+      "passage": "التحدث أمام الجمهور مهارة قيادية يمكن اكتسابها بالتدريب والممارسة المستمرة. تساعد مهارات الإلقاء والتواصل البصري في إيصال الفكرة بوضوح وكسب ثقة المستمعين في الاجتماعات والمؤتمرات.",
+      "question": "ما المهارة القيادية المعرفة في بداية الفقرة؟",
+      "options": [
+        "الكتابة السريعة",
+        "التحدث أمام الجمهور",
+        "البرمجة بلغة الحاسوب",
+        "الرسم الهندي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keterampilan kepemimpinan yang didefinisikan adalah berbicara di depan umum / public speaking («التحدث أمام الجمهور»)."
+    },
+    {
+      "id": "hamza_q_08_037",
+      "section": "reading",
+      "passage": "التحدث أمام الجمهور مهارة قيادية يمكن اكتسابها بالتدريب والممارسة المستمرة. تساعد مهارات الإلقاء والتواصل البصري في إيصال الفكرة بوضوح وكسب ثقة المستمعين في الاجتماعات والمؤتمرات.",
+      "question": "كيف يمكن اكتساب مهارة التحدث أمام الجمهور؟",
+      "options": [
+        "بالحظ فقط",
+        "بالتدريب والممارسة المستمرة",
+        "بقراءة كتاب واحد",
+        "بالوراثة دون تمرين"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keterampilan berbicara publik diperoleh via latihan dan praktik teratur («بالتدريب والممارسة المستمرة»)."
+    },
+    {
+      "id": "hamza_q_08_038",
+      "section": "reading",
+      "passage": "التحدث أمام الجمهور مهارة قيادية يمكن اكتسابها بالتدريب والممارسة المستمرة. تساعد مهارات الإلقاء والتواصل البصري في إيصال الفكرة بوضوح وكسب ثقة المستمعين في الاجتماعات والمؤتمرات.",
+      "question": "ما العناصر المساعدة في إيصال الفكرة بوضوح للمستمعين؟",
+      "options": [
+        "الصوت الخافض جداً",
+        "مهارات الإلقاء والتواصل البصري",
+        "تجاهل الحضور",
+        "القراءة المباشرة من الورق دون نظر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Elemen pendukung penyampaian pesan mencakup artikulasi dan kontak mata («مهارات الإلقاء والتواصل البصري»)."
+    },
+    {
+      "id": "hamza_q_08_039",
+      "section": "reading",
+      "passage": "التحدث أمام الجمهور مهارة قيادية يمكن اكتسابها بالتدريب والممارسة المستمرة. تساعد مهارات الإلقاء والتواصل البصري في إيصال الفكرة بوضوح وكسب ثقة المستمعين في الاجتماعات والمؤتمرات.",
+      "question": "ما النتيجة الإيجابية المباشرة لإتقان هذه المهارة؟",
+      "options": [
+        "إلغاء الاجتماعات",
+        "كسب ثقة المستمعين في الاجتماعات والمؤتمرات",
+        "زيادة التوتر النفسي",
+        "تقليل وقت الحديث إلى دقيقة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat utamanya merebut kepercayaan audiens di forum dan konferensi («كسب ثقة المستمعين في الاجتماعات والمؤتمرات»)."
+    },
+    {
+      "id": "hamza_q_08_040",
+      "section": "reading",
+      "passage": "التحدث أمام الجمهور مهارة قيادية يمكن اكتسابها بالتدريب والممارسة المستمرة. تساعد مهارات الإلقاء والتواصل البصري في إيصال الفكرة بوضوح وكسب ثقة المستمعين في الاجتماعات والمؤتمرات.",
+      "question": "ما النصيحة الأساسية المستفادة من النص؟",
+      "options": [
+        "التدرب المستمر على الإلقاء والتواصل لتطوير المهارات القيادية",
+        "الخوف من الجمهور والامتناع عن الكلام",
+        "الحديث دون تحضير",
+        "تجنب النظر في عيون الجمهور"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Saran utamanya adalah terus berlatih berbicara publik demi memupuk jiwa kepemimpinan («التدرب المستمر على الإلقاء والتواصل لتطوير المهارات القيادية»)."
+    },
+    {
+      "id": "hamza_q_08_041",
+      "section": "grammar",
+      "question": "اختر اسم الفاعل الصحيح من الفعل (ابتكر):",
+      "options": [
+        "مبتكِر",
+        "مبتكَر",
+        "ابتكار",
+        "مبتكرون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism fa'il dari fi'il ibtakara (ابتكر) berwazan مُبْتَكِر: «مبتكِر»."
+    },
+    {
+      "id": "hamza_q_08_042",
+      "section": "grammar",
+      "question": "ما إعراب (مهندساً) في: أصبحَ أحمدُ مهندساً بارعاً؟",
+      "options": [
+        "اسم أصبح",
+        "خبر أصبح منصوب بالفتحة",
+        "فاعل",
+        "مبتدأ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «مهندساً» kedudukannya khabar Asbaha manshub ditandai fathah."
+    },
+    {
+      "id": "hamza_q_08_043",
+      "section": "grammar",
+      "question": "اختر المفعول فيه (ظرف الزمان) في: سافرتُ ليلاً.",
+      "options": [
+        "سافرتُ",
+        "ليلاً",
+        "أنا",
+        "إلى المدينة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Zharaf zaman manshub penjelas waktu keberangkatan adalah «ليلاً»."
+    },
+    {
+      "id": "hamza_q_08_044",
+      "section": "grammar",
+      "question": "حدد الممنوع من الصرف لصفة على وزن (فعلان):",
+      "options": [
+        "عطشان",
+        "محمد",
+        "كتاب",
+        "فاطمة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim sifah wazan fa'lan mu'annathuh fa'la (عطشى) mamnu' min ash-sharf: «عطشان»."
+    },
+    {
+      "id": "hamza_q_08_045",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (شركة)؟",
+      "options": [
+        "شركات",
+        "شركاتٍ",
+        "شرك",
+        "شوارك"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Jamak dari «شركة» (jamak mu'annath salim / taksir) yang paling umum adalah «شركات»."
+    },
+    {
+      "id": "hamza_q_08_046",
+      "section": "grammar",
+      "question": "اختر البدل المطابق المنصوب: رأيتُ الدكتورَ ______.",
+      "options": [
+        "أحمدَ",
+        "أحمدُ",
+        "أحمدٍ",
+        "الأحمدُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Badal muthabiq manshub dari maf'ul bih («الدكتورَ») هو «أحمدَ»."
+    },
+    {
+      "id": "hamza_q_08_047",
+      "section": "grammar",
+      "question": "حدد اسم المكان من الفعل (زرع):",
+      "options": [
+        "مزرعة",
+        "زارع",
+        "مزروع",
+        "مزارع"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism makan dari «زرع» berwazan مَفْعَلَة هو «مزرعة»."
+    },
+    {
+      "id": "hamza_q_08_048",
+      "section": "grammar",
+      "question": "اختر Harf an-nashib الذي يفيد النفي المستقبلي:",
+      "options": [
+        "لن",
+        "لم",
+        "لا الناهية",
+        "إنْ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf nashab yang menafikan fi'il mudhari' di masa depan adalah «لن»."
+    },
+    {
+      "id": "hamza_q_08_049",
+      "section": "grammar",
+      "question": "ما إعراب (سريعاً) في: انطلق القطارُ سريعاً؟",
+      "options": [
+        "حال منصوبة",
+        "فاعل",
+        "مفعول به",
+        "مبتدأ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «سريعاً» kedudukannya hal manshub menjelaskan keadaan keberangkatan."
+    },
+    {
+      "id": "hamza_q_08_050",
+      "section": "grammar",
+      "question": "حدد اسم المفعول من الفعل (دعا):",
+      "options": [
+        "مدعوّ",
+        "داعي",
+        "دعوة",
+        "مدعاء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism maf'ul dari fi'il naqis (دعا) berwazan مَفْعُوّ هو «مدعوّ»."
+    },
+    {
+      "id": "hamza_q_08_051",
+      "section": "grammar",
+      "question": "اختر المبتدأ المرفوع بالواو: ______ مجتهدون في عملهم.",
+      "options": [
+        "المعلمون",
+        "المعلمين",
+        "المعلمِ",
+        "المعلمَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Mubtada' jamak mudzakkar salim marfu' ditandai wawu: «المعلمون»."
+    },
+    {
+      "id": "hamza_q_08_052",
+      "section": "grammar",
+      "question": "ما نوع الاستثناء في: ما حضر الطلابُ إلا علياً (أو عليٌّ)؟",
+      "options": [
+        "تام منفي",
+        "مفرغ",
+        "تام مثبت",
+        "منقطع"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Istithna tam manfi karena ada huruf nafi dan mustathna minhu disebutkan."
+    },
+    {
+      "id": "hamza_q_08_053",
+      "section": "grammar",
+      "question": "حدد اسم التفضيل المنصوب بالفتحة: كان أحمدُ ______ الطلابِ خلقاً.",
+      "options": [
+        "أحسنَ",
+        "أحسنُ",
+        "أحسنٍ",
+        "الحسنى"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism tafdhil manshub sebagai khabar Kaana: «أحسنَ»."
+    },
+    {
+      "id": "hamza_q_08_054",
+      "section": "grammar",
+      "question": "اختر المصدر الصريح للفعل (أنتج):",
+      "options": [
+        "إنتاج",
+        "منتَج",
+        "منتِج",
+        "إنتاجة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Masdar sharih dari fi'il antaja (أنتج) berwazan إِفْعَال هو «إنتاج»."
+    },
+    {
+      "id": "hamza_q_08_055",
+      "section": "grammar",
+      "question": "ما إعراب (أميراً) في: جعلتُ زيدا أميراً؟",
+      "options": [
+        "مفعول به ثاني منصوب",
+        "مفعول به أول",
+        "حال",
+        "خبر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «أميراً» maf'ul bih kedua dari fi'il tahwil «جعل»."
+    },
+    {
+      "id": "hamza_q_08_056",
+      "section": "grammar",
+      "question": "اختر الفعل المضارع المجزوم بـ لم وعلامة جزمه حذف النون:",
+      "options": [
+        "لم يكتبوا",
+        "لم يكتبون",
+        "لم يكتبْ",
+        "لم يكتبا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' majzum af'al al-khamsah ditandai حذف النون: «لم يكتبوا»."
+    },
+    {
+      "id": "hamza_q_08_057",
+      "section": "grammar",
+      "question": "حدد اسم الآلة من الفعل (حرث):",
+      "options": [
+        "محراث",
+        "حارث",
+        "محروث",
+        "حراثة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism alat dari haratha (حرث) berwazan مِفْعَال هو «محراث»."
+    },
+    {
+      "id": "hamza_q_08_058",
+      "section": "grammar",
+      "question": "ما وزن كلمة (مستمع)؟",
+      "options": [
+        "مفتعل",
+        "مستفعل",
+        "مفاعل",
+        "مفعل"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Wazan ism fa'il dari ista-ma'a (استمع) هو «مفتعل»."
+    },
+    {
+      "id": "hamza_q_08_059",
+      "section": "grammar",
+      "question": "اختر الفعل المبني على الضم لاتصاله بوام الجماعة:",
+      "options": [
+        "كتبوا",
+        "كتبَ",
+        "كتبتْ",
+        "كتبنا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il madhi mabni atas dhammah bila bersambung wawu al-jama'ah: «كتبوا»."
+    },
+    {
+      "id": "hamza_q_08_060",
+      "section": "grammar",
+      "question": "ما إعراب (رغبةً) في: ذاكرتُ رغبةً في التفوقِ؟",
+      "options": [
+        "مفعول لأجله منصوب",
+        "حال",
+        "مفعول به",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «رغبةً» kedudukannya maf'ul li-ajlih manshub penjelas motivasi belajar."
+    },
+    {
+      "id": "hamza_q_08_061",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح لأسلوب الشرط بالـ (من):",
+      "options": [
+        "مَن يزرعْ يحصدْ",
+        "مَن يزرعُ يحصدُ",
+        "مَن يزرعَ يحصدَ",
+        "مَن يزرعْ يحصدُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il syarat dan jawab syarat keduanya majzum: «يزرعْ ... يحصدْ»."
+    },
+    {
+      "id": "hamza_q_08_062",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح لاسم (إنّ) المثنى ونعته:",
+      "options": [
+        "إنّ الطالبينِ المجتهدينِ فائزانِ",
+        "إنّ الطالبانِ المجتهدانِ فائزانِ",
+        "إنّ الطالبينِ المجتهدانِ فائزانِ",
+        "إنّ الطالبانِ المجتهدينِ فائزينِ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim «إنّ» muthanna manshub ya' («الطالبينِ») + na'at manshub ya' («المجتهدينِ») + khabar marfu' alif («فائزانِ»)."
+    },
+    {
+      "id": "hamza_q_08_063",
+      "section": "structures",
+      "question": "حدد التركيب الصحيح لـ (المفعول لأجله):",
+      "options": [
+        "سافرتُ إلى العاصمةِ طلبًا للعلمِ",
+        "سافرتُ إلى العاصمةِ طالبًا للعلمِ",
+        "سافرتُ إلى العاصمةِ طالبٌ للعلمِ",
+        "سافرتُ إلى العاصمةِ طلبٌ للعلمِ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Masdar manshub li-bayan as-sabab: «طلبًا للعلمِ»."
+    },
+    {
+      "id": "hamza_q_08_064",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة المعطوفة بـ (أو الإباحية):",
+      "options": [
+        "يمكنُكَ قراءةُ كتابٍ أو مشاهدةُ محاضرةٍ",
+        "يمكنُكَ قراءةُ كتابٍ ثمّ مشاهدةُ محاضرةٍ",
+        "يمكنُكَ قراءةُ كتابٍ بل مشاهدةُ محاضرةٍ",
+        "يمكنُكَ قراءةُ كتابٍ لكن مشاهدةُ محاضرةٍ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf 'athaf «أو» memfasilitasi pilihan bebas antara dua opsi: «قراءةُ ... أو مشاهدةُ»."
+    },
+    {
+      "id": "hamza_q_08_065",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة الاسمية المسبوقة بـ (كان):",
+      "options": [
+        "كان المزارعُ النشيطُ يسقي المحصولَ",
+        "كان المزارعَ النشيطَ يسقي المحصولَ",
+        "كان المزارعُ النشيطَ يسقي المحصولُ",
+        "كان المزارعَ النشيطُ يسقي المحصولَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim Kaana marfu' («المزارعُ») + na'at marfu' («النشيطُ») + khabar fi'liyah: «يسقي المحصولَ»."
+    },
+    {
+      "id": "hamza_q_08_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب مقالاً عن دور حاضنات الأعمال في دعم ريادة الأعمال والشركات الناشئة.",
+      "prompt_hint": "اذكر خدمات الحاضنات وكيف تقلل نسبة الفشل للمشروع",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat esai minimal 80 kata ulasan peran inkubator bisnis dalam melatih pengusaha muda."
+    },
+    {
+      "id": "hamza_q_08_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش أخلاقيات الصحافة والإعلام وأهمية التحقق من المصادر.",
+      "prompt_hint": "ركز على الموضوعية وتجنب الشائعات في المنصات الرقمية",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uراikan minimal 80 kata kode etik pers berintegritas dan bahaya hoaks di media sosial."
+    },
+    {
+      "id": "hamza_q_08_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن تقنيات الري الحديثة وأهميتها في ترشيد استهلاك المياه.",
+      "prompt_hint": "اشرح نظام الري بالتنقيط الذكي وأثره على الزراعة",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Paparkan minimal 70 kata efisiensi irigasi tetes berbasis sensor dalam konservasi air bersih."
+    },
+    {
+      "id": "hamza_q_08_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن أهمية النوم المنتظم لصحة القلب والجهاز العصبي.",
+      "prompt_hint": "قدم ثلاث نصائح لتحسين جودة النوم ليلًا",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat naskah edukasi minimal 70 kata pentingnya kebiasaan tidur 7-8 jam demi kebugaran tubuh."
+    },
+    {
+      "id": "hamza_q_08_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف مهارات التحدث أمام الجمهور وكيف يطور الفرد قدراته القيادية.",
+      "prompt_hint": "ركز على الإلقاء والتواصل البصري وكسب ثقة المستمعين",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan panduan tertulis minimal 80 kata strategi menguasai public speaking di forum resmi."
+    },
+    {
+      "id": "hamza_q_08_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما رأيك في فكرة تأسيس مشروعك الخاص بدلاً من الوظيفة التقليدية؟",
+      "prompt_hint": "وضح موقفك وأسباب رغبتك أو تحفظك خلال دقيقة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan pandangan lisan 1 menit minat Anda memulai startup mandiri dibanding bekerja di kantor."
+    },
+    {
+      "id": "hamza_q_08_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "كيف تتأكد من صحة الأخبار قبل مشاركتها على وسائل التواصل الاجتماعي؟",
+      "prompt_hint": "اذكر خطوتين تقوم بهما للتحقق من المصادر",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Jelaskan kebiasaan lisan 60 detik Anda memverifikasi kebenaran berita sebelum membagikannya."
+    },
+    {
+      "id": "hamza_q_08_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "هل ترى أن تقنيات الزراعة الذكية قادرة على حل مشكلة نقص المياه؟ ولماذا؟",
+      "prompt_hint": "عبر عن رأيك وموقفك الشخصي بوضوح",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan opini lisan 1 menit efektivitas irigasi pintar dalam mengatasi krisis air dunia."
+    },
+    {
+      "id": "hamza_q_08_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما الخطوات التي تتبعها قبل النوم لضمان الحصول على نوم عميق؟",
+      "prompt_hint": "اذكر عاداتك الليلية وتجنبك للشاشات الإلكترونية",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Bagikan rutinitas lisan 60 detik Anda dalam menciptakan suasana tidur lelap berkualitas."
+    },
+    {
+      "id": "hamza_q_08_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "قدم نصيحة لصديق يتخوف من التحدث والإلقاء أمام الجمهور في الجامعة.",
+      "prompt_hint": "قدم ثلاث نصائح عملية للتغلب على الخوف والارتباك",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Berikan 3 tip lisan 1 menit membantu rekan mengatasi demam panggung saat presentasi."
+    }
+  ]
+}

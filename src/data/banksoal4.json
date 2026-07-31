@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal4",
+  "title": "اختبار همزة التجريبي - النموذج 4",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج الرابع",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_04_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_01",
+      "question": "ما اسم الكتاب الشهير لابن سينا المذكور في النص؟",
+      "options": [
+        "الحاوي في الطب",
+        "القانون في الطب",
+        "شفاء الأمراض",
+        "تاريخ الأطباء"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Nama buku terkenal karya Ibnu Sina dalam teks adalah «القانون في الطب»."
+    },
+    {
+      "id": "hamza_q_04_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_01",
+      "question": "ما الذي ركز عليه كتاب القانون في الطب؟",
+      "options": [
+        "الجراحة فقط",
+        "التشخيص الدقيق والعلاج بالأعشاب",
+        "صناعة الأدوية الحديثة",
+        "الفلك والنجوم"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Buku tersebut berfokus pada diagnosis akurat dan pengobatan herbal/alami («التشخيص الدقيق والعلاج بالأعشاب»)."
+    },
+    {
+      "id": "hamza_q_04_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_02",
+      "question": "ما الفائدة الرئيسية لشبكات التواصل الاجتماعي في النص؟",
+      "options": [
+        "زيادة التكاليف المالية",
+        "تقريب المسافات وتسهيل تبادل الأفكار",
+        "إلغاء الاجتماعات المباشرة",
+        "التعلم السريع فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat utamanya adalah mendekatkan jarak dan mempermudah pertukaran gagasan («تقريب المسافات وتسهيل تبادل الأفكار»)."
+    },
+    {
+      "id": "hamza_q_04_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_02",
+      "question": "ما النصيحة المقدمة بشأن استخدام شبكات التواصل؟",
+      "options": [
+        "تركها نهائيًا",
+        "الاستخدام العقلاني لتجنب ضياع الوقت",
+        "استخدامها طوال الليل",
+        "اعتمادها كمصدر وحيد للأخبار"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sarannya adalah menggunakannya secara rasional agar tidak membuang waktu («الاستخدام العقلاني لتجنب ضياع الوقت»)."
+    },
+    {
+      "id": "hamza_q_04_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_02",
+      "question": "ما الأثر السلبي الحذر منه عند الإفراط في الاستخدام؟",
+      "options": [
+        "زيادة الوزن",
+        "تشتت الانتباه وضياع الوقت",
+        "ضعف السمع",
+        "فقدان الذاكرة الكلي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dampak negatif yang diwaspadai adalah terpecahnya konsentrasi dan waktu terbuang («تشتت الانتباه وضياع الوقت»)."
+    },
+    {
+      "id": "hamza_q_04_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_03",
+      "question": "ما الهدف الأساسي للدول بحلول عام 2030 في النص؟",
+      "options": [
+        "زيادة استهلاك الفحم",
+        "استبدال الطاقة الأحفورية بالرياح والشمسية",
+        "بناء مصانع سيارات جديدة",
+        "توسيع المدن الصحراوية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Target utamanya adalah mengganti energi fosil dengan angin dan surya («استبدال الطاقة الأحفورية بالرياح والشمسية»)."
+    },
+    {
+      "id": "hamza_q_04_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_03",
+      "question": "ما النتيجة البيئية المتوقعة من هذا التحول؟",
+      "options": [
+        "زيادة الغازات السامة",
+        "تقليل نسبة الكربون المحتبس وحماية الكوكب",
+        "ارتفاع درجات الحرارة",
+        "انخفاض منسوب المياه"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Hasil lingkungannya adalah menekan emisi karbon dan melestarikan bumi («تقليل نسبة الكربون المحتبس وحماية الكوكب»)."
+    },
+    {
+      "id": "hamza_q_04_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_03",
+      "question": "ما نوعا الطاقة المستهدفة بالزيادة في النص؟",
+      "options": [
+        "الكهربائية والمائية",
+        "الرياح والشمسية",
+        "النووية والبترولية",
+        "الغازية والخشبية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua jenis energi terbarukan yang disasar adalah angin dan surya («الرياح والشمسية»)."
+    },
+    {
+      "id": "hamza_q_04_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_04",
+      "question": "على ماذا تعتمد الفصول الذكية في النص؟",
+      "options": [
+        "السبورة السوداء والطبشور",
+        "الشاشات التفاعلية والدروس الرقمية",
+        "الكتب الورقية القديمة فقط",
+        "الاستماع الإذاعي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kelas pintar mengandalkan layar interaktif dan materi digital («الشاشات التفاعلية والدروس الرقمية»)."
+    },
+    {
+      "id": "hamza_q_04_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b04_04",
+      "question": "ما الهدف من استخدام التقنيات في الفصول الذكية؟",
+      "options": [
+        "إلغاء دور المعلم",
+        "تسهيل الفهم وزيادة التفاعل",
+        "تقليل وقت الحصة إلى النصف",
+        "فرض رسوم جديدة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan utamanya mempermudah pemahaman dan meningkatkan interaksi («تسهيل الفهم وزيادة التفاعل»)."
+    },
+    {
+      "id": "hamza_q_04_011",
+      "section": "reading",
+      "passage": "يُعدّ نهر النيل شريان الحياة في مصر والمهد التاريخي للحضارة المصرية القديمة. قامت على ضفافه الزراعة وبُنيت المدن والقرى. يعتمد الملايين من السكان حتى اليوم على مياهه للشرب والزراعة والصناعة.",
+      "question": "ما الوصف الذي أُطلق على نهر النيل في النص؟",
+      "options": [
+        "طريق التجارة البحرية",
+        "شريان الحياة",
+        "أطول بحيرة في العالم",
+        "مجرى مائي صناعي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sungai Nil dijuluki sebagai urat nadi kehidupan («شريان الحياة»)."
+    },
+    {
+      "id": "hamza_q_04_012",
+      "section": "reading",
+      "passage": "يُعدّ نهر النيل شريان الحياة في مصر والمهد التاريخي للحضارة المصرية القديمة. قامت على ضفافه الزراعة وبُنيت المدن والقرى. يعتمد الملايين من السكان حتى اليوم على مياهه للشرب والزراعة والصناعة.",
+      "question": "ما الأنشطة البشرية التاريخية التي قامت على ضفاف النيل؟",
+      "options": [
+        "التعدين والصيد الجوي",
+        "الزراعة وبناء المدن والقرى",
+        "استخراج النفط",
+        "صناعة السفن الفضائية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Aktivitas bersejarah di tepi sungai Nil mencakup pertanian dan pembangunan kota («الزراعة وبناء المدن والقرى»)."
+    },
+    {
+      "id": "hamza_q_04_013",
+      "section": "reading",
+      "passage": "يُعدّ نهر النيل شريان الحياة في مصر والمهد التاريخي للحضارة المصرية القديمة. قامت على ضفافه الزراعة وبُنيت المدن والقرى. يعتمد الملايين من السكان حتى اليوم على مياهه للشرب والزراعة والصناعة.",
+      "question": "فيمَ يستخدم السكان مياه النيل اليوم وفق الفقرة؟",
+      "options": [
+        "للشرب والزراعة والصناعة",
+        "لتوليد الطاقة النووية فقط",
+        "لتعبئة الزجاجات للتصدير فقط",
+        "للسباحة والترفيه فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Warga memanfaatkan air Nil untuk konsumsi, pertanian, dan industri («للشرب والزراعة والصناعة»)."
+    },
+    {
+      "id": "hamza_q_04_014",
+      "section": "reading",
+      "passage": "يُعدّ نهر النيل شريان الحياة في مصر والمهد التاريخي للحضارة المصرية القديمة. قامت على ضفافه الزراعة وبُنيت المدن والقرى. يعتمد الملايين من السكان حتى اليوم على مياهه للشرب والزراعة والصناعة.",
+      "question": "ما الحضارة التاريخية المرتبطة بنهر النيل في النص؟",
+      "options": [
+        "الحضارة الرومانية",
+        "الحضارة المصرية القديمة",
+        "الحضارة الصينية",
+        "الحضارة البابلية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Peradaban yang tumbuh di Sungai Nil adalah peradaban Mesir Kuno («الحضارة المصرية القديمة»)."
+    },
+    {
+      "id": "hamza_q_04_015",
+      "section": "reading",
+      "passage": "يُعدّ نهر النيل شريان الحياة في مصر والمهد التاريخي للحضارة المصرية القديمة. قامت على ضفافه الزراعة وبُنيت المدن والقرى. يعتمد الملايين من السكان حتى اليوم على مياهه للشرب والزراعة والصناعة.",
+      "question": "ما الكلمة التي تعبر عن أهمية النيل الاستراتيجية؟",
+      "options": [
+        "شريان الحياة",
+        "بقعة مائية",
+        "ممر عابر",
+        "بحيرة صغيرة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Frasa «شريان الحياة» menguraikan peran vital sungai Nil bagi kehidupan."
+    },
+    {
+      "id": "hamza_q_04_016",
+      "section": "reading",
+      "passage": "الأمن السيبراني هو مجموعة من الأساليب والتقنيات المصممة لحماية الأنظمة الشبكية والبيانات الشخصية من الهجمات الرقمية. يتطلب الأمن السيبراني استخدام كلمات مرور قوية والتحديث المستمر للبرامج وتوعية المستخدمين بالمخاطر.",
+      "question": "ما التعريف الأساسي للأمن السيبراني في النص؟",
+      "options": [
+        "صيانة الحواسيب المادية",
+        "أساليب وتقنيات لحماية الأنظمة والبيانات من الهجمات الرقمية",
+        "برمجة المواقع الإلكترونية",
+        "تصميم الصور الرقمية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keamanan siber didefinisikan sebagai metode pelindung sistem & data dari serangan digital («أساليب وتقنيات لحماية الأنظمة والبيانات من الهجمات الرقمية»)."
+    },
+    {
+      "id": "hamza_q_04_017",
+      "section": "reading",
+      "passage": "الأمن السيبراني هو مجموعة من الأساليب والتقنيات المصممة لحماية الأنظمة الشبكية والبيانات الشخصية من الهجمات الرقمية. يتطلب الأمن السيبراني استخدام كلمات مرور قوية والتحديث المستمر للبرامج وتوعية المستخدمين بالمخاطر.",
+      "question": "ما الخطوة الوقائية الأولى المذكورة لحماية الحسابات؟",
+      "options": [
+        "استخدام كلمات مرور قوية",
+        "إغلاق الحاسوب دائماً",
+        "عدم الاتصال بالإنترنت",
+        "حذف جميع الملفات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Langkah pencegahan awal adalah menggunakan kata sandi yang kuat («استخدام كلمات مرور قوية»)."
+    },
+    {
+      "id": "hamza_q_04_018",
+      "section": "reading",
+      "passage": "الأمن السيبراني هو مجموعة من الأساليب والتقنيات المصممة لحماية الأنظمة الشبكية والبيانات الشخصية من الهجمات الرقمية. يتطلب الأمن السيبراني استخدام كلمات مرور قوية والتحديث المستمر للبرامج وتوعية المستخدمين بالمخاطر.",
+      "question": "لماذا يُعد التحديث المستمر للبرامج ضرورياً؟",
+      "options": [
+        "لتغيير لون التطبيقات",
+        "لسد الثغرات وحماية البيانات من الاختراق",
+        "لزيادة حجم البرامج",
+        "لإلغاء الاشتراكات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pembaruan perangkat lunak penting untuk menutup celah keamanan data («لسد الثغرات وحماية البيانات من الاختراق»)."
+    },
+    {
+      "id": "hamza_q_04_019",
+      "section": "reading",
+      "passage": "الأمن السيبراني هو مجموعة من الأساليب والتقنيات المصممة لحماية الأنظمة الشبكية والبيانات الشخصية من الهجمات الرقمية. يتطلب الأمن السيبراني استخدام كلمات مرور قوية والتحديث المستمر للبرامج وتوعية المستخدمين بالمخاطر.",
+      "question": "ما العنصر البشري المهم المذكور في حماية الشبكات؟",
+      "options": [
+        "توعية المستخدمين بالمخاطر",
+        "زيادة عدد ساعات العمل",
+        "استبدال الموظفين",
+        "منع استخدام الهواتف"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Faktor manusia diperkuat lewat edukasi/kesadaran pengguna («توعية المستخدمين بالمخاطر»)."
+    },
+    {
+      "id": "hamza_q_04_020",
+      "section": "reading",
+      "passage": "الأمن السيبراني هو مجموعة من الأساليب والتقنيات المصممة لحماية الأنظمة الشبكية والبيانات الشخصية من الهجمات الرقمية. يتطلب الأمن السيبراني استخدام كلمات مرور قوية والتحديث المستمر للبرامج وتوعية المستخدمين بالمخاطر.",
+      "question": "ما العنوان المناسب لهذا النص؟",
+      "options": [
+        "تاريخ صناعة الحواسيب",
+        "أهمية الأمن السيبراني وسبل الوقاية",
+        "طرق التسوق الآمن",
+        "كيف تصبح برمجياً في شهر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul yang paling pas adalah pentingnya keamanan siber dan cara pencegahannya («أهمية الأمن السيبراني وسبل الوقاية»)."
+    },
+    {
+      "id": "hamza_q_04_021",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية والحرارية في خفض تكاليف الإنتاج في المصانع الكبرى. أثبتت الدراسات أن الاعتماد على مصادر الطاقة النظيفة يزيد من تنافسية المنتجات الوطنية في الأسواق العالمية ويعزز سمعتها البيئية.",
+      "question": "ما الأثر الاقتصادي المباشر لاستخدام الطاقة النظيفة في المصانع؟",
+      "options": [
+        "زيادة الديون",
+        "خفض تكاليف الإنتاج",
+        "تقليل المبيعات",
+        "إغلاق خطوط الإنتاج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dampak ekonominya adalah menekan biaya produksi di pabrik («خفض تكاليف الإنتاج»)."
+    },
+    {
+      "id": "hamza_q_04_022",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية والحرارية في خفض تكاليف الإنتاج في المصانع الكبرى. أثبتت الدراسات أن الاعتماد على مصادر الطاقة النظيفة يزيد من تنافسية المنتجات الوطنية في الأسواق العالمية ويعزز سمعتها البيئية.",
+      "question": "كيف يؤثر استخدام الطاقة النظيفة على منتجات الدولة في الخارج؟",
+      "options": [
+        "يزيد من تنافسيتها ويعزز سمعتها البيئية",
+        "يقلل من جودتها",
+        "يمنع تصديرها",
+        "يزيد من جماركها"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Penggunaan energi bersih meningkatkan daya saing produk dan reputasi lingkungan («يزيد من تنافسيتها ويعزز سمعتها البيئية»)."
+    },
+    {
+      "id": "hamza_q_04_023",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية والحرارية في خفض تكاليف الإنتاج في المصانع الكبرى. أثبتت الدراسات أن الاعتماد على مصادر الطاقة النظيفة يزيد من تنافسية المنتجات الوطنية في الأسواق العالمية ويعزز سمعتها البيئية.",
+      "question": "ما نتيجه الدراسات المذكورة في الفقرة؟",
+      "options": [
+        "أن الطاقة الشمسية مكلفة جداً",
+        "أن الطاقة النظيفة تدعم التنافسية والسمعة البيئية",
+        "أن الفحم أفضل للمصانع",
+        "أن الكهرباء ستنقطع دائماً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Studi membuktikan bahwa energi bersih mendukung daya saing dan reputasi produk («أن الطاقة النظيفة تدعم التنافسية والسمعة البيئية»)."
+    },
+    {
+      "id": "hamza_q_04_024",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية والحرارية في خفض تكاليف الإنتاج في المصانع الكبرى. أثبتت الدراسات أن الاعتماد على مصادر الطاقة النظيفة يزيد من تنافسية المنتجات الوطنية في الأسواق العالمية ويعزز سمعتها البيئية.",
+      "question": "ما نوع المصانع المستفيدة المذكورة في النص؟",
+      "options": [
+        "المصانع الصغيرة فقط",
+        "المصانع الكبرى",
+        "الورق التقليدي فقط",
+        "المستودعات المغلقة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Teks menunjuk manfaatnya bagi pabrik-pabrik besar («المصانع الكبرى»)."
+    },
+    {
+      "id": "hamza_q_04_025",
+      "section": "reading",
+      "passage": "تساهم الطاقة الشمسية والحرارية في خفض تكاليف الإنتاج في المصانع الكبرى. أثبتت الدراسات أن الاعتماد على مصادر الطاقة النظيفة يزيد من تنافسية المنتجات الوطنية في الأسواق العالمية ويعزز سمعتها البيئية.",
+      "question": "ما الهدف النهائي من التحول نحو الطاقة النظيفة صناعياً؟",
+      "options": [
+        "حماية البيئة وتحقيق نمو اقتصادي مستدام",
+        "توقف الصناعة",
+        "زيادة الانبعاثات",
+        "تقليل عدد العمال"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tujuan utamanya melestarikan lingkungan sekaligus meraih pertumbuhan ekonomi berkelanjutan («حماية البيئة وتحقيق نمو اقتصادي مستدام»)."
+    },
+    {
+      "id": "hamza_q_04_026",
+      "section": "reading",
+      "passage": "يُعدّ التعليم المدمج الذي يجمع بين الحضور الفعلي والتعلم عبر الإنترنت من أنجح النماذج التعليمية المعاصرة. يتيح هذا النموذج للطلاب الاستفادة من التفاعل المباشر مع المعلمين والتوسع في البحث الذاتي باستخدام المواد الرقمية.",
+      "question": "ما المقصود بالتعليم المدمج في النص؟",
+      "options": [
+        "التعليم في المنزل فقط",
+        "الجمع بين الحضور الفعلي والتعلم عبر الإنترنت",
+        "التعليم الرياضي فقط",
+        "الدراسة المسائية فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Blended learning adalah kombinasi antara tatap muka fisik dan pembelajaran online («الجمع بين الحضور الفعلي والتعلم عبر الإنترنت»)."
+    },
+    {
+      "id": "hamza_q_04_027",
+      "section": "reading",
+      "passage": "يُعدّ التعليم المدمج الذي يجمع بين الحضور الفعلي والتعلم عبر الإنترنت من أنجح النماذج التعليمية المعاصرة. يتيح هذا النموذج للطلاب الاستفادة من التفاعل المباشر مع المعلمين والتوسع في البحث الذاتي باستخدام المواد الرقمية.",
+      "question": "ما الفائدة التي يجنيها الطلاب من الحضور الفعلي؟",
+      "options": [
+        "التفاعل المباشر مع المعلمين",
+        "تقليل واجبات المنزل",
+        "الحصول على كتب مجانية",
+        "عدم استخدام الحواسيب"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Manfaat tatap muka adalah interaksi langsung bersama para guru («التفاعل المباشر مع المعلمين»)."
+    },
+    {
+      "id": "hamza_q_04_028",
+      "section": "reading",
+      "passage": "يُعدّ التعليم المدمج الذي يجمع بين الحضور الفعلي والتعلم عبر الإنترنت من أنجح النماذج التعليمية المعاصرة. يتيح هذا النموذج للطلاب الاستفادة من التفاعل المباشر مع المعلمين والتوسع في البحث الذاتي باستخدام المواد الرقمية.",
+      "question": "كيف تساعد المواد الرقمية الطالب في هذا النموذج؟",
+      "options": [
+        "في حفظ النصوص فقط",
+        "في التوسع في البحث الذاتي",
+        "في إلغاء المذاكرة",
+        "في التنافس غير الصحي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Materi digital memfasilitasi riset mandiri bagi siswa («في التوسع في البحث الذاتي»)."
+    },
+    {
+      "id": "hamza_q_04_029",
+      "section": "reading",
+      "passage": "يُعدّ التعليم المدمج الذي يجمع بين الحضور الفعلي والتعلم عبر الإنترنت من أنجح النماذج التعليمية المعاصرة. يتيح هذا النموذج للطلاب الاستفادة من التفاعل المباشر مع المعلمين والتوسع في البحث الذاتي باستخدام المواد الرقمية.",
+      "question": "ما وصف النموذج المذكور في الفقرة؟",
+      "options": [
+        "نموذج قديم وغير فعال",
+        "من أنجح النماذج التعليمية المعاصرة",
+        "صعب التطبيق في الجامعات",
+        "مكلف جداً للجميع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Metode ini digambarkan sebagai salah satu model pendidikan kontemporer tersukses («من أنجح النماذج التعليمية المعاصرة»)."
+    },
+    {
+      "id": "hamza_q_04_030",
+      "section": "reading",
+      "passage": "يُعدّ التعليم المدمج الذي يجمع بين الحضور الفعلي والتعلم عبر الإنترنت من أنجح النماذج التعليمية المعاصرة. يتيح هذا النموذج للطلاب الاستفادة من التفاعل المباشر مع المعلمين والتوسع في البحث الذاتي باستخدام المواد الرقمية.",
+      "question": "ما الميزة الكبرى المزدوجة للتعليم المدمج؟",
+      "options": [
+        "الجمع بين مرونة التكنولوجيا وأصالة التفاعل المباشر",
+        "إلغاء الامتحانات",
+        "تقليل عدد المواد",
+        "استبدال المعلم بالذكاء الاصطناعي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Keunggulan utamanya menggabungkan fleksibilitas teknologi dan keaslian interaksi tatap muka («الجمع بين مرونة التكنولوجيا وأصالة التفاعل المباشر»)."
+    },
+    {
+      "id": "hamza_q_04_031",
+      "section": "reading",
+      "passage": "تساهم محميات الحياة البرية في إنقاذ العديد من الحيوانات والنباتات المهددة بالانقراض. تعمل هذه المحميات على توفير بيئة طبيعية آمنة تمنع الصيد الجائر وتدعم الأبحاث العلمية الميدانية.",
+      "question": "ما الهدف الرئيسي لمحميات الحياة البرية؟",
+      "options": [
+        "تربية الحيوانات للأكل",
+        "إنقاذ الكائنات المهددة بالانقراض وتوفير بيئة آمنة",
+        "تنظيم مسابقات الصيد",
+        "بيع الكائنات النادرة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan utamanya menyelamatkan spesies terancام punah dan menyediakan habitat aman («إنقاذ الكائنات المهددة بالانقراض وتوفير بيئة آمنة»)."
+    },
+    {
+      "id": "hamza_q_04_032",
+      "section": "reading",
+      "passage": "تساهم محميات الحياة البرية في إنقاذ العديد من الحيوانات والنباتات المهددة بالانقراض. تعمل هذه المحميات على توفير بيئة طبيعية آمنة تمنع الصيد الجائر وتدعم الأبحاث العلمية الميدانية.",
+      "question": "ما النشاط الضار الذي تمنعه المحميات؟",
+      "options": [
+        "الزيارات العلمية",
+        "الصيد الجائر",
+        "التصوير الفوتوغرافي",
+        "زراعة الأشجار"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Aktivitas merusak yang dicegah oleh suaka alam adalah perburuan liar («الصيد الجائر»)."
+    },
+    {
+      "id": "hamza_q_04_033",
+      "section": "reading",
+      "passage": "تساهم محميات الحياة البرية في إنقاذ العديد من الحيوانات والنباتات المهددة بالانقراض. تعمل هذه المحميات على توفير بيئة طبيعية آمنة تمنع الصيد الجائر وتدعم الأبحاث العلمية الميدانية.",
+      "question": "كيف تدعم المحميات البحث العلمي؟",
+      "options": [
+        "بتوفير بيئة ميدانية مخصصة للدراسة",
+        "بتقديم التمويل المالي للأطباء",
+        "بإغلاق المختبرات",
+        "بطباعة الكتب العلمية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Suaka mendukung riset dengan menyediakan habitat alami untuk observasi lapangan («بتوفير بيئة ميدانية مخصصة للدراسة»)."
+    },
+    {
+      "id": "hamza_q_04_034",
+      "section": "reading",
+      "passage": "تساهم محميات الحياة البرية في إنقاذ العديد من الحيوانات والنباتات المهددة بالانقراض. تعمل هذه المحميات على توفير بيئة طبيعية آمنة تمنع الصيد الجائر وتدعم الأبحاث العلمية الميدانية.",
+      "question": "ما العناصر المحمية في النص؟",
+      "options": [
+        "الحيوانات والنباتات",
+        "الصخور والمعادن فقط",
+        "المباني والآثار",
+        "الأنهار والأسماك فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Komponen yang dilindungi mencakup hewan dan tumbuhan («الحيوانات والنباتات»)."
+    },
+    {
+      "id": "hamza_q_04_035",
+      "section": "reading",
+      "passage": "تساهم محميات الحياة البرية في إنقاذ العديد من الحيوانات والنباتات المهددة بالانقراض. تعمل هذه المحميات على توفير بيئة طبيعية آمنة تمنع الصيد الجائر وتدعم الأبحاث العلمية الميدانية.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طرق صيد الحيوانات",
+        "أهمية المحميات في الحفاظ على التنوع الحيوي",
+        "تاريخ حدائق الحيوان",
+        "أنواع النباتات المنزلية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah pentingnya suaka alam dalam menjaga keanekaragaman hayati («أهمية المحميات في الحفاظ على التنوع الحيوي»)."
+    },
+    {
+      "id": "hamza_q_04_036",
+      "section": "reading",
+      "passage": "يعتبر النوم الكافي والمنتظم من الركائز الأساسية للصحة الذهنية والجسدية. يساعد النوم في تجديد طاقة الخلايا وتعزيز الذاكرة وتسهيل اتخاذ القرارات السليمة خلال اليوم.",
+      "question": "ما أهمية النوم الكافي للذاكرة حسب النص؟",
+      "options": [
+        "ضعف الاستيعاب",
+        "تعزيز الذاكرة وتجديد الطاقة",
+        "نسيان المعلومات القديمة",
+        "زيادة التوتر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tidur yang cukup berperan menguatkan daya ingat dan memperbarui energi («تعزيز الذاكرة وتجديد الطاقة»)."
+    },
+    {
+      "id": "hamza_q_04_037",
+      "section": "reading",
+      "passage": "يعتبر النوم الكافي والمنتظم من الركائز الأساسية للصحة الذهنية والجسدية. يساعد النوم في تجديد طاقة الخلايا وتعزيز الذاكرة وتسهيل اتخاذ القرارات السليمة خلال اليوم.",
+      "question": "كيف يؤثر النوم المنتظم على الأداء اليومي؟",
+      "options": [
+        "يسهل اتخاذ القرارات السليمة",
+        "يؤدي إلى التردد الدائم",
+        "يزيد من ساعات الكسل",
+        "يقلل من القدرة على العمل"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tidur teratur mempermudah pengambilan keputusan yang tepat («يسهل اتخاذ القرارات السليمة»)."
+    },
+    {
+      "id": "hamza_q_04_038",
+      "section": "reading",
+      "passage": "يعتبر النوم الكافي والمنتظم من الركائز الأساسية للصحة الذهنية والجسدية. يساعد النوم في تجديد طاقة الخلايا وتعزيز الذاكرة وتسهيل اتخاذ القرارات السليمة خلال اليوم.",
+      "question": "ما الذي يحدث للخلايا أثناء النوم المنتظم؟",
+      "options": [
+        "تتلف بالكامل",
+        "تتجدد طاقتها",
+        "تتوقف عن العمل",
+        "تتضاعف بدون توقف"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sel-sel tubuh memulihkan dan memperbarui energinya saat tidur («تتجدد طاقتها»)."
+    },
+    {
+      "id": "hamza_q_04_039",
+      "section": "reading",
+      "passage": "يعتبر النوم الكافي والمنتظم من الركائز الأساسية للصحة الذهنية والجسدية. يساعد النوم في تجديد طاقة الخلايا وتعزيز الذاكرة وتسهيل اتخاذ القرارات السليمة خلال اليوم.",
+      "question": "ما نوع الصحة المستفيدة من النوم المنتظم؟",
+      "options": [
+        "الصحة الذهنية والجسدية",
+        "الصحة المالية",
+        "العضلات فقط",
+        "النظر فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kesehatan yang diuntungkan mencakup mental dan fisik («الصحة الذهنية والجسدية»)."
+    },
+    {
+      "id": "hamza_q_04_040",
+      "section": "reading",
+      "passage": "يعتبر النوم الكافي والمنتظم من الركائز الأساسية للصحة الذهنية والجسدية. يساعد النوم في تجديد طاقة الخلايا وتعزيز الذاكرة وتسهيل اتخاذ القرارات السليمة خلال اليوم.",
+      "question": "ما النصيحة المضمرة في النص؟",
+      "options": [
+        "السهر الطويل",
+        "الحرص على ساعات نوم كافية ومنتظمة",
+        "الاستغناء عن النوم في الويكند",
+        "تناول المنبهات بكثرة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Anjuran tersirat adalah menjaga kecukupan dan keteraturan jam tidur («الحرص على ساعات نوم كافية ومنتظمة»)."
+    },
+    {
+      "id": "hamza_q_04_041",
+      "section": "grammar",
+      "question": "حدد الأفعال الخمسة في المرفوع: الطلابُ ______ الدرسَ.",
+      "options": [
+        "يكتبون",
+        "يكتبوا",
+        "يكتبن",
+        "اكتبوا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Af'al al-khamsah marfu' ditandai tetapnya huruf nun: «يكتبون»."
+    },
+    {
+      "id": "hamza_q_04_042",
+      "section": "grammar",
+      "question": "اختر اسم إنّ المنصوب بالياء: إنّ ______ مجتهدان.",
+      "options": [
+        "المعلمان",
+        "المعلمين",
+        "المعلمون",
+        "المعلمِ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Isim «إنّ» muthanna harus manshub dengan ya': «المعلمين»."
+    },
+    {
+      "id": "hamza_q_04_043",
+      "section": "grammar",
+      "question": "ما إعراب (حبا) في: عملتُ حباً في العلم؟",
+      "options": [
+        "مفعول لأجله منصوب",
+        "مفعول به",
+        "حال",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «حبًا» adalah maf'ul li-ajlih manshub menjelaskan alasan perbuatan."
+    },
+    {
+      "id": "hamza_q_04_044",
+      "section": "grammar",
+      "question": "اختر المصدر المعرف بالإضافة: سرّني ______ الحقِّ.",
+      "options": [
+        "إظهارُ",
+        "إظهارًا",
+        "مظهرٌ",
+        "ظاهرٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Masdar marfu' sebagai mudhaf tanpa tanwin: «إظهارُ الحقِّ»."
+    },
+    {
+      "id": "hamza_q_04_045",
+      "section": "grammar",
+      "question": "اختر التمييز الصحيح: طابَ المعلمُ ______.",
+      "options": [
+        "خلقٌ",
+        "خلقًا",
+        "خلقٍ",
+        "الخلقُ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tamyiz miluk/muhawwal berbentuk isim nakirah manshub: «خلقًا»."
+    },
+    {
+      "id": "hamza_q_04_046",
+      "section": "grammar",
+      "question": "حدد المنادى المضاف المنصوب: يا ______ العلمِ اجتهدْ.",
+      "options": [
+        "طالبُ",
+        "طالبَ",
+        "طالبِ",
+        "طالبٌ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Munada mudhaf harus manshub: «يا طالبَ العلمِ»."
+    },
+    {
+      "id": "hamza_q_04_047",
+      "section": "grammar",
+      "question": "اختر البدل المطابق: زارنا الخليفةُ ______.",
+      "options": [
+        "عمرُ",
+        "عمرَ",
+        "عمرٍ",
+        "عمرًا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Badal muthabiq dari marfu' («الخليفةُ») ikut marfu': «عمرُ»."
+    },
+    {
+      "id": "hamza_q_04_048",
+      "section": "grammar",
+      "question": "ما نوع الاستثناء في: ما حضر من الطلاب إلا طالبٌ؟",
+      "options": [
+        "تام مثبت",
+        "مفرغ (ناقص منفي)",
+        "تام منفي",
+        "منقطع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Istithna mufarragh karena ada harf nafi dan kalimatnya membutuhkan fa'il («طالبٌ»)."
+    },
+    {
+      "id": "hamza_q_04_049",
+      "section": "grammar",
+      "question": "اختر اسم التفضيل المناسب: الشمسُ ______ من القمر.",
+      "options": [
+        "أكبرُ",
+        "كبيرةٌ",
+        "أكبرَ",
+        "الكبرى"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism tafdhil wazan أفعل: «أكبرُ من القمر»."
+    },
+    {
+      "id": "hamza_q_04_050",
+      "section": "grammar",
+      "question": "اختر الفعل المبني على السكون لاتصاله بنون النسوة:",
+      "options": [
+        "الطالباتُ يقرأنَ",
+        "الطالباتُ يقرؤون",
+        "الطالباتُ قرؤوا",
+        "الطالباتُ قرأت"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' mabni atas sukun bila bersambung nun an-niswah: «يقرأنَ»."
+    },
+    {
+      "id": "hamza_q_04_051",
+      "section": "grammar",
+      "question": "حدد اسم المكان من الفعل (دخل):",
+      "options": [
+        "داخلي",
+        "مدخل",
+        "مدخول",
+        "دخيل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ism makan dari «دخل» berwazan مَفْعَل هو «مدخل»."
+    },
+    {
+      "id": "hamza_q_04_052",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (طريق)؟",
+      "options": [
+        "طريقون",
+        "طرق",
+        "طرقات",
+        "مطرق"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jamak taksir dari «طريق» adalah «طرق»."
+    },
+    {
+      "id": "hamza_q_04_053",
+      "section": "grammar",
+      "question": "اختر أداة الجزم التي تجزم فعلين مضارعين:",
+      "options": [
+        "لم",
+        "لا الناهية",
+        "إنْ الشرطية",
+        "كي"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban C. Harf syarat jazimah yang menjزم dua fi'il adalah «إنْ»."
+    },
+    {
+      "id": "hamza_q_04_054",
+      "section": "grammar",
+      "question": "اختر المفعول المطلق المؤكد للفعل: حفظتُ الدرسَ ______.",
+      "options": [
+        "حفظًا",
+        "حفظين",
+        "حفظًا جيدًا",
+        "محفوظًا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Maf'ul mutlaq mu'akkid lil-fi'il berupa masdar mufrad nakirah: «حفظًا»."
+    },
+    {
+      "id": "hamza_q_04_055",
+      "section": "grammar",
+      "question": "ما إعراب (صباحًا) في: سافر خالدٌ صباحًا؟",
+      "options": [
+        "مفعول به",
+        "ظرف زمان منصوب",
+        "حال",
+        "خبر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «صباحًا» kedudukannya zharaf zaman manshub."
+    },
+    {
+      "id": "hamza_q_04_056",
+      "section": "grammar",
+      "question": "اختر النعت المطابق للمجرور: مررتُ برجلٍ ______.",
+      "options": [
+        "كريماً",
+        "كريمٍ",
+        "كريمٌ",
+        "الكريمُ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Na'at yang mengikuti man'ut majrur («برجلٍ») ikut majrur: «كريمٍ»."
+    },
+    {
+      "id": "hamza_q_04_057",
+      "section": "grammar",
+      "question": "اختر الضمير المتصل في محل نصب مفعول به:",
+      "options": [
+        "أكرمني المعلمُ",
+        "كتبتُ الرسالةَ",
+        "خرجنا من الفصل",
+        "كتابي جديد"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ya' al-mutakallim pada «أكرمني» kedudukannya fi mahalli nashbin maf'ul bih."
+    },
+    {
+      "id": "hamza_q_04_058",
+      "section": "grammar",
+      "question": "حدد الممنوع من الصرف لعلة واحدة (جمع أقصى):",
+      "options": [
+        "مساجد",
+        "أحمد",
+        "فاطمة",
+        "عثمان"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim mamnu' min ash-sharf karena shighat muntaha al-jumu' adalah «مساجد»."
+    },
+    {
+      "id": "hamza_q_04_059",
+      "section": "grammar",
+      "question": "اختر الخبر الجملة الاسمية: الحديقةُ ______.",
+      "options": [
+        "أزهارُها جميلةٌ",
+        "جميلةٌ",
+        "في المدينة",
+        "تزهرُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Khabar jumlah ismiyyah memuat mubtada' kedua + dhamir + khabar: «أزهارُها جميلةٌ»."
+    },
+    {
+      "id": "hamza_q_04_060",
+      "section": "grammar",
+      "question": "ما وزن كلمة (مستشفى)؟",
+      "options": [
+        "مستفعل",
+        "مستفعلة",
+        "مشتعل",
+        "مفتعل"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Wazan ism makan dari fi'il istafhfa (استشفى) هو «مستفعل» (مستشفى)."
+    },
+    {
+      "id": "hamza_q_04_061",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح لـ (كان وأخواتها):",
+      "options": [
+        "كان الجوُّ باردًا",
+        "كان الجوُّ باردٌ",
+        "كان الجوَّ باردًا",
+        "كان الجوَّ باردٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. «كان» ترفع الاسم («الجوُّ») وتنصب الخبر («باردًا»)."
+    },
+    {
+      "id": "hamza_q_04_062",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح للمثنى المجرور بالياء:",
+      "options": [
+        "سلمتُ على المعلمَينِ",
+        "سلمتُ على المعلمَانِ",
+        "سلمتُ على المعلمُونَ",
+        "سلمتُ على المعلمِينَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim muthanna majrur setelah harf jar ditandai dengan ya': «المعلمَينِ»."
+    },
+    {
+      "id": "hamza_q_04_063",
+      "section": "structures",
+      "question": "اختر أسلوب الشرط الصحيح:",
+      "options": [
+        "مَن يعملْ خيراً يجدْه",
+        "مَن يعملُ خيراً يجدُه",
+        "مَن يعملَ خيراً يجدَ ه",
+        "مَن يعملْ خيراً يجدُه"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il syarat dan jawab syarat keduanya majzum: «يعملْ ... يجدْه»."
+    },
+    {
+      "id": "hamza_q_04_064",
+      "section": "structures",
+      "question": "حدد الترتيب الصحيح للجملة الاسمية المؤكدة:",
+      "options": [
+        "إنّ التلميذَ المجتهدَ ناجحٌ",
+        "إنّ التلميذُ المجتهدُ ناجحٌ",
+        "إنّ التلميذَ المجتهدُ ناجحًا",
+        "إنّ التلميذُ المجتهدَ ناجحٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. «إنّ» تنصب اسمها («التلميذَ»), ونعته منصوب («المجتهدَ»), وخبرها مرفوع («ناجحٌ»)."
+    },
+    {
+      "id": "hamza_q_04_065",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح للإضافة مع الجمع:",
+      "options": [
+        "مهندسو الشركةِ بارعون",
+        "مهندسون الشركةِ بارعون",
+        "مهندسين الشركةِ بارعون",
+        "مهندسا الشركةِ بارعون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Nun jamak mudzakkar salim dihapus saat idhafah: «مهندسو الشركةِ»."
+    },
+    {
+      "id": "hamza_q_04_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب عن أهمية الإنجازات الطببة في التراث العربي والإسلامي.",
+      "prompt_hint": "اذكر طبيباً بارزاً وأثر أبحاثه على الطب الحديث",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat esai minimal 80 kata mengulas wawasan sains kedokteran era kejayaan Islam beserta tokoh pencetusnya."
+    },
+    {
+      "id": "hamza_q_04_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش الاستخدام المتوازن لشبكات التواصل الاجتماعي لدى الطلاب.",
+      "prompt_hint": "قدم ثلاث نصائح لتجنب ضياع الوقت وتشتت الذهن",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata strategi mengelola penggunaan medsos di kalangan pelajar agar tetap produktif."
+    },
+    {
+      "id": "hamza_q_04_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن التحول العالمي نحو الطاقة المتجددة في عام 2030.",
+      "prompt_hint": "اذكر ميزتين للطاقة الشمسية والرياح على البيئة",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan karangan minimal 70 kata mengenai urgensi transisi energi hijau demi keberlanjutan bumi."
+    },
+    {
+      "id": "hamza_q_04_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف الفصول الذكية والوسائط التفاعلية في المدارس الحديثة.",
+      "prompt_hint": "بيّن كيف تساهم التقنية في زيادة تفاعل الطلاب",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Paparkan minimal 80 kata pemanfaatan teknologi smart classroom dalam meningkatkan mutu pembelajaran."
+    },
+    {
+      "id": "hamza_q_04_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب رسالة توعية حول أهمية الحفاظ على المياه والأنهر.",
+      "prompt_hint": "ركز على نهر النيل أو الأنهار المحلية وخطورة التلوث",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat pesan edukasi minimal 70 kata tentang perlindungan sumber daya air sungai dari pencemaran."
+    },
+    {
+      "id": "hamza_q_04_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "تحدث عن شخصية علمية أو طبيب تاريخي ألهمك بحياته وأبحاثه.",
+      "prompt_hint": "اذكر اسم الشخصية وأبرز كتبها أو اكتشافاتها",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Ceritakan selama 60 detik sosok ilmuwan kedokteran masa lalu beserta kontribusi besarnya."
+    },
+    {
+      "id": "hamza_q_04_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما رأيك في تأثير وسائل التواصل الاجتماعي على العلاقات الأسرية؟",
+      "prompt_hint": "عبر عن رأيك بوضوح مع إعطاء أمثلة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan pendapat lisan 1 menit mengenai dampak media sosial terhadap keharmonisan keluarga."
+    },
+    {
+      "id": "hamza_q_04_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "هل تؤيد الاعتماد الكامل على الطاقة الشمسية في المنازل؟ لماذا؟",
+      "prompt_hint": "اذكر إيجابيات الفكرة وتحدياتها الممكنة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan pandangan lisan 60 detik tentang penerapan panel surya di rumah tinggal."
+    },
+    {
+      "id": "hamza_q_04_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "صف تجريتك مع التعلم الرقمي أو الفصول الذكية.",
+      "prompt_hint": "اذكر ميزة واحدة وعيباً واحداً تجد هما في التعليم الرقمي",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Jelaskan pengalaman lisan 1 menit saat mengikuti kelas digital atau pembelajaran berbasis teknologi."
+    },
+    {
+      "id": "hamza_q_04_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "قدم كلمة قصيرة تحث فيها الناس على حماية البيئة والتوقف عن التلوث.",
+      "prompt_hint": "وجه ثلاث رسائل توعوية للمجتمع",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Berikan orasi singkat 60 detik berisikan imbauan melestarikan lingkungan sekitar."
+    }
+  ]
+}

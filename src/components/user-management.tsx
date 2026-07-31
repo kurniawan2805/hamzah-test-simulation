@@ -81,6 +81,8 @@ export interface UserManagementProps {
   cloudAttempts?: Array<{
     id: string
     userId: string
+    userEmail?: string | null
+    userName?: string | null
     examTitle: string
     state: string
     startedAt: string
@@ -214,11 +216,14 @@ export function UserManagement({
         const uid = att.userId || 'unknown-user'
         let existing = userMap.get(uid)
 
+        const resolvedEmail = att.userEmail || (uid === currentAuth.userId && currentAuth.email ? currentAuth.email : null)
+        const resolvedName = att.userName || (uid === currentAuth.userId ? currentAuth.displayName : null)
+
         if (!existing) {
           existing = {
             id: uid,
-            name: uid === currentAuth.userId ? currentAuth.displayName : `Peserta (${uid.slice(0, 8)})`,
-            email: uid === currentAuth.userId && currentAuth.email ? currentAuth.email : `${uid.slice(0, 8)}@cloud.user`,
+            name: resolvedName || (resolvedEmail ? resolvedEmail.split('@')[0] : `Peserta (${uid.slice(0, 8)})`),
+            email: resolvedEmail || `${uid.slice(0, 8)}@cloud.user`,
             role: uid === currentAuth.userId ? currentAuth.role : 'user',
             joinedAt: att.startedAt,
             lastActive: att.completedAt || att.startedAt,
@@ -233,6 +238,13 @@ export function UserManagement({
             attempts: [],
           }
           userMap.set(uid, existing)
+        } else {
+          if (resolvedEmail && existing.email.endsWith('@cloud.user')) {
+            existing.email = resolvedEmail
+          }
+          if (resolvedName && existing.name.startsWith('Peserta (')) {
+            existing.name = resolvedName
+          }
         }
 
        existing.attempts.push({

@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal7",
+  "title": "اختبار همزة التجريبي - النموذج 7",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج السابع",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_07_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_01",
+      "question": "ما وسائل النقل المستهدفة بالزيادة في المدن الحديثة؟",
+      "options": [
+        "السيارات البترولية القديمة",
+        "الحافلات الكهربائية والقطارات السريعة",
+        "الدراجات النارية فقط",
+        "الشاحنات الثقيلة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sarana transportasi yang ditargetkan meluas adalah bus listrik dan kereta cepat («الحافلات الكهربائية والقطارات السريعة»)."
+    },
+    {
+      "id": "hamza_q_07_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_01",
+      "question": "ما الأثر البيئي والماكاني لهذه الوسائل الذكية؟",
+      "options": [
+        "زيادة التلوث الضوضائي",
+        "خفض الانبعاثات الضارة والحد من الازدحام",
+        "رفع أسعار التذاكر فقط",
+        "إغلاق الطرق الرئيسية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaatnya menekan emisi berbahaya dan meminimalisasi kemacetan lalu lintas («خفض الانبعاثات الضارة والحد من الازدحام»)."
+    },
+    {
+      "id": "hamza_q_07_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_02",
+      "question": "كم عدد القطع الأثرية المعروضة في المتحف الوطني الجديد؟",
+      "options": [
+        "ألف قطعة",
+        "أكثر من خمسة آلاف قطعة",
+        "خمسائة قطعة فقط",
+        "عشرة آلاف قطعة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jumlah artefak yang dipamerkan adalah lebih dari 5.000 benda sejarah («أكثر من خمسة آلاف قطعة»)."
+    },
+    {
+      "id": "hamza_q_07_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_02",
+      "question": "ما الميزة التقنية المتاحة لزوار المتحف؟",
+      "options": [
+        "الشراء المباشر للآثار",
+        "الجولات الافتراضية عبر التقنيات الحديثة",
+        "الدخول المجاني دائماً",
+        "التصوير الاحترافي المجاني"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keunggulan teknologinya menyediakan tur virtual berbasis teknologi modern («الجولات الافتراضية عبر التقنيات الحديثة»)."
+    },
+    {
+      "id": "hamza_q_07_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_02",
+      "question": "ما الحقبة الزمنية التي تغطيها المقتنيات؟",
+      "options": [
+        "العصر الحديث فقط",
+        "من العصور القديمة حتى العصر الحديث",
+        "العصر الإسلامي فقط",
+        "عصر ما قبل التاريخ فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Koleksi museum mencakup kurun waktu dari zaman purبا sampai zaman modern («من العصور القديمة حتى العصر الحديث»)."
+    },
+    {
+      "id": "hamza_q_07_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_03",
+      "question": "ما الهرمون المسلم عن التوتر المذكور في النص؟",
+      "options": [
+        "الأدرينالين",
+        "الكورتيزول",
+        "الأنسولين",
+        "الدوبامين"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Hormon pemicu stres yang sebutkan adalah kortisol («الكورتيزول»)."
+    },
+    {
+      "id": "hamza_q_07_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_03",
+      "question": "كم المدة اليومية الموصى بها للتأمل في النص؟",
+      "options": [
+        "ساعة كاملة",
+        "عشر دقائق",
+        "ثلاثون دقيقة",
+        "خمس دقائق"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Durasi meditasi harian yang direkomendasikan adalah 10 menit («عشر دقائق»)."
+    },
+    {
+      "id": "hamza_q_07_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_03",
+      "question": "ما النتيجة المتوقعة لممارسة تمارين التنفس والاسترخاء؟",
+      "options": [
+        "زيادة التوتر",
+        "استعادة التوازن النفسي والذهني",
+        "فقدان النوم",
+        "ضعف العضلات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaatnya memulihkan keseimbangan mental dan emosional («استعادة التوازن النفسي والذهني»)."
+    },
+    {
+      "id": "hamza_q_07_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_04",
+      "question": "على ماذا تعتمد أنظمة الترجمة الآلية لتحسين الدقة؟",
+      "options": [
+        "القواميس الورقية القديمة",
+        "قواعد البيانات اللغوية الكبيرة",
+        "التخمين العشوائي",
+        "ترجمة كلمة بكلمة فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sistem penerjemahan mesin mengandalkan basis data kebahasaan berukuran besar («قواعد البيانات اللغوية الكبيرة»)."
+    },
+    {
+      "id": "hamza_q_07_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b07_04",
+      "question": "لماذا يظل دور المترجم البشري ضرورياً وفق النص؟",
+      "options": [
+        "لكتابة الخطوط فقط",
+        "لفهم السياق الثقافي والمعاني الخفية",
+        "لتصحيح الإملاء فقط",
+        "لأن الآلة بطيئة جداً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Peran penerjemah manusia tetap vital untuk memahami konteks budaya dan makna tersirat («لفهم السياق الثقافي والمعاني الخفية»)."
+    },
+    {
+      "id": "hamza_q_07_011",
+      "section": "reading",
+      "passage": "تُمثل المدن الذكية نموذجاً مستقبلياً يهدف إلى تحسين جودة حياة السكان باستخدام تكنولوجيا المعلومات والاتصالات. تعتمد هذه المدن على إدارة شبكات الطاقة والمياه والمخلفات بوسائل رقمية مترابطة، مما يقلل من الهدر الحجمي ويحافظ على البيئة.",
+      "question": "ما الهدف الأساسي للمدن الذكية في النص؟",
+      "options": [
+        "زيادة عدد السكان",
+        "تحسين جودة حياة السكان باستخدام التكنولوجيا",
+        "بناء الأبراج السكنية فقط",
+        "إلغاء السيارات بالكامل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan utama smart city adalah meningkatkan kualitas hidup warga via teknologi («تحسين جودة حياة السكان باستخدام التكنولوجيا»)."
+    },
+    {
+      "id": "hamza_q_07_012",
+      "section": "reading",
+      "passage": "تُمثل المدن الذكية نموذجاً مستقبلياً يهدف إلى تحسين جودة حياة السكان باستخدام تكنولوجيا المعلومات والاتصالات. تعتمد هذه المدن على إدارة شبكات الطاقة والمياه والمخلفات بوسائل رقمية مترابطة، مما يقلل من الهدر الحجمي ويحافظ على البيئة.",
+      "question": "كيف تُدار شبكات الطاقة والمياه في المدن الذكية؟",
+      "options": [
+        "يدوياً وبطريقة تقليدية",
+        "بوسائل رقمية مترابطة",
+        "عبر الشركات الأجنبية فقط",
+        "دون مراقبة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jaringan energi dan air dikelola menggunakan sarana digital terinterkoneksi («بوسائل رقمية مترابطة»)."
+    },
+    {
+      "id": "hamza_q_07_013",
+      "section": "reading",
+      "passage": "تُمثل المدن الذكية نموذجاً مستقبلياً يهدف إلى تحسين جودة حياة السكان باستخدام تكنولوجيا المعلومات والاتصالات. تعتمد هذه المدن على إدارة شبكات الطاقة والمياه والمخلفات بوسائل رقمية مترابطة، مما يقلل من الهدر الحجمي ويحافظ على البيئة.",
+      "question": "ما الأثر البيئي المباشر لإدارة المرافق رقمياً؟",
+      "options": [
+        "زيادة التلوث",
+        "تقليل الهدر الحجمي والحفاظ على البيئة",
+        "ارتفاع أسعار الخدمات",
+        "انقطاع المياه المستمر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Efek langsungnya menekan pemborosan volume dan menjaga kelestarian alam («تقليل الهدر الحجمي والحفاظ على البيئة»)."
+    },
+    {
+      "id": "hamza_q_07_014",
+      "section": "reading",
+      "passage": "تُمثل المدن الذكية نموذجاً مستقبلياً يهدف إلى تحسين جودة حياة السكان باستخدام تكنولوجيا المعلومات والاتصالات. تعتمد هذه المدن على إدارة شبكات الطاقة والمياه والمخلفات بوسائل رقمية مترابطة، مما يقلل من الهدر الحجمي ويحافظ على البيئة.",
+      "question": "ما التقنية المحورية التي تعتمد عليها هذه المدن؟",
+      "options": [
+        "تكنولوجيا المعلومات والاتصالات",
+        "المحركات البخارية القديمة",
+        "البناء اليدوي البسيط",
+        "الورق والمطبوعات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Teknologi inti yang diandalkan adalah ICT / teknologi informasi & komunikasi («تكنولوجيا المعلومات والاتصالات»)."
+    },
+    {
+      "id": "hamza_q_07_015",
+      "section": "reading",
+      "passage": "تُمثل المدن الذكية نموذجاً مستقبلياً يهدف إلى تحسين جودة حياة السكان باستخدام تكنولوجيا المعلومات والاتصالات. تعتمد هذه المدن على إدارة شبكات الطاقة والمياه والمخلفات بوسائل رقمية مترابطة، مما يقلل من الهدر الحجمي ويحافظ على البيئة.",
+      "question": "ما العنوان الأنسب لهذا النص؟",
+      "options": [
+        "تاريخ المباني العالية",
+        "مفهوم ومميزات المدن الذكية",
+        "طرق توليد الكهرباء",
+        "أنواع التلوث الحضري"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling sesuai adalah konsep dan keunggulan kota pintar / smart city («مفهوم ومميزات المدن الذكية»)."
+    },
+    {
+      "id": "hamza_q_07_016",
+      "section": "reading",
+      "passage": "المتاحف ليست مجرد أماكن لعرض مقتنيات الماضي، بل هي مؤسسات تعليمية وثقافية تلعب دوراً كبيراً في تعزيز الهوية الوطنية والتواصل بين الجيل الحاضر والأجداد. يسهم صيانة المخطوطات والتحف في حفظ التراث الإنساني من الاندثار.",
+      "question": "ما الدور الشامل للمتاحف كما توضحه الفقرة؟",
+      "options": [
+        "أماكن لتخزين البضائع",
+        "مؤسسات تعليمية وثقافية تعزز الهوية الوطنية",
+        "متاجر لبيع التحف القديمة",
+        "معارض مؤقتة للصور"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Museum bertindak sebagai lembaga edukasi dan budaya penguat identitas nasional («مؤسسات تعليمية وثقافية تعزز الهوية الوطنية»)."
+    },
+    {
+      "id": "hamza_q_07_017",
+      "section": "reading",
+      "passage": "المتاحف ليست مجرد أماكن لعرض مقتنيات الماضي، بل هي مؤسسات تعليمية وثقافية تلعب دوراً كبيراً في تعزيز الهوية الوطنية والتواصل بين الجيل الحاضر والأجداد. يسهم صيانة المخطوطات والتحف في حفظ التراث الإنساني من الاندثار.",
+      "question": "كيف تربط المتاحف بين الأجيال؟",
+      "options": [
+        "بالتواصل بين الجيل الحاضر والأجداد",
+        "بإلغاء التاريخ القديم",
+        "بتدريس اللغات الحديثة",
+        "بالسفر الخارجي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Museum menghubungkan generasi masa kini dengan nilai-nilai warisan leluhور («بالتواصل بين الجيل الحاضر والأجداد»)."
+    },
+    {
+      "id": "hamza_q_07_018",
+      "section": "reading",
+      "passage": "المتاحف ليست مجرد أماكن لعرض مقتنيات الماضي، بل هي مؤسسات تعليمية وثقافية تلعب دوراً كبيراً في تعزيز الهوية الوطنية والتواصل بين الجيل الحاضر والأجداد. يسهم صيانة المخطوطات والتحف في حفظ التراث الإنساني من الاندثار.",
+      "question": "ما فائدة صيانة المخطوطات والتحف في النص؟",
+      "options": [
+        "حفظ التراث الإنساني من الاندثار",
+        "بيعها بأسعار مرتفعة",
+        "تغيير أشكالها التاريخية",
+        "تخزينها في المستودعات المغلقة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Preservasi manuskrip bermanfaat menyelamatkan warisan kemanusiaan dari kepunahan («حفظ التراث الإنساني من الاندثار»)."
+    },
+    {
+      "id": "hamza_q_07_019",
+      "section": "reading",
+      "passage": "المتاحف ليست مجرد أماكن لعرض مقتنيات الماضي، بل هي مؤسسات تعليمية وثقافية تلعب دوراً كبيراً في تعزيز الهوية الوطنية والتواصل بين الجيل الحاضر والأجداد. يسهم صيانة المخطوطات والتحف في حفظ التراث الإنساني من الاندثار.",
+      "question": "ما الكلمة التي تعبر عن أهمية حفظ الآثار؟",
+      "options": [
+        "الاندثار",
+        "حفظ التراث",
+        "العرض المالي",
+        "النسيان"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Frasa «حفظ التراث» menguraikan urgensi pelestarian nilai bersejarah."
+    },
+    {
+      "id": "hamza_q_07_020",
+      "section": "reading",
+      "passage": "المتاحف ليست مجرد أماكن لعرض مقتنيات الماضي، بل هي مؤسسات تعليمية وثقافية تلعب دوراً كبيراً في تعزيز الهوية الوطنية والتواصل بين الجيل الحاضر والأجداد. يسهم صيانة المخطوطات والتحف في حفظ التراث الإنساني من الاندثار.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طرق ترميم الفخار",
+        "الرسالة التعليمية والثقافية للمتاحف",
+        "أنواع المخطوطات القديمة",
+        "كيف تزور المتحف في السفر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah misi edukatif dan kultural museum («الرسالة التعليمية والثقافية للمتاحف»)."
+    },
+    {
+      "id": "hamza_q_07_021",
+      "section": "reading",
+      "passage": "الصحة النفسية جزء لا يتجزأ من السلامة العامة للإنسان. تساهم ممارسة الهوايات المفضلة والتواصل الاجتماعي البناء وقضاء وقت في الطبيعة في تقليل مشاعر القلق وتجديد الحيوية الذهنية والإنتاجية.",
+      "question": "ما العلاقة بين الصحة النفسية والسلامة العامة حسب النص؟",
+      "options": [
+        "علاقة منفصلة تماماً",
+        "جزء لا يتجزأ من السلامة العامة للإنسان",
+        "علاقة ثانوية وغير مهمة",
+        "تؤثر على الأطفال فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kesehatan mental merupakan bagian tak terpisahkan dari keselamatan dan kesejahteraan manusia («جزء لا يتجزأ من السلامة العامة للإنسان»)."
+    },
+    {
+      "id": "hamza_q_07_022",
+      "section": "reading",
+      "passage": "الصحة النفسية جزء لا يتجزأ من السلامة العامة للإنسان. تساهم ممارسة الهوايات المفضلة والتواصل الاجتماعي البناء وقضاء وقت في الطبيعة في تقليل مشاعر القلق وتجديد الحيوية الذهنية والإنتاجية.",
+      "question": "ما الأنشطة الموصى بها لتقليل مشاعر القلق؟",
+      "options": [
+        "الانعزال الدائم",
+        "ممارسة الهوايات والتواصل البناء وقضاء وقت في الطبيعة",
+        "العمل دون ساعات نوم",
+        "استخدام الشاشات طوال الليل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Aktivitas yang disarankan meliputi hobi, komunikasi konstruktif, dan berinteraksi dengan alam («ممارسة الهوايات والتواصل البناء وقضاء وقت في الطبيعة»)."
+    },
+    {
+      "id": "hamza_q_07_023",
+      "section": "reading",
+      "passage": "الصحة النفسية جزء لا يتجزأ من السلامة العامة للإنسان. تساهم ممارسة الهوايات المفضلة والتواصل الاجتماعي البناء وقضاء وقت في الطبيعة في تقليل مشاعر القلق وتجديد الحيوية الذهنية والإنتاجية.",
+      "question": "ما النتيجة الإيجابية المستهدفة من هذه الأنشطة؟",
+      "options": [
+        "تجديد الحيوية الذهنية والإنتاجية",
+        "زيادة النسيان",
+        "بطء الحركة البدنية",
+        "تقليل العزيمة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Hasil positifnya adalah menyegarkan vitalitas mental dan produktivitas («تجديد الحيوية الذهنية والإنتاجية»)."
+    },
+    {
+      "id": "hamza_q_07_024",
+      "section": "reading",
+      "passage": "الصحة النفسية جزء لا يتجزأ من السلامة العامة للإنسان. تساهم ممارسة الهوايات المفضلة والتواصل الاجتماعي البناء وقضاء وقت في الطبيعة في تقليل مشاعر القلق وتجديد الحيوية الذهنية والإنتاجية.",
+      "question": "ما نوع التواصل الموصى به في الفقرة؟",
+      "options": [
+        "التواصل الاجتماعي البناء",
+        "التواصل السلبي والسطحي",
+        "التواصل الرسمي فقط",
+        "الرسائل الإلكترونية فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Komunikasi yang dianjurkan adalah interaksi sosial yang konstruktif («التواصل الاجتماعي البناء»)."
+    },
+    {
+      "id": "hamza_q_07_025",
+      "section": "reading",
+      "passage": "الصحة النفسية جزء لا يتجزأ من السلامة العامة للإنسان. تساهم ممارسة الهوايات المفضلة والتواصل الاجتماعي البناء وقضاء وقت في الطبيعة في تقليل مشاعر القلق وتجديد الحيوية الذهنية والإنتاجية.",
+      "question": "ما النصيحة الرئيسية المستفادة من النص؟",
+      "options": [
+        "الاهتمام بالصحة النفسية عبر أنشطة إيجابية طبيعية",
+        "تناول المهدئات دون استشارة",
+        "ترك العمل والراحة الدائمة",
+        "عدم الحديث عن المشاعر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pesan utamanya adalah merawat kesehatan jiwa lewat kebiasaan positif dan alam («الاهتمام بالصحة النفسية عبر أنشطة إيجابية طبيعية»)."
+    },
+    {
+      "id": "hamza_q_07_026",
+      "section": "reading",
+      "passage": "شهدت تقنيات الترجمة الآلية المعتمدة على الذكاء الاصطناعي قفزة نوعية في السنوات الأخيرة. أصبحت البرامج قادرة على ترجمة النصوص الطويلة والمحادثات المباشرة بسرعة فائقة، مما يسهل التبادل التجاري والعلمي بين الشعوب.",
+      "question": "ما التطور الذي شهدته تقنيات الترجمة الآلية في النص؟",
+      "options": [
+        "تراجع في الدقة",
+        "قفزة نوعية بفضل الذكاء الاصطناعي",
+        "توقف عن الاستخدام",
+        "اعتمادها على الورق فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Penerjemahan mesin mengalami lonjakan kualitas signifikan berkat AI («قفزة نوعية بفضل الذكاء الاصطناعي»)."
+    },
+    {
+      "id": "hamza_q_07_027",
+      "section": "reading",
+      "passage": "شهدت تقنيات الترجمة الآلية المعتمدة على الذكاء الاصطناعي قفزة نوعية في السنوات الأخيرة. أصبحت البرامج قادرة على ترجمة النصوص الطويلة والمحادثات المباشرة بسرعة فائقة، مما يسهل التبادل التجاري والعلمي بين الشعوب.",
+      "question": "ما القدرة التقنية الجديدة للبرامج المذكورة؟",
+      "options": [
+        "ترجمة النصوص الطويلة والمحادثات المباشرة بسرعة فائقة",
+        "كتابة المقالات تلقائياً دون نص",
+        "حذف الكلمات الصعبة",
+        "تصحيح الصوت فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kemampuan terbarunya menterjemahkan teks panjang dan percakapan langsung secara kilat («ترجمة النصوص الطويلة والمحادثات المباشرة بسرعة فائقة»)."
+    },
+    {
+      "id": "hamza_q_07_028",
+      "section": "reading",
+      "passage": "شهدت تقنيات الترجمة الآلية المعتمدة على الذكاء الاصطناعي قفزة نوعية في السنوات الأخيرة. أصبحت البرامج قادرة على ترجمة النصوص الطويلة والمحادثات المباشرة بسرعة فائقة، مما يسهل التبادل التجاري والعلمي بين الشعوب.",
+      "question": "ما المجالان المستفيدان من تسهيل الترجمة في النص؟",
+      "options": [
+        "التبادل التجاري والعلمي بين الشعوب",
+        "الصيد والصناعة الثقيلة فقط",
+        "السياحة الداخلية فقط",
+        "الرياضة البدنية فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Dua sektor penerima manfaat utama adalah pertukaran bisnis dan keilmuan antar-bangsa («التبادل التجاري والعلمي بين الشعوب»)."
+    },
+    {
+      "id": "hamza_q_07_029",
+      "section": "reading",
+      "passage": "شهدت تقنيات الترجمة الآلية المعتمدة على الذكاء الاصطناعي قفزة نوعية في السنوات الأخيرة. أصبحت البرامج قادرة على ترجمة النصوص الطويلة والمحادثات المباشرة بسرعة فائقة، مما يسهل التبادل التجاري والعلمي بين الشعوب.",
+      "question": "ما الصفة الأساسية لسرعة هذه البرامج؟",
+      "options": [
+        "بطيئة جداً",
+        "سرعة فائقة",
+        "متوسطة الحجم",
+        "عشوائية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kecepatan pemrosesan terjemahan dinilai sangat tinggi / kilat («سرعة فائقة»)."
+    },
+    {
+      "id": "hamza_q_07_030",
+      "section": "reading",
+      "passage": "شهدت تقنيات الترجمة الآلية المعتمدة على الذكاء الاصطناعي قفزة نوعية في السنوات الأخيرة. أصبحت البرامج قادرة على ترجمة النصوص الطويلة والمحادثات المباشرة بسرعة فائقة، مما يسهل التبادل التجاري والعلمي بين الشعوب.",
+      "question": "ما الفكرة الأساسية لهذا النص؟",
+      "options": [
+        "طرق تعلم اللغات الأجنبية",
+        "دور الترجمة الذكية في تعزيز التواصل العلمي والتجاري",
+        "تاريخ المعاجم القديمة",
+        "صعوبة اللغة العربية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya membahas peran AI translation dalam mempermudah jejaring ilmu dan bisnis («دور الترجمة الذكية في تعزيز التواصل العلمي والتجاري»)."
+    },
+    {
+      "id": "hamza_q_07_031",
+      "section": "reading",
+      "passage": "تمكين الشباب وإشراكهم في عملية صنع القرار يسهم في بناء مجتمعات مرنة ومبتكرة. عندما تتاح للشباب فرصة قيادة المبادرات المحلية، يكتسبون مهارات القيادة والعمل الجماعي ويقدمون حلولاً خلاقة للمشكلات الاجتماعية.",
+      "question": "ما الأثر المجتمعي لتمكين الشباب في عملية صنع القرار؟",
+      "options": [
+        "بناء مجتمعات مرنة ومبتكرة",
+        "زيادة الخلافات السياسية",
+        "بطء التنمية الاجتماعية",
+        "ترك الوظائف التقليدية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pemberdayaan pemuda dalam pembuatan keputusan melahirkan masyarakat yang tangguh & inovatif («بناء مجتمعات مرنة ومبتكرة»)."
+    },
+    {
+      "id": "hamza_q_07_032",
+      "section": "reading",
+      "passage": "تمكين الشباب وإشراكهم في عملية صنع القرار يسهم في بناء مجتمعات مرنة ومبتكرة. عندما تتاح للشباب فرصة قيادة المبادرات المحلية، يكتسبون مهارات القيادة والعمل الجماعي ويقدمون حلولاً خلاقة للمشكلات الاجتماعية.",
+      "question": "ماذا يكتسب الشباب عند قيادة المبادرات المحلية؟",
+      "options": [
+        "درجات علمية فقط",
+        "مهارات القيادة والعمل الجماعي",
+        "أرباحاً مالية سريعة",
+        "تذاكر سفر للخارج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Memimpin inisiatif lokal melatih kepemimpinan dan kerja tim («مهارات القيادة والعمل الجماعي»)."
+    },
+    {
+      "id": "hamza_q_07_033",
+      "section": "reading",
+      "passage": "تمكين الشباب وإشراكهم في عملية صنع القرار يسهم في بناء مجتمعات مرنة ومبتكرة. عندما تتاح للشباب فرصة قيادة المبادرات المحلية، يكتسبون مهارات القيادة والعمل الجماعي ويقدمون حلولاً خلاقة للمشكلات الاجتماعية.",
+      "question": "ما نوع الحلول التي يقدمها الشباب للمشكلات حسب النص؟",
+      "options": [
+        "حلول تقليدية ومكررة",
+        "حلول خلاقة ومبتكرة",
+        "حلول مكلفة ومؤقتة",
+        "حلول عشوائية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pemuda menyumbangkan solusi-solusi kreatif bagi persoalan sosial («حلول خلاقة ومبتكرة»)."
+    },
+    {
+      "id": "hamza_q_07_034",
+      "section": "reading",
+      "passage": "تمكين الشباب وإشراكهم في عملية صنع القرار يسهم في بناء مجتمعات مرنة ومبتكرة. عندما تتاح للشباب فرصة قيادة المبادرات المحلية، يكتسبون مهارات القيادة والعمل الجماعي ويقدمون حلولاً خلاقة للمشكلات الاجتماعية.",
+      "question": "أين تُطبق المبادرات المذكورة للشباب؟",
+      "options": [
+        "على المستوى الدولي فقط",
+        "المبادرات المحلية في المجتمع",
+        "في المدارس فقط",
+        "في الشركات الأجنبية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Inisiatif dialokasikan pada tingkat komunitas lokal («المبادرات المحلية في المجتمع»)."
+    },
+    {
+      "id": "hamza_q_07_035",
+      "section": "reading",
+      "passage": "تمكين الشباب وإشراكهم في عملية صنع القرار يسهم في بناء مجتمعات مرنة ومبتكرة. عندما تتاح للشباب فرصة قيادة المبادرات المحلية، يكتسبون مهارات القيادة والعمل الجماعي ويقدمون حلولاً خلاقة للمشكلات الاجتماعية.",
+      "question": "ما العنوان المناسب لهذا النص؟",
+      "options": [
+        "تاريخ الحركة الشبابية",
+        "دور تمكين الشباب في بناء المجتمع",
+        "كيف تصبح مديراً شائباً",
+        "طرق تنظيم المسابقات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling sesuai adalah peran pemberdayaan pemuda dalam membangun masyarakat («دور تمكين الشباب في بناء المجتمع»)."
+    },
+    {
+      "id": "hamza_q_07_036",
+      "section": "reading",
+      "passage": "تساعد المتنزهات والحدائق العامة في تحسين جودة الهواء في المدن الكبرى عبر امتصاص ثاني أكسيد الكربون. كما توفر هذه المساحات الخضراء ملاذاً رائعاً للسكان لممارسة الرياضة والاسترخاء بعيداً عن ضوضاء المحركات.",
+      "question": "كيف تحسن الحدائق العامة جودة الهواء في المدن؟",
+      "options": [
+        "عبر رش العطور",
+        "عبر امتصاص ثاني أكسيد الكربون",
+        "بإيقاف الرياح",
+        "بإنتاج الأكسجين الصناعي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Taman publik memperbaiki kualitas udara dengan menyerap karbon dioksida («عبر امتصاص ثاني أكسيد الكربون»)."
+    },
+    {
+      "id": "hamza_q_07_037",
+      "section": "reading",
+      "passage": "تساعد المتنزهات والحدائق العامة في تحسين جودة الهواء في المدن الكبرى عبر امتصاص ثاني أكسيد الكربون. كما توفر هذه المساحات الخضراء ملاذاً رائعاً للسكان لممارسة الرياضة والاسترخاء بعيداً عن ضوضاء المحركات.",
+      "question": "ما الفائدة الترويحية للمساحات الخضراء للسكان؟",
+      "options": [
+        "ملاذ لممارسة الرياضة والاسترخاء بعيداً عن الضوضاء",
+        "التسوق التجاري",
+        "العمل مكتبيًا",
+        "الانتظار في الحافلات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ruang hijau menjadi suaka bagi warga untuk berolahraga dan relaksasi («ملاذ لممارسة الرياضة والاسترخاء بعيداً عن الضوضاء»)."
+    },
+    {
+      "id": "hamza_q_07_038",
+      "section": "reading",
+      "passage": "تساعد المتنزهات والحدائق العامة في تحسين جودة الهواء في المدن الكبرى عبر امتصاص ثاني أكسيد الكربون. كما توفر هذه المساحات الخضراء ملاذاً رائعاً للسكان لممارسة الرياضة والاسترخاء بعيداً عن ضوضاء المحركات.",
+      "question": "ما الضرر الحضري الذي تقدم الحدائق مهرباً منه؟",
+      "options": [
+        "البرودة الشديدة",
+        "ضوضاء المحركات والتلوث",
+        "قلة الإضاءة",
+        "ارتفاع البنايات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Taman menghindarkan warga dari bisingnya mesin dan kebisingan kota («ضوضاء المحركات والتلوث»)."
+    },
+    {
+      "id": "hamza_q_07_039",
+      "section": "reading",
+      "passage": "تساعد المتنزهات والحدائق العامة في تحسين جودة الهواء في المدن الكبرى عبر امتصاص ثاني أكسيد الكربون. كما توفر هذه المساحات الخضراء ملاذاً رائعاً للسكان لممارسة الرياضة والاسترخاء بعيداً عن ضوضاء المحركات.",
+      "question": "ما نوع المساحات المذكورة في النص؟",
+      "options": [
+        "المناطق الصناعية",
+        "المساحات الخضراء والمتنزهات العامة",
+        "المواقف السفلية",
+        "الملاعب المغلقة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Teks mengulas keunggulan taman umum dan ruang terbuka hijau («المساحات الخضراء والمتنزهات العامة»)."
+    },
+    {
+      "id": "hamza_q_07_040",
+      "section": "reading",
+      "passage": "تساعد المتنزهات والحدائق العامة في تحسين جودة الهواء في المدن الكبرى عبر امتصاص ثاني أكسيد الكربون. كما توفر هذه المساحات الخضراء ملاذاً رائعاً للسكان لممارسة الرياضة والاسترخاء بعيداً عن ضوضاء المحركات.",
+      "question": "ما الفكرة المحورية للنص؟",
+      "options": [
+        "طرق زراعة الزهور",
+        "الأهمية البيئية والصحية للحدائق العامة في المدن",
+        "كيف تبني حديقة منزلية",
+        "أنواع الأشجار المثمرة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah manfaat ekologis dan kesegaran taman publik di perkotaan («الأهمية البيئية والصحية للحدائق العامة في المدن»)."
+    },
+    {
+      "id": "hamza_q_07_041",
+      "section": "grammar",
+      "question": "اختر اسم الفاعل الصحيح من الفعل (استمع):",
+      "options": [
+        "مستمع",
+        "مستمعون",
+        "مستَمَع",
+        "استماع"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism fa'il dari fi'il ista-ma'a berwazan مُسْتَمِع: «مستمع»."
+    },
+    {
+      "id": "hamza_q_07_042",
+      "section": "grammar",
+      "question": "ما إعراب (شاعراً) في: كان والدُ خالدٍ شاعراً؟",
+      "options": [
+        "اسم كان مرفوع",
+        "خبر كان منصوب بالفتحة",
+        "مفعول به",
+        "مبتدأ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «شاعراً» kedudukannya khabar Kaana manshub ditandai fathah."
+    },
+    {
+      "id": "hamza_q_07_043",
+      "section": "grammar",
+      "question": "اختر التمييز الصحيح للمساحة: اشتريتُ هكتاراً ______.",
+      "options": [
+        "أرضًا",
+        "أرضٌ",
+        "أرضٍ",
+        "الأرضُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tamyiz mukhtassh bil-masahah berbentuk nakirah manshub: «أرضًا»."
+    },
+    {
+      "id": "hamza_q_07_044",
+      "section": "grammar",
+      "question": "حدد الممنوع من الصرف لعلة واحدة (ألف التأنيث الممدودة):",
+      "options": [
+        "صحراء",
+        "فاطمة",
+        "أحمد",
+        "مساجد"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim mamnu' min ash-sharf berakhiran alif ta'nith mamdudah adalah «صحراء»."
+    },
+    {
+      "id": "hamza_q_07_045",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (متحف)؟",
+      "options": [
+        "متاحف",
+        "متحفون",
+        "متحفات",
+        "متحفون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Jamak taksir dari «متحف» berwazan مَفَاعِل هو «متاحف»."
+    },
+    {
+      "id": "hamza_q_07_046",
+      "section": "grammar",
+      "question": "اختر البدل المطابق المجرور: مررتُ بأخيكَ ______.",
+      "options": [
+        "محمدٍ",
+        "محمدٌ",
+        "محمدًا",
+        "المحمدُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Badal muthabiq dari isim majrur bil-ya' («أخيكَ») ikut majrur: «محمدٍ»."
+    },
+    {
+      "id": "hamza_q_07_047",
+      "section": "grammar",
+      "question": "حدد اسم المكان من الفعل (جلس):",
+      "options": [
+        "مجالس",
+        "مجلس",
+        "جالس",
+        "مجلوَس"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ism makan dari «جلس» berwazan مَفْعِل هو «مجلس»."
+    },
+    {
+      "id": "hamza_q_07_048",
+      "section": "grammar",
+      "question": "اختر Harf jazm yang ينفي الفعل المضارع في الماضي:",
+      "options": [
+        "لم",
+        "لن",
+        "لا الناهية",
+        "كي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf jazm wa nafi wa qalb lil-madhi adalah «لم»."
+    },
+    {
+      "id": "hamza_q_07_049",
+      "section": "grammar",
+      "question": "ما إعراب (طوعاً) في: أدى المتطوعُ الواجبَ طوعاً؟",
+      "options": [
+        "حال منصوبة",
+        "فاعل",
+        "مفعول به",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «طوعاً» kedudukannya hal manshub menjelaskan cara pelaksanaan."
+    },
+    {
+      "id": "hamza_q_07_050",
+      "section": "grammar",
+      "question": "حدد اسم المفعول من الفعل (هدا):",
+      "options": [
+        "مهديّ",
+        "هادٍ",
+        "هداية",
+        "مهداء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism maf'ul dari fi'il naqis (هدى) berwazan مَفْعِيّ هو «مهديّ»."
+    },
+    {
+      "id": "hamza_q_07_051",
+      "section": "grammar",
+      "question": "اختر المبتدأ المؤخر المرفوع: في البيتِ ______.",
+      "options": [
+        "رجلٌ",
+        "رجلًا",
+        "رجلٍ",
+        "الرجلَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Mubtada' mu'akhkhar nakirah marfu' setelah khabar shibh jumlah: «رجلٌ»."
+    },
+    {
+      "id": "hamza_q_07_052",
+      "section": "grammar",
+      "question": "ما نوع الاستثناء في: قرأتُ التقريرَ سوى صفحةٍ؟",
+      "options": [
+        "تام مثبت",
+        "مفرغ",
+        "تام منفي",
+        "منقطع"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Istithna tam muthbat karena mustathna minhu ada dan tidak ada huruf nafi."
+    },
+    {
+      "id": "hamza_q_07_053",
+      "section": "grammar",
+      "question": "حدد اسم التفضيل المرفوع بالضمة المقدرة للتعذر:",
+      "options": [
+        "الكبرى",
+        "أفضل",
+        "أكبر",
+        "أحسن"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism tafdhil mu'annath maqshur marfu' dhammah muqaddarah adalah «الكبرى»."
+    },
+    {
+      "id": "hamza_q_07_054",
+      "section": "grammar",
+      "question": "اختر المصدر الصريح للفعل (انطلق):",
+      "options": [
+        "انطلاق",
+        "منطلق",
+        "منطلِق",
+        "انطلاقة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Masdar sharih dari fi'il intalaqa (انطلق) هو «انطلاق»."
+    },
+    {
+      "id": "hamza_q_07_055",
+      "section": "grammar",
+      "question": "ما إعراب (معلماً) في: حسبتُ القادمَ معلماً؟",
+      "options": [
+        "مفعول به ثاني منصوب",
+        "مفعول به أول",
+        "حال",
+        "خبر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «معلماً» maf'ul bih kedua dari fi'il dhanna/hasiba."
+    },
+    {
+      "id": "hamza_q_07_056",
+      "section": "grammar",
+      "question": "اختر الفعل المضارع المنصوب بأن المضمرة بعد فاء السببية:",
+      "options": [
+        "فتنجحَ",
+        "فتنجحُ",
+        "فتنجحْ",
+        "فتنجحِ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' manshub setelah fa' as-sababiyyah: «فتنجحَ»."
+    },
+    {
+      "id": "hamza_q_07_057",
+      "section": "grammar",
+      "question": "حدد الكلمة المبنية على الضم لقطوعها عن الإضافة:",
+      "options": [
+        "قبلُ",
+        "قبلَ",
+        "قبلِ",
+        "قبلً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Zharaf mabni atas dhammah saat dipotong dari idhafah: «قبلُ»."
+    },
+    {
+      "id": "hamza_q_07_058",
+      "section": "grammar",
+      "question": "ما وزن كلمة (مفتاح)؟",
+      "options": [
+        "مفعال",
+        "مفعل",
+        "مفعلة",
+        "فُعال"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Wazan ism alat dari fatah (فتح) هو «مفعال» (مفتاح)."
+    },
+    {
+      "id": "hamza_q_07_059",
+      "section": "grammar",
+      "question": "اختر الفعل المبني على الفتح لاتصاله بنون التوكيد:",
+      "options": [
+        "ليكتبَنّ",
+        "يكتبون",
+        "يكتبوا",
+        "اكتبوا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' mabni atas fathah bila bersambung nun at-tawkid al-mubashirah: «ليكتبَنّ»."
+    },
+    {
+      "id": "hamza_q_07_060",
+      "section": "grammar",
+      "question": "ما إعراب (كلا) في: حضر الكاتبانِ كلاهما؟",
+      "options": [
+        "توكيد معنوي مرفوع بالألف",
+        "فاعل",
+        "مبتدأ",
+        "مفعول به"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «كلاهما» kedudukannya tawkid ma'nawi marfu' ditandai alif karena mulhaq bil-muthanna."
+    },
+    {
+      "id": "hamza_q_07_061",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح لأسلوب الشرط المنفي:",
+      "options": [
+        "إنْ لا تجتهدْ تفشلْ",
+        "إنْ لم تجتهدْ تفشلْ",
+        "إنْ لن تجتهدَ تفشلَ",
+        "إنْ لا تجتهدُ تفشلُ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Susunan kalimat syarat menfi jazam baku: «إنْ لم تجتهدْ تفشلْ»."
+    },
+    {
+      "id": "hamza_q_07_062",
+      "section": "structures",
+      "question": "اختر الصيغة الصحيحة لنعت الجمع المذكر المجرور بالياء:",
+      "options": [
+        "مررتُ بمعلمينَ مخلصِينَ",
+        "مررتُ بمعلمينَ مخلصُونَ",
+        "مررتُ بمعلمونَ مخلصِينَ",
+        "مررتُ بمعلمينَ مخلصًا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Man'ut majrur ya' selaras dengan na'at majrur ya': «بمعلمينَ مخلصِينَ»."
+    },
+    {
+      "id": "hamza_q_07_063",
+      "section": "structures",
+      "question": "حدد التركيب الصحيح لخبر (إنّ) الجملة الفعلية:",
+      "options": [
+        "إنّ التكنولوجيا تخدمُ البشريةَ",
+        "إنّ التكنولوجيا تخدمَ البشريةَ",
+        "إنّ التكنولوجيا تخدمُ البشريةُ",
+        "إنّ التكنولوجيا تخدمْ البشريةَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. «إنّ» تنصب الاسم («التكنولوجيا») وخبرها جملة فعلية مرفوعة المحل («تخدمُ البشريةَ»)."
+    },
+    {
+      "id": "hamza_q_07_064",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للمفعول المطلق المبين للنوع:",
+      "options": [
+        "نجحَ الطالبُ نجاحاً باهراً",
+        "نجحَ الطالبُ نجاحٌ باهرٌ",
+        "نجحَ الطالبُ نجاحاً باهرٌ",
+        "نجحَ الطالبُ نجاحٌ باهراً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Maf'ul mutlaq manshub diikuti sifat/na'at manshub: «نجاحاً باهراً»."
+    },
+    {
+      "id": "hamza_q_07_065",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح للمستثنى بـ (إلا) في الكلام التام المنفي:",
+      "options": [
+        "ما حضرَ أحدٌ إلا عليٌّ (أو علياً)",
+        "ما حضرَ أحدٌ إلا عليٍّ",
+        "ما حضرَ أحدٌ إلا عليٌّ فقط",
+        "ما حضرَ أحدٌ إلا عليًا فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Istithna tam manfi membolehkan badal marfu' («عليٌّ») atau nashab istithna («عليًا»)."
+    },
+    {
+      "id": "hamza_q_07_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب مقالاً عن دور وسائل النقل الذكية في حماية البيئة بالمدن.",
+      "prompt_hint": "اذكر الحافلات الكهربائية والقطارات السريعة وتأثيرها على التلوث",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat esai minimal 80 kata ulasan transportasi ramah lingkungan dalam meminimalisasi emisi gas kota."
+    },
+    {
+      "id": "hamza_q_07_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف زيارتك لمتحف وطني أو تاريخي وأبرز المعروضات التي جذبت انتباهك.",
+      "prompt_hint": "اذكر اسم المتحف والحقبة التاريخية للمقتنيات",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata kesan kunjungan ke museum warisan budaya beserta artefak paling menarik bagi Anda."
+    },
+    {
+      "id": "hamza_q_07_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن أهمية العناية بالصحة النفسية وطرق تقليل التوتر اليومي.",
+      "prompt_hint": "قدم ثلاث نصائح عملية مثل التنفس العميق والتأمل",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Paparkan minimal 70 kata strategi menjaga kebugaran jiwa dan mengelola tekanan di era modern."
+    },
+    {
+      "id": "hamza_q_07_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش تأثير الترجمة الآلية الذكية على مستقبل المترجمين البشريين.",
+      "prompt_hint": "اعرض ميزة الترجمة الآلية وسبب احتياج السياق الثقافي للإنسان",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat narasi minimal 80 kata perbandingan peran mesin AI translation vs kepekaan pemahaman budaya manusia."
+    },
+    {
+      "id": "hamza_q_07_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن دور الحدائق العامة والمساحات الخضراء في تحسين جودة الحياة.",
+      "prompt_hint": "ركز على النقاء البيئي والأنشطة الترويحية للسكان",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan karangan minimal 70 kata manfaat estetika dan ekologi ruang terbuka hijau bagi masyarakat perkotaan."
+    },
+    {
+      "id": "hamza_q_07_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما رأيك في استبدال الحافلات القديمة بالحافلات الكهربائية في مدينتك؟",
+      "prompt_hint": "وضح موقفك وأسباب تأييدك للقرار خلال دقيقة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan pandangan lisan 1 menit dukungan Anda terhadap modernisasi bus listrik di kota Anda."
+    },
+    {
+      "id": "hamza_q_07_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "صف متحفاً أو مزاراً تاريخياً زارته وتأثرت بمقتنياته.",
+      "prompt_hint": "اذكر اسم المكان وأبرز ما شاهدته فيه",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Ceritakan pengalaman lisan 60 detik saat mengamati koleksi benda bersejarah di sebuah museum."
+    },
+    {
+      "id": "hamza_q_07_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "كيف تحافظ على هدوئك وتوازنك النفسي عند مواجهة التوتر الدراسي؟",
+      "prompt_hint": "اذكر تمرينين أو هوايتين تساعدانك على الاسترخاء",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Jelaskan cara lisan 1 menit Anda merهدakan kecemasan dan memulihkan energi pikiran saat ujian/tugas."
+    },
+    {
+      "id": "hamza_q_07_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "هل تعتمد على برامج الترجمة الآلية في دراستك؟ وما رأيك بدقتها؟",
+      "prompt_hint": "عبر عن تجريتك مع تطبيقات الترجمة المباشرة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Bagikan ulasan lisan 60 detik keandalan software mesin penerjemah otomatis dalam membantu belajar."
+    },
+    {
+      "id": "hamza_q_07_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "قدم كلمة تحث فيها بلدية مدينتك على زيادة الحدائق والمساحات الخضراء.",
+      "prompt_hint": "وجه رسالة توضح الفوائد الصحية والبيئية للحدائق",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan pesan lisan 1 menit imbauan penambahan zona hijau dan taman kota demi kesehatan warga."
+    }
+  ]
+}

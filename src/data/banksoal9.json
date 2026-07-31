@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal9",
+  "title": "اختبار همزة التجريبي - النموذج 9",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج التاسع",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_09_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_01",
+      "question": "ما الاكتشاف العلمي الذي حققه التلسكوب الفضائي في النص؟",
+      "options": [
+        "اكتشاف معادن جديدة على الأرض",
+        "التقاط صور لمجرات بعيدة تبعد ملايين السنين الضوئية",
+        "قياس سرعة الرياح في البحار",
+        "تصوير الكائنات المجهرية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pencapaian teleskop luar angkasa adalah memotret galaksi jauh bermil-mil tahun cahaya («التقاط صور لمجرات بعيدة تبعد ملايين السنين الضوئية»)."
+    },
+    {
+      "id": "hamza_q_09_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_01",
+      "question": "كيف تستفيد الأوساط العلمية من هذه الصور؟",
+      "options": [
+        "في بناء تلسكوبات أرضية فقط",
+        "في دراسة نشأة الكون وتطور النجوم",
+        "في التنبؤ بالطقس اليومي",
+        "في إطلاق أقمار صناعية للاتصال"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat ilmiahnya adalah mempelajari asal-usul alam semesta dan evolusi bintang («في دراسة نشأة الكون وتطور النجوم»)."
+    },
+    {
+      "id": "hamza_q_09_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_02",
+      "question": "ما هدف مشروع اليونسكو في النص؟",
+      "options": [
+        "هدم المباني القديمة",
+        "حماية المباني التاريخية من الزلازل والتغيرات المناخية",
+        "بناء أبراج حديثة",
+        "بيع الآثار للخارج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan proyek UNESCO adalah melindungi bangunan bersejarah dari gempa dan iklim («حماية المباني التاريخية من الزلازل والتغيرات المناخية»)."
+    },
+    {
+      "id": "hamza_q_09_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_02",
+      "question": "ما الوسيلة المستخدمة في عملية الحماية والترميم؟",
+      "options": [
+        "الطلاء التقليدي فقط",
+        "تقنيات ترميم حديثة تحافظ على الهوية الأثرية",
+        "استبدال الأحجار بالبلاستيك",
+        "تغليف المباني بالزجاج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Metode yang dipakai adalah teknologi restorasi modern penguat identitas purba («تقنيات ترميم حديثة تحافظ على الهوية الأثرية»)."
+    },
+    {
+      "id": "hamza_q_09_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_02",
+      "question": "ما المخاطر الطبيعية المستهدفة بالحماية؟",
+      "options": [
+        "الزلازل والتغيرات المناخية",
+        "الفيضانات البحرية فقط",
+        "حرائق الغابات فقط",
+        "الرياح القوية فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Bahaya alam yang diantisipasi mencakup gempa bumi dan perubahan iklim («الزلازل والتغيرات المناخية»)."
+    },
+    {
+      "id": "hamza_q_09_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_03",
+      "question": "ما الميزة الفنية لشبكات الجيل الخامس في النص؟",
+      "options": [
+        "استهلاك طاقة أعلى بكثير",
+        "سرعات فائقة ونسبة تأخير شبه معدومة",
+        "تغطية المدن الكبرى فقط",
+        "الاتصال اليدوي فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keunggulan teknis jaringan 5G adalah kecepatan super dan latency mendekati nol («سرعات فائقة ونسبة تأخير شبه معدومة»)."
+    },
+    {
+      "id": "hamza_q_09_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_03",
+      "question": "ما التطبيقات الحديثة التي تدعمها شبكات الجيل الخامس؟",
+      "options": [
+        "الزراعة التقليدية فقط",
+        "الذكاء الاصطناعي والجراحة عن بُعد والسيارات الذاتية",
+        "صناعة المنسوجات",
+        "الطباعة الورقية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jaringan 5G mendukung AI, bedah jarak jauh, dan mobil otonom («الذكاء الاصطناعي والجراحة عن بُعد والسيارات الذاتية»)."
+    },
+    {
+      "id": "hamza_q_09_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_03",
+      "question": "ما الأثر المباشر لسرعة نقل البيانات على الخدمات الطبية؟",
+      "options": [
+        "تمكين إجراء الجراحة عن بُعد بنجاح",
+        "إلغاء الحاجة للأطباء",
+        "زيادة تكلفة المستشفيات",
+        "تأخير الفحوصات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Dampak langsungnya memfasilitasi operasi bedah jarak jauh secara akurat («تمكين إجراء الجراحة عن بُعد بنجاح»)."
+    },
+    {
+      "id": "hamza_q_09_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_04",
+      "question": "ما هدف مشاتل المرجان الصناعية في النص؟",
+      "options": [
+        "بيع المرجان للسياح",
+        "إعادة ترميم الشعاب المرجانية المتضررة",
+        "صيد الأسماك الملونة",
+        "إنشاء بحيرات مغلقة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan pembibitan karang buatan adalah merestorasi terumbu karang yang rusak («إعادة ترميم الشعاب المرجانية المتضررة»)."
+    },
+    {
+      "id": "hamza_q_09_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b09_04",
+      "question": "كيف يقوم علماء الأحياء البحرية بإعادة زراعة المرجان؟",
+      "options": [
+        "بزرع وتثبيت أجزاء صغيرة في قاع البحر لتنمو",
+        "برش أدوية كيميائية في الماء",
+        "بتغطية البحر بالشبكات",
+        "بنقل الأسماك لمكان آخر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ahli biologi melestarikan terumbu dengan menanam dan mengikat fragmen karang di dasar laut («بزرع وتثبيت أجزاء صغيرة في قاع البحر لتنمو»)."
+    },
+    {
+      "id": "hamza_q_09_011",
+      "section": "reading",
+      "passage": "يُعتبر تلسكوب جيمس ويب الفضائي أعظم إنجاز بشري في مجال مراقبة الكون. بفضل درعه الحراري الضخم وأجهزته التي تعمل بالأشعة تحت الحمراء، استطاع التلسكوب كشف أقدم المجرات واختراق غبار السدم الكونية لرؤية ولادة النجوم الجديدة.",
+      "question": "ما الوصف الذي أُطلق على تلسكوب جيمس ويب في النص؟",
+      "options": [
+        "مرصد أرضي بسيط",
+        "أعظم إنجاز بشري في مجال مراقبة الكون",
+        "أطول قمر صناعي في العالم",
+        "مركب فضائي مأهول"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Teleskop James Webb disifati sebagai pencapaian manusia terbesar di bidang observasi antariksa («أعظم إنجاز بشري في مجال مراقبة الكون»)."
+    },
+    {
+      "id": "hamza_q_09_012",
+      "section": "reading",
+      "passage": "يُعتبر تلسكوب جيمس ويب الفضائي أعظم إنجاز بشري في مجال مراقبة الكون. بفضل درعه الحراري الضخم وأجهزته التي تعمل بالأشعة تحت الحمراء، استطاع التلسكوب كشف أقدم المجرات واختراق غبار السدم الكونية لرؤية ولادة النجوم الجديدة.",
+      "question": "ما التقنية التي تعمل بها أجهزة التلسكوب لكشف المجرات؟",
+      "options": [
+        "الموجات الصوتية",
+        "الأشعة تحت الحمراء",
+        "الأشعة السينية فقط",
+        "الضوء المرئي البسيط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Perangkat teleskop mengandalkan pemindaian sinar inframerah («الأشعة تحت الحمراء»)."
+    },
+    {
+      "id": "hamza_q_09_013",
+      "section": "reading",
+      "passage": "يُعتبر تلسكوب جيمس ويب الفضائي أعظم إنجاز بشري في مجال مراقبة الكون. بفضل درعه الحراري الضخم وأجهزته التي تعمل بالأشعة تحت الحمراء، استطاع التلسكوب كشف أقدم المجرات واختراق غبار السدم الكونية لرؤية ولادة النجوم الجديدة.",
+      "question": "ما الظاهرة الفلكية التي استطاع التلسكوب رؤيتها خلف الغبار الكوني؟",
+      "options": [
+        "انفجار الأرض",
+        "ولادة النجوم الجديدة واكتشاف أقدم المجرات",
+        "توقف حركة الشمس",
+        "سقوط النيازك على القمر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Teleskop mampu menembus debu nebula untuk merekam kelahiran bintang baru («ولادة النجوم الجديدة واكتشاف أقدم المجرات»)."
+    },
+    {
+      "id": "hamza_q_09_014",
+      "section": "reading",
+      "passage": "يُعتبر تلسكوب جيمس ويب الفضائي أعظم إنجاز بشري في مجال مراقبة الكون. بفضل درعه الحراري الضخم وأجهزته التي تعمل بالأشعة تحت الحمراء، استطاع التلسكوب كشف أقدم المجرات واختراق غبار السدم الكونية لرؤية ولادة النجوم الجديدة.",
+      "question": "ما الفائدة العلمية المباشرة من الدرع الحراري الضخم للتلسكوب؟",
+      "options": [
+        "حماية الأجهزة وحفظ برودتها للرصد الدقيق",
+        "توليد الطاقة الشمسية فقط",
+        "تغيير اتجاه التلسكوب",
+        "إرسال الإشارات للأرض"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pelindung panas berguna menjaga suhu dingin instrumen agar pemindaian presisi («حماية الأجهزة وحفظ برودتها للرصد الدقيق»)."
+    },
+    {
+      "id": "hamza_q_09_015",
+      "section": "reading",
+      "passage": "يُعتبر تلسكوب جيمس ويب الفضائي أعظم إنجاز بشري في مجال مراقبة الكون. بفضل درعه الحراري الضخم وأجهزته التي تعمل بالأشعة تحت الحمراء، استطاع التلسكوب كشف أقدم المجرات واختراق غبار السدم الكونية لرؤية ولادة النجوم الجديدة.",
+      "question": "ما العنوان الأنسب لهذا النص؟",
+      "options": [
+        "تاريخ علم الفلك عند العرب",
+        "إنجازات واكتشافات تلسكوب جيمس ويب",
+        "طريقة صنع النظارات المعظمة",
+        "رحلات الإنسان إلى القمر"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling sesuai adalah pencapaian dan penemuan teleskop James Webb («إنجازات واكتشافات تلسكوب جيمس ويب»)."
+    },
+    {
+      "id": "hamza_q_09_016",
+      "section": "reading",
+      "passage": "حماية مواقع التراث العالمي مسؤولية مشتركة بين الدول والمجتمعات المحلية. إن تسجيل المباني والمدن القديمة في قائمة التراث يضمن حمايتها من التوسع العمراني العشوائي ويشجع السياحة الثقافية المستدامة التي تنعش اقتصاد المنطقة.",
+      "question": "على من تقع مسؤولية حماية مواقع التراث العالمي في النص؟",
+      "options": [
+        "على المنظمات الدولية فقط",
+        "مسؤولية مشتركة بين الدول والمجتمعات المحلية",
+        "على السياح فقط",
+        "على الشركات الخاصة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pelestarian cagar budaya merupakan tanggung jawab bersama negara & warga setempat («مسؤولية مشتركة بين الدول والمجتمعات المحلية»)."
+    },
+    {
+      "id": "hamza_q_09_017",
+      "section": "reading",
+      "passage": "حماية مواقع التراث العالمي مسؤولية مشتركة بين الدول والمجتمعات المحلية. إن تسجيل المباني والمدن القديمة في قائمة التراث يضمن حمايتها من التوسع العمراني العشوائي ويشجع السياحة الثقافية المستدامة التي تنعش اقتصاد المنطقة.",
+      "question": "ما الفائدة المباشرة لتسجيل الموقع في قائمة التراث؟",
+      "options": [
+        "حمايته من التوسع العمراني العشوائي",
+        "هدم أجزاء منه للبناء",
+        "منع الزوار من دخوله",
+        "تحويله لمقر حكومي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pendaftaran situs warisan melindungi kawasan dari ekspansi urban liar («حمايته من التوسع العمراني العشوائي»)."
+    },
+    {
+      "id": "hamza_q_09_018",
+      "section": "reading",
+      "passage": "حماية مواقع التراث العالمي مسؤولية مشتركة بين الدول والمجتمعات المحلية. إن تسجيل المباني والمدن القديمة في قائمة التراث يضمن حمايتها من التوسع العمراني العشوائي ويشجع السياحة الثقافية المستدامة التي تنعش اقتصاد المنطقة.",
+      "question": "كيف تدعم السياحة الثقافية المستدامة المنطقة؟",
+      "options": [
+        "بإنعاش اقتصاد المنطقة المحلي",
+        "بزيادة الضرائب على السكان",
+        "بتقليل الخدمات العامة",
+        "بإغلاق المحلات الشعبية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pariwisata budaya berkelanjutan menggairahkan roda ekonomi lokal («بإنعاش اقتصاد المنطقة المحلي»)."
+    },
+    {
+      "id": "hamza_q_09_019",
+      "section": "reading",
+      "passage": "حماية مواقع التراث العالمي مسؤولية مشتركة بين الدول والمجتمعات المحلية. إن تسجيل المباني والمدن القديمة في قائمة التراث يضمن حمايتها من التوسع العمراني العشوائي ويشجع السياحة الثقافية المستدامة التي تنعش اقتصاد المنطقة.",
+      "question": "ما نوع السياحة التي يشجعها تسجيل التراث؟",
+      "options": [
+        "السياحة الثقافية المستدامة",
+        "السياحة الشاطئية الترفيهية",
+        "سياحة التسوق الحديث",
+        "السياحة العلاجية فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Jenis pariwisata yang didorong adalah wisata budaya berkelanjutan («السياحة الثقافية المستدامة»)."
+    },
+    {
+      "id": "hamza_q_09_020",
+      "section": "reading",
+      "passage": "حماية مواقع التراث العالمي مسؤولية مشتركة بين الدول والمجتمعات المحلية. إن تسجيل المباني والمدن القديمة في قائمة التراث يضمن حمايتها من التوسع العمراني العشوائي ويشجع السياحة الثقافية المستدامة التي تنعش اقتصاد المنطقة.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طريقة البناء بالحجارة القديمة",
+        "أهمية حماية التراث العالمي وأثرها الاقتصادي والثقافي",
+        "تاريخ تأسيس منظمة اليونسكو",
+        "أنواع المتاحف الوطنية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah pentingnya menjaga cagar budaya dunia & efek ekonominya («أهمية حماية التراث العالمي وأثرها الاقتصادي والثقافي»)."
+    },
+    {
+      "id": "hamza_q_09_021",
+      "section": "reading",
+      "passage": "تُمثل شبكات الاتصال اللاسلكية الحديثة الشريان الرقمي للاقتصاد العالمي. تُتيح هذه الشبكات التبادل الفوري للمعلومات وتدعم تقنيات الذكاء الاصطناعي وسلسلة الكتل والمعاملات المالية المصرفية عبر العالم.",
+      "question": "ما الوصف الذي أُطلق على شبكات الاتصال اللاسلكية في النص؟",
+      "options": [
+        "أداة ترفيهية بسيطة",
+        "الشريان الرقمي للاقتصاد العالمي",
+        "نظام اتصال محلي فقط",
+        "بديل للتعليم الفعلي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jaringan nirkabel dijuluki sebagai urat nadi digital ekonomi global («الشريان الرقمي للاقتصاد العالمي»)."
+    },
+    {
+      "id": "hamza_q_09_022",
+      "section": "reading",
+      "passage": "تُمثل شبكات الاتصال اللاسلكية الحديثة الشريان الرقمي للاقتصاد العالمي. تُتيح هذه الشبكات التبادل الفوري للمعلومات وتدعم تقنيات الذكاء الاصطناعي وسلسلة الكتل والمعاملات المالية المصرفية عبر العالم.",
+      "question": "ما السرعة التبادلية التي تتيحها هذه الشبكات للمعلومات؟",
+      "options": [
+        "التبادل البطيء أسبوعياً",
+        "التبادل الفوري للمعلومات",
+        "التبادل اليدوي",
+        "التبادل المحشور في ساعات معينة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jaringan nirkabel memfasilitasi pertukaran data secara instan kilat («التبادل الفوري للمعلومات»)."
+    },
+    {
+      "id": "hamza_q_09_023",
+      "section": "reading",
+      "passage": "تُمثل شبكات الاتصال اللاسلكية الحديثة الشريان الرقمي للاقتصاد العالمي. تُتيح هذه الشبكات التبادل الفوري للمعلومات وتدعم تقنيات الذكاء الاصطناعي وسلسلة الكتل والمعاملات المالية المصرفية عبر العالم.",
+      "question": "ما التقنيات الحديثة التي تدعمها هذه الشبكات وفق الفقرة؟",
+      "options": [
+        "الطباعة اليدوية والصيد",
+        "الذكاء الاصطناعي وسلسلة الكتل والمعاملات المصرفية",
+        "البناء والتعدين التقليدي",
+        "الزراعة الموسمية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jaringan menopang AI, blockchain, dan transaksi finansial bank («الذكاء الاصطناعي وسلسلة الكتل والمعاملات المصرفية»)."
+    },
+    {
+      "id": "hamza_q_09_024",
+      "section": "reading",
+      "passage": "تُمثل شبكات الاتصال اللاسلكية الحديثة الشريان الرقمي للاقتصاد العالمي. تُتيح هذه الشبكات التبادل الفوري للمعلومات وتدعم تقنيات الذكاء الاصطناعي وسلسلة الكتل والمعاملات المالية المصرفية عبر العالم.",
+      "question": "ما الأثر الاقتصادي الشامل لهذه الشبكات؟",
+      "options": [
+        "دعم نمو وتكامل الاقتصاد العالمي",
+        "زيادة تكلفة الاتصالات",
+        "تقليل المبيعات الدولية",
+        "إلغاء المعاملات المالية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Efek ekonominya menopang integrasi & laju ekonomi dunia («دعم نمو وتكامل الاقتصاد العالمي»)."
+    },
+    {
+      "id": "hamza_q_09_025",
+      "section": "reading",
+      "passage": "تُمثل شبكات الاتصال اللاسلكية الحديثة الشريان الرقمي للاقتصاد العالمي. تُتيح هذه الشبكات التبادل الفوري للمعلومات وتدعم تقنيات الذكاء الاصطناعي وسلسلة الكتل والمعاملات المالية المصرفية عبر العالم.",
+      "question": "ما الفكرة المحورية للنص؟",
+      "options": [
+        "طريقة شراء الهواتف المحمولة",
+        "دور الشبكات اللاسلكية الحديثة في الاقتصاد الرقمي",
+        "تاريخ التلغراف القديم",
+        "أنواع الأقمار الصناعية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah peran vital jaringan nirkabel modern dalam ekonomi digital («دور الشبكات اللاسلكية الحديثة في الاقتصاد الرقمي»)."
+    },
+    {
+      "id": "hamza_q_09_026",
+      "section": "reading",
+      "passage": "تستضيف المحيطات أكثر من ثمانين بالمائة من أشكال الحياة على كوكب الأرض. يُحذر علماء البيئة من أن ارتفاع درجات حرارة المياه وتلوث البلاستيك يهددان الشعاب المرجانية والأحياء المائية بالانقراض، مما يوجب اتخاذ خطوات حازمة.",
+      "question": "كم النسبة المئوية لأشكال الحياة التي تستضيفها المحيطات؟",
+      "options": [
+        "خمسون بالمائة",
+        "أكثر من ثمانين بالمائة",
+        "ثلاثون بالمائة",
+        "تسعون بالمائة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Lautan menampung lebih dari 80% keanekaragaman hayati bumi («أكثر من ثمانين بالمائة»)."
+    },
+    {
+      "id": "hamza_q_09_027",
+      "section": "reading",
+      "passage": "تستضيف المحيطات أكثر من ثمانين بالمائة من أشكال الحياة على كوكب الأرض. يُحذر علماء البيئة من أن ارتفاع درجات حرارة المياه وتلوث البلاستيك يهددان الشعاب المرجانية والأحياء المائية بالانقراض، مما يوجب اتخاذ خطوات حازمة.",
+      "question": "ما الخطران الرئيسييان اللذان يهددان الكائنات البحرية بالانقراض؟",
+      "options": [
+        "الصيد التقليدي والرياح",
+        "ارتفاع درجات حرارة المياه وتلوث البلاستيك",
+        "البرودة الشديدة والأمطار",
+        "نقص حركة الأمواج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua ancaman utama adalah pemanasan suhu air laut dan sampah plastik («ارتفاع درجات حرارة المياه وتلوث البلاستيك»)."
+    },
+    {
+      "id": "hamza_q_09_028",
+      "section": "reading",
+      "passage": "تستضيف المحيطات أكثر من ثمانين بالمائة من أشكال الحياة على كوكب الأرض. يُحذر علماء البيئة من أن ارتفاع درجات حرارة المياه وتلوث البلاستيك يهددان الشعاب المرجانية والأحياء المائية بالانقراض، مما يوجب اتخاذ خطوات حازمة.",
+      "question": "ما العنصر البيئي المائي الأكثر تأثراً بالحرارة والتلوث؟",
+      "options": [
+        "الشعاب المرجانية والأحياء المائية",
+        "الصخور الشاطئية",
+        "الرمال البحرية",
+        "القوارب والسفن"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Komponen yang paling terancam adalah terumbu karang dan biota air («الشعاب المرجانية والأحياء المائية»)."
+    },
+    {
+      "id": "hamza_q_09_029",
+      "section": "reading",
+      "passage": "تستضيف المحيطات أكثر من ثمانين بالمائة من أشكال الحياة على كوكب الأرض. يُحذر علماء البيئة من أن ارتفاع درجات حرارة المياه وتلوث البلاستيك يهددان الشعاب المرجانية والأحياء المائية بالانقراض، مما يوجب اتخاذ خطوات حازمة.",
+      "question": "ما الذي يوجبه هذا الخطر البيئي حسب العلماء؟",
+      "options": [
+        "التجاهل والانتظار",
+        "اتخاذ خطوات حازمة لحماية المحيطات",
+        "التوقف عن الأبحاث البحرية",
+        "زيادة الصيد التجاري"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Para ilmuwan menuntut langkah tegas untuk menyelamatkan samudera («اتخاذ خطوات حازمة لحماية المحيطات»)."
+    },
+    {
+      "id": "hamza_q_09_030",
+      "section": "reading",
+      "passage": "تستضيف المحيطات أكثر من ثمانين بالمائة من أشكال الحياة على كوكب الأرض. يُحذر علماء البيئة من أن ارتفاع درجات حرارة المياه وتلوث البلاستيك يهددان الشعاب المرجانية والأحياء المائية بالانقراض، مما يوجب اتخاذ خطوات حازمة.",
+      "question": "ما النصيحة الرئيسية المستفادة من النص؟",
+      "options": [
+        "ضرورة حماية البيئة البحرية والتنوع الحيوي بالمحيطات",
+        "زيادة استهلاك الأسماك",
+        "ترك المحيطات دون حماية",
+        "التركيز على حماية اليابسة فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Imbauan utamanya melestarikan ekosistem laut demi keberlanjutan hidup bumi («ضرورة حماية البيئة البحرية والتنوع الحيوي بالمحيطات»)."
+    },
+    {
+      "id": "hamza_q_09_031",
+      "section": "reading",
+      "passage": "تساهم الطاقة الكهرومائية الناتجة عن السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية. تتيح هذه الطاقة للدول تحقيق الاكتفاء الذاتي من الكهرباء وتأمين متطلبات القطاعات الصناعية والسكنية بنجاح.",
+      "question": "ما مصدر الطاقة الكهرومائية المذكور في النص؟",
+      "options": [
+        "الألواح الشمسية",
+        "السدود والمياه الجارية",
+        "المحركات البترولية",
+        "المفاعل النووي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sumber energi hidroelektrik berasal dari bendungan dan aliran air («السدود والمياه الجارية»)."
+    },
+    {
+      "id": "hamza_q_09_032",
+      "section": "reading",
+      "passage": "تساهم الطاقة الكهرومائية الناتجة عن السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية. تتيح هذه الطاقة للدول تحقيق الاكتفاء الذاتي من الكهرباء وتأمين متطلبات القطاعات الصناعية والسكنية بنجاح.",
+      "question": "ما الميزة البيئية الرئيسية للطاقة الكهرومائية؟",
+      "options": [
+        "إنتاج طاقة دون انبعاثات كربونية",
+        "زيادة الغازات السامة",
+        "ارتفاع درجات الحرارة",
+        "استهلاك الوقود الأحفوري"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Keunggulan lingkungannya adalah menghasilkan listrik bebas emisi karbon («إنتاج طاقة دون انبعاثات كربونية»)."
+    },
+    {
+      "id": "hamza_q_09_033",
+      "section": "reading",
+      "passage": "تساهم الطاقة الكهرومائية الناتجة عن السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية. تتيح هذه الطاقة للدول تحقيق الاكتفاء الذاتي من الكهرباء وتأمين متطلبات القطاعات الصناعية والسكنية بنجاح.",
+      "question": "ما الأثر الاقتصادي المباشر لتوفير هذه الطاقة للدول؟",
+      "options": [
+        "تحقيق الاكتفاء الذاتي من الكهرباء للقطاعات",
+        "زيادة استيراد الطاقة",
+        "إغلاق المصانع",
+        "ارتفاع أسعار الفواتير"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Efek ekonominya mewujudkan kemandirian energi nasional bagi industri & perumahan («تحقيق الاكتفاء الذاتي من الكهرباء للقطاعات»)."
+    },
+    {
+      "id": "hamza_q_09_034",
+      "section": "reading",
+      "passage": "تساهم الطاقة الكهرومائية الناتجة عن السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية. تتيح هذه الطاقة للدول تحقيق الاكتفاء الذاتي من الكهرباء وتأمين متطلبات القطاعات الصناعية والسكنية بنجاح.",
+      "question": "ما القطاعات المستفيدة من الطاقة الكهرومائية في الفقرة؟",
+      "options": [
+        "القطاعات الصناعية والسكنية",
+        "القطاع الفضائي فقط",
+        "المستشفيات فقط",
+        "الشركات الأجنبية فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Sektor konsumen utamanya adalah industri dan pemukiman warga («القطاعات الصناعية والسكنية»)."
+    },
+    {
+      "id": "hamza_q_09_035",
+      "section": "reading",
+      "passage": "تساهم الطاقة الكهرومائية الناتجة عن السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية. تتيح هذه الطاقة للدول تحقيق الاكتفاء الذاتي من الكهرباء وتأمين متطلبات القطاعات الصناعية والسكنية بنجاح.",
+      "question": "ما العنوان الأنسب لهذا النص؟",
+      "options": [
+        "طرق بناء السدود",
+        "مميزات وأهمية الطاقة الكهرومائية",
+        "تاريخ الكهرباء في العالم",
+        "كيف تقتصد في الكهرباء"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling pas adalah keutamaan dan manfaat energi hidroelektrik («مميزات وأهمية الطاقة الكهرومائية»)."
+    },
+    {
+      "id": "hamza_q_09_036",
+      "section": "reading",
+      "passage": "الكتابة الإبداعية هي وسيلة للتعبير عن المشاعر والأفكار بصياغة فنية راقية. تساعد ممارستها في تنمية الخيال وتعزيز المهارات اللغوية والتأمل الذاتي لدى الكاتب في مختلف مراحل حياته.",
+      "question": "ما تعريف الكتابة الإبداعية في بداية الفقرة؟",
+      "options": [
+        "كتابة التقارير الرسمية",
+        "وسيلة للتعبير عن المشاعر والأفكار بصياغة فنية راقية",
+        "تدوين الأرقام الحسابية",
+        "ترجمة النصوص القانونية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Penulisan kreatif didefinisikan sebagai wahana mengekspresikan emosi & gagasan berbumbu seni («وسيلة للتعبير عن المشاعر والأفكار بصياغة فنية راقية»)."
+    },
+    {
+      "id": "hamza_q_09_037",
+      "section": "reading",
+      "passage": "الكتابة الإبداعية هي وسيلة للتعبير عن المشاعر والأفكار بصياغة فنية راقية. تساعد ممارستها في تنمية الخيال وتعزيز المهارات اللغوية والتأمل الذاتي لدى الكاتب في مختلف مراحل حياته.",
+      "question": "ما الفوائد الذهنية واللغوية لممارسة الكتابة الإبداعية؟",
+      "options": [
+        "تنمية الخيال وتعزيز المهارات اللغوية والتأمل",
+        "ضعف المفردات",
+        "زيادة النسيان",
+        "بطء التفكير"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Manfaat mentalnya memupuk imajinasi, memperkaya keahlian berbahasa, & kontemplasi diri («تنمية الخيال وتعزيز المهارات اللغوية والتأمل»)."
+    },
+    {
+      "id": "hamza_q_09_038",
+      "section": "reading",
+      "passage": "الكتابة الإبداعية هي وسيلة للتعبير عن المشاعر والأفكار بصياغة فنية راقية. تساعد ممارستها في تنمية الخيال وتعزيز المهارات اللغوية والتأمل الذاتي لدى الكاتب في مختلف مراحل حياته.",
+      "question": "من الفئة المستفيدة من ممارسة هذا النوع من الكتابة؟",
+      "options": [
+        "الكاتب في مختلف مراحل حياته",
+        "الأطفال فقط",
+        "المتخصصون الأكاديميون فقط",
+        "الشعراء القدامى فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Penerima manfaatnya mencakup penulis di setiap fase usianya («الكاتب في مختلف مراحل حياته»)."
+    },
+    {
+      "id": "hamza_q_09_039",
+      "section": "reading",
+      "passage": "الكتابة الإبداعية هي وسيلة للتعبير عن المشاعر والأفكار بصياغة فنية راقية. تساعد ممارستها في تنمية الخيال وتعزيز المهارات اللغوية والتأمل الذاتي لدى الكاتب في مختلف مراحل حياته.",
+      "question": "ما صفة الصياغة المستخدمة في الكتابة الإبداعية؟",
+      "options": [
+        "صياغة فنية راقية",
+        "صياغة جافة وعلمية",
+        "صياغة عشوائية",
+        "صياغة قصيرة جداً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Gaya bahasanya berkarakter estetis dan penuh seni («صياغة فنية راقية»)."
+    },
+    {
+      "id": "hamza_q_09_040",
+      "section": "reading",
+      "passage": "الكتابة الإبداعية هي وسيلة للتعبير عن المشاعر والأفكار بصياغة فنية راقية. تساعد ممارستها في تنمية الخيال وتعزيز المهارات اللغوية والتأمل الذاتي لدى الكاتب في مختلف مراحل حياته.",
+      "question": "ما النصيحة المستفادة من الفقرة؟",
+      "options": [
+        "ممارسة الكتابة الإبداعية لتطوير التعبير الخيالي واللغوي",
+        "الامتناع عن التأليف",
+        "القراءة دون كتابة",
+        "التركيز على القواعد فقط دون تعبير"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Saran utamanya merawat kebiasaan menulis kreatif demi mengasah imajinasi dan diksi («ممارسة الكتابة الإبداعية لتطوير التعبير الخيالي واللغوي»)."
+    },
+    {
+      "id": "hamza_q_09_041",
+      "section": "grammar",
+      "question": "اختر اسم الفاعل الصحيح من الفعل (استكشف):",
+      "options": [
+        "مستكشِف",
+        "مستكشَف",
+        "استكشاف",
+        "مستكشفون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism fa'il dari fi'il ista-kshafa (استكشف) berwazan مُسْتَكْشِف: «مستكشِف»."
+    },
+    {
+      "id": "hamza_q_09_042",
+      "section": "grammar",
+      "question": "ما إعراب (مجرةً) في: رأيتُ عشرين مجرةً بالتلسكوبِ؟",
+      "options": [
+        "تمييز منصوب بالفتحة",
+        "مفعول به",
+        "فاعل",
+        "مبتدأ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «مجرةً» kedudukannya tamyiz angka manshub ditandai fathah."
+    },
+    {
+      "id": "hamza_q_09_043",
+      "section": "grammar",
+      "question": "اختر المفعول المطلق المبين للعدد: ضربَ اللاعبُ الكرةَ ______.",
+      "options": [
+        "ضربتينِ",
+        "ضرباً",
+        "ضرباً شديداً",
+        "مضروباً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Maf'ul mutlaq mubayyin lil-'adad menunjukkan jumlah perbuatan: «ضربتينِ»."
+    },
+    {
+      "id": "hamza_q_09_044",
+      "section": "grammar",
+      "question": "حدد الممنوع من الصرف لعلميته والتركيب المزجي:",
+      "options": [
+        "حضرموت",
+        "فاطمة",
+        "أحمد",
+        "مساجد"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim alam tarkib mazji mamnu' min ash-sharf contohnya «حضرموت»."
+    },
+    {
+      "id": "hamza_q_09_045",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (نجم)؟",
+      "options": [
+        "أنجم (أو نجوم)",
+        "نجمون",
+        "نجمات",
+        "منجم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Jamak taksir dari «نجم» adalah «نجوم / أنجم»."
+    },
+    {
+      "id": "hamza_q_09_046",
+      "section": "grammar",
+      "question": "اختر البدل المطابق المرفوع: أشرقَ الكوكبُ ______.",
+      "options": [
+        "المشتري",
+        "المشتريَ",
+        "المشتريِ",
+        "مشترياً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Badal muthabiq marfu' dari fa'il marfu' («الكوكبُ») هو «المشتري»."
+    },
+    {
+      "id": "hamza_q_09_047",
+      "section": "grammar",
+      "question": "حدد اسم المكان من الفعل (رصد):",
+      "options": [
+        "مرصد",
+        "راصد",
+        "مرصود",
+        "مراصدة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism makan dari «رصد» berwazan مَفْعَل هو «مرصد»."
+    },
+    {
+      "id": "hamza_q_09_048",
+      "section": "grammar",
+      "question": "اختر Harf an-nashib الذي ينصب الفعل المضارع ويعيد معناه للمستقبل:",
+      "options": [
+        "لن",
+        "لم",
+        "لا الناهية",
+        "إنْ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf nashab wa nafi lil-mustaqbal adalah «لن»."
+    },
+    {
+      "id": "hamza_q_09_049",
+      "section": "grammar",
+      "question": "ما إعراب (مسروراً) في: عاد الفلكيُّ مسروراً باكتشافه؟",
+      "options": [
+        "حال منصوبة",
+        "فاعل",
+        "مفعول به",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «مسروراً» kedudukannya hal manshub penjelas kondisi fa'il."
+    },
+    {
+      "id": "hamza_q_09_050",
+      "section": "grammar",
+      "question": "حدد اسم المفعول من الفعل (بنى):",
+      "options": [
+        "مبنيّ",
+        "بانٍ",
+        "بناء",
+        "مبناء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism maf'ul dari fi'il naqis (بنى) berwazan مَفْنِيّ هو «مبنيّ»."
+    },
+    {
+      "id": "hamza_q_09_051",
+      "section": "grammar",
+      "question": "اختر المبتدأ المرفوع بالألف: ______ يدرسانِ الفلكَ.",
+      "options": [
+        "الطالبانِ",
+        "الطالبينِ",
+        "الطلابُ",
+        "الطالبَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Mubtada' muthanna marfu' ditandai alif: «الطالبانِ»."
+    },
+    {
+      "id": "hamza_q_09_052",
+      "section": "grammar",
+      "question": "ما نوع الاستثناء في: ما التقط التلسكوبُ إلا مجرةً؟",
+      "options": [
+        "مفرغ (ناقص منفي)",
+        "تام مثبت",
+        "تام منفي",
+        "منقطع"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Istithna mufarragh karena diawali nafi dan mustathna minhu tidak ada."
+    },
+    {
+      "id": "hamza_q_09_053",
+      "section": "grammar",
+      "question": "حدد اسم التفضيل المجرور بالكسرة المقدرة للثقل:",
+      "options": [
+        "العالي",
+        "أفضل",
+        "أكبر",
+        "أحسن"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim tafdhil/sifah maqshur/manqush majrur kasrah muqaddarah."
+    },
+    {
+      "id": "hamza_q_09_054",
+      "section": "grammar",
+      "question": "اختر المصدر الصريح للفعل (اتصل):",
+      "options": [
+        "اتصال",
+        "متصل",
+        "متصِل",
+        "اتصالة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Masdar sharih dari fi'il ittashala (اتصل) هو «اتصال»."
+    },
+    {
+      "id": "hamza_q_09_055",
+      "section": "grammar",
+      "question": "ما إعراب (قاضياً) في: عينتُ علياً قاضياً؟",
+      "options": [
+        "مفعول به ثاني منصوب",
+        "مفعول به أول",
+        "حال",
+        "خبر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «قاضياً» maf'ul bih kedua dari fi'il tahwil «عيّن»."
+    },
+    {
+      "id": "hamza_q_09_056",
+      "section": "grammar",
+      "question": "اختر الفعل المضارع المجزوم بـ لا الناهية:",
+      "options": [
+        "لا تتأخرْ",
+        "لا تتأخرُ",
+        "لا تتأخرَ",
+        "لا تتأخروا فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' majzum la an-nahiyah ditandai sukun: «لا تتأخرْ»."
+    },
+    {
+      "id": "hamza_q_09_057",
+      "section": "grammar",
+      "question": "حدد اسم الآلة من الفعل (نَظَرَ):",
+      "options": [
+        "نظّارة (أو منظار)",
+        "ناظر",
+        "منظور",
+        "نظرة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism alat dari na-dha-ra (نظر) berwazan مِفْعَال / فَعَّالَة هو «منظار / نظارة»."
+    },
+    {
+      "id": "hamza_q_09_058",
+      "section": "grammar",
+      "question": "ما وزن كلمة (تلسكوب) في المعاجم الحديثة؟",
+      "options": [
+        "اسم معرّب دخيل",
+        "مفعول",
+        "مفتعل",
+        "تفعلة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «تلسكوب» adalah isim mu'arrab dakhil (kata serapan teknologi)."
+    },
+    {
+      "id": "hamza_q_09_059",
+      "section": "grammar",
+      "question": "اختر الفعل المبني على السكون لاتصاله بنون النسوة:",
+      "options": [
+        "العالماتُ يكتشفنَ",
+        "العالماتُ يكتشفون",
+        "العالماتُ اكتشفوا",
+        "العالماتُ اكتشفت"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' mabni sukun bersambung nun an-niswah: «يكتشفنَ»."
+    },
+    {
+      "id": "hamza_q_09_060",
+      "section": "grammar",
+      "question": "ما إعراب (حباً) في: عملتُ في الفلكِ حباً في المعرفةِ؟",
+      "options": [
+        "مفعول لأجله منصوب",
+        "حال",
+        "مفعول به",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «حباً» kedudukannya maf'ul li-ajlih manshub penjelas motivasi aksi."
+    },
+    {
+      "id": "hamza_q_09_061",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة الموصولة بالأصل المذكر:",
+      "options": [
+        "هذا هو التلسكوبُ الذي رصدَ المجرةَ",
+        "هذا هو التلسكوبُ التي رصدَ المجرةَ",
+        "هذا هو التلسكوبُ الذين رصدوا المجرةَ",
+        "هذا هو التلسكوبُ اللتان رصدتا المجرةَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism maushul untuk mufrad mudzakkar ghairu aqil/aqil «التلسكوبُ» هو «الذي»."
+    },
+    {
+      "id": "hamza_q_09_062",
+      "section": "structures",
+      "question": "اختر الصيغة الصحيحة لاسم الفاعل المنصوب كـ حال:",
+      "options": [
+        "رجع الفلكيُّ حاملاً التقريرَ",
+        "رجع الفلكيُّ حاملٌ التقريرَ",
+        "رجع الفلكيُّ حاملٍ التقريرَ",
+        "رجع الفلكيُّ الحاملُ التقريرَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Hal manshub nakirah ism fa'il murni: «حاملاً التقريرَ»."
+    },
+    {
+      "id": "hamza_q_09_063",
+      "section": "structures",
+      "question": "حدد التركيب الصحيح لـ (إنّ وأخواتها) مع التوكيد:",
+      "options": [
+        "إنّ التلسكوبَ الحديثَ لدقيقٌ في الرصدِ",
+        "إنّ التلسكوبُ الحديثُ لدقيقٌ في الرصدِ",
+        "إنّ التلسكوبَ الحديثَ لدقيقاً في الرصدِ",
+        "إنّ التلسكوبُ الحديثَ لدقيقٌ في الرصدِ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. «إنّ» تنصب اسمها («التلسكوبَ») وخبرها مقترن بلام التوكيد المزيحلة مرفوع («لدقيقٌ»)."
+    },
+    {
+      "id": "hamza_q_09_064",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة المعطوفة بـ (لكن الاستدراكية):",
+      "options": [
+        "لم يظهر الكوكبُ لكنْ ظهرتْ مجرةٌ بعيدةٌ",
+        "لم يظهر الكوكبُ ثمّ ظهرتْ مجرةٌ بعيدةٌ",
+        "لم يظهر الكوكبُ أو ظهرتْ مجرةٌ بعيدةٌ",
+        "لم يظهر الكوكبُ الفـظهرتْ مجرةٌ بعيدةٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf 'athaf «لكنْ» يفيد الاستدراك بعد النفي: «لم يظهر ... لكنْ ظهرتْ»."
+    },
+    {
+      "id": "hamza_q_09_065",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح لاسم التفضيل المضاف لمعرفة:",
+      "options": [
+        "هذا أحدثُ التلسكوباتِ الفضائيةِ",
+        "هذا أحدثَ التلسكوباتِ الفضائيةِ",
+        "هذا أحدثٍ التلسكوباتِ الفضائيةِ",
+        "هذا الأحدثُ التلسكوباتِ الفضائيةِ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism tafdhil marfu' sebagai khabar dan mudhaf: «أحدثُ التلسكوباتِ»."
+    },
+    {
+      "id": "hamza_q_09_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب مقالاً عن أهمية تلسكوب جيمس ويب ودوره في كشف أسرار الكون.",
+      "prompt_hint": "اذكر تقنية الأشعة تحت الحمراء وكشف المجرات القديمة ولادة النجوم",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat esai minimal 80 kata ulasan penemuan ilmiah canggih teleskop luar angkasa."
+    },
+    {
+      "id": "hamza_q_09_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش أهمية حماية موقع التراث العالمي ودورها في دعم السياحة الثقافية.",
+      "prompt_hint": "اعرض دور اليونسكو والمجتمعات المحلية في صيانة الآثار والمباني",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata pentingnya melestarikan situs warisan budaya bagi identitas dan ekonomi."
+    },
+    {
+      "id": "hamza_q_09_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن شباكات الجيل الخامس والخدمات الحديثة التي تتيحها في الطب والقيادة الذاتية.",
+      "prompt_hint": "ركز على السرعة الفائقة وتقليل زمن التأخير لنقل البيانات",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Paparkan minimal 70 kata peran konektivitas 5G dalam memfasilitasi teknologi masa depan."
+    },
+    {
+      "id": "hamza_q_09_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن مشاتل المرجان الصناعية وسبل حماية البيئة البحرية.",
+      "prompt_hint": "اشرح خطورة تلوث البلاستيك وارتفاع الحرارة على الشعاب المرجانية",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat naskah edukasi minimal 70 kata pentingnya merestorasi terumbu karang dan menghentikan limbah laut."
+    },
+    {
+      "id": "hamza_q_09_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف تجريتك أو رأيك في الكتابة الإبداعية وكيف تطور مهارات التعبير والتعلم.",
+      "prompt_hint": "ركز على تنمية الخيال وإثراء المفردات والتأمل الذاتي",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan panduan tertulis minimal 80 kata manfaat merawat kebiasaan menulis kreatif bagi wawasan."
+    },
+    {
+      "id": "hamza_q_09_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما رأيك في المبالغ الضخمة التي تُنفق على استكشاف الفضاء؟ هل هي مجدية؟",
+      "prompt_hint": "عبر عن رأيك وموقفك الشخصي بوضوح خلال دقيقة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan pandangan lisan 1 menit alokasi dana eksplorasi antariksa dibanding kebutuhan bumi."
+    },
+    {
+      "id": "hamza_q_09_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "صف موقعاً أثرياً أو معلماً تراثياً زارته وتتمنى تسجيله في التراث العالمي.",
+      "prompt_hint": "اذكر اسم الموقع وأهميته التاريخية والثقافية",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Ceritakan lisan 60 detik situs bersejarah impian Anda yang patut dilindungi sebagai warisan dunia."
+    },
+    {
+      "id": "hamza_q_09_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "كيف ترى تأثير شبكات الجيل الخامس وسرعة الإنترنت على حياتك اليومية؟",
+      "prompt_hint": "اذكر ميزة واحدة لاحظتها في سرعة الاتصال والبيانات",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Jelaskan pengalaman lisan 1 menit efisiensi internet super cepat 5G dalam aktivitas Anda."
+    },
+    {
+      "id": "hamza_q_09_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما الخطوات التي ينبغي اتخاذها لحماية الشعاب المرجانية في البحار؟",
+      "prompt_hint": "قدم حلين عمليين للحفاظ على البيئة البحرية",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Bagikan 2 solusi lisan 60 detik penyelamatan terumbu karang dari pencemaran dan kerusakan."
+    },
+    {
+      "id": "hamza_q_09_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "قدم كلمة تحث فيها زملائك على ممارسة الكتابة الإبداعية وقراءة الأدب.",
+      "prompt_hint": "بيّن الفوائد الفكرية واللغوية للكتابة والتأليف",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan pesan lisan 1 menit ajakan mengasah imajinasi dan keahlian bahasa lewat penulisan kreatif."
+    }
+  ]
+}

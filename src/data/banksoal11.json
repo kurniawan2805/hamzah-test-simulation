@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal11",
+  "title": "اختبار همزة التجريبي - النموذج 11",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج الحادي عشر",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_11_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_01",
+      "question": "ما الفائدة الطبية الرئيسية لبرمجيات الذكاء الاصطناعي في النص؟",
+      "options": [
+        "إجراء الجراحة يدوياً",
+        "تحليل الأشعة الطبية واكتشاف الأورام المبكرة",
+        "صناعة الأدوية في المنزل",
+        "إلغاء الفحوصات الطبية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat utama AI medis dalam teks adalah menganalisis citra radiologi dan mendeteksi tumor sejak dini («تحليل الأشعة الطبية واكتشاف الأورام المبكرة»)."
+    },
+    {
+      "id": "hamza_q_11_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_01",
+      "question": "ما الأثر العلاجي والاقتصادي للتشخيص المبكر؟",
+      "options": [
+        "زيادة مدة الإقامة بالمستشفى",
+        "رفع نسب الشفاء وتقليل تكاليف العلاج",
+        "ارتفاع أسعار الأدوية",
+        "تأخير العمليات الطبية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dampak positifnya meningkatkan tingkat kesembuhan dan menghemat biaya berobat («رفع نسب الشفاء وتقليل تكاليف العلاج»)."
+    },
+    {
+      "id": "hamza_q_11_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_02",
+      "question": "ما المصدر النباتي المذكور لإنتاج الوقود الحيوي في النص؟",
+      "options": [
+        "القمح والذرة",
+        "الطحالب البحرية",
+        "أشجار الزيتون",
+        "نبات الخيزران"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sumber hayati biofuel yang disebutkan adalah ganggang / alga laut («الطحالب البحرية»)."
+    },
+    {
+      "id": "hamza_q_11_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_02",
+      "question": "ما الميزتان البيئيتان والزراعية للطحالب البحرية؟",
+      "options": [
+        "بطء النمو والحاجة للسماد",
+        "سرعة النمو وعدم منافسة المحاصيل الغذائية على الأرض",
+        "استهلاك مياه عذبة كثيرة",
+        "ارتفاع الانبعاثات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keunggulannya tumbuh cepat dan tidak merebut lahan pertanian pangan («سرعة النمو وعدم منافسة المحاصيل الغذائية على الأرض»)."
+    },
+    {
+      "id": "hamza_q_11_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_02",
+      "question": "ما وصف الوقود الناتج عن الطحالب في الفقرة؟",
+      "options": [
+        "خيار واعد للطاقة النظيفة المستقبلية",
+        "وقود ملوث ومكلف",
+        "وقود لا يعمل في المحركات",
+        "وقود مؤقت لسنة واحدة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Biofuel alga digambarkan sebagai opsi terpercaya bagi energi bersih masa depan («خيار واعد للطاقة النظيفة المستقبلية»)."
+    },
+    {
+      "id": "hamza_q_11_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_03",
+      "question": "ما حجر الزاوية لبناء العلاقات الاجتماعية المتينة في النص؟",
+      "options": [
+        "المكاسب المالية فقط",
+        "التعاطف والتواصل الإنساني الصادق",
+        "التشابه في الأعمار",
+        "العيش في مدينة واحدة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fondasi utama jejaring sosial yang kokoh adalah empati dan komunikasi manusiawi yang tulus («التعاطف والتواصل الإنساني الصادق»)."
+    },
+    {
+      "id": "hamza_q_11_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_03",
+      "question": "ما السلوكان اللذان يساعدان في حل الخلافات بنجاح؟",
+      "options": [
+        "التجاهل والغضب",
+        "الاستماع الفعال وحسن الظن",
+        "الإصرار على الراي",
+        "الانسحاب الفوري"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua perilaku pemecah konflik adalah mendengarkan secara aktif dan berprasangka baik («الاستماع الفعال وحسن الظن»)."
+    },
+    {
+      "id": "hamza_q_11_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_03",
+      "question": "ما الروح التي تسود عند حل الخلافات وفق النص؟",
+      "options": [
+        "روح من التفاهم والتعاون",
+        "روح المنافسة الشرسة",
+        "روح الانتصار الفردي",
+        "روح الخوف والتردد"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Penyelesaian perbedaan dicapai dengan semangat saling memahami dan bekerjasama («روح من التفاهم والتعاون»)."
+    },
+    {
+      "id": "hamza_q_11_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_04",
+      "question": "ما المهارات المطلوبة لوظائف المستقبل في النص؟",
+      "options": [
+        "الحفظ التلقائي للنصوص",
+        "التفكير الناقد وحل المشكلات المعقدة والقدرات الرقمية",
+        "العمل اليدوي فقط",
+        "السرعة دون دقة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Skill karir masa depan menuntut berpikir kritis, penyelesaian masalah kompleks, & kapabilitas digital («التفكير الناقد وحل المشكلات المعقدة والقدرات الرقمية»)."
+    },
+    {
+      "id": "hamza_q_11_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b11_04",
+      "question": "ما النصيحة المقدمة للعاملين لمواكبة التغيرات المتسارعة؟",
+      "options": [
+        "البقاء في الوظيفة القديمة دون تطوير",
+        "التعلم المستمر وتطوير القدرات الرقمية",
+        "التقاعد المبكر",
+        "تغيير المجال سنوياً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pekerja disarankan belajar terus menerus dan meningkatkan kemampuan digital («التعلم المستمر وتطوير القدرات الرقمية»)."
+    },
+    {
+      "id": "hamza_q_11_011",
+      "section": "reading",
+      "passage": "يُحدث استخدام الذكاء الاصطناعي في التصوير الطبي تحولاً كبيراً في دقة تشخيص الأمراض السرراطية والقلبية. تستطيع الخوارزميات تحليل ملايين الصور الشعاعية في ثوانٍ معدودة واكتشاف التغيرات النسيجية الدقيقة التي قد تخفى على العين البشرية في مراحلها الأولى.",
+      "question": "ما المجال الطبي الذي يشهد تحولاً بفضل الذكاء الاصطناعي في النص؟",
+      "options": [
+        "الجراحة التجميلية فقط",
+        "التصوير الطبي وتشخيص الأمراض السرطانية والقلبية",
+        "صناعة الأسنان",
+        "طب الأعشاب التقليدي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. AI membawa transformasi besar dalam pencitraan medis radiologi & diagnosis tumor/jantung («التصوير الطبي وتشخيص الأمراض السرطانية والقلبية»)."
+    },
+    {
+      "id": "hamza_q_11_012",
+      "section": "reading",
+      "passage": "يُحدث استخدام الذكاء الاصطناعي في التصوير الطبي تحولاً كبيراً في دقة تشخيص الأمراض السرراطية والقلبية. تستطيع الخوارزميات تحليل ملايين الصور الشعاعية في ثوانٍ معدودة واكتشاف التغيرات النسيجية الدقيقة التي قد تخفى على العين البشرية في مراحلها الأولى.",
+      "question": "ما السرعة الكبيرة لخوارزميات الذكاء الاصطناعي في تحليل الصور؟",
+      "options": [
+        "تحليل ملايين الصور الشعاعية في ثوانٍ معدودة",
+        "تحليل صورة واحدة في اليوم",
+        "تحليل الصور أسبوعياً",
+        "بطيئة جداً وتتطلب شهراً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Algoritma sanggup memproses jutaan pemindaian radiologi hanya dalam hitungan detik («تحليل ملايين الصور الشعاعية في ثوانٍ معدودة»)."
+    },
+    {
+      "id": "hamza_q_11_013",
+      "section": "reading",
+      "passage": "يُحدث استخدام الذكاء الاصطناعي في التصوير الطبي تحولاً كبيراً في دقة تشخيص الأمراض السرراطية والقلبية. تستطيع الخوارزميات تحليل ملايين الصور الشعاعية في ثوانٍ معدودة واكتشاف التغيرات النسيجية الدقيقة التي قد تخفى على العين البشرية في مراحلها الأولى.",
+      "question": "ما الميزة التشخيصية الدقيقة للذكاء الاصطناعي المذكورة؟",
+      "options": [
+        "اكتشاف التغيرات النسيجية الدقيقة التي قد تخفى على العين البشرية",
+        "طباعة التقارير بالوان مختلفة",
+        "إلغاء الحاجة للأشعة",
+        "تغيير أجهزة المستشفى"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Keunggulannya menemukan anomali jaringan mikroskopis yang luput dari mata telanjang («اكتشاف التغيرات النسيجية الدقيقة التي قد تخفى على العين البشرية»)."
+    },
+    {
+      "id": "hamza_q_11_014",
+      "section": "reading",
+      "passage": "يُحدث استخدام الذكاء الاصطناعي في التصوير الطبي تحولاً كبيراً في دقة تشخيص الأمراض السرراطية والقلبية. تستطيع الخوارزميات تحليل ملايين الصور الشعاعية في ثوانٍ معدودة واكتشاف التغيرات النسيجية الدقيقة التي قد تخفى على العين البشرية في مراحلها الأولى.",
+      "question": "ما المرحلة المرجوة لاكتشاف التغيرات المرضية؟",
+      "options": [
+        "المراحل الأولى المبكرة",
+        "المراحل المتأخرة فقط",
+        "بعد العلاج الكامل",
+        "عند الشفاء التام"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Deteksi presisi ditargetkan pada stadium paling awal («المراحل الأولى المبكرة»)."
+    },
+    {
+      "id": "hamza_q_11_015",
+      "section": "reading",
+      "passage": "يُحدث استخدام الذكاء الاصطناعي في التصوير الطبي تحولاً كبيراً في دقة تشخيص الأمراض السرراطية والقلبية. تستطيع الخوارزميات تحليل ملايين الصور الشعاعية في ثوانٍ معدودة واكتشاف التغيرات النسيجية الدقيقة التي قد تخفى على العين البشرية في مراحلها الأولى.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طريقة تشغيل جهاز الأشعة",
+        "دور الذكاء الاصطناعي في رفع دقة التشخيص الطبي المبكر",
+        "تاريخ اكتشاف الأشعة السينية",
+        "كيف تصبح طبيب أشعة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah peran AI dalam mendongkrak akurasi deteksi medis awal («دور الذكاء الاصطناعي في رفع دقة التشخيص الطبي المبكر»)."
+    },
+    {
+      "id": "hamza_q_11_016",
+      "section": "reading",
+      "passage": "تُمثل الطاقة الحيوية المستخرجة من الطحالب حلاً مستداماً للحد من انبعاثات الوقود الأحفوري. تتميز زراعة الطحالب بإنتاجية عالية للمساحة الواحدة ومقدرتها على النمو في المياه المالحة والعادمة دون استهلاك مياه الشرب العذبة.",
+      "question": "ما الحل المستدام الذي تقدمه الطاقة الحيوية للطحالب في النص؟",
+      "options": [
+        "زيادة التلوث",
+        "الحد من انبعاثات الوقود الأحفوري",
+        "إلغاء الكهرباء",
+        "رفع أسعار النفط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Energi hayati alga merupakan solusi berkelanjutan meminimalisasi emisi fosil («الحد من انبعاثات الوقود الأحفوري»)."
+    },
+    {
+      "id": "hamza_q_11_017",
+      "section": "reading",
+      "passage": "تُمثل الطاقة الحيوية المستخرجة من الطحالب حلاً مستداماً للحد من انبعاثات الوقود الأحفوري. تتميز زراعة الطحالب بإنتاجية عالية للمساحة الواحدة ومقدرتها على النمو في المياه المالحة والعادمة دون استهلاك مياه الشرب العذبة.",
+      "question": "ما الميزة الإنتاجية لزراعة الطحالب في الفقرة؟",
+      "options": [
+        "إنتاجية ضئيلة جداً",
+        "إنتاجية عالية للمساحة الواحدة",
+        "تطلب مساحات هائلة بدون إنتاج",
+        "نمو بطيء جداً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keunggulan kultivasinya memproduksi biofuel berkapasitas tinggi per satuan luas («إنتاجية عالية للمساحة الواحدة»)."
+    },
+    {
+      "id": "hamza_q_11_018",
+      "section": "reading",
+      "passage": "تُمثل الطاقة الحيوية المستخرجة من الطحالب حلاً مستداماً للحد من انبعاثات الوقود الأحفوري. تتميز زراعة الطحالب بإنتاجية عالية للمساحة الواحدة ومقدرتها على النمو في المياه المالحة والعادمة دون استهلاك مياه الشرب العذبة.",
+      "question": "ما نوع المياه التي تستطيع الطحالب النمو فيها بنجاح؟",
+      "options": [
+        "المياه المدرسية فقط",
+        "المياه المالحة والعادمة دون استهلاك المياه العذبة",
+        "المياه المعقمة فقط",
+        "المياه الغازية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Alga dapat berkembang biak di air asin dan air limbah tanpa boros air bersih («المياه المالحة والعادمة دون استهلاك المياه العذبة»)."
+    },
+    {
+      "id": "hamza_q_11_019",
+      "section": "reading",
+      "passage": "تُمثل الطاقة الحيوية المستخرجة من الطحالب حلاً مستداماً للحد من انبعاثات الوقود الأحفوري. تتميز زراعة الطحالب بإنتاجية عالية للمساحة الواحدة ومقدرتها على النمو في المياه المالحة والعادمة دون استهلاك مياه الشرب العذبة.",
+      "question": "ما الأثر البيئي الإيجابي على الموارد المائية العذبة؟",
+      "options": [
+        "عدم استهلاك مياه الشرب العذبة",
+        "استنزاف المياه الجوفية",
+        "تلوث الأنهار",
+        "زيادة الجفاف"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Manfaat besarnya tidak menguras stok cadangan air minum bersih («عدم استهلاك مياه الشرب العذبة»)."
+    },
+    {
+      "id": "hamza_q_11_020",
+      "section": "reading",
+      "passage": "تُمثل الطاقة الحيوية المستخرجة من الطحالب حلاً مستداماً للحد من انبعاثات الوقود الأحفوري. تتميز زراعة الطحالب بإنتاجية عالية للمساحة الواحدة ومقدرتها على النمو في المياه المالحة والعادمة دون استهلاك مياه الشرب العذبة.",
+      "question": "ما العنوان الأنسب لهذا النص؟",
+      "options": [
+        "أنواع الكائنات البحرية",
+        "مميزات وقدرات الوقود الحيوي من الطحالب",
+        "تاريخ استخراج النفط",
+        "كيف تبني مزرعة سمكية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling sesuai adalah keunggulan dan potensi biofuel dari ganggang («مميزات وقدرات الوقود الحيوي من الطحالب»)."
+    },
+    {
+      "id": "hamza_q_11_021",
+      "section": "reading",
+      "passage": "يُعد التعاطف والذكاء الاجتماعي من أهم المقومات لبناء مجتمعات متماسكة. إن القدرة على الاستماع الواعي لمشاعر الآخرين وتقديم الدعم في الأوقات الصعبة تعزز الصحة النفسية للفرد وتمنح العلاقات الإنسانية عمقاً واستقراراً.",
+      "question": "ما المقومان الأساسيان لبناء مجتمعات متماسكة في النص؟",
+      "options": [
+        "الثروة والتنافس المالي",
+        "التعاطف والذكاء الاجتماعي",
+        "القوانين الصارمة فقط",
+        "التكنولوجيا الحديثة فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua pilar utama masyarakat padu adalah empati dan kecerdasan sosial («التعاطف والذكاء الاجتماعي»)."
+    },
+    {
+      "id": "hamza_q_11_022",
+      "section": "reading",
+      "passage": "يُعد التعاطف والذكاء الاجتماعي من أهم المقومات لبناء مجتمعات متماسكة. إن القدرة على الاستماع الواعي لمشاعر الآخرين وتقديم الدعم في الأوقات الصعبة تعزز الصحة النفسية للفرد وتمنح العلاقات الإنسانية عمقاً واستقراراً.",
+      "question": "ما السلوك الإيجابي الموصى به تجاه مشاعر الآخرين؟",
+      "options": [
+        "التجاهل والسخرية",
+        "الاستماع الواعي وتقديم الدعم في الأوقات الصعبة",
+        "الابتعاد الكامل",
+        "إعطاء النصائح السطحية فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sikap empati ditunjukkan lewat mendengar penuh perhatian & memberi dukungan masa sulit («الاستماع الواعي وتقديم الدعم في الأوقات الصعبة»)."
+    },
+    {
+      "id": "hamza_q_11_023",
+      "section": "reading",
+      "passage": "يُعد التعاطف والذكاء الاجتماعي من أهم المقومات لبناء مجتمعات متماسكة. إن القدرة على الاستماع الواعي لمشاعر الآخرين وتقديم الدعم في الأوقات الصعبة تعزز الصحة النفسية للفرد وتمنح العلاقات الإنسانية عمقاً واستقراراً.",
+      "question": "ما الأثر النفسي والاجتماعي لهذه السلوكيات؟",
+      "options": [
+        "تعزيز الصحة النفسية ومنح العلاقات عمقاً واستقراراً",
+        "زيادة القلق والعزلة",
+        "ضعف شخصية الفرد",
+        "تأخير الإنجاز المهني"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Efeknya menguatkan kesehatan jiwa serta memberi kedalaman & stabilitas hubungan («تعزيز الصحة النفسية ومنح العلاقات عمقاً واستقراراً»)."
+    },
+    {
+      "id": "hamza_q_11_024",
+      "section": "reading",
+      "passage": "يُعد التعاطف والذكاء الاجتماعي من أهم المقومات لبناء مجتمعات متماسكة. إن القدرة على الاستماع الواعي لمشاعر الآخرين وتقديم الدعم في الأوقات الصعبة تعزز الصحة النفسية للفرد وتمنح العلاقات الإنسانية عمقاً واستقراراً.",
+      "question": "ما الكلمة التي تعبر عن التفاهم الاجتماعي في الفقرة؟",
+      "options": [
+        "التعاطف والذكاء الاجتماعي",
+        "التنافس الجاف",
+        "العزلة",
+        "التعصب"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Frasa «التعاطف والذكاء الاجتماعي» memotret koneksi emosional antar sesama."
+    },
+    {
+      "id": "hamza_q_11_025",
+      "section": "reading",
+      "passage": "يُعد التعاطف والذكاء الاجتماعي من أهم المقومات لبناء مجتمعات متماسكة. إن القدرة على الاستماع الواعي لمشاعر الآخرين وتقديم الدعم في الأوقات الصعبة تعزز الصحة النفسية للفرد وتمنح العلاقات الإنسانية عمقاً واستقراراً.",
+      "question": "ما الفكرة المحورية للنص؟",
+      "options": [
+        "طرق تكوين الأصدقاء بسرعة",
+        "أهمية التعاطف والذكاء الاجتماعي في الاستقرار النفسي والمجتمعي",
+        "تاريخ العلاقات العامة",
+        "كيف تصبح متحدثاً لبقاً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah peranan empati dan kecerdasan sosial bagi stabilitas jiwa & warga («أهمية التعاطف والذكاء الاجتماعي في الاستقرار النفسي والمجتمعي»)."
+    },
+    {
+      "id": "hamza_q_11_026",
+      "section": "reading",
+      "passage": "يتطلب سوق العمل المستقبلي مهارات التكيف السريع والتعلم الذاتي المستمر. يُحذر الخبراء من أن الأتمتة والذكاء الاصطناعي يستبدلان الوظائف الروتينية، مما يوجب على الموظفين تطوير التفكير الناقد والإبداع البشري الفريد.",
+      "question": "ما التحدي التكنولوجي الذي يهدد الوظائف الروتينية في النص؟",
+      "options": [
+        "قلة الحواسيب",
+        "الأتمتة والذكاء الاصطناعي",
+        "انقطاع الإنترنت",
+        "ارتفاع رواتب الموظفين"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tantangan teknologis yang menggantikan tugas rutin adalah otomatisasi & AI («الأتمتة والذكاء الاصطناعي»)."
+    },
+    {
+      "id": "hamza_q_11_027",
+      "section": "reading",
+      "passage": "يتطلب سوق العمل المستقبلي مهارات التكيف السريع والتعلم الذاتي المستمر. يُحذر الخبراء من أن الأتمتة والذكاء الاصطناعي يستبدلان الوظائف الروتينية، مما يوجب على الموظفين تطوير التفكير الناقد والإبداع البشري الفريد.",
+      "question": "ما المهارات البشرية الفريدة الموصى بتطويرها لمواجهة الأتمتة؟",
+      "options": [
+        "الحفظ الروتيني",
+        "التفكير الناقد والإبداع البشري الفريد",
+        "السرعة اليدوية",
+        "العمل دون تفكير"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Skill khas manusia yang wajib diasah mencakup nalar kritis dan kreativitas unik («التفكير الناقد والإبداع البشري الفريد»)."
+    },
+    {
+      "id": "hamza_q_11_028",
+      "section": "reading",
+      "passage": "يتطلب سوق العمل المستقبلي مهارات التكيف السريع والتعلم الذاتي المستمر. يُحذر الخبراء من أن الأتمتة والذكاء الاصطناعي يستبدلان الوظائف الروتينية، مما يوجب على الموظفين تطوير التفكير الناقد والإبداع البشري الفريد.",
+      "question": "ما السلوك المهني المطلوب من الموظفين في هذا العصر؟",
+      "options": [
+        "التكيف السريع والتعلم الذاتي المستمر",
+        "الثبات على مهارات الماضي",
+        "ترك الوظيفة فوراً",
+        "الاعتماد على الآلة في كل شيء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pekerja dituntut tanggap beradaptasi dan belajar mandiri secara berkesinambungan («التكيف السريع والتعلم الذاتي المستمر»)."
+    },
+    {
+      "id": "hamza_q_11_029",
+      "section": "reading",
+      "passage": "يتطلب سوق العمل المستقبلي مهارات التكيف السريع والتعلم الذاتي المستمر. يُحذر الخبراء من أن الأتمتة والذكاء الاصطناعي يستبدلان الوظائف الروتينية، مما يوجب على الموظفين تطوير التفكير الناقد والإبداع البشري الفريد.",
+      "question": "ما نوع الوظائف الأكثر عرضة للاستبدال بالأتمتة؟",
+      "options": [
+        "الوظائف الإبداعية القيادية",
+        "الوظائف الروتينية المتكررة",
+        "الوظائف الطبية الجراحية",
+        "الوظائف التعليمية التفاعلية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jenis pekerjaan yang rawan tergeser adalah tugas-tugas rutin yang berulang («الوظائف الروتينية المتكررة»)."
+    },
+    {
+      "id": "hamza_q_11_030",
+      "section": "reading",
+      "passage": "يتطلب سوق العمل المستقبلي مهارات التكيف السريع والتعلم الذاتي المستمر. يُحذر الخبراء من أن الأتمتة والذكاء الاصطناعي يستبدلان الوظائف الروتينية، مما يوجب على الموظفين تطوير التفكير الناقد والإبداع البشري الفريد.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طرق البحث عن عمل جديد",
+        "استراتيجيات الاستعداد لوظائف المستقبل في عصر الأتمتة",
+        "تاريخ الثورة الصناعية الأولى",
+        "كيف تكتب سيرة ذاتية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah strategi adaptasi menghadapi dunia kerja masa depan («استراتيجيات الاستعداد لوظائف المستقبل في عصر الأتمتة»)."
+    },
+    {
+      "id": "hamza_q_11_031",
+      "section": "reading",
+      "passage": "شهد فن الخط العربي نهضة معاصرة عبر دمج الحروفيات التقليدية بالتصاميم الرقمية الحديثة. يُسهم هذا المزج الفني في إبراز جماليات الخط العربي في المعارض الدولية والمنصات الرقمية وتوثيق التراث الفني الأصيل.",
+      "question": "ما النهضة الفنية التي شهدها الخط العربي في النص؟",
+      "options": [
+        "الاندثار والنسيان",
+        "نهضة معاصرة عبر دمج الحروفيات بالتصاميم الرقمية",
+        "التوقف عن الكتابة باليد",
+        "قصر الخط على المصاحف فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kaligrafi Arab mengalami kebangkitan kontemporer lewat peleburان seni huruf & desain digital («نهضة معاصرة عبر دمج الحروفيات بالتصاميم الرقمية»)."
+    },
+    {
+      "id": "hamza_q_11_032",
+      "section": "reading",
+      "passage": "شهد فن الخط العربي نهضة معاصرة عبر دمج الحروفيات التقليدية بالتصاميم الرقمية الحديثة. يُسهم هذا المزج الفني في إبراز جماليات الخط العربي في المعارض الدولية والمنصات الرقمية وتوثيق التراث الفني الأصيل.",
+      "question": "أين تبرز جماليات هذا الفن المدمج وفق الفقرة؟",
+      "options": [
+        "في الكتب القديمة فقط",
+        "في المعارض الدولية والمنصات الرقمية",
+        "في المباني المهجورة",
+        "في الأسواق التجارية البسيطة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keindahan kaligrafi digital bersinar di galeri internasional & platform digital («في المعارض الدولية والمنصات الرقمية»)."
+    },
+    {
+      "id": "hamza_q_11_033",
+      "section": "reading",
+      "passage": "شهد فن الخط العربي نهضة معاصرة عبر دمج الحروفيات التقليدية بالتصاميم الرقمية الحديثة. يُسهم هذا المزج الفني في إبراز جماليات الخط العربي في المعارض الدولية والمنصات الرقمية وتوثيق التراث الفني الأصيل.",
+      "question": "ما الهدف الثقافي لمزج الحروفيات بالتكنولوجيا؟",
+      "options": [
+        "إلغاء الخط التقليدي",
+        "توثيق وإبراز التراث الفني الأصيل",
+        "بيع الخطوط بأسعار رخيصة",
+        "تغيير حروف اللغة العربية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan budayanya melestarikan dan mendokumentasikan seni warisan asli («توثيق وإبراز التراث الفني الأصيل»)."
+    },
+    {
+      "id": "hamza_q_11_034",
+      "section": "reading",
+      "passage": "شهد فن الخط العربي نهضة معاصرة عبر دمج الحروفيات التقليدية بالتصاميم الرقمية الحديثة. يُسهم هذا المزج الفني في إبراز جماليات الخط العربي في المعارض الدولية والمنصات الرقمية وتوثيق التراث الفني الأصيل.",
+      "question": "ما العناصر المدمجة في هذا الفن المعاصر؟",
+      "options": [
+        "الحروفيات التقليدية والتصاميم الرقمية",
+        "الرسم الزيتي والفرشاة فقط",
+        "النحت على الصخور",
+        "التصوير الفوتوغرافي البسيط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Elemen paduannya mempertemukan nilai kaligrafi tradisional dan grafis digital («الحروفيات التقليدية والتصاميم الرقمية»)."
+    },
+    {
+      "id": "hamza_q_11_035",
+      "section": "reading",
+      "passage": "شهد فن الخط العربي نهضة معاصرة عبر دمج الحروفيات التقليدية بالتصاميم الرقمية الحديثة. يُسهم هذا المزج الفني في إبراز جماليات الخط العربي في المعارض الدولية والمنصات الرقمية وتوثيق التراث الفني الأصيل.",
+      "question": "ما الفكرة المحورية للنص؟",
+      "options": [
+        "طرق تحسين الخط اليدوي",
+        "التجديد والنهضة المعاصرة لفن الخط العربي الرقمي",
+        "تاريخ أدوات الكتابة القديمة",
+        "أنواع الورق المستخدم في الخط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah inovasi dan estetika modern kaligrafi Arab digital («التجديد والنهضة المعاصرة لفن الخط العربي الرقمي»)."
+    },
+    {
+      "id": "hamza_q_11_036",
+      "section": "reading",
+      "passage": "تُسهم الطاقة الكهرومائية من السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية ضارة. يتطلب التشغيل الآمن لهذه السدود صيانة دورية للمحركات الهيدروليكية وفحص جسم السد لمواجهة أي تدفقات مائية غير متوقعة.",
+      "question": "ما الفائدة البيئية الأساسية للسدود الكهرومائية في النص؟",
+      "options": [
+        "توليد طاقة دون انبعاثات كربونية ضارة",
+        "زيادة الغازات السامة",
+        "ارتفاع الحرارة في المياه",
+        "استهلاك الوقود الأحفوري"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Efek ekologi hidroelektrik adalah memproduksi listrik ramah lingkungan tanpa emisi («توليد طاقة دون انبعاثات كربونية ضارة»)."
+    },
+    {
+      "id": "hamza_q_11_037",
+      "section": "reading",
+      "passage": "تُسهم الطاقة الكهرومائية من السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية ضارة. يتطلب التشغيل الآمن لهذه السدود صيانة دورية للمحركات الهيدروليكية وفحص جسم السد لمواجهة أي تدفقات مائية غير متوقعة.",
+      "question": "ما الإجراء السلامي الواجب لتشغيل السدود بنجاح؟",
+      "options": [
+        "الإهمال والانتظار",
+        "صيانة دورية للمحركات وفحص جسم السد",
+        "إغلاق السدود في الصيف",
+        "تفريغ المياه بالكامل دائماً"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Prosedur keamanannya menuntut pemeliharaan rutin turbin dan inspeksi struktur bendungan («صيانة دورية للمحركات وفحص جسم السد»)."
+    },
+    {
+      "id": "hamza_q_11_038",
+      "section": "reading",
+      "passage": "تُسهم الطاقة الكهرومائية من السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية ضارة. يتطلب التشغيل الآمن لهذه السدود صيانة دورية للمحركات الهيدروليكية وفحص جسم السد لمواجهة أي تدفقات مائية غير متوقعة.",
+      "question": "ما الخطر الطبيعي الذي يُعد الفحص حماية منه؟",
+      "options": [
+        "التدفقات المائية غير المتوقعة والفيضانات",
+        "الرياح الخفيفة",
+        "الجفاف التام",
+        "انخفاض درجات الحرارة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Inspeksi struktur mencegah risiko banjir dan lonjakan debit air tak terduga («التدفقات المائية غير المتوقعة والفيضانات»)."
+    },
+    {
+      "id": "hamza_q_11_039",
+      "section": "reading",
+      "passage": "تُسهم الطاقة الكهرومائية من السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية ضارة. يتطلب التشغيل الآمن لهذه السدود صيانة دورية للمحركات الهيدروليكية وفحص جسم السد لمواجهة أي تدفقات مائية غير متوقعة.",
+      "question": "ما الآلات المستهدفة بالصيانة الدورية في السد؟",
+      "options": [
+        "المحركات الهيدروليكية (التوربينات)",
+        "السفن البحرية",
+        "المضخات البترولية",
+        "السيارات الكهربائية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Mesin yang wajib dirawat berkala adalah turbin hidroelقتريك («المحركات الهيدروليكية»)."
+    },
+    {
+      "id": "hamza_q_11_040",
+      "section": "reading",
+      "passage": "تُسهم الطاقة الكهرومائية من السدود في توفير مصدر تجدد للكهرباء دون انبعاثات كربونية ضارة. يتطلب التشغيل الآمن لهذه السدود صيانة دورية للمحركات الهيدروليكية وفحص جسم السد لمواجهة أي تدفقات مائية غير متوقعة.",
+      "question": "ما النصيحة الموجهة لإدارة السدود في الفقرة؟",
+      "options": [
+        "الالتزام بالصيانة والسلامة الهندسية لتأمين إنتاج الطاقة النظيفة",
+        "التوقف عن توليد الكهرباء",
+        "الاعتماد على الحظ في الفيضانات",
+        "عدم فحص أجساد السدود"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Rekomendasi teknisnya memprioritaskan pemeliharaan rutin dan keselamatan struktur demi energi bersih («الالتزام بالصيانة والسلامة الهندسية لتأمين إنتاج الطاقة النظيفة»)."
+    },
+    {
+      "id": "hamza_q_11_041",
+      "section": "grammar",
+      "question": "اختر اسم الفاعل الصحيح من الفعل (شخّص):",
+      "options": [
+        "مشخِّص",
+        "مشخَّص",
+        "تشخيص",
+        "مشخصون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism fa'il dari fi'il shakh-khasa (شخّص) berwazan مُشَخِّص: «مشخِّص»."
+    },
+    {
+      "id": "hamza_q_11_042",
+      "section": "grammar",
+      "question": "ما إعراب (طبيباً) في: كان والدُ علياً طبيباً متميزاً؟",
+      "options": [
+        "اسم كان مرفوع",
+        "خبر كان منصوب بالفتحة",
+        "فاعل",
+        "مبتدأ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «طبيباً» kedudukannya khabar Kaana manshub ditandai fathah."
+    },
+    {
+      "id": "hamza_q_11_043",
+      "section": "grammar",
+      "question": "اختر المفعول المطلق المبين للنوع: شخّصَ الطبيبُ المرضَ ______.",
+      "options": [
+        "تشخيصاً دقيقاً",
+        "تشخيصاً",
+        "تشخيصين",
+        "مشخصاً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Maf'ul mutlaq mubayyin lin-naw' berupa masdar manshub diikuti sifat: «تشخيصاً دقيقاً»."
+    },
+    {
+      "id": "hamza_q_11_044",
+      "section": "grammar",
+      "question": "حدد الممنوع من الصرف لعلميته وزيادة الألف والنون:",
+      "options": [
+        "سليمان",
+        "فاطمة",
+        "أحمد",
+        "مساجد"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim alam berakhiran alif dan nun za'idatan mamnu' min ash-sharf: «سليمان»."
+    },
+    {
+      "id": "hamza_q_11_045",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (مريض)؟",
+      "options": [
+        "مرضى",
+        "مريضون",
+        "مريضات",
+        "مرضاء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Jamak taksir dari «مريض» berwazan فَعْلَى هو «مرضى»."
+    },
+    {
+      "id": "hamza_q_11_046",
+      "section": "grammar",
+      "question": "اختر البدل المطابق المنصوب: زرتُ الطبيبَ ______.",
+      "options": [
+        "أحمدَ",
+        "أحمدُ",
+        "أحمدٍ",
+        "الأحمدُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Badal muthabiq manshub dari maf'ul bih manshub («الطبيبَ») هو «أحمدَ»."
+    },
+    {
+      "id": "hamza_q_11_047",
+      "section": "grammar",
+      "question": "حدد اسم المكان من الفعل (عالج):",
+      "options": [
+        "معالَج (أو مستشفى)",
+        "معالِج",
+        "علاج",
+        "معالجة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism makan / maf'ul dari fi'il 'aalaja berwazan مُعَالَج: «معالَج»."
+    },
+    {
+      "id": "hamza_q_11_048",
+      "section": "grammar",
+      "question": "اختر Harf jazm الذي ينفي الفعل المضارع ويكفّه:",
+      "options": [
+        "لم",
+        "لن",
+        "لا الناهية",
+        "إنْ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf jazm wa nafi lil-fi'il al-mudhari' adalah «لم»."
+    },
+    {
+      "id": "hamza_q_11_049",
+      "section": "grammar",
+      "question": "ما إعراب (مبتسماً) في: عاد المريضُ مبتسماً بعد الشفاءِ؟",
+      "options": [
+        "حال منصوبة",
+        "فاعل",
+        "مفعول به",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «مبتسماً» kedudukannya hal manshub menjelaskan keadaan fa'il saat kembali."
+    },
+    {
+      "id": "hamza_q_11_050",
+      "section": "grammar",
+      "question": "حدد اسم المفعول من الفعل (شفي):",
+      "options": [
+        "مشفوّ (أو مشفيّ)",
+        "شافٍ",
+        "شفاء",
+        "مشفاء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism maf'ul dari fi'il naqis (شفي) berwazan مَشْفِيّ هو «مشفيّ»."
+    },
+    {
+      "id": "hamza_q_11_051",
+      "section": "grammar",
+      "question": "اختر المبتدأ المرفوع بالضمة الظاهرة: ______ نورٌ يضيء العقول.",
+      "options": [
+        "العلمُ",
+        "العلمَ",
+        "العلمِ",
+        "علماً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Mubtada' marfu' dengan dhammah zhahirah: «العلمُ»."
+    },
+    {
+      "id": "hamza_q_11_052",
+      "section": "grammar",
+      "question": "ما نوع الاستثناء في: ما شُخِّصت الأورامُ إلا تشخيصاً دقيقاً؟",
+      "options": [
+        "مفرغ (ناقص منفي)",
+        "تام مثبت",
+        "تام منفي",
+        "منقطع"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Istithna mufarragh karena diawali nafi dan mustathna minhu tidak ada."
+    },
+    {
+      "id": "hamza_q_11_053",
+      "section": "grammar",
+      "question": "حدد اسم التفضيل المجرور بالفتحة نيابة عن الكسرة للمنع من الصرف:",
+      "options": [
+        "بأحسنَ من غيره",
+        "بأحسنِ الناس",
+        "بالأحسنِ",
+        "أحسنُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism tafdhil nakirah majrur harf jar ditandai fathah karena mamnu' min ash-sharf: «بأحسنَ»."
+    },
+    {
+      "id": "hamza_q_11_054",
+      "section": "grammar",
+      "question": "اختر المصدر الصريح للفعل (تأمل):",
+      "options": [
+        "تأمل",
+        "متأمل",
+        "متأمَّل",
+        "تأملة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Masdar sharih dari fi'il ta'ammala (تأمل) هو «تأمل»."
+    },
+    {
+      "id": "hamza_q_11_055",
+      "section": "grammar",
+      "question": "ما إعراب (عالماً) في: حسبتُ الطالبَ عالماً؟",
+      "options": [
+        "مفعول به ثاني منصوب",
+        "مفعول به أول",
+        "حال",
+        "خبر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «عالماً» maf'ul bih kedua dari fi'il dhanna/hasiba."
+    },
+    {
+      "id": "hamza_q_11_056",
+      "section": "grammar",
+      "question": "اختر الفعل المضارع المنصوب بـ كي وعلامة نصبه الفتحة:",
+      "options": [
+        "لكي تنجحَ",
+        "لكي تنجحُ",
+        "لكي تنجحْ",
+        "لكي تنجحوا فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' manshub بعد كي ditandai fathah: «لكي تنجحَ»."
+    },
+    {
+      "id": "hamza_q_11_057",
+      "section": "grammar",
+      "question": "حدد اسم الآلة من الفعل (سَبَرَ):",
+      "options": [
+        "مسبار",
+        "سابر",
+        "مسبور",
+        "سبرة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism alat dari sabara (سبر) berwazan مِفْعَال هو «مسبار» (alat pengukur/pemindai)."
+    },
+    {
+      "id": "hamza_q_11_058",
+      "section": "grammar",
+      "question": "ما وزن كلمة (خوارزمية)؟",
+      "options": [
+        "اسم منسوب معرّب",
+        "مفعول",
+        "مفتعل",
+        "فاعلية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «خوارزمية» adalah isim mansub nisbah kepada الخوارزمي (الخوارزمية)."
+    },
+    {
+      "id": "hamza_q_11_059",
+      "section": "grammar",
+      "question": "اختر الفعل المبني على الفتح لعدم اتصاله بشيء:",
+      "options": [
+        "كتبَ",
+        "كتبوا",
+        "كتبتُ",
+        "يكتبون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il madhi thulathi mabni atas fathah bila tidak bersambung sesuatu: «كتبَ»."
+    },
+    {
+      "id": "hamza_q_11_060",
+      "section": "grammar",
+      "question": "ما إعراب (رغبةً) في: يتعلمُ الفردُ رغبةً في التطورِ؟",
+      "options": [
+        "مفعول لأجله منصوب",
+        "حال",
+        "مفعول به",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «رغبةً» kedudukannya maf'ul li-ajlih manshub penjelas motivasi belajar."
+    },
+    {
+      "id": "hamza_q_11_061",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة الاسمية المؤكدة بـ (إنّ):",
+      "options": [
+        "إنّ الذكاءَ الاصطناعيَ مفيدٌ في الطبِ",
+        "إنّ الذكاءُ الاصطناعيُ مفيدٌ في الطبِ",
+        "إنّ الذكاءَ الاصطناعيُ مفيدًا في الطبِ",
+        "إنّ الذكاءُ الاصطناعيَ مفيدٌ في الطبِ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. «إنّ» تنصب اسمها («الذكاءَ»), ونعته منصوب («الاصطناعيَ»), وخبرها مرفوع («مفيدٌ»)."
+    },
+    {
+      "id": "hamza_q_11_062",
+      "section": "structures",
+      "question": "اختر الصيغة الصحيحة لاسم المفعول العامل عمل فعله:",
+      "options": [
+        "هذا تشخيصٌ دقيقٌ مَرقُوبٌ نَجاحُهُ",
+        "هذا تشخيصٌ دقيقٌ مَرقُوبٌ نَجاحَهُ",
+        "هذا تشخيصٌ دقيقٌ مَرقُوبٌ نَجاحِهِ",
+        "هذا تشخيصٌ دقيقٌ مَرقُوباً نَجاحُهُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism maf'ul «مرقوبٌ» يرفع نائب فاعل بعده: «نجاحُهُ»."
+    },
+    {
+      "id": "hamza_q_11_063",
+      "section": "structures",
+      "question": "حدد التركيب الصحيح لـ (أسلوب الشرط بالـ إنْ):",
+      "options": [
+        "إنْ تتعلمْ تتقدمْ في عملِكَ",
+        "إنْ تتعلمُ تتقدمُ في عملِكَ",
+        "إنْ تتعلمَ تتقدمَ في عملِكَ",
+        "إنْ تتعلمْ تتقدمُ في عملِكَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il syarat dan jawab syarat keduanya majzum sukun: «تتعلمْ ... تتقدمْ»."
+    },
+    {
+      "id": "hamza_q_11_064",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة المعطوفة بـ (واو الجمعية):",
+      "options": [
+        "يتعاون الطبيبُ والمهندسُ لتطوير الجهازِ",
+        "يتعاون الطبيبُ فالمهندسُ لتطوير الجهازِ",
+        "يتعاون الطبيبُ ثمّ المهندسُ لتطوير الجهازِ",
+        "يتعاون الطبيبُ أو المهندسُ لتطوير الجهازِ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf 'athaf «الواو» تفيد مطلق الجمع بين الطبيب والمهندس: «الطبيبُ والمهندسُ»."
+    },
+    {
+      "id": "hamza_q_11_065",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح لجمع المؤنث السالم المضاف:",
+      "options": [
+        "طبيباتُ المستشفى متميزاتٌ",
+        "طبيباتٌ المستشفى متميزاتٌ",
+        "طبيباتٍ المستشفى متميزاتٌ",
+        "الطبيباتُ المستشفى متميزاتٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Mudhaf tanpa tanwin dan alif lam: «طبيباتُ المستشفى»."
+    },
+    {
+      "id": "hamza_q_11_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب مقالاً عن دور الذكاء الاصطناعي في تحليل الأشعة الطبية والتشخيص المبكر.",
+      "prompt_hint": "اذكر ميزتين للتحليل الآلي وأثره على رفع نسب الشفاء",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat esai minimal 80 kata ulasan peranan AI radiologi dalam mendeteksi tumor dan penyakit jantung sejak dini."
+    },
+    {
+      "id": "hamza_q_11_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش مميزات الوقود الحيوي المستخرج من الطحالب البحرية كبديل نظيف.",
+      "prompt_hint": "ركز على الإنتاجية العالية للمساحة وعدم منافسة المحاصيل الغذائية",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata keunggulan alga biofuel dalam konservasi tanah dan air bersih."
+    },
+    {
+      "id": "hamza_q_11_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن أهمية التعاطف والذكاء الاجتماعي في بناء العلاقات الإنسانية.",
+      "prompt_hint": "اشرح دور الاستماع الواعي وحسن الظن في حل الخلافات الأسرية والمهنية",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Paparkan minimal 70 kata pentingnya empati dan kominikasi tulus bagi keharmonisan hubungan sosial."
+    },
+    {
+      "id": "hamza_q_11_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن المهارات المطلوبة لوظائف المستقبل في عصر الأتمتة.",
+      "prompt_hint": "اشرح أهمية التفكير الناقد والإبداع البشري والتعلم الذاتي المستمر",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat naskah edukasi minimal 70 kata strategi pengعادة تأهيل المهارات الرقمية والتحليلية لمواجهة الذكاء الاصطناعي."
+    },
+    {
+      "id": "hamza_q_11_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف النهضة المعصرة لفن الخط العربي عبر الدمج بالتصاميم الرقمية الحديثة.",
+      "prompt_hint": "ركز على إبراز جماليات الخط العربي في المنصات المعارض العالمية",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan karangan tertulis minimal 80 kata keindahan seni kaligrafi Arab digital dan pelestarian cagar budaya."
+    },
+    {
+      "id": "hamza_q_11_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما رأيك في اعتماد الأطباء على الذكاء الاصطناعي لتشخيص الأمراض؟",
+      "prompt_hint": "وضح موقفك وأسباب ثقتك أو تحفظك خلال دقيقة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan pandangan lisan 1 menit penerimaan Anda terhadap integrasi AI dalam dunia radiologi medis."
+    },
+    {
+      "id": "hamza_q_11_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "هل تؤيد التوسع في زراعة الطحالب لإنتاج الوقود الحيوي في بلدك؟ ولماذا؟",
+      "prompt_hint": "اذكر ميزة بيئية واحدة تشجعك على الفكرة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Jelaskan pandangan lisan 60 detik Anda mengenai biofuel alga sebagai alternatif energi ramah lingkungan."
+    },
+    {
+      "id": "hamza_q_11_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "كيف تتصرف عندما يمر صديق لك بظروف صعبة وتريد دعمه عاطفياً؟",
+      "prompt_hint": "وضح دور الاستماع الفعال والتعاطف الصادق معه",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Bagikan cara lisan 1 menit Anda memberikan empati dan mendengarkan masalah sahabat secara aktif."
+    },
+    {
+      "id": "hamza_q_11_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما المهارة الرقمية أو الفكرية التي تركز على تطويرها حالياً لوظيفة المستقبل؟",
+      "prompt_hint": "حدد اسم المهارة وكيف تتدرب عليها يومياً",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan secara lisan 60 detik pilihan skill masa depan yang sedang Anda tekuni beserta metode belajarnya."
+    },
+    {
+      "id": "hamza_q_11_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "قدم كلمة تعبر فيها عن إعجابك بفن الخط العربي الرقمي وأهمية توثيقه.",
+      "prompt_hint": "بيّن جماليات الخط العربي ورسالتك للشباب المهتمين بالفنون",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Berikan pesan lisan 1 menit kecintaan Anda pada seni kaligrafi Arab dan pentingnya melestarikan seni budaya."
+    }
+  ]
+}

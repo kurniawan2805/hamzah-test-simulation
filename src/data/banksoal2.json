@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal2",
+  "title": "اختبار همزة التجريبي - النموذج 2",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج الثاني",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_02_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_01",
+      "question": "لماذا سافر طارق إلى القاهرة؟",
+      "options": [
+        "للسياحة والترفيه",
+        "لحضور مؤتمر عن البيئة",
+        "لزيارة أسرته",
+        "للعمل في شركة تجارية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tariq pergi ke Kairo untuk menghadiri konferensi tentang lingkungan («لحضور مؤتمر عن البيئة»)."
+    },
+    {
+      "id": "hamza_q_02_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_01",
+      "question": "ما القرار الذي اتُّخِذ في نهاية المؤتمر؟",
+      "options": [
+        "بناء مستشفى جديد",
+        "تأسيس شركة سياحية",
+        "إنشاء جمعية لحماية نهر النيل",
+        "إغلاق المصانع القديمة"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban C. Keputusan di akhir konferensi adalah mendirikan asosiasi perlindungan Sungai Nil dari pencemaran («إنشاء جمعية لحماية نهر النيل»)."
+    },
+    {
+      "id": "hamza_q_02_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_02",
+      "question": "كيف قضى عمر عطلته الصيفية؟",
+      "options": [
+        "في السفر للخارج",
+        "في العمل التطوعي",
+        "في النوم والراحة",
+        "في ممارسة الرياضة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Omar menghabiskan liburan yaz-nya dengan melakukan kegiatan sukarela («في العمل التطوعي»)."
+    },
+    {
+      "id": "hamza_q_02_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_02",
+      "question": "ما المواد التي كان يدرسها للأطفال؟",
+      "options": [
+        "العلوم والتاريخ",
+        "اللغة العربية والرياضيات",
+        "اللغة الإنجليزية والرسم",
+        "الموسيقى والجغرافيا"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Mata pelajaran yang diajarkan Omar kepada anak-anak adalah bahasa Arab dan matematika («اللغة العربية والرياضيات»)."
+    },
+    {
+      "id": "hamza_q_02_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_02",
+      "question": "ما المهارة التكنولوجية التي علمها للأطفال؟",
+      "options": [
+        "برمجة الألعاب",
+        "استخدام الحاسوب",
+        "تصميم المواقع",
+        "صيانة الهواتف"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keterampilan teknologi yang diajarkan adalah penggunaan komputer («استخدام الحاسوب»)."
+    },
+    {
+      "id": "hamza_q_02_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_03",
+      "question": "ما هدف التطبيق الجديد؟",
+      "options": [
+        "بيع الكتب الإلكترونية",
+        "مساعدة الطلاب على تنظيم وقت دراستهم",
+        "التواصل الاجتماعي بين الطلاب",
+        "تعليم اللغات الأجنبية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan aplikasi baru tersebut adalah membantu siswa mengelola dan mengatur waktu belajar mereka («مساعدة الطلاب على تنظيم وقت دراستهم»)."
+    },
+    {
+      "id": "hamza_q_02_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_03",
+      "question": "على أي الأجهزة يعمل هذا التطبيق؟",
+      "options": [
+        "على أجهزة التلفاز",
+        "على الهواتف الذكية",
+        "على الساعات الرقمية فقط",
+        "على أجهزة ألعاب الفيديو"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Aplikasi bekerja pada perangkat smartphone («على الهواتف الذكية»)."
+    },
+    {
+      "id": "hamza_q_02_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_03",
+      "question": "ما الميزة التي يقدمها التطبيق لمتابعة التقدم؟",
+      "options": [
+        "خصومات مالية",
+        "مخططات بيانية وتنبيهات",
+        "شهادات معتمدة",
+        "دروس فيديو مباشرة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fitur yang disediakan mencakup diagram grafik progres dan pengingat harian («مخططات بيانية وتنبيهات»)."
+    },
+    {
+      "id": "hamza_q_02_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_04",
+      "question": "بماذا ينصح خبراء التغذية؟",
+      "options": [
+        "بتناول السكريات بكثرة",
+        "بتناول الخضروات والفواكه الطازجة يوميًا",
+        "بالاعتماد على الوجبات السريعة",
+        "بتقليل شرب الماء"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pakar nutrisi menyarankan konsumsi sayur dan buah segar setiap hari («بتناول الخضروات والفواكه الطازجة يوميًا»)."
+    },
+    {
+      "id": "hamza_q_02_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b02_04",
+      "question": "ما فائدة الخضروات والفواكه وفقًا للنص؟",
+      "options": [
+        "زيادة الوزن فقط",
+        "إمداد الجسم بالفيتامينات والوقاية من الأمراض",
+        "تحسين النوم فقط",
+        "تقوية الذاكرة لفترة قصيرة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaatnya adalah menyuplai vitamin dan mineral serta membantu mencegah penyakit kronis («إمداد الجسم بالفيتامينات والوقاية من الأمراض»)."
+    },
+    {
+      "id": "hamza_q_02_011",
+      "section": "reading",
+      "passage": "التلوث البيئي من أكبر التحديات التي تواجه العالم اليوم. يرجع السبب الرئيسي للتلوث إلى النفايات الصناعية وانبعاثات السيارات. يؤدي التلوث إلى تدهور الصحة العامة وتغير المناخ. للحد من هذه المشكلة، يجب الاعتماد على الطاقة المتجددة كالشمس والرياح، وزراعة الأشجار لحماية الغلاف الجوي.",
+      "question": "ما السبب الرئيسي للتلوث البيئي في النص؟",
+      "options": [
+        "الزراعة التقليدية",
+        "النفايات الصناعية وانبعاثات السيارات",
+        "الصيد الجائر",
+        "قطع الأشجار في الغابات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Teks menyebutkan bahwa penyebab utama polusi adalah limbah industri dan emisi kendaraan («النفايات الصناعية وانبعاثات السيارات»)."
+    },
+    {
+      "id": "hamza_q_02_012",
+      "section": "reading",
+      "passage": "التلوث البيئي من أكبر التحديات التي تواجه العالم اليوم. يرجع السبب الرئيسي للتلوث إلى النفايات الصناعية وانبعاثات السيارات. يؤدي التلوث إلى تدهور الصحة العامة وتغير المناخ. للحد من هذه المشكلة، يجب الاعتماد على الطاقة المتجددة كالشمس والرياح، وزراعة الأشجار لحماية الغلاف الجوي.",
+      "question": "إلامَ يؤدي التلوث البيئي؟",
+      "options": [
+        "انخفاض درجات الحرارة",
+        "تدهور الصحة العامة وتغير المناخ",
+        "زيادة الأمطار الصيفية",
+        "تحسين جودة الهواء"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Polusi menyebabkan penurunan kesehatan masyarakat dan perubahan iklim («تدهور الصحة العامة وتغير المناخ»)."
+    },
+    {
+      "id": "hamza_q_02_013",
+      "section": "reading",
+      "passage": "التلوث البيئي من أكبر التحديات التي تواجه العالم اليوم. يرجع السبب الرئيسي للتلوث إلى النفايات الصناعية وانبعاثات السيارات. يؤدي التلوث إلى تدهور الصحة العامة وتغير المناخ. للحد من هذه المشكلة، يجب الاعتماد على الطاقة المتجددة كالشمس والرياح، وزراعة الأشجار لحماية الغلاف الجوي.",
+      "question": "ما الحل المباشر المقترح للحد من المشكلة؟",
+      "options": [
+        "زيادة استخدام الفحم",
+        "الاعتماد على الطاقة المتجددة وزراعة الأشجار",
+        "تقليل المساحات الخضراء",
+        "بناء المزيد من المصانع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Solusi yang disarankan adalah mengandalkan energi terbarukan dan menanam pohon («الاعتماد على الطاقة المتجددة وزراعة الأشجار»)."
+    },
+    {
+      "id": "hamza_q_02_014",
+      "section": "reading",
+      "passage": "التلوث البيئي من أكبر التحديات التي تواجه العالم اليوم. يرجع السبب الرئيسي للتلوث إلى النفايات الصناعية وانبعاثات السيارات. يؤدي التلوث إلى تدهور الصحة العامة وتغير المناخ. للحد من هذه المشكلة، يجب الاعتماد على الطاقة المتجددة كالشمس والرياح، وزراعة الأشجار لحماية الغلاف الجوي.",
+      "question": "ما مثال الطاقة المتجددة المذكور في النص؟",
+      "options": [
+        "النفط والغاز",
+        "الشمس والرياح",
+        "الفحم الحجري",
+        "الوقود النووي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Contoh energi terbarukan dalam teks adalah matahari dan angin («الشمس والرياح»)."
+    },
+    {
+      "id": "hamza_q_02_015",
+      "section": "reading",
+      "passage": "التلوث البيئي من أكبر التحديات التي تواجه العالم اليوم. يرجع السبب الرئيسي للتلوث إلى النفايات الصناعية وانبعاثات السيارات. يؤدي التلوث إلى تدهور الصحة العامة وتغير المناخ. للحد من هذه المشكلة، يجب الاعتماد على الطاقة المتجددة كالشمس والرياح، وزراعة الأشجار لحماية الغلاف الجوي.",
+      "question": "ما أهمية زراعة الأشجار حسب الفقرة؟",
+      "options": [
+        "تجميل المدن فقط",
+        "حماية الغلاف الجوي",
+        "توفير الأخشاب للبناء",
+        "زيادة نسبة الغبار"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Menanam pohon berfungsi untuk melindungi atmosfer («حماية الغلاف الجوي»)."
+    },
+    {
+      "id": "hamza_q_02_016",
+      "section": "reading",
+      "passage": "العمل التطوعي يعزز روح التكافل الاجتماعي وينمي مهارات الأفراد. عندما يشارك الشباب في مبادرات خدمة المجتمع، يكتسبون خبرات عملية تفتح لهم آفاقًا جديدة في سوق العمل. كما يساهم التطوع في تعزيز الشعور بالمسؤولية الوطنية والانتماء.",
+      "question": "ما الفائدة الاجتماعية الرئيسية للعمل التطوعي؟",
+      "options": [
+        "تحقيق أرباح مالية",
+        "تعزيز روح التكافل الاجتماعي",
+        "تنافس الشركات",
+        "إلغاء الوظائف الحكومية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat sosial utama dari kegiatan sukarela adalah memperkuat semangat solidaritas sosial («تعزيز روح التكافل الاجتماعي»)."
+    },
+    {
+      "id": "hamza_q_02_017",
+      "section": "reading",
+      "passage": "العمل التطوعي يعزز روح التكافل الاجتماعي وينمي مهارات الأفراد. عندما يشارك الشباب في مبادرات خدمة المجتمع، يكتسبون خبرات عملية تفتح لهم آفاقًا جديدة في سوق العمل. كما يساهم التطوع في تعزيز الشعور بالمسؤولية الوطنية والانتماء.",
+      "question": "ماذا يكتسب الشباب عند مشاركتهم في خدمة المجتمع؟",
+      "options": [
+        "درجات جامعية",
+        "خبرات عملية في سوق العمل",
+        "شهادات سفر دولية",
+        "جوائز مالية ضخمة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pemuda memperoleh pengalaman praktis yang membuka peluang di pasar kerja («خبرات عملية في سوق العمل»)."
+    },
+    {
+      "id": "hamza_q_02_018",
+      "section": "reading",
+      "passage": "العمل التطوعي يعزز روح التكافل الاجتماعي وينمي مهارات الأفراد. عندما يشارك الشباب في مبادرات خدمة المجتمع، يكتسبون خبرات عملية تفتح لهم آفاقًا جديدة في سوق العمل. كما يساهم التطوع في تعزيز الشعور بالمسؤولية الوطنية والانتماء.",
+      "question": "كيف يساهم التطوع في بناء شخصية الفرد؟",
+      "options": [
+        "يزيد من حب العزلة",
+        "يعزز الشعور بالمسؤولية الانتماء",
+        "يقلل من التفكير المستقبلي",
+        "يمنع التعاون مع الآخرين"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sukarela meningkatkan rasa tanggung jawab dan rasa memiliki («يعزز الشعور بالمسؤولية والانتماء»)."
+    },
+    {
+      "id": "hamza_q_02_019",
+      "section": "reading",
+      "passage": "العمل التطوعي يعزز روح التكافل الاجتماعي وينمي مهارات الأفراد. عندما يشارك الشباب في مبادرات خدمة المجتمع، يكتسبون خبرات عملية تفتح لهم آفاقًا جديدة في سوق العمل. كما يساهم التطوع في تعزيز الشعور بالمسؤولية الوطنية والانتماء.",
+      "question": "ما الفئة المستهدفة الرئيسية المذكورة في النص؟",
+      "options": [
+        "الأطفال الرضع",
+        "الشباب",
+        "المتقاعدون فقط",
+        "السياح الأجانب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Teks menاطلاق pemuda sebagai pemهار مشارك utama («الشباب»)."
+    },
+    {
+      "id": "hamza_q_02_020",
+      "section": "reading",
+      "passage": "العمل التطوعي يعزز روح التكافل الاجتماعي وينمي مهارات الأفراد. عندما يشارك الشباب في مبادرات خدمة المجتمع، يكتسبون خبرات عملية تفتح لهم آفاقًا جديدة في سوق العمل. كما يساهم التطوع في تعزيز الشعور بالمسؤولية الوطنية والانتماء.",
+      "question": "ما العنوان الأكثر ملاءمة لهذه الفقرة؟",
+      "options": [
+        "أهمية التجارة العالمية",
+        "أهمية ودور العمل التطوعي",
+        "طرق الكسب السريع",
+        "تاريخ الصناعات اليدوية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling sesuai adalah pentingnya dan peran kerja sukarela («أهمية ودور العمل التطوعي»)."
+    },
+    {
+      "id": "hamza_q_02_021",
+      "section": "reading",
+      "passage": "يُشكل الذكاء الاصطناعي ثورة في مجالات عديدة كالمعاملات المالية والطب والتعليم. يستطيع الذكاء الاصطناعي تحليل البيانات الضخمة بدقة وسرعة فائقة، مما يساعد متخذي القرار على اتخاذ خطوات مدروسة. ومع ذلك، يشدد الخبراء على أهمية مراعاة الأخلاقيات وحماية الخصوصية الرقمية.",
+      "question": "ما المجالات المذكورة لاستخدام الذكاء الاصطناعي؟",
+      "options": [
+        "الزراعة التقليدية فقط",
+        "المعاملات المالية والطب والتعليم",
+        "الصيد البحري فقط",
+        "البناء اليدوي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Bidang yang disebutkan adalah transaksi keuangan, kedokteran, dan pendidikan («المعاملات المالية والطب والتعليم»)."
+    },
+    {
+      "id": "hamza_q_02_022",
+      "section": "reading",
+      "passage": "يُشكل الذكاء الاصطناعي ثورة في مجالات عديدة كالمعاملات المالية والطب والتعليم. يستطيع الذكاء الاصطناعي تحليل البيانات الضخمة بدقة وسرعة فائقة، مما يساعد متخذي القرار على اتخاذ خطوات مدروسة. ومع ذلك، يشدد الخبراء على أهمية مراعاة الأخلاقيات وحماية الخصوصية الرقمية.",
+      "question": "ما الميزة الأساسية للذكاء الاصطناعي في التعامل مع البيانات؟",
+      "options": [
+        "حذف البيانات تلقائيًا",
+        "تحليل البيانات الضخمة بدقة وسرعة",
+        "تخزين البيانات ورقيًا",
+        "إخفاء المعلومات عن الجميع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keunggulan utamanya adalah menganalisis big data secara akurat dan cepat («تحليل البيانات الضخمة بدقة وسرعة»)."
+    },
+    {
+      "id": "hamza_q_02_023",
+      "section": "reading",
+      "passage": "يُشكل الذكاء الاصطناعي ثورة في مجالات عديدة كالمعاملات المالية والطب والتعليم. يستطيع الذكاء الاصطناعي تحليل البيانات الضخمة بدقة وسرعة فائقة، مما يساعد متخذي القرار على اتخاذ خطوات مدروسة. ومع ذلك، يشدد الخبراء على أهمية مراعاة الأخلاقيات وحماية الخصوصية الرقمية.",
+      "question": "كيف يستفيد متخذو القرار من الذكاء الاصطناعي؟",
+      "options": [
+        "في تأخير القرارات",
+        "في اتخاذ خطوات مدروسة",
+        "في التخلي عن التحليل",
+        "في زيادة التكاليف المالية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pembuat keputusan memanfaatkannya untuk mengambil langkah yang terencana («في اتخاذ خطوات مدروسة»)."
+    },
+    {
+      "id": "hamza_q_02_024",
+      "section": "reading",
+      "passage": "يُشكل الذكاء الاصطناعي ثورة في مجالات عديدة كالمعاملات المالية والطب والتعليم. يستطيع الذكاء الاصطناعي تحليل البيانات الضخمة بدقة وسرعة فائقة، مما يساعد متخذي القرار على اتخاذ خطوات مدروسة. ومع ذلك، يشدد الخبراء على أهمية مراعاة الأخلاقيات وحماية الخصوصية الرقمية.",
+      "question": "ما الأمر الذي يشدد عليه الخبراء عند تطبيق الذكاء الاصطناعي؟",
+      "options": [
+        "زيادة سرعة الإنترنت",
+        "مراعاة الأخلاقيات وحماية الخصوصية الرقمية",
+        "إلغاء القوانين التقنية",
+        "تجاهل حماية البيانات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Pakar menekankan pentingnya memperhatikan etika dan privasi digital («مراعاة الأخلاقيات وحماية الخصوصية الرقمية»)."
+    },
+    {
+      "id": "hamza_q_02_025",
+      "section": "reading",
+      "passage": "يُشكل الذكاء الاصطناعي ثورة في مجالات عديدة كالمعاملات المالية والطب والتعليم. يستطيع الذكاء الاصطناعي تحليل البيانات الضخمة بدقة وسرعة فائقة، مما يساعد متخذي القرار على اتخاذ خطوات مدروسة. ومع ذلك، يشدد الخبراء على أهمية مراعاة الأخلاقيات وحماية الخصوصية الرقمية.",
+      "question": "ما الفكرة العامة للنص؟",
+      "options": [
+        "مخاطر الهواتف الذكية",
+        "فوائد وضوابط الذكاء الاصطناعي",
+        "تاريخ الحاسوب الشخصي",
+        "طرق كتابة البرامج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan umum teks adalah manfaat dan batasan etis AI («فوائد وضوابط الذكاء الاصطناعي»)."
+    },
+    {
+      "id": "hamza_q_02_026",
+      "section": "reading",
+      "passage": "ممارسة الرياضة المنظمة جزء أساسي من نمط الحياة الصحي. تساعد الرياضة في تنشيط الدورة الدموية وتقوية العضلات وتقليل مستويات التوتر النفسي. ينصح الأطباء بالمشي الرياضي لمدة ثلاثين دقيقة يوميًا للحفاظ على لياقة البدنية والذهنية.",
+      "question": "ما فائدة الرياضة المنظمة للدورة الدموية؟",
+      "options": [
+        "إبطاؤها",
+        "تنشيطها",
+        "إيقافها",
+        "تخزيتها"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Olahraga teratur bermanfaat untuk mengaktifkan sirkulasi darah («تنشيطها»)."
+    },
+    {
+      "id": "hamza_q_02_027",
+      "section": "reading",
+      "passage": "ممارسة الرياضة المنظمة جزء أساسي من نمط الحياة الصحي. تساعد الرياضة في تنشيط الدورة الدموية وتقوية العضلات وتقليل مستويات التوتر النفسي. ينصح الأطباء بالمشي الرياضي لمدة ثلاثين دقيقة يوميًا للحفاظ على لياقة البدنية والذهنية.",
+      "question": "ما الأثر النفسي للممارسة الرياضية المذكور؟",
+      "options": [
+        "زيادة القلق",
+        "تقليل مستويات التوتر النفسي",
+        "الشعور بالإحباط",
+        "ضعف التركيز"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Olahraga membantu mengurangi tingkat stres psikologis («تقليل مستويات التوتر النفسي»)."
+    },
+    {
+      "id": "hamza_q_02_028",
+      "section": "reading",
+      "passage": "ممارسة الرياضة المنظمة جزء أساسي من نمط الحياة الصحي. تساعد الرياضة في تنشيط الدورة الدموية وتقوية العضلات وتقليل مستويات التوتر النفسي. ينصح الأطباء بالمشي الرياضي لمدة ثلاثين دقيقة يوميًا للحفاظ على لياقة البدنية والذهنية.",
+      "question": "كم المدة اليومية التي ينصح بها الأطباء للمشي؟",
+      "options": [
+        "عشر دقائق",
+        "ثلاثون دقيقة",
+        "ساعتان",
+        "أربع ساعات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dokter menyarankan jalan kaki selama 30 menit sehari («ثلاثون دقيقة»)."
+    },
+    {
+      "id": "hamza_q_02_029",
+      "section": "reading",
+      "passage": "ممارسة الرياضة المنظمة جزء أساسي من نمط الحياة الصحي. تساعد الرياضة في تنشيط الدورة الدموية وتقوية العضلات وتقليل مستويات التوتر النفسي. ينصح الأطباء بالمشي الرياضي لمدة ثلاثين دقيقة يوميًا للحفاظ على لياقة البدنية والذهنية.",
+      "question": "ما نوع الرياضة المذكور تحديدًا في النص؟",
+      "options": [
+        "السباحة",
+        "المشي الرياضي",
+        "ركوب الخيل",
+        "كرة القدم"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jenis olahraga yang disebutkan secara spesifik adalah jalan kaki («المشي الرياضي»)."
+    },
+    {
+      "id": "hamza_q_02_030",
+      "section": "reading",
+      "passage": "ممارسة الرياضة المنظمة جزء أساسي من نمط الحياة الصحي. تساعد الرياضة في تنشيط الدورة الدموية وتقوية العضلات وتقليل مستويات التوتر النفسي. ينصح الأطباء بالمشي الرياضي لمدة ثلاثين دقيقة يوميًا للحفاظ على لياقة البدنية والذهنية.",
+      "question": "ما النتيجة الشاملة لممارسة الرياضة حسب الفقرة؟",
+      "options": [
+        "الحفاظ على اللياقة البدنية والذهنية",
+        "زيادة الشعور بالتعب الداعم",
+        "استهلاك الوقت بدون فائدة",
+        "الاستغناء عن النوم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Hasil keseluruhannya adalah menjaga kebugaran fisik dan mental («الحفاظ على اللياقة البدنية والذهنية»)."
+    },
+    {
+      "id": "hamza_q_02_031",
+      "section": "reading",
+      "passage": "تُعتبر السياحة البيئية من أنماط السياحة المستدامة التي تهدف إلى زيارة المناطق الطبيعية مع الحفاظ عليها. تسهم هذه السياحة في دعم الاقتصاد المحلي لسكان المناطق الريفية وزيادة الوعي بأهمية التنوع البيولوجي.",
+      "question": "ما المعنى الأساسي للسياحة البيئية وفق النص؟",
+      "options": [
+        "زيارة الفنادق الفاخرة",
+        "زيارة المناطق الطبيعية مع الحفاظ عليها",
+        "السفر لغرض التجارة",
+        "التسوق في المراكز الكبرى"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ekowisata berarti mengunjungi kawasan alam sambil melestarikannya («زيارة المناطق الطبيعية مع الحفاظ عليها»)."
+    },
+    {
+      "id": "hamza_q_02_032",
+      "section": "reading",
+      "passage": "تُعتبر السياحة البيئية من أنماط السياحة المستدامة التي تهدف إلى زيارة المناطق الطبيعية مع الحفاظ عليها. تسهم هذه السياحة في دعم الاقتصاد المحلي لسكان المناطق الريفية وزيادة الوعي بأهمية التنوع البيولوجي.",
+      "question": "كيف تدعم السياحة البيئية المجتمع المحلي؟",
+      "options": [
+        "بدعم اقتصاد سكان المناطق الريفية",
+        "ببناء أبراج سكنية",
+        "بزيادة الضرائب",
+        "بتنظيم سباقات السيارات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ekowisata mendukung masyarakat lokal melalui penguatan ekonomi warga pedesaan («بدعم اقتصاد سكان المناطق الريفية»)."
+    },
+    {
+      "id": "hamza_q_02_033",
+      "section": "reading",
+      "passage": "تُعتبر السياحة البيئية من أنماط السياحة المستدامة التي تهدف إلى زيارة المناطق الطبيعية مع الحفاظ عليها. تسهم هذه السياحة في دعم الاقتصاد المحلي لسكان المناطق الريفية وزيادة الوعي بأهمية التنوع البيولوجي.",
+      "question": "ما الفائدة البيئية المذكورة في الفقرة؟",
+      "options": [
+        "قطع الأشجار النادرة",
+        "زيادة الوعي بأهمية التنوع البيولوجي",
+        "بناء الطرق المعبدة",
+        "إنشاء المصانع الكيميائية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat lingkungannya adalah meningkatkan kesadaran akan pentingnya keanekaragaman hayati («زيادة الوعي بأهمية التنوع البيولوجي»)."
+    },
+    {
+      "id": "hamza_q_02_034",
+      "section": "reading",
+      "passage": "تُعتبر السياحة البيئية من أنماط السياحة المستدامة التي تهدف إلى زيارة المناطق الطبيعية مع الحفاظ عليها. تسهم هذه السياحة في دعم الاقتصاد المحلي لسكان المناطق الريفية وزيادة الوعي بأهمية التنوع البيولوجي.",
+      "question": "أي نوع من السياحة تتبع السياحة البيئية؟",
+      "options": [
+        "السياحة العلاجية",
+        "السياحة المستدامة",
+        "السياحة الفضاء",
+        "السياحة الرياضية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ekowisata termasuk dalam kategori pariwisata berkelanjutan («السياحة المستدامة»)."
+    },
+    {
+      "id": "hamza_q_02_035",
+      "section": "reading",
+      "passage": "تُعتبر السياحة البيئية من أنماط السياحة المستدامة التي تهدف إلى زيارة المناطق الطبيعية مع الحفاظ عليها. تسهم هذه السياحة في دعم الاقتصاد المحلي لسكان المناطق الريفية وزيادة الوعي بأهمية التنوع البيولوجي.",
+      "question": "ما الهدف السامي من التوعية في هذه السياحة؟",
+      "options": [
+        "حماية البيئة والتنوع البيولوجي",
+        "زيادة أعداد المصانع",
+        "تغيير معالم الطبيعة",
+        "استهلاك الموارد الطبيعية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tujuan utamanya adalah menjaga lingkungan dan keanekaragaman hayati («حماية البيئة والتنوع البيولوجي»)."
+    },
+    {
+      "id": "hamza_q_02_036",
+      "section": "reading",
+      "passage": "يعتبر تنظيم الوقت من أهم عوامل النجاح الأكاديمي والمهني. الشخص الذي يحدد أهدافه ويضع جدولاً يومياً يستطيع إنجاز المهام بكفاءة أعلى ويقلل من الشعور بالإرهاق. التخطيط المسبق يساعد على تحقيق التوازن بين العمل والحياة الشخصية.",
+      "question": "ما العامل الرئيسي للنجاح الأكاديمي والمهني حسب النص؟",
+      "options": [
+        "الحظ",
+        "تنظيم الوقت",
+        "السفر المباشر",
+        "الاعتماد على الآخرين"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Faktor utama keberhasilan akademis dan profesional adalah manajemen waktu («تنظيم الوقت»)."
+    },
+    {
+      "id": "hamza_q_02_037",
+      "section": "reading",
+      "passage": "يعتبر تنظيم الوقت من أهم عوامل النجاح الأكاديمي والمهني. الشخص الذي يحدد أهدافه ويضع جدولاً يومياً يستطيع إنجاز المهام بكفاءة أعلى ويقلل من الشعور بالإرهاق. التخطيط المسبق يساعد على تحقيق التوازن بين العمل والحياة الشخصية.",
+      "question": "ما فائدة وضع جدول يومي؟",
+      "options": [
+        "تأخير الأعمال",
+        "إنجاز المهام بكفاءة أعلى",
+        "زيادة ساعات النوم",
+        "إلغاء التخطيط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Membuat jadwal harian membantu menyelesaikan tugas dengan efisiensi lebih tinggi («إنجاز المهام بكفاءة أعلى»)."
+    },
+    {
+      "id": "hamza_q_02_038",
+      "section": "reading",
+      "passage": "يعتبر تنظيم الوقت من أهم عوامل النجاح الأكاديمي والمهني. الشخص الذي يحدد أهدافه ويضع جدولاً يومياً يستطيع إنجاز المهام بكفاءة أعلى ويقلل من الشعور بالإرهاق. التخطيط المسبق يساعد على تحقيق التوازن بين العمل والحياة الشخصية.",
+      "question": "ماذا يقلل تنظيم الوقت والتخطيط؟",
+      "options": [
+        "ساعات العمل",
+        "الشعور بالإرهاق",
+        "القدرة الذهنية",
+        "الإنتاجية الشخصية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Mengatur waktu meminimalkan rasa lelah dan kelelahan fisik/mental («الشعور بالإرهاق»)."
+    },
+    {
+      "id": "hamza_q_02_039",
+      "section": "reading",
+      "passage": "يعتبر تنظيم الوقت من أهم عوامل النجاح الأكاديمي والمهني. الشخص الذي يحدد أهدافه ويضع جدولاً يومياً يستطيع إنجاز المهام بكفاءة أعلى ويقلل من الشعور بالإرهاق. التخطيط المسبق يساعد على تحقيق التوازن بين العمل والحياة الشخصية.",
+      "question": "إلامَ يؤدي التخطيط المسبق في نهاية المطاف؟",
+      "options": [
+        "تجاهل الحياة الشخصية",
+        "تحقيق التوازن بين العمل والحياة الشخصية",
+        "زيادة التكاليف المالية",
+        "ترك الأهداف القديمة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Perencanaan awal mewujudkan keseimbangan antara pekerjaan dan kehidupan pribadi («تحقيق التوازن بين العمل والحياة الشخصية»)."
+    },
+    {
+      "id": "hamza_q_02_040",
+      "section": "reading",
+      "passage": "يعتبر تنظيم الوقت من أهم عوامل النجاح الأكاديمي والمهني. الشخص الذي يحدد أهدافه ويضع جدولاً يومياً يستطيع إنجاز المهام بكفاءة أعلى ويقلل من الشعور بالإرهاق. التخطيط المسبق يساعد على تحقيق التوازن بين العمل والحياة الشخصية.",
+      "question": "ما النصيحة الأساسية المستفادة من النص؟",
+      "options": [
+        "تحديد الأهداف ووضع خطة يومية",
+        "ترك المهام حتى اللحظة الأخيرة",
+        "عدم الاهتمام بالوقت",
+        "العمل دون توقف"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Saran utamanya adalah menetapkan tujuan dan menyusun rencana harian («تحديد الأهداف ووضع خطة يومية»)."
+    },
+    {
+      "id": "hamza_q_02_041",
+      "section": "grammar",
+      "question": "اختر الفعل المناسب: ______ المعلمُ الشرحَ بوضوح.",
+      "options": [
+        "قدمت",
+        "قدّمَ",
+        "قدموا",
+        "قدمن"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fi'il madhi mudzakkar mufrad yang sesuai dengan fa'il mudzakkar mufrad «المعلمُ» adalah «قدّمَ»."
+    },
+    {
+      "id": "hamza_q_02_042",
+      "section": "grammar",
+      "question": "حدد الكلمة المرفوعة: المعلمون ______ في عملهم.",
+      "options": [
+        "مخلصين",
+        "مخلصون",
+        "مخلصًا",
+        "مخلصٍ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Khabar dari mubtada' jamak mudzakkar salim «المعلمون» harus مرفوع dengan tanda wawu: «مخلصون»."
+    },
+    {
+      "id": "hamza_q_02_043",
+      "section": "grammar",
+      "question": "اختر حرف الجر الصحيح: ذهب الطالب ______ المكتبة.",
+      "options": [
+        "على",
+        "إلى",
+        "عن",
+        "في"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Harf jar yang tepat menunjukkan tujuan perpindahan ke suatu tempat adalah «إلى»."
+    },
+    {
+      "id": "hamza_q_02_044",
+      "section": "grammar",
+      "question": "ما إعراب كلمة (الكتابَ) في: قرأ التلميذُ الكتابَ؟",
+      "options": [
+        "فاعل مرفوع",
+        "مفعول به منصوب",
+        "مبتدأ مرفوع",
+        "خبر مرفوع"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «الكتابَ» kedudukannya adalah maf'ul bih manshub dengan tanda fathah."
+    },
+    {
+      "id": "hamza_q_02_045",
+      "section": "grammar",
+      "question": "اختر الصيغة الصحيحة للمثنى: حضر ______ الجديدان.",
+      "options": [
+        "الطالبين",
+        "الطالبان",
+        "الطلاب",
+        "الطالب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Fa'il muthanna marfu' ditandai dengan alif: «الطالبان»."
+    },
+    {
+      "id": "hamza_q_02_046",
+      "section": "grammar",
+      "question": "اختر الضمير المناسب: فاطمة وعائشة ______ تدرسان الطب.",
+      "options": [
+        "هما",
+        "هم",
+        "هن",
+        "انتما"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Dhamir gha'ibah muthanna untuk dua orang perempuan adalah «هما»."
+    },
+    {
+      "id": "hamza_q_02_047",
+      "section": "grammar",
+      "question": "اختر أداة النصب المناسبة: يجب أن ______ في الامتحان.",
+      "options": [
+        "تنجحُ",
+        "تنجحَ",
+        "تنجحِ",
+        "تنجحْ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata kerja mudhari' setelah أداة النصب «أن» menjadi منصوب dengan fathah: «تنجحَ»."
+    },
+    {
+      "id": "hamza_q_02_048",
+      "section": "grammar",
+      "question": "حدد جمع المؤنث السالم الصحيح لكلمة (طالبة):",
+      "options": [
+        "طالبون",
+        "طالبات",
+        "طلاب",
+        "طالباتٍ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Bentuk jamak mu'annath salim marfu' dari «طالبة» adalah «طالبات»."
+    },
+    {
+      "id": "hamza_q_02_049",
+      "section": "grammar",
+      "question": "اختر اسم الإشارة المناسب: ______ معلمات متميزات.",
+      "options": [
+        "هذا",
+        "هذه",
+        "هؤلاء",
+        "هذان"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban C. Ism isyarah untuk jamak aqil (para guru perempuan) adalah «هؤلاء»."
+    },
+    {
+      "id": "hamza_q_02_050",
+      "section": "grammar",
+      "question": "ما جمع كلمة (كتاب)؟",
+      "options": [
+        "كاتبون",
+        "كتّاب",
+        "كتب",
+        "مكتبات"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban C. Jamak taksir dari kata «كتاب» adalah «كتب»."
+    },
+    {
+      "id": "hamza_q_02_051",
+      "section": "grammar",
+      "question": "اختر الاسم المجرور بالكسرة: تحدثت مع ______.",
+      "options": [
+        "الطبيبُ",
+        "الطبيبَ",
+        "الطبيبِ",
+        "الأطباءُ"
+      ],
+      "correct_index": 2,
+      "explanation": "Jawaban C. Kata setelah harf jar «مع» (atau majrur) berharakat kasrah: «الطبيبِ»."
+    },
+    {
+      "id": "hamza_q_02_052",
+      "section": "grammar",
+      "question": "اختر أداة الجزم المناسبة: ______ يتأخرْ أحمد عن الموعد.",
+      "options": [
+        "لن",
+        "لم",
+        "أن",
+        "كي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Harf jazm yang menjزمkan fi'il mudhari' «يتأخرْ» adalah «لم»."
+    },
+    {
+      "id": "hamza_q_02_053",
+      "section": "grammar",
+      "question": "ما المعنى المناسب للظرف (فوق)؟",
+      "options": [
+        "تحت",
+        "أعلى",
+        "بين",
+        "أمام"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Zharaf makan «فوق» bermakna di atas / di bagian atas («أعلى»)."
+    },
+    {
+      "id": "hamza_q_02_054",
+      "section": "grammar",
+      "question": "اختر الكلمة المناسبة للاستثناء: حضر الطلاب إلا ______.",
+      "options": [
+        "زيدُ",
+        "زيدًا",
+        "زيدٍ",
+        "زيدٌ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Mustathna setelah «إلا» dalam kalimat تام مثبت adalah manshub: «زيدًا»."
+    },
+    {
+      "id": "hamza_q_02_055",
+      "section": "grammar",
+      "question": "اختر الصفة المطابقة: هذه مدينة ______.",
+      "options": [
+        "جميل",
+        "جميلة",
+        "جميلتان",
+        "جملة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Na'at/sifah harus selaras dengan man'ut mu'annath mufrad «مدينة»: «جميلة»."
+    },
+    {
+      "id": "hamza_q_02_056",
+      "section": "grammar",
+      "question": "ما هو الفعل المضارع من الفعل (كتب)؟",
+      "options": [
+        "يكتب",
+        "أكتبوا",
+        "كاتب",
+        "مكتوب"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' dari kata kerja madhi «كتب» adalah «يكتب»."
+    },
+    {
+      "id": "hamza_q_02_057",
+      "section": "grammar",
+      "question": "حدد الفاعل في الجملة: يرفع العلمُ شأنَ صاحبِهِ.",
+      "options": [
+        "يرفع",
+        "العلمُ",
+        "شأن",
+        "صاحبه"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Subjek pelaku (fa'il marfu') dalam kalimat tersebut adalah «العلمُ»."
+    },
+    {
+      "id": "hamza_q_02_058",
+      "section": "grammar",
+      "question": "اختر الكلمة الصحيحة: إنّ العلمَ ______.",
+      "options": [
+        "نورٌ",
+        "نورًا",
+        "نورٍ",
+        "النورَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Khabar «إنّ» harus marfu' dengan tanwin dhammah: «نورٌ»."
+    },
+    {
+      "id": "hamza_q_02_059",
+      "section": "grammar",
+      "question": "ما نوع الجملة: (السماءُ صافيةٌ)؟",
+      "options": [
+        "جملة فعلية",
+        "جملة اسمية",
+        "شبه جملة",
+        "جملة شرطية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kalimat yang diawali dengan isim («السماءُ») dinamakan jumlah ismiyyah."
+    },
+    {
+      "id": "hamza_q_02_060",
+      "section": "grammar",
+      "question": "اختر الضمير المتصل المناسب: أخذ محمد كتابَـ______.",
+      "options": [
+        "ـه",
+        "ـها",
+        "ـهم",
+        "ـهن"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Dhamir muttashil yang merujuk pada mudzakkar mufrad (Muhammad) adalah «ـه» («كتابَه»)."
+    },
+    {
+      "id": "hamza_q_02_061",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح: كان الطلابُ ______ في المكتبة.",
+      "options": [
+        "يقرؤون",
+        "يقرأ",
+        "يقرآن",
+        "قرؤوا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' jamak mudzakkar «يقرؤون» selaras sebagai khabar fi'liyah dari «كان الطلابُ»."
+    },
+    {
+      "id": "hamza_q_02_062",
+      "section": "structures",
+      "question": "اختر التركيب الإضافي الصحيح:",
+      "options": [
+        "طالبُ المدرسةِ",
+        "طالبٌ المدرسةَ",
+        "الطالبُ المدرسةِ",
+        "طالبًا مدرسةٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Susunan idhafah yang benar terdiri dari mudhaf tanpa alif lam/tanwin dan mudhaf ilaih majrur: «طالبُ المدرسةِ»."
+    },
+    {
+      "id": "hamza_q_02_063",
+      "section": "structures",
+      "question": "حدد الجملة الصحيحة تركيبًا:",
+      "options": [
+        "إنّ المهندسون بارعون",
+        "إنّ المهندسين بارعون",
+        "إنّ المهندسين بارعين",
+        "إنّ المهندسون بارعين"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. «إنّ» نصب isim («المهندسين») dan رفع khabar («بارعون»)."
+    },
+    {
+      "id": "hamza_q_02_064",
+      "section": "structures",
+      "question": "اختر النعت المناسب: قرأتُ قصصًا ______.",
+      "options": [
+        "مفيدةً",
+        "مفيدٌ",
+        "مفيدةٌ",
+        "مفيدًا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Na'at untuk maf'ul bih jamak ghairu aqil manshub («قصصًا») berwujud mu'annath mufrad manshub: «مفيدةً»."
+    },
+    {
+      "id": "hamza_q_02_065",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة:",
+      "options": [
+        "أحمدُ إلى ذهبَ المدرسةِ",
+        "ذهبَ أحمدُ إلى المدرسةِ",
+        "إلى المدرسةِ ذهبَ أحمدُ",
+        "المدرسةِ إلى أحمدُ ذهبَ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Susunan jumlah fi'liyah baku: Fi'il + Fa'il + Harf Jar + Majrur («ذهبَ أحمدُ إلى المدرسةِ»)."
+    },
+    {
+      "id": "hamza_q_02_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن أهمية الحفاظ على البيئة من التلوث.",
+      "prompt_hint": "اذكر سببين لتلوث البيئة وحلين عمليين للحد منه",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan minimal 80 kata. Uraikan 2 penyebab utama pencemaran lingkungan serta 2 langkah praktis melestarikan alam."
+    },
+    {
+      "id": "hamza_q_02_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب رسالة قصيرة تشكر فيها معلمك على جهوده في تعليمك.",
+      "prompt_hint": "تضمن الرسالة التحية وعبارات التقدير والدعاء",
+      "minimum_words": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tulis surat ucapan terima kasih minimal 60 kata dengan salam pembuka, apresiasi atas bimbingan guru, dan doa perpisahan."
+    },
+    {
+      "id": "hamza_q_02_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش إيجابيات وسلبيات استخدام وسائل التواصل الاجتماعي.",
+      "prompt_hint": "اذكر إيجابيتين وسلبيتين وخاتمة تلخص رأيك",
+      "minimum_words": 90,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat karangan minimal 90 kata. Sebutkan 2 dampak positif dan 2 dampak negatif media sosial disertai kesimpulan pandangan Anda."
+    },
+    {
+      "id": "hamza_q_02_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن تجربة تطوعية شاركت فيها أو ترغب في المشاركة فيها.",
+      "prompt_hint": "صف طبيعة العمل التطوعي والفوائد التي اكتسبتها",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan pengalaman atau cita-cita kegiatan sukarela minimal 80 kata, jelaskan bentuk aksi dan hikmah sosialnya."
+    },
+    {
+      "id": "hamza_q_02_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف مدينتك أو قريتك موضحًا أهم معالمها وما تحبه فيها.",
+      "prompt_hint": "اذكر موقعها ومعالمها الرئيسية وسبب حبك لها",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Deskripsikan kota/desa Anda minimal 70 kata, sebutkan ikon/landmark utama serta alasan Anda menyukainya."
+    },
+    {
+      "id": "hamza_q_02_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "تحدث عن مهنتك الحالية أو مهنة أحلامك وما تتطلع لتحقيقه فيها.",
+      "prompt_hint": "اذكر اسم المهنة والمهارات المطلوبة وطموحك المستقبلي",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan uraian lisan 1 menit mengenai profesi impian, keahlian yang dibutuhkan, serta target karir Anda."
+    },
+    {
+      "id": "hamza_q_02_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "صف رحلة مميزة قمت بها سابقًا وأهم الأماكن التي زرتها.",
+      "prompt_hint": "اذكر الوجهة ووسيلة النقل وأبرز ذكرياتك",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Ceritakan perjalanan berkesan selama 60 detik mencakup destinasi, moda transportasi, dan momen paling berkesan."
+    },
+    {
+      "id": "hamza_q_02_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "عبر عن رأيك في التكنولوجيا الحديثة وأثرها على حياتنا اليومية.",
+      "prompt_hint": "اذكر مثالين لاستخدام التكنولوجيا في الحياة اليومية",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Berikan opini lisan 1 menit mengenai peran teknologi modern beserta 2 contoh nyata penggunaannya sehari-hari."
+    },
+    {
+      "id": "hamza_q_02_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "تحدث عن كتاب قرأته مؤخرًا أو قصة أثرت في حياتك.",
+      "prompt_hint": "اذكر عنوان الكتاب والعبرة الرئيسية منه",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Bicara 60 detik tentang buku atau kisah inspiratif yang pernah Anda baca serta pelajaran penting di dalamnya."
+    },
+    {
+      "id": "hamza_q_02_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "قدم نصيحة لصديق يريد تعلم اللغة العربية بنجاح.",
+      "prompt_hint": "قدم ثلاث نصائح عملية للتعلم الفعال",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Berikan 3 tips praktis secara lisan selama 1 menit bagi pembelajar pemula yang ingin menguasai bahasa Arab."
+    }
+  ]
+}

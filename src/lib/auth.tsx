@@ -12,6 +12,7 @@ type AuthContextValue = {
   isSignedIn: boolean
   userId: string | null
   displayName: string
+  email?: string
   role: UserRole
   setRole: (role: UserRole) => void
   getToken: () => Promise<string | null>
@@ -28,6 +29,7 @@ const demoAuth: AuthContextValue = {
   isSignedIn: true,
   userId: "demo-user",
   displayName: "Peserta Demo",
+  email: "peserta@hamza.test",
   role: "user",
   setRole: () => undefined,
   getToken: async () => null,
@@ -84,6 +86,7 @@ function ClerkAuthBridge({ children }: { children: ReactNode }) {
     isSignedIn: Boolean(isSignedIn),
     userId: userId ?? null,
     displayName: user?.fullName ?? user?.primaryEmailAddress?.emailAddress ?? "Peserta",
+    email: user?.primaryEmailAddress?.emailAddress,
     role: detectedRole,
     setRole: () => undefined,
     getToken: () => getToken({ template: "supabase" }),

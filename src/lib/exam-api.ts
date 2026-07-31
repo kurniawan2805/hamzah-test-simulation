@@ -254,6 +254,8 @@ export function getPublicAudioUrl(client: SupabaseClient, path: string): string 
 
 export type AdminAttempt = CloudAttempt & {
   userId: string
+  userEmail?: string
+  userName?: string
   examTitle: string
 }
 
@@ -263,8 +265,24 @@ export async function getAdminAllAttempts(client: SupabaseClient): Promise<Admin
   return asRows(data).map((row) => ({
     ...toAttempt(row),
     userId: asString(row.user_id),
+    userEmail: row.user_email ? asString(row.user_email) : undefined,
+    userName: row.user_name ? asString(row.user_name) : undefined,
     examTitle: asString(row.exam_title),
   }))
+}
+
+export async function syncUserProfile(
+  client: SupabaseClient,
+  displayName?: string,
+  email?: string
+): Promise<void> {
+  const { error } = await client.rpc("sync_user_profile", {
+    p_display_name: displayName || null,
+    p_email: email || null,
+  })
+  if (error) {
+    console.warn("Failed to sync user profile:", error)
+  }
 }
 
 export async function getAdminAttemptReview(client: SupabaseClient, attemptId: string): Promise<ReviewQuestion[]> {

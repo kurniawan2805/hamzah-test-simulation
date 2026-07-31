@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal5",
+  "title": "اختبار همزة التجريبي - النموذج 5",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج الخامس",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_05_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_01",
+      "question": "ما الميزة الرئيسية للعمل الحر في النص؟",
+      "options": [
+        "الراتب الثابت أسبوعيًا",
+        "المرونة في تحديد الأوقات واختيار المشاريع",
+        "العمل دون مهارات",
+        "السفر المباشر للخارج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keuntungan utama freelance dalam teks adalah fleksibilitas menentukan waktu dan memilih proyek («المرونة في تحديد الأوقات واختيار المشاريع»)."
+    },
+    {
+      "id": "hamza_q_05_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_01",
+      "question": "ما الشرط الأساسي لنجاح المستقلين في هذا العمل؟",
+      "options": [
+        "الانضباط الذاتي وإدارة الوقت",
+        "وجود مكتب كبير",
+        "الاعتماد على الحظ",
+        "العمل في الليل فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Syarat utama keberhasilannya adalah disiplin diri dan manajemen waktu («الانضباط الذاتي وإدارة الوقت»)."
+    },
+    {
+      "id": "hamza_q_05_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_02",
+      "question": "ما العناصر المميزة للعمارة الإسلامية في النص؟",
+      "options": [
+        "الأقواس والزخارف الهندسية والخط العربي",
+        "الحديد والزجاج الحديث فقط",
+        "التماثيل والرسم الزيتي",
+        "الأخشاب البسيطة بدون نقش"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ciri khas arsitektur Islam adalah lengkungan, ornamen geometris, dan kaligrafi Arab («الأقواس والزخارف الهندسية والخط العربي»)."
+    },
+    {
+      "id": "hamza_q_05_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_02",
+      "question": "أين تظهر هذه العناصر الفنية في النص؟",
+      "options": [
+        "في الأسواق الشعبية فقط",
+        "على جدران المساجد والقلاع",
+        "في السفن البحرية",
+        "في وسائل النقل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Karya seni arsitektur tersebut tampak pada dinding masjid dan benteng («على جدران المساجد والقلاع»)."
+    },
+    {
+      "id": "hamza_q_05_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_02",
+      "question": "ماذا تعكس هذه الأعمال الفنية حسب الفقرة؟",
+      "options": [
+        "التسرع في البناء",
+        "دقة الصانع وجمال التصميم الهندسي",
+        "قلة المواد المتاحة",
+        "تأثرها بالبناء الأجنبي فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Karya seni merefleksikan ketelitian pembuatnya dan keindahan desain geometris («دقة الصانع وجمال التصميم الهندسي»)."
+    },
+    {
+      "id": "hamza_q_05_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_03",
+      "question": "ما أهمية سياحة التراث في النص؟",
+      "options": [
+        "استهلاك الموارد",
+        "مصدر مهم للدخل القومي ودعم الاقتصاد",
+        "زيادة الازدحام المروري فقط",
+        "تقليل فرص العمل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Wisata warisan budaya penting sebagai sumber pendapatan nasional dan penopang ekonomi («مصدر مهم للد الدخل القومي ودعم الاقتصاد»)."
+    },
+    {
+      "id": "hamza_q_05_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_03",
+      "question": "ما الفائدة الثقافية لزيارة المواقع التاريخية؟",
+      "options": [
+        "التعرف على ثقافات الشعوب القديمة",
+        "تعلم اللغات الحديثة فقط",
+        "تغيير الآثار القديمة",
+        "الاسترخاء الشاطئي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Manfaat budayanya adalah mengenal kebudayaan bangsa-bangsa terdahulu («التعرف على ثقافات الشعوب القديمة»)."
+    },
+    {
+      "id": "hamza_q_05_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_03",
+      "question": "ما الجهة المستفيدة اقتصادياً من السياحة التاريخية؟",
+      "options": [
+        "الاقتصاد المحلي",
+        "المصانع الأجنبية فقط",
+        "شركات الطيران فقط",
+        "الفنادق الفاخرة فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Sektor yang diuntungkan secara ekonomi adalah perekonomian lokal («الاقتصاد المحلي»)."
+    },
+    {
+      "id": "hamza_q_05_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_04",
+      "question": "ما هدف المبادرة الدولية في النص؟",
+      "options": [
+        "بناء فنادق جديدة",
+        "تنظيف الشواطئ من المواد البلاستيكية",
+        "صيد الأسماك الكبيرة",
+        "إقامة مسابقات السباحة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan inisiatif internasional adalah membersihkan pantai dari sampah plastik («تنظيف الشواطئ من المواد البلاستيكية»)."
+    },
+    {
+      "id": "hamza_q_05_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b05_04",
+      "question": "من شارك في هذه المبادرة البيئية؟",
+      "options": [
+        "الشرطة فقط",
+        "آلاف المتطوعين",
+        "السياح الأجانب فقط",
+        "الصيادون المحترفون"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Aksi lingkungan ini diikuti oleh ribuan sukarelawan («آلاف المتطوعين»)."
+    },
+    {
+      "id": "hamza_q_05_011",
+      "section": "reading",
+      "passage": "شهد اقتصاد العمل الحر تطوراً مذهلاً بفعل انتشار المنصات الرقمية. يستطيع المهنيون اليوم تقديم خدماتهم في مجالات البرمجة والترجمة والتصميم لعملاء حول العالم دون الحاجة إلى التنقل السفر. ورغم هذه المزايا، يواجه المستقلون تحدي التأمين الصحي وعدم استقرار الدخل.",
+      "question": "ما العامل الأساسي لتطور اقتصاد العمل الحر؟",
+      "options": [
+        "انخفاض أسعار الحواسيب",
+        "انتشار المنصات الرقمية",
+        "زيادة الوظائف الحكومية",
+        "إلغاء الضرائب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Faktor utama pesatnya ekonomi freelance adalah meluasnya platform digital («انتشار المنصات الرقمية»)."
+    },
+    {
+      "id": "hamza_q_05_012",
+      "section": "reading",
+      "passage": "شهد اقتصاد العمل الحر تطوراً مذهلاً بفعل انتشار المنصات الرقمية. يستطيع المهنيون اليوم تقديم خدماتهم في مجالات البرمجة والترجمة والتصميم لعملاء حول العالم دون الحاجة إلى التنقل السفر. ورغم هذه المزايا، يواجه المستقلون تحدي التأمين الصحي وعدم استقرار الدخل.",
+      "question": "ما الخدمات المذكورة التي يقدمها المستقلون عبر المنصات؟",
+      "options": [
+        "البناء والزراعة",
+        "البرمجة والترجمة والتصميم",
+        "الطبابة والتسريض الميداني",
+        "صيانة السيارات والتكييف"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Layanan jasa freelance yang disebut mencakup pemrograman, penerjemahan, dan desain («البرمجة والترجمة والتصميم»)."
+    },
+    {
+      "id": "hamza_q_05_013",
+      "section": "reading",
+      "passage": "شهد اقتصاد العمل الحر تطوراً مذهلاً بفعل انتشار المنصات الرقمية. يستطيع المهنيون اليوم تقديم خدماتهم في مجالات البرمجة والترجمة والتصميم لعملاء حول العالم دون الحاجة إلى التنقل السفر. ورغم هذه المزايا، يواجه المستقلون تحدي التأمين الصحي وعدم استقرار الدخل.",
+      "question": "ما الميزة المكانية المتاحة للمستقلين في الفقرة؟",
+      "options": [
+        "تقديم الخدمات لعملاء عالميين دون تنقل",
+        "العمل داخل مقر الشركة دائماً",
+        "السفر الإجباري كل شهر",
+        "عدم التواصل مع العملاء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Keuntungannya melayani klien internasional tanpa perlu bepergian («تقديم الخدمات لعملاء عالميين دون تنقل»)."
+    },
+    {
+      "id": "hamza_q_05_014",
+      "section": "reading",
+      "passage": "شهد اقتصاد العمل الحر تطوراً مذهلاً بفعل انتشار المنصات الرقمية. يستطيع المهنيون اليوم تقديم خدماتهم في مجالات البرمجة والترجمة والتصميم لعملاء حول العالم دون الحاجة إلى التنقل السفر. ورغم هذه المزايا، يواجه المستقلون تحدي التأمين الصحي وعدم استقرار الدخل.",
+      "question": "ما التحديان المذكوران للعمل الحر في نهاية النص؟",
+      "options": [
+        "صعوبة استخدام الإنترنت واللغة",
+        "التأمين الصحي وعدم استقرار الدخل",
+        "كثرة الإجازات وقلة المشاريع",
+        "عدم وجود هواتف حديثة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua tantangan utamanya adalah asuransi kesehatan dan ketidakstabilان penghasilan («التأمين الصحي وعدم استقرار الدخل»)."
+    },
+    {
+      "id": "hamza_q_05_015",
+      "section": "reading",
+      "passage": "شهد اقتصاد العمل الحر تطوراً مذهلاً بفعل انتشار المنصات الرقمية. يستطيع المهنيون اليوم تقديم خدماتهم في مجالات البرمجة والترجمة والتصميم لعملاء حول العالم دون الحاجة إلى التنقل السفر. ورغم هذه المزايا، يواجه المستقلون تحدي التأمين الصحي وعدم استقرار الدخل.",
+      "question": "ما الفكرة المحورية لهذا النص؟",
+      "options": [
+        "كيف تصبح مترجماً فورياً",
+        "فرص وتحديات اقتصاد العمل الحر",
+        "مخاطر البرمجة الإلكترونية",
+        "أنواع المنصات التعليمية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya membahas peluang dan tantangan ekonomi gig/freelance («فرص وتحديات اقتصاد العمل الحر»)."
+    },
+    {
+      "id": "hamza_q_05_016",
+      "section": "reading",
+      "passage": "تُمثل قصر الحمراء في غرناطة ذروة الفن المعماري الإسلامي في الأندلس. يتميز القصر بجمال الباحات المفتوحة وجريان المياه في النافورات وتناسق النقوش على الأسقف والجدران. يُعد القصر مقصداً لملايين السياح سنوياً للاستمتاع بعبق التاريخ.",
+      "question": "أين يقع قصر الحمراء المذكور في النص؟",
+      "options": [
+        "في بغداد",
+        "في غرناطة بالأندلس",
+        "في دمشق",
+        "في القاهرة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Istana Alhambra berlokasi di Granada, Andalusia («في غرناطة بالأندلس»)."
+    },
+    {
+      "id": "hamza_q_05_017",
+      "section": "reading",
+      "passage": "تُمثل قصر الحمراء في غرناطة ذروة الفن المعماري الإسلامي في الأندلس. يتميز القصر بجمال الباحات المفتوحة وجريان المياه في النافورات وتناسق النقوش على الأسقف والجدران. يُعد القصر مقصداً لملايين السياح سنوياً للاستمتاع بعبق التاريخ.",
+      "question": "ما العناصر الجمالية البارزة داخل القصر؟",
+      "options": [
+        "الأبراج الحديثة والمصاعد",
+        "الباحات المفتوحة والنافورات والنقوش المتناسقة",
+        "الأثاث الأوروبي الحديث",
+        "الملاعب الرياضية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keindahan Alhambra terletak pada pelataran terbuka, air mancur, dan ukiran harmonis («الباحات المفتوحة والنافورات والنقوش المتناسقة»)."
+    },
+    {
+      "id": "hamza_q_05_018",
+      "section": "reading",
+      "passage": "تُمثل قصر الحمراء في غرناطة ذروة الفن المعماري الإسلامي في الأندلس. يتميز القصر بجمال الباحات المفتوحة وجريان المياه في النافورات وتناسق النقوش على الأسقف والجدران. يُعد القصر مقصداً لملايين السياح سنوياً للاستمتاع بعبق التاريخ.",
+      "question": "ما الأثر السياحي لقصر الحمراء اليوم؟",
+      "options": [
+        "قصر مغلق أمام الزوار",
+        "مقصد لملايين السياح سنوياً للاستمتاع بالتاريخ",
+        "مقر للشركات التجارية",
+        "متحف للعلوم الحديثة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Alhambra menjadi destinasi jutaan wisatawan setiap tahun («مقصد لملايين السياح سنوياً للاستمتاع بالتاريخ»)."
+    },
+    {
+      "id": "hamza_q_05_019",
+      "section": "reading",
+      "passage": "تُمثل قصر الحمراء في غرناطة ذروة الفن المعماري الإسلامي في الأندلس. يتميز القصر بجمال الباحات المفتوحة وجريان المياه في النافورات وتناسق النقوش على الأسقف والجدران. يُعد القصر مقصداً لملايين السياح سنوياً للاستمتاع بعبق التاريخ.",
+      "question": "ما الحضارة المعمارية التي يمثلها القصر؟",
+      "options": [
+        "العمارة الرومانية",
+        "الفن المعماري الإسلامي في الأندلس",
+        "العمارة القوطية",
+        "الفن الصيني القديم"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Istana ini merupakan puncak seni arsitektur Islam di Andalusia («الفن المعماري الإسلامي في الأندلس»)."
+    },
+    {
+      "id": "hamza_q_05_020",
+      "section": "reading",
+      "passage": "تُمثل قصر الحمراء في غرناطة ذروة الفن المعماري الإسلامي في الأندلس. يتميز القصر بجمال الباحات المفتوحة وجريان المياه في النافورات وتناسق النقوش على الأسقف والجدران. يُعد القصر مقصداً لملايين السياح سنوياً للاستمتاع بعبق التاريخ.",
+      "question": "ما الشعور الذي يمنحه القصر لزواره حسب الفقرة؟",
+      "options": [
+        "الاستمتاع بعبق التاريخ",
+        "الملل من البناء",
+        "الخوف من القدم",
+        "الرغبة في التحديث"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pengunjung menikmati keharuman dan keagungan nilai sejarah («الاستمتاع بعبق التاريخ»)."
+    },
+    {
+      "id": "hamza_q_05_021",
+      "section": "reading",
+      "passage": "تساهم السياحة المستدامة في حماية البيئة البحرية والتنوع البيولوجي في الشعاب المرجانية. تتطلب هذه السياحة توعية السياح بعدم إلقاء المخلفات والتزام الغواصين بقواعد حماية الأحياء المائية الشاطئية.",
+      "question": "ما المجال البيئي المستهدف بالحماية في النص؟",
+      "options": [
+        "الغابات الجبلية",
+        "البيئة البحرية والشعاب المرجانية",
+        "الصحارى الرملية",
+        "الأراضي الزراعية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kawasan yang dilindungi adalah ekosistem laut dan terumbu karang («البيئة البحرية والشعاب المرجانية»)."
+    },
+    {
+      "id": "hamza_q_05_022",
+      "section": "reading",
+      "passage": "تساهم السياحة المستدامة في حماية البيئة البحرية والتنوع البيولوجي في الشعاب المرجانية. تتطلب هذه السياحة توعية السياح بعدم إلقاء المخلفات والتزام الغواصين بقواعد حماية الأحياء المائية الشاطئية.",
+      "question": "ما الواجب المباشر المطلوب من السياح لحماية البحر؟",
+      "options": [
+        "عدم إلقاء المخلفات في المياه",
+        "صيد الأسماك الكبيرة",
+        "إطعام الحيوانات البحرية بكثرة",
+        "بناء منصات خشبية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kaitan langsung wisatawan adalah tidak membuang sampah ke laut («عدم إلقاء المخلفات في المياه»)."
+    },
+    {
+      "id": "hamza_q_05_023",
+      "section": "reading",
+      "passage": "تساهم السياحة المستدامة في حماية البيئة البحرية والتنوع البيولوجي في الشعاب المرجانية. تتطلب هذه السياحة توعية السياح بعدم إلقاء المخلفات والتزام الغواصين بقواعد حماية الأحياء المائية الشاطئية.",
+      "question": "بماذا يجب أن يلتزم الغواصون وفق النص؟",
+      "options": [
+        "بقواعد حماية الأحياء المائية",
+        "بالغوص السريع فقط",
+        "بالتقاط المرجان والتذكارات",
+        "بالتصوير التجاري"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Para penyelam wajib mematuhi aturan perlindungan biota laut («بقواعد حماية الأحياء المائية»)."
+    },
+    {
+      "id": "hamza_q_05_024",
+      "section": "reading",
+      "passage": "تساهم السياحة المستدامة في حماية البيئة البحرية والتنوع البيولوجي في الشعاب المرجانية. تتطلب هذه السياحة توعية السياح بعدم إلقاء المخلفات والتزام الغواصين بقواعد حماية الأحياء المائية الشاطئية.",
+      "question": "ما النوع المحدد للسياحة المذكور في الفقرة؟",
+      "options": [
+        "السياحة العلاجية",
+        "السياحة المستدامة",
+        "سياحة المهرجانات",
+        "السياحة الرياضية العنيفة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jenis pariwisata yang disasar adalah pariwisata berkelanjutan («السياحة المستدامة»)."
+    },
+    {
+      "id": "hamza_q_05_025",
+      "section": "reading",
+      "passage": "تساهم السياحة المستدامة في حماية البيئة البحرية والتنوع البيولوجي في الشعاب المرجانية. تتطلب هذه السياحة توعية السياح بعدم إلقاء المخلفات والتزام الغواصين بقواعد حماية الأحياء المائية الشاطئية.",
+      "question": "ما الفكرة الرئيسية للنص؟",
+      "options": [
+        "طرق تعلم الغوص",
+        "دور السياحة المستدامة في حماية البيئة البحرية",
+        "أنواع الأسماك المأكولة",
+        "كيفية بناء الشعاب المرجانية الصناعية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah peran pariwisata berkelanjutan dalam menjaga ekosistem laut («دور السياحة المستدامة في حماية البيئة البحرية»)."
+    },
+    {
+      "id": "hamza_q_05_026",
+      "section": "reading",
+      "passage": "يواجه العالم مشكلة التلوث البلاستيكي الذي يهدد الحياة الفطرية والبحرية. تُشير التقارير البيئية إلى أن آلاف الأطنان من البلاستيك ينتهي بها المطاف في المحيطات سنوياً، مما يوجب التوسع في إعادة التدوير وحظر البلاستيك أحادي الاستخدام.",
+      "question": "ما الخطر البيئي الرئيسي الذي يناقشه النص؟",
+      "options": [
+        "التلوث الضوضائي",
+        "التلوث البلاستيكي الذي يهدد الحياة الفطرية والبحرية",
+        "التلوث بالدخان فقط",
+        "نقص مياه الأمطار"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Bahaya utama yang diulas adalah pencemaran plastik yang mengancام kehidupan liar & laut («التلوث البلاستيكي الذي يهدد الحياة الفطرية والبحرية»)."
+    },
+    {
+      "id": "hamza_q_05_027",
+      "section": "reading",
+      "passage": "يواجه العالم مشكلة التلوث البلاستيكي الذي يهدد الحياة الفطرية والبحرية. تُشير التقارير البيئية إلى أن آلاف الأطنان من البلاستيك ينتهي بها المطاف في المحيطات سنوياً، مما يوجب التوسع في إعادة التدوير وحظر البلاستيك أحادي الاستخدام.",
+      "question": "أين تنتهي آلاف الأطنان من البلاستيك سنوياً؟",
+      "options": [
+        "في المصانع المغلقة",
+        "في المحيطات",
+        "في باطن الأرض البعيدة",
+        "في الفضاء الخارجي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ribuan ton sampah plastik berakhir di lautan samudera («في المحيطات»)."
+    },
+    {
+      "id": "hamza_q_05_028",
+      "section": "reading",
+      "passage": "يواجه العالم مشكلة التلوث البلاستيكي الذي يهدد الحياة الفطرية والبحرية. تُشير التقارير البيئية إلى أن آلاف الأطنان من البلاستيك ينتهي بها المطاف في المحيطات سنوياً، مما يوجب التوسع في إعادة التدوير وحظر البلاستيك أحادي الاستخدام.",
+      "question": "ما الحلان البيئيان الموصى بهما في نهاية الفقرة؟",
+      "options": [
+        "حرق البلاستيك في الهواء",
+        "إعادة التدوير وحظر البلاستيك أحادي الاستخدام",
+        "رمي البلاستيك في الأنهار",
+        "زيادة إنتاج البلاستيك"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua solusi lingkungan disarankan: daur ulang dan larang plastik sekali pakai («إعادة التدوير وحظر البلاستيك أحادي الاستخدام»)."
+    },
+    {
+      "id": "hamza_q_05_029",
+      "section": "reading",
+      "passage": "يواجه العالم مشكلة التلوث البلاستيكي الذي يهدد الحياة الفطرية والبحرية. تُشير التقارير البيئية إلى أن آلاف الأطنان من البلاستيك ينتهي بها المطاف في المحيطات سنوياً، مما يوجب التوسع في إعادة التدوير وحظر البلاستيك أحادي الاستخدام.",
+      "question": "ما مصدر الأرقام والإحصاءات المذكورة في النص؟",
+      "options": [
+        "مجلات الترفيه",
+        "التقارير البيئية الرسمية",
+        "وسائل التواصل فقط",
+        "روايات خيالية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Informasi angka berasal dari laporan-laporan lingkungan («التقارير البيئية الرسمية»)."
+    },
+    {
+      "id": "hamza_q_05_030",
+      "section": "reading",
+      "passage": "يواجه العالم مشكلة التلوث البلاستيكي الذي يهدد الحياة الفطرية والبحرية. تُشير التقارير البيئية إلى أن آلاف الأطنان من البلاستيك ينتهي بها المطاف في المحيطات سنوياً، مما يوجب التوسع في إعادة التدوير وحظر البلاستيك أحادي الاستخدام.",
+      "question": "ما الهدف السامي من التوعية بهذا التلوث؟",
+      "options": [
+        "حماية المحيطات والحياة البحرية",
+        "زيادة مبيعات الزجاج",
+        "بناء مراكب جديدة",
+        "تطوير المواد الكيميائية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tujuan mulia edukasi ini adalah melindungi laut dan satwa air («حماية المحيطات والحياة البحرية»)."
+    },
+    {
+      "id": "hamza_q_05_031",
+      "section": "reading",
+      "passage": "التسويق الرقمي أصبح أداة جوهرية لنجاح المشاريع الحديثة. يعتمد التسويق الرقمي على تحسين محركات البحث والحملات عبر وسائل التواصل الاجتماعي واستهداف الجمهور المناسب بدقة تحليلية عالية.",
+      "question": "ما الدور الأساسي للتسويق الرقمي في النص؟",
+      "options": [
+        "أداة جوهرية لنجاح المشاريع الحديثة",
+        "وسيلة لتقليل عدد الموظفين",
+        "بديل كامل للإنتاج",
+        "طريقة للتسويق التقليدي"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pemasaran digital merupakan instrumen krusial bagi keberhasilan bisnis modern («أداة جوهرية لنجاح المشاريع الحديثة»)."
+    },
+    {
+      "id": "hamza_q_05_032",
+      "section": "reading",
+      "passage": "التسويق الرقمي أصبح أداة جوهرية لنجاح المشاريع الحديثة. يعتمد التسويق الرقمي على تحسين محركات البحث والحملات عبر وسائل التواصل الاجتماعي واستهداف الجمهور المناسب بدقة تحليلية عالية.",
+      "question": "ما الأدوات التقنية التي يعتمد عليها التسويق الرقمي؟",
+      "options": [
+        "الصحف الورقية والمنشورات",
+        "تحسين محركات البحث وحملات وسائل التواصل",
+        "المكالمات الهاتفية العشوائية",
+        "الرسائل البريدية التقليدية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Alat teknis yang dipakai mencakup SEO dan kampanye media sosial («تحسين محركات البحث وحملات وسائل التواصل»)."
+    },
+    {
+      "id": "hamza_q_05_033",
+      "section": "reading",
+      "passage": "التسويق الرقمي أصبح أداة جوهرية لنجاح المشاريع الحديثة. يعتمد التسويق الرقمي على تحسين محركات البحث والحملات عبر وسائل التواصل الاجتماعي واستهداف الجمهور المناسب بدقة تحليلية عالية.",
+      "question": "ما ميزة استهداف الجمهور في التسويق الرقمي؟",
+      "options": [
+        "العشوائية وعدم التحديد",
+        "الدقة التحليلية العالية في تحديد الجمهور المناسب",
+        "الوصول لجميع الناس دون استثناء",
+        "ارتفاع التكلفة بدون عائد"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keuntungannya adalah presisi analisis tinggi dalam membidik audiens target («الدقة التحليلية العالية في تحديد الجمهور المناسب»)."
+    },
+    {
+      "id": "hamza_q_05_034",
+      "section": "reading",
+      "passage": "التسويق الرقمي أصبح أداة جوهرية لنجاح المشاريع الحديثة. يعتمد التسويق الرقمي على تحسين محركات البحث والحملات عبر وسائل التواصل الاجتماعي واستهداف الجمهور المناسب بدقة تحليلية عالية.",
+      "question": "ما الذي يتطلبه التسويق الرقمي من أصحاب المشاريع؟",
+      "options": [
+        "متابعة البيانات وتحليل نتائج الحملات",
+        "التوقف عن الإعلانات",
+        "الاعتماد على التوصيات الشفهية فقط",
+        "تجاهل العملاء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pemasar dituntut memantau data dan menganalisis efektivitas kampanye («متابعة البيانات وتحليل نتائج الحملات»)."
+    },
+    {
+      "id": "hamza_q_05_035",
+      "section": "reading",
+      "passage": "التسويق الرقمي أصبح أداة جوهرية لنجاح المشاريع الحديثة. يعتمد التسويق الرقمي على تحسين محركات البحث والحملات عبر وسائل التواصل الاجتماعي واستهداف الجمهور المناسب بدقة تحليلية عالية.",
+      "question": "ما العنوان المناسب لهذا النص؟",
+      "options": [
+        "تاريخ الطباعة والنشر",
+        "أهمية وركائز التسويق الرقمي",
+        "طريقة إنشاء حساب مصرفي",
+        "تطور الهواتف المحمولة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling sesuai adalah pentingnya dan pilar-pilar digital marketing («أهمية وركائز التسويق الرقمي»)."
+    },
+    {
+      "id": "hamza_q_05_036",
+      "section": "reading",
+      "passage": "إدارة وقت المهندسين والمصممين تتطلب التوازُن بين الإبداع والالتزام بالمواعيد النهائية للمشاريع. يُساعد استخدام البرمجيات الحديثة للتخطيط في توزيع المهام بوضوح ومتابعة نسبة الإنجاز اليومية.",
+      "question": "ما التحدي الرئيسي المذكور لإدارة وقت المهندسين والمصممين؟",
+      "options": [
+        "قلة الأجهزة الرقمية",
+        "التوازن بين الإبداع والالتزام بالمواعيد النهائية",
+        "ارتفاع رواتب العمال",
+        "صعوبة التواصل مع الإدارة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tantangan utamanya menyelaraskan antara kreativitas dan ketepatan deadline («التوازن بين الإبداع والالتزام بالمواعيد النهائية»)."
+    },
+    {
+      "id": "hamza_q_05_037",
+      "section": "reading",
+      "passage": "إدارة وقت المهندسين والمصممين تتطلب التوازُن بين الإبداع والالتزام بالمواعيد النهائية للمشاريع. يُساعد استخدام البرمجيات الحديثة للتخطيط في توزيع المهام بوضوح ومتابعة نسبة الإنجاز اليومية.",
+      "question": "ما الأداة المساعدة الموصى بها لتوزيع المهام؟",
+      "options": [
+        "الملاحظات الورقية البسيطة",
+        "البرمجيات الحديثة للتخطيط",
+        "الاجتماعات اليومية الطويلة",
+        "الاعتماد على الذاكرة الشخصية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Solusi bantuannya adalah memakai perangkat lunak perencanaan modern («البرمجيات الحديثة للتخطيط»)."
+    },
+    {
+      "id": "hamza_q_05_038",
+      "section": "reading",
+      "passage": "إدارة وقت المهندسين والمصممين تتطلب التوازُن بين الإبداع والالتزام بالمواعيد النهائية للمشاريع. يُساعد استخدام البرمجيات الحديثة للتخطيط في توزيع المهام بوضوح ومتابعة نسبة الإنجاز اليومية.",
+      "question": "ما فائدة متابعة نسبة الإنجاز اليومية؟",
+      "options": [
+        "ضمان سير المشروع وفق الخطة والحد من التأخير",
+        "زيادة الضغط النفسي فقط",
+        "إلغاء المواعيد النهائية",
+        "تقليل جودة العمل"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pemantauan bulanan/harian menjamin proyek berjalan sesuai jadwal («ضمان سير المشروع وفق الخطة والحد من التأخير»)."
+    },
+    {
+      "id": "hamza_q_05_039",
+      "section": "reading",
+      "passage": "إدارة وقت المهندسين والمصممين تتطلب التوازُن بين الإبداع والالتزام بالمواعيد النهائية للمشاريع. يُساعد استخدام البرمجيات الحديثة للتخطيط في توزيع المهام بوضوح ومتابعة نسبة الإنجاز اليومية.",
+      "question": "ما الفئة المحددة المستهدفة بالنص؟",
+      "options": [
+        "الأطباء والمعلمون",
+        "المهندسون والمصممون",
+        "المزارعون والصيادون",
+        "السياح والسائقون"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Teks ditujukan khusus untuk kalangan insinyur dan desainer («المهندسون والمصممون»)."
+    },
+    {
+      "id": "hamza_q_05_040",
+      "section": "reading",
+      "passage": "إدارة وقت المهندسين والمصممين تتطلب التوازُن بين الإبداع والالتزام بالمواعيد النهائية للمشاريع. يُساعد استخدام البرمجيات الحديثة للتخطيط في توزيع المهام بوضوح ومتابعة نسبة الإنجاز اليومية.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طرق الرسم الهندسي",
+        "إدارة الوقت والالتزام بالمواعيد في المشاريع الإبداعية",
+        "كيف تشتري برامج التخطيط",
+        "أنواع التصاميم الحديثة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utama teks adalah manajemen waktu dan keandalan proyek kreatif («إدارة الوقت والالتزام بالمواعيد في المشاريع الإبداعية»)."
+    },
+    {
+      "id": "hamza_q_05_041",
+      "section": "grammar",
+      "question": "اختر اسم الفاعل الصحيح من الفعل (أرسل):",
+      "options": [
+        "مرسِل",
+        "مرسَل",
+        "رسول",
+        "مراسل"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism fa'il dari fi'il ghairu thulathi (أرسل) berwazan مُفْعِل: «مرسِل»."
+    },
+    {
+      "id": "hamza_q_05_042",
+      "section": "grammar",
+      "question": "حدد المفعول به في: كرّمَ المديرُ المتفوقينَ.",
+      "options": [
+        "المديرُ",
+        "المتفوقينَ",
+        "كرّمَ",
+        "في المدرسة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Maf'ul bih manshub jamak mudzakkar salim ditandai ya': «المتفوقينَ»."
+    },
+    {
+      "id": "hamza_q_05_043",
+      "section": "grammar",
+      "question": "ما إعراب (طالباً) في: دخلَ عشرون طالباً الفصلَ؟",
+      "options": [
+        "فاعل",
+        "تمييز منصوب",
+        "مفعول به",
+        "حال"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «طالباً» kedudukannya tamyiz angka (20-90) manshub."
+    },
+    {
+      "id": "hamza_q_05_044",
+      "section": "grammar",
+      "question": "اختر الكلمة المرفوعة بالضمة المقدرة للتعذر:",
+      "options": [
+        "الدّاعي",
+        "الفتى",
+        "القاضي",
+        "المرسل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Isim maqshur (berakhiran alif maqshurah) marfu' dengan dhammah muqaddarah atas alif ta'adhur: «الفتى»."
+    },
+    {
+      "id": "hamza_q_05_045",
+      "section": "grammar",
+      "question": "حدد الممنوع من الصرف لصفة على وزن (أفعل):",
+      "options": [
+        "أحسن",
+        "محمد",
+        "كتاب",
+        "مساجد"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim sifah wazan أفعل mamnu' min ash-sharf: «أحسن»."
+    },
+    {
+      "id": "hamza_q_05_046",
+      "section": "grammar",
+      "question": "اختر الاستثناء الصحيح:",
+      "options": [
+        "حضر الفرسانُ غيرَ فارسٍ",
+        "حضر الفرسانُ غيرُ فارسٍ",
+        "حضر الفرسانُ غيرَ فارسًا",
+        "حضر الفرسانُ غيرٍ فارسٍ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «غيرَ» manshub sebagai adawat istithna dan kata setelahnya majrur idhafah: «غيرَ فارسٍ»."
+    },
+    {
+      "id": "hamza_q_05_047",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (مصباح)؟",
+      "options": [
+        "مصباحون",
+        "مصابيح",
+        "مصابيحًا",
+        "مصبح"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Jamak taksir shighat muntaha al-jumu' dari «مصباح» adalah «مصابيح»."
+    },
+    {
+      "id": "hamza_q_05_048",
+      "section": "grammar",
+      "question": "اختر اسم الزمان من الفعل (غرب):",
+      "options": [
+        "غروب",
+        "مغرب",
+        "غارب",
+        "مغروب"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ism zaman dari «غرب» berwazan مَفْعِل هو «مغرب»."
+    },
+    {
+      "id": "hamza_q_05_049",
+      "section": "grammar",
+      "question": "ما إعراب (سريعاً) في: جرى اللاعبُ سريعاً؟",
+      "options": [
+        "نائب عن المفعول المطلق أو حال منصوب",
+        "فاعل",
+        "مبتدأ",
+        "مفعول به"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «سريعًا» berfungsi sebagai na'ib 'an al-maf'ul al-mutlaq (atau hal manshub)."
+    },
+    {
+      "id": "hamza_q_05_050",
+      "section": "grammar",
+      "question": "حدد اسم المفعول من (استخرج):",
+      "options": [
+        "مستخرِج",
+        "مستخرَج",
+        "استخراج",
+        "خارج"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Ism maf'ul dari fi'il isthakhraja mengikuti wazan mu'dhara' dengan fatha sebelum akhir: «مستخرَج»."
+    },
+    {
+      "id": "hamza_q_05_051",
+      "section": "grammar",
+      "question": "اختر الخبر شبه الجملة: العصفورُ ______ الشجرةِ.",
+      "options": [
+        "فوقَ",
+        "جميلٌ",
+        "يطيرُ",
+        "هو"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Khabar shibh jumlah zharaf makan: «فوقَ الشجرةِ»."
+    },
+    {
+      "id": "hamza_q_05_052",
+      "section": "grammar",
+      "question": "اختر الضمير المتصل المنفصل في محل رفع مبتدأ:",
+      "options": [
+        "أنا طالبٌ نشيطٌ",
+        "كتابي في الحقيبة",
+        "زارنا محمدٌ",
+        "إياك نعبد"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Dhamir munfashil marfu' fi mahalli raf'in mubtada': «أنا»."
+    },
+    {
+      "id": "hamza_q_05_053",
+      "section": "grammar",
+      "question": "حدد Harf an-nashib yang ينصب الفعل المضارع:",
+      "options": [
+        "لم",
+        "لن",
+        "لا الناهية",
+        "إنْ الشرطية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Harf nashab yang menashabkan fi'il mudhari' adalah «لن»."
+    },
+    {
+      "id": "hamza_q_05_054",
+      "section": "grammar",
+      "question": "ما نوع اللام في: اجتهدْ لِتنجحَ؟",
+      "options": [
+        "لام الجر",
+        "لام التعليل (ناصبة)",
+        "لام الأمر (جازمة)",
+        "لام التوكيد"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Lam pada «لِتنجحَ» adalah lam at-ta'lil menashabkan fi'il mudhari'."
+    },
+    {
+      "id": "hamza_q_05_055",
+      "section": "grammar",
+      "question": "اختر النعت المطابق في التذكير والرفع: هذا كتابٌ ______.",
+      "options": [
+        "مفيدٌ",
+        "مفيدةٌ",
+        "مفيدًا",
+        "المفيدُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Na'at marfu' selaras mudzakkar mufrad nakirah: «مفيدٌ»."
+    },
+    {
+      "id": "hamza_q_05_056",
+      "section": "grammar",
+      "question": "حدد البدل في الجملة: أكلتُ الرغيفَ ثلثَهُ.",
+      "options": [
+        "الرغيفَ",
+        "ثلثَهُ",
+        "أكلتُ",
+        "أنا"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Badal ba'dh min al-kull dari maf'ul bih adalah «ثلثَهُ»."
+    },
+    {
+      "id": "hamza_q_05_057",
+      "section": "grammar",
+      "question": "ما وزن الفعل (تعلّمَ)؟",
+      "options": [
+        "تفعّلَ",
+        "تفاعلَ",
+        "افعلّ",
+        "استفعلَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Wazan fi'il khumasi «تعلّمَ» adalah «تفعّلَ»."
+    },
+    {
+      "id": "hamza_q_05_058",
+      "section": "grammar",
+      "question": "اختر أسلوب التعجب الصحيح:",
+      "options": [
+        "ما أجملَ الطبيعةَ!",
+        "ما أجملُ الطبيعةُ!",
+        "ما أجملَ الطبيعةُ!",
+        "أجملْ بالطبيعةَ!"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Shighat ta'ajjub baku «ما أفعلَ ...!» تنصب المفعول به: «ما أجملَ الطبيعةَ!»."
+    },
+    {
+      "id": "hamza_q_05_059",
+      "section": "grammar",
+      "question": "ما إعراب (طمعاً) في: ينفقُ المؤمنُ طمعاً في الثواب؟",
+      "options": [
+        "مفعول به",
+        "مفعول لأجله منصوب",
+        "حال",
+        "تمييز"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Kata «طمعًا» adalah maf'ul li-ajlih manshub penjelas motivasi aksi."
+    },
+    {
+      "id": "hamza_q_05_060",
+      "section": "grammar",
+      "question": "حدد الفعل المجرد الثلاثي من بين الأفعال التالية:",
+      "options": [
+        "جلسَ",
+        "استمعَ",
+        "انكسرَ",
+        "تكلمَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mujarrad thulathi tanpa huruf tambahan adalah «جلسَ»."
+    },
+    {
+      "id": "hamza_q_05_061",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح لجملة أسلوب الشرط الجازم:",
+      "options": [
+        "إنْ تخلصْ في عملِكَ تنجحْ",
+        "إنْ تخلصُ في عملِكَ تنجحُ",
+        "إنْ تخلصَ في عملِكَ تنجحَ",
+        "إنْ تخلصْ في عملِكَ تنجحُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il syarat dan jawab syarat majzum sukun: «تخلصْ ... تنجحْ»."
+    },
+    {
+      "id": "hamza_q_05_062",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح لـ (ما النافية للجنس):",
+      "options": [
+        "لا طالبَ علمٍ مقصرٌ",
+        "لا طالبُ علمٍ مقصرًا",
+        "لا طالبًا علمٍ مقصرٌ",
+        "لا طالبَ علمٍ مقصرًا"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. «لا» النافية للجنس تنصب اسمها مضافاً («طالبَ علمٍ») وترفع خبرها («مقصرٌ»)."
+    },
+    {
+      "id": "hamza_q_05_063",
+      "section": "structures",
+      "question": "حدد التركيب الصحيح للإضافة وتحديد التوابع:",
+      "options": [
+        "قضيتُ أسبوعينِ في حديقةِ المدينةِ الجميلةِ",
+        "قضيتُ أسبوعينِ في حديقةُ المدينةِ الجميلةُ",
+        "قضيتُ أسبوعينِ في حديقةَ المدينةِ الجميلةَ",
+        "قضيتُ أسبوعينِ في حديقةِ المدينةَ الجميلةُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf jar majrur + mudhaf ilaih majrur + na'at majrur: «حديقةِ المدينةِ الجميلةِ»."
+    },
+    {
+      "id": "hamza_q_05_064",
+      "section": "structures",
+      "question": "اختر الصيغة الصحيحة لاسم الفاعل المقترن بأل:",
+      "options": [
+        "حضر المسافرُ الحاملُ حقيبتَهُ",
+        "حضر المسافرُ الحاملَ حقيبتَهُ",
+        "حضر المسافرُ الحاملُ حقيبةً",
+        "حضر المسافرُ الحاملٍ حقيبةٍ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Na'at marfu' al-haamilu memengaruhi maf'ul bih haqeebatahu: «الحاملُ حقيبتَهُ»."
+    },
+    {
+      "id": "hamza_q_05_065",
+      "section": "structures",
+      "question": "اختر الجملة الفعلية المنظمة بأدوات العطف:",
+      "options": [
+        "قرأ أحمدُ الكتابَ ثمّ لخّصَ أفكارَهُ",
+        "قرأ أحمدُ الكتابَ أو لخّصَ أفكارَهُ",
+        "قرأ أحمدُ الكتابَ لكن لخّصَ أفكارَهُ",
+        "قرأ أحمدُ الكتابَ حتى لخّصَ أفكارَهُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf 'athaf «ثمّ» menyatukan dua fi'il berurutan jedا waktu secara logis: «قرأ ... ثمّ لخّصَ»."
+    },
+    {
+      "id": "hamza_q_05_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن مزايا وتحديات العمل الحر عبر الإنترنت.",
+      "prompt_hint": "اذكر ميزتين مثل المرونة وتحدياً واحداً كالدخل",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tulis esai minimal 80 kata ulasan keunggulan dan hambatan karir pemuda independen/freelance."
+    },
+    {
+      "id": "hamza_q_05_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف معلماً معمارياً إسلامياً أو تاريخياً زرته أو قرأت عنه.",
+      "prompt_hint": "اذكر مكان المعلم وأبرز عناصره الجمالية والأثرية",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Paparkan minimal 80 kata keindahan arsitektur situs bersejarah Islam seperti Alhambra atau Istana bersejarah."
+    },
+    {
+      "id": "hamza_q_05_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب رسالة توعية توضح خطورة التلوث البلاستيكي على البحار.",
+      "prompt_hint": "قدم حلين للمجتمع للحد من استخدام البلاستيك",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat ajakan minimal 70 kata penanggulangan sampah plastik di lautan demi menjaga biota laut."
+    },
+    {
+      "id": "hamza_q_05_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن دور التسويق الرقمي في دعم المشاريع الناشئة.",
+      "prompt_hint": "اذكر أداتين تقنيتين تستخدمان في التسويق عبر الشبكات",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata peran digital marketing dan sosial media bagi percepatan bisnis UMKM."
+    },
+    {
+      "id": "hamza_q_05_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف خطتك لإدارة الوقت بفاعلية أثناء العمل الإبداعي أو الدراسي.",
+      "prompt_hint": "اعرض طريقة تنظيم المهام وتفادي التأخير في المواعيد",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat strategi tertulis minimal 70 kata dalam mengelola jadwal pengerjaan proyek dan tenggat waktu."
+    },
+    {
+      "id": "hamza_q_05_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "هل تفضل العمل الحر أم الوظيفة الثابتة في شركة؟ ولماذا؟",
+      "prompt_hint": "عبر عن أسباب اختيارك بوضوح خلال دقيقة واحدة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Berikan opini lisan 1 menit perbandingan minat antara kerja mandiri (freelance) vs pegawai kantoran."
+    },
+    {
+      "id": "hamza_q_05_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "تحدث عن معلم معماري أو مبنى تاريخي ينال إعجابك في بلدك.",
+      "prompt_hint": "صف المبنى وأبرز ما يميزه معمارياً",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Ceritakan selama 60 detik landmark arsitektur ikonik di daerah Anda beserta nilai estetika sejarahnya."
+    },
+    {
+      "id": "hamza_q_05_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما الخطوات التي تقوم بها شخصياً للحفاظ على البيئة من التلوث؟",
+      "prompt_hint": "اذكر ممارستين يوميتين تقوم بهما للحد من النفايات",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan secara lisan 1 menit aksi nyata pribadi Anda dalam meminimalisasi limbah dan sampah lingkungan."
+    },
+    {
+      "id": "hamza_q_05_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "كيف تؤثر الإعلانات الرقمية على قرارات الشراء لديك؟",
+      "prompt_hint": "اذكر تجربة شراء تأثرت فيها بالإعلان",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Bagikan kisah lisan 60 detik pengaruh iklan digital media sosial terhadap pilihan barang yang Anda beli."
+    },
+    {
+      "id": "hamza_q_05_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "قدم نصيحة لصديق يعاني من عدم التزام بمواعيد تسليم المشاريع.",
+      "prompt_hint": "اعرض خطوتين عمليتين لإدارة الوقت بفاعلية",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan 2 panduan praktis lisan selama 1 menit membantu rekan mengelola waktu pengerjaan tugas."
+    }
+  ]
+}

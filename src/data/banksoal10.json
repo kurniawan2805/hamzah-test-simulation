@@ -1,0 +1,1068 @@
+{
+  "id": "banksoal10",
+  "title": "اختبار همزة التجريبي - النموذج 10",
+  "subtitle": "Bank soal latihan bahasa Arab - النموذج العاشر",
+  "durationMinutes": 55,
+  "questions": [
+    {
+      "id": "hamza_q_10_001",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_01",
+      "question": "ما المزية الرئيسية للمنصات التعليمية المفتوحة في النص؟",
+      "options": [
+        "الدراسة المجانية فقط",
+        "دورات متخصصة وشهادات معتمدة من جامعات عالمية",
+        "السفر المباشر للجامعات",
+        "عدم وجود اختبارات"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Keuntungan platform edukasi terbuka adalah kursus terspesialisasi dan sertifikat terakreditasi universitas dunia («دورات متخصصة وشهادات معتمدة من جامعات عالمية»)."
+    },
+    {
+      "id": "hamza_q_10_002",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_01",
+      "question": "ما الفجوة التي تقللها هذه المنصات وفق الفقرة؟",
+      "options": [
+        "الفجوة الرقمية والمعرفية",
+        "الفجوة المالية بين الدول",
+        "فجوة أسعار الحواسيب",
+        "فجوة اللغة والأعراق"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Platform ini memperkecil jurang kesenjangan digital dan pengetahuan («الفجوة الرقمية والمعرفية»)."
+    },
+    {
+      "id": "hamza_q_10_003",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_02",
+      "question": "على ماذا تعتمد سلاسل الإمداد العالمية لتسهيل الإدارة؟",
+      "options": [
+        "السجلات الورقية التقليدية",
+        "برمجيات الذكاء الاصطناعي للتنبؤ بالطلب والمخزون",
+        "العمالة اليدوية الكثيفة",
+        "التخمين الشهري"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Rantai pasok global mengandalkan AI untuk prediksi permintaan dan stok («برمجيات الذكاء الاصطناعي للتنبؤ بالطلب والمخزون»)."
+    },
+    {
+      "id": "hamza_q_10_004",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_02",
+      "question": "ما الأثر الإيجابي لتطبيق هذه التكنولوجيا في الموانئ؟",
+      "options": [
+        "تأخير الشحن",
+        "تسريع عمليات الشحن والحد من اختناقات الموانئ",
+        "زيادة تكاليف الشحن",
+        "إلغاء الجمارك"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Efek positifnya mempercepat proses pengiriman dan meminimalisasi kemacetan pelabuhan («تسريع عمليات الشحن والحد من اختناقات الموانئ»)."
+    },
+    {
+      "id": "hamza_q_10_005",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_02",
+      "question": "ما المجال الاقتصادي المستفيد من هذا التطور في النص؟",
+      "options": [
+        "سلاسل الإمداد والشحن الدولي",
+        "القطاع السياحي الفندقي",
+        "البناء السكني",
+        "التعليم المباشر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Sektor yang diuntungkan adalah supply chain & logistik internasional («سلاسل الإمداد والشحن الدولي»)."
+    },
+    {
+      "id": "hamza_q_10_006",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_03",
+      "question": "كم المدة اليومية الموصى بها لممارسة اليقظة الذهنية؟",
+      "options": [
+        "خمس دقائق",
+        "خمس عشرة دقيقة",
+        "ساعة كاملة",
+        "ثلاثون دقيقة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Alokasi waktu meditasi kesadaran pikiran (mindfulness) yang disarankan adalah 15 menit («خمس عشرة دقيقة»)."
+    },
+    {
+      "id": "hamza_q_10_007",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_03",
+      "question": "ما النتيجة الذهنية المرجوة من ممارسة اليقظة الذهنية؟",
+      "options": [
+        "النسيان السريع",
+        "التركيز على اللحظة الحاضرة وتقليل الأفكار السلبية",
+        "زيادة التوتر",
+        "فقدان القدرة على العمل"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Hasil mentalnya berfokus pada momen saat ini dan menekan pikiran negatif («التركيز على اللحظة الحاضرة وتقليل الأفكار السلبية»)."
+    },
+    {
+      "id": "hamza_q_10_008",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_03",
+      "question": "من الجهة التي قدمت هذه النصيحة في النص؟",
+      "options": [
+        "خبراء علم النفس",
+        "المهندسون الزراعيون",
+        "شركات التقنية",
+        "الصحفيون الميدانيون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Nasihat ini disampaikan oleh para pakar psikologi («خبراء علم النفس»)."
+    },
+    {
+      "id": "hamza_q_10_009",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_04",
+      "question": "ما الفوائد البيئية للمباني الخضراء المستدامة في النص؟",
+      "options": [
+        "زيادة التلوث",
+        "تقليل الانبعاثات الكربونية وترشيد المياه والمواد",
+        "ارتفاع أسعار الكهرباء",
+        "إلغاء النوافذ"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Manfaat lingkungannya menekan emisi karbon dan menghemat air & material («تقليل الانبعاثات الكربونية وترشيد المياه والمواد»)."
+    },
+    {
+      "id": "hamza_q_10_010",
+      "section": "listening",
+      "shared_asset_id": "audio_b10_04",
+      "question": "من الجهة المستفيدة صحياً من هذه المعايير؟",
+      "options": [
+        "صحة القاطنين وصحة الكوكب",
+        "المصانع الأجنبية فقط",
+        "الشركات العقارية فقط",
+        "عمال البناء فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pihak yang diuntungkan kesehatannya adalah para penghuni dan planet bumi («صحة القاطنين وصحة الكوكب»)."
+    },
+    {
+      "id": "hamza_q_10_011",
+      "section": "reading",
+      "passage": "تُمثل الدورات التدريبية المفتوحة عبر الإنترنت (MOOCs) تحولاً جذرياً في منظومة التعليم العالي العالمي. تتيح هذه الدورات للملايين من الطلاب والموظفين الالتحاق ببرامج تعليمية عالية الجودة مجاناً أو بتكلفة رمزية، مما يمنح الفرصة لسكان المناطق النائية بالتعلم.",
+      "question": "ما الاسم المختصر العلمي للدورات المفتوحة عبر الإنترنت في النص؟",
+      "options": [
+        "MOOCs",
+        "STEM",
+        "TOEFL",
+        "AI"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Singkatan ilmiah bagi kursus daring terbuka massal adalah MOOCs («MOOCs»)."
+    },
+    {
+      "id": "hamza_q_10_012",
+      "section": "reading",
+      "passage": "تُمثل الدورات التدريبية المفتوحة عبر الإنترنت (MOOCs) تحولاً جذرياً في منظومة التعليم العالي العالمي. تتيح هذه الدورات للملايين من الطلاب والموظفين الالتحاق ببرامج تعليمية عالية الجودة مجاناً أو بتكلفة رمزية، مما يمنح الفرصة لسكان المناطق النائية بالتعلم.",
+      "question": "ما التحول الذي أحدثته هذه الدورات في التعليم العالي؟",
+      "options": [
+        "تحولاً جذرياً يتيح التعلم الجيد مجاناً أو بتكلفة رمزية",
+        "إلغاء الجامعات بالكامل",
+        "فرض رسوم باهظة",
+        "قصر التعليم على المدن الكبرى"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. MOOCs melahirkan transformasi radikal dengan menyediakan materi bermutu gratis/biaya terjangkau («تحولاً جذرياً يتيح التعلم الجيد مجاناً أو بتكلفة رمزية»)."
+    },
+    {
+      "id": "hamza_q_10_013",
+      "section": "reading",
+      "passage": "تُمثل الدورات التدريبية المفتوحة عبر الإنترنت (MOOCs) تحولاً جذرياً في منظومة التعليم العالي العالمي. تتيح هذه الدورات للملايين من الطلاب والموظفين الالتحاق ببرامج تعليمية عالية الجودة مجاناً أو بتكلفة رمزية، مما يمنح الفرصة لسكان المناطق النائية بالتعلم.",
+      "question": "من الفئة المستفيدة جغرافياً بشكل خاص من هذه الفرصة؟",
+      "options": [
+        "سكان المناطق النائية",
+        "السياح الدوليون فقط",
+        "المتقاعدون فقط",
+        "الطلاب الأغنياء فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kelompok geografis yang paling terbantu adalah warga daerah terpencil («سكان المناطق النائية»)."
+    },
+    {
+      "id": "hamza_q_10_014",
+      "section": "reading",
+      "passage": "تُمثل الدورات التدريبية المفتوحة عبر الإنترنت (MOOCs) تحولاً جذرياً في منظومة التعليم العالي العالمي. تتيح هذه الدورات للملايين من الطلاب والموظفين الالتحاق ببرامج تعليمية عالية الجودة مجاناً أو بتكلفة رمزية، مما يمنح الفرصة لسكان المناطق النائية بالتعلم.",
+      "question": "ما التكلفة المادية الشائعة لالتحاق بالدورات في الفقرة؟",
+      "options": [
+        "مبالغ باهظة جداً",
+        "مجاناً أو بتكلفة رمزية",
+        "قروض بنكية طويلة",
+        "رسوم إجبارية عالية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Biaya kursus berkarakter gratis atau berbiaya murah simbolis («مجاناً أو بتكلفة رمزية»)."
+    },
+    {
+      "id": "hamza_q_10_015",
+      "section": "reading",
+      "passage": "تُمثل الدورات التدريبية المفتوحة عبر الإنترنت (MOOCs) تحولاً جذرياً في منظومة التعليم العالي العالمي. تتيح هذه الدورات للملايين من الطلاب والموظفين الالتحاق ببرامج تعليمية عالية الجودة مجاناً أو بتكلفة رمزية، مما يمنح الفرصة لسكان المناطق النائية بالتعلم.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طريقة استخدام الحاسوب",
+        "دور منصات MOOCs في ديمقراطية التعليم العالي العالمي",
+        "تاريخ نشأة الجامعات القديمة",
+        "كيف تختار تخصصك الجامعي"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah peran MOOCs dalam demokratisasi dan pemerataan perguruan tinggi («دور منصات MOOCs في ديمقراطية التعليم العالي العالمي»)."
+    },
+    {
+      "id": "hamza_q_10_016",
+      "section": "reading",
+      "passage": "تواجه سلاسل الإمداد العالمية تحديات الاختناقات اللوجستية وتذبذب أسعار الشحن البحري. أظهرت الأزمات الأخيرة أهمية تنويع مصادر التوريد والاعتماد على المخزون الإستراتيجي المحلي لضمان تدفق البضائع والسلع الأساسية دون انقطاع.",
+      "question": "ما التحديان الرئيسييان اللذان تواجههما سلاسل الإمداد في النص؟",
+      "options": [
+        "قلة السفن وتوقف المصانع",
+        "الاختناقات اللوجستية وتذبذب أسعار الشحن البحري",
+        "عدم وجود موانئ",
+        "ارتفاع رواتب العمال"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dua tantangan utamanya mencakup kemacetan logistik dan fluktuasi tarif kargo laut («الاختناقات اللوجستية وتذبذب أسعار الشحن البحري»)."
+    },
+    {
+      "id": "hamza_q_10_017",
+      "section": "reading",
+      "passage": "تواجه سلاسل الإمداد العالمية تحديات الاختناقات اللوجستية وتذبذب أسعار الشحن البحري. أظهرت الأزمات الأخيرة أهمية تنويع مصادر التوريد والاعتماد على المخزون الإستراتيجي المحلي لضمان تدفق البضائع والسلع الأساسية دون انقطاع.",
+      "question": "ما الحل الإستراتيجي الموصى به لضمان تدفق البضائع؟",
+      "options": [
+        "الاعتماد على مصدر واحد فقط",
+        "تنويع مصادر التوريد والمخزون الإستراتيجي المحلي",
+        "وقف الشحن البحري",
+        "زيادة الاستيراد الجوي فقط"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Solusi strategisnya adalah diversifikasi pemasok dan penguatan stok lokal («تنويع مصادر التوريد والمخزون الإستراتيجي المحلي»)."
+    },
+    {
+      "id": "hamza_q_10_018",
+      "section": "reading",
+      "passage": "تواجه سلاسل الإمداد العالمية تحديات الاختناقات اللوجستية وتذبذب أسعار الشحن البحري. أظهرت الأزمات الأخيرة أهمية تنويع مصادر التوريد والاعتماد على المخزون الإستراتيجي المحلي لضمان تدفق البضائع والسلع الأساسية دون انقطاع.",
+      "question": "ما الهدف النهائئ من هذه الإجراءات الإستراتيجية؟",
+      "options": [
+        "ضمان تدفق البضائع والسلع دون انقطاع",
+        "زيادة أرباح شركات الشحن",
+        "تقليل عدد الموانئ",
+        "فرض ضرائب جمركية جديدة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Tujuan akhirnya menjamin kelancaran distribusi komoditas pokok tanpa terhenti («ضمان تدفق البضائع والسلع دون انقطاع»)."
+    },
+    {
+      "id": "hamza_q_10_019",
+      "section": "reading",
+      "passage": "تواجه سلاسل الإمداد العالمية تحديات الاختناقات اللوجستية وتذبذب أسعار الشحن البحري. أظهرت الأزمات الأخيرة أهمية تنويع مصادر التوريد والاعتماد على المخزون الإستراتيجي المحلي لضمان تدفق البضائع والسلع الأساسية دون انقطاع.",
+      "question": "ما الدرس المستفاد من الأزمات الاقتصادية الأخيرة في الفقرة؟",
+      "options": [
+        "ضرورة المرونة وتأمين سلاسل التوريد المحلية",
+        "التوقف عن التجارة الدولية",
+        "الاعتماد الكامل على الشحن البري",
+        "تجاهل إدارة المخزون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pelajaran utamanya pentingnya fleksibilitas ketahanan rantai pasok («ضرورة المرونة وتأمين سلاسل التوريد المحلية»)."
+    },
+    {
+      "id": "hamza_q_10_020",
+      "section": "reading",
+      "passage": "تواجه سلاسل الإمداد العالمية تحديات الاختناقات اللوجستية وتذبذب أسعار الشحن البحري. أظهرت الأزمات الأخيرة أهمية تنويع مصادر التوريد والاعتماد على المخزون الإستراتيجي المحلي لضمان تدفق البضائع والسلع الأساسية دون انقطاع.",
+      "question": "ما العنوان الأنسب لهذا النص؟",
+      "options": [
+        "طريقة قيادة السفن البحرية",
+        "تحديات وإستراتيجيات حماية سلاسل الإمداد العالمية",
+        "تاريخ الموانئ القديمة",
+        "أنواع البضائع المستوردة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling pas adalah tantangan dan strategi pengamanan supply chain dunia («تحديات وإستراتيجيات حماية سلاسل الإمداد العالمية»)."
+    },
+    {
+      "id": "hamza_q_10_021",
+      "section": "reading",
+      "passage": "تساهم تمارين اليقظة الذهنية والتأمل في تقليل أعراض التوتر والقلق وتحسين السلامة العاطفية للإنسان. تُظهر التجارب أن الالتزام اليومي بهذه التمارين يساعد في تحسين النوم وزيادة القدرة على التركيز واتخاذ القرارات العقلانية.",
+      "question": "ما الأعراض النفسية التي تقللها تمارين اليقظة الذهنية؟",
+      "options": [
+        "أعراض التوتر والقلق",
+        "الشعور بالفرح",
+        "النشاط الزائد",
+        "سرعة التفكير"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Latihan kesadaran pikiran meredakan gejala stres dan kecemasan («أعراض التوتر والقلق»)."
+    },
+    {
+      "id": "hamza_q_10_022",
+      "section": "reading",
+      "passage": "تساهم تمارين اليقظة الذهنية والتأمل في تقليل أعراض التوتر والقلق وتحسين السلامة العاطفية للإنسان. تُظهر التجارب أن الالتزام اليومي بهذه التمارين يساعد في تحسين النوم وزيادة القدرة على التركيز واتخاذ القرارات العقلانية.",
+      "question": "ما الأثر العاطفي المباشر لممارسة التأمل في النص؟",
+      "options": [
+        "ضعف الشخصية",
+        "تحسين السلامة العاطفية للإنسان",
+        "زيادة الغضب",
+        "العزلة الكلية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Dampak emosionalnya memulihkan dan memelihara kesejahteraan emosi («تحسين السلامة العاطفية للإنسان»)."
+    },
+    {
+      "id": "hamza_q_10_023",
+      "section": "reading",
+      "passage": "تساهم تمارين اليقظة الذهنية والتأمل في تقليل أعراض التوتر والقلق وتحسين السلامة العاطفية للإنسان. تُظهر التجارب أن الالتزام اليومي بهذه التمارين يساعد في تحسين النوم وزيادة القدرة على التركيز واتخاذ القرارات العقلانية.",
+      "question": "ما الفوائد الفسيولوجية والعقلية المذكورة للالتزام اليومي؟",
+      "options": [
+        "تحسين النوم وزيادة القدرة على التركيز والقرارات",
+        "زيادة الأرق",
+        "تشتت الذهن",
+        "بطء الاستجابة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Manfaat teraturnya tidur nyenyak, fokus tinggi, dan kognisi rasional («تحسين النوم وزيادة القدرة على التركيز والقرارات»)."
+    },
+    {
+      "id": "hamza_q_10_024",
+      "section": "reading",
+      "passage": "تساهم تمارين اليقظة الذهنية والتأمل في تقليل أعراض التوتر والقلق وتحسين السلامة العاطفية للإنسان. تُظهر التجارب أن الالتزام اليومي بهذه التمارين يساعد في تحسين النوم وزيادة القدرة على التركيز واتخاذ القرارات العقلانية.",
+      "question": "ما الاستراتيجية الموصى بها ممارستها في الفقرة؟",
+      "options": [
+        "تمارين اليقظة الذهنية والتأمل",
+        "السهر المتواصل",
+        "تناول الأدوية دون وصفة",
+        "تجاهل المشاعر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Strategi rekomendasi adalah kebiasaan meditasi mindfulness («تمارين اليقظة الذهنية والتأمل»)."
+    },
+    {
+      "id": "hamza_q_10_025",
+      "section": "reading",
+      "passage": "تساهم تمارين اليقظة الذهنية والتأمل في تقليل أعراض التوتر والقلق وتحسين السلامة العاطفية للإنسان. تُظهر التجارب أن الالتزام اليومي بهذه التمارين يساعد في تحسين النوم وزيادة القدرة على التركيز واتخاذ القرارات العقلانية.",
+      "question": "ما الفكرة الأساسية للنص؟",
+      "options": [
+        "طريقة ممارسة الرياضة السريعة",
+        "فوائد اليقظة الذهنية للصحة النفسية والعاطفية",
+        "تاريخ علم النفس القديم",
+        "أنواع الأغذية المنشطة"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah manfaat mindfulness bagi kesehatan psikologis & emosional («فوائد اليقظة الذهنية للصحة النفسية والعاطفية»)."
+    },
+    {
+      "id": "hamza_q_10_026",
+      "section": "reading",
+      "passage": "تتميز العمارة المستدامة بتصميم أبنية توفر الطاقة وتعتمد على مصادر الطاقة المتجددة كالشمس والرياح. تهدف هذه المباني إلى خفض الانبعاثات الكربونية وتقليل التكاليف التشغيلية على المدى الطويل مع توفير بيئة صحية للقاطنين.",
+      "question": "ما الهدف الأساسي للعمارة المستدامة في النص؟",
+      "options": [
+        "بناء أبراج خرسانية ضخمة",
+        "خفض الانبعاثات الكربونية وتقليل التكاليف التشغيلية",
+        "زيادة استهلاك الكهرباء",
+        "إلغاء الحدائق"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Tujuan arsitektur berkelanjutan adalah mereduksi emisi karbon & menghemat biaya operasional («خفض الانبعاثات الكربونية وتقليل التكاليف التشغيلية»)."
+    },
+    {
+      "id": "hamza_q_10_027",
+      "section": "reading",
+      "passage": "تتميز العمارة المستدامة بتصميم أبنية توفر الطاقة وتعتمد على مصادر الطاقة المتجددة كالشمس والرياح. تهدف هذه المباني إلى خفض الانبعاثات الكربونية وتقليل التكاليف التشغيلية على المدى الطويل مع توفير بيئة صحية للقاطنين.",
+      "question": "ما مصادر الطاقة المتجددة التي تعتمد عليها الأبنية المستدامة؟",
+      "options": [
+        "الفحم والنفط",
+        "الشمس والرياح",
+        "الغاز الطبيعي",
+        "المولدات البترولية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Sumber energi terbarukan yang dimanfaatkan adalah tenaga surya dan angin («الشمس والرياح»)."
+    },
+    {
+      "id": "hamza_q_10_028",
+      "section": "reading",
+      "passage": "تتميز العمارة المستدامة بتصميم أبنية توفر الطاقة وتعتمد على مصادر الطاقة المتجددة كالشمس والرياح. تهدف هذه المباني إلى خفض الانبعاثات الكربونية وتقليل التكاليف التشغيلية على المدى الطويل مع توفير بيئة صحية للقاطنين.",
+      "question": "ما البيئة التي توفرها هذه المباني للقاطنين؟",
+      "options": [
+        "بيئة صحية ومريحة",
+        "بيئة مظلمة ومغلقة",
+        "بيئة ملوثة ومكلفة",
+        "بيئة مؤقتة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Bangunan hijau menyediakan lingkungan hunian sehat dan nyaman («بيئة صحية ومريحة»)."
+    },
+    {
+      "id": "hamza_q_10_029",
+      "section": "reading",
+      "passage": "تتميز العمارة المستدامة بتصميم أبنية توفر الطاقة وتعتمد على مصادر الطاقة المتجددة كالشمس والرياح. تهدف هذه المباني إلى خفض الانبعاثات الكربونية وتقليل التكاليف التشغيلية على المدى الطويل مع توفير بيئة صحية للقاطنين.",
+      "question": "ما الأثر المالي المستدام على المدى الطويل لهذه العمارة؟",
+      "options": [
+        "تقليل التكاليف التشغيلية",
+        "زيادة الضرائب",
+        "ارتفاع الصيانة يومياً",
+        "خسارة قيمة المبنى"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Manfaat finansial jangka panjangnya meminimalisasi biaya operasional («تقليل التكاليف التشغيلية»)."
+    },
+    {
+      "id": "hamza_q_10_030",
+      "section": "reading",
+      "passage": "تتميز العمارة المستدامة بتصميم أبنية توفر الطاقة وتعتمد على مصادر الطاقة المتجددة كالشمس والرياح. تهدف هذه المباني إلى خفض الانبعاثات الكربونية وتقليل التكاليف التشغيلية على المدى الطويل مع توفير بيئة صحية للقاطنين.",
+      "question": "ما العنوان الأنسب لهذا النص؟",
+      "options": [
+        "تاريخ البناء القديم",
+        "مبادئ ومميزات العمارة المستدامة",
+        "طريقة شراء منزل جديد",
+        "أنواع مواد البناء الكيميائية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Judul paling pas adalah pilar dan keunggulan arsitektur berkelanjutan («مبادئ ومميزات العمارة المستدامة»)."
+    },
+    {
+      "id": "hamza_q_10_031",
+      "section": "reading",
+      "passage": "استكشاف الكواكب البعيدة والنجوم عبر المراصد الحديثة يفتح آفاقاً جديدة لفهم النشأة الأولى للمجرة. تمكن الفلكيون من تحليل الأطياف الضوئية للكواكب الخارجية لمعرفة المكونات الكيميائية لغلافها الجوي ودراسة ملاءمتها للحياة.",
+      "question": "ما الهدف من استكشاف الكواكب البعيدة عبر المراصد؟",
+      "options": [
+        "البحث عن التعدين الأرضي",
+        "فهم النشأة الأولى للمجرة",
+        "السفر الفوري للفضاء",
+        "إرسال رسائل صوتية"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Eksplorasi planet jauh bertuju memahami pembentukan awal galaksi («فهم النشأة الأولى للمجرة»)."
+    },
+    {
+      "id": "hamza_q_10_032",
+      "section": "reading",
+      "passage": "استكشاف الكواكب البعيدة والنجوم عبر المراصد الحديثة يفتح آفاقاً جديدة لفهم النشأة الأولى للمجرة. تمكن الفلكيون من تحليل الأطياف الضوئية للكواكب الخارجية لمعرفة المكونات الكيميائية لغلافها الجوي ودراسة ملاءمتها للحياة.",
+      "question": "ما الأداة العلمية التي استخدمها الفلكيون لمعرفة المكونات الكيميائية؟",
+      "options": [
+        "تحليل الأطياف الضوئية للكواكب الخارجية",
+        "المجهر العادي",
+        "الكاميرات الرقمية البسيطة",
+        "النظارات المكبرة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ahli astronomi memakai analisis spektrum cahaya planet luar («تحليل الأطياف الضوئية للكواكب الخارجية»)."
+    },
+    {
+      "id": "hamza_q_10_033",
+      "section": "reading",
+      "passage": "استكشاف الكواكب البعيدة والنجوم عبر المراصد الحديثة يفتح آفاقاً جديدة لفهم النشأة الأولى للمجرة. تمكن الفلكيون من تحليل الأطياف الضوئية للكواكب الخارجية لمعرفة المكونات الكيميائية لغلافها الجوي ودراسة ملاءمتها للحياة.",
+      "question": "ماذا يدرس العلماء في الغلاف الجوي للكواكب الخارجية؟",
+      "options": [
+        "المكونات الكيميائية وملاءمتها للحياة",
+        "درجة اللمعان فقط",
+        "حجم الغبار فقط",
+        "وجود المباني والمدن"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Studi atmosfer berfokus pada komposisi kimiawi dan potensi daya dukung kehidupan («المكونات الكيميائية وملاءمتها للحياة»)."
+    },
+    {
+      "id": "hamza_q_10_034",
+      "section": "reading",
+      "passage": "استكشاف الكواكب البعيدة والنجوم عبر المراصد الحديثة يفتح آفاقاً جديدة لفهم النشأة الأولى للمجرة. تمكن الفلكيون من تحليل الأطياف الضوئية للكواكب الخارجية لمعرفة المكونات الكيميائية لغلافها الجوي ودراسة ملاءمتها للحياة.",
+      "question": "ما العلم المتخصص المذكور في الفقرة؟",
+      "options": [
+        "علم الفلك الكوني",
+        "علم الجغرافيا الطبيعية",
+        "علم الأحياء البحرية",
+        "علم التاريخ القديم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Cabang keilmuan yang disebut adalah astronomi / keantariksaan («علم الفلك الكوني»)."
+    },
+    {
+      "id": "hamza_q_10_035",
+      "section": "reading",
+      "passage": "استكشاف الكواكب البعيدة والنجوم عبر المراصد الحديثة يفتح آفاقاً جديدة لفهم النشأة الأولى للمجرة. تمكن الفلكيون من تحليل الأطياف الضوئية للكواكب الخارجية لمعرفة المكونات الكيميائية لغلافها الجوي ودراسة ملاءمتها للحياة.",
+      "question": "ما الفكرة المحورية للنص؟",
+      "options": [
+        "طريقة صنع التلسكوب",
+        "التحليل الطيفي للكواكب واكتشاف أسرار المجرة",
+        "رحلات رواد الفضاء",
+        "حركة الأرض حول الشمس"
+      ],
+      "correct_index": 1,
+      "explanation": "Jawaban B. Gagasan utamanya adalah analisis spektral planet dan pengungkapan rahasia galaksi («التحليل الطيفي للكواكب واكتشاف أسرار المجرة»)."
+    },
+    {
+      "id": "hamza_q_10_036",
+      "section": "reading",
+      "passage": "ممارسة الأنشطة الرياضية في أندية الشباب تسهم في بناء الشخصية الإيجابية وغرس قيم التنافس الشريف والعمل الجماعي. تُتيح هذه الأنشطة للناشئة استغلال أوقات الفراغ بطريقة مفيدة تبتعد بهم عن العادات الضارة.",
+      "question": "ما الأثر التربوي لممارسة الرياضة في أندية الشباب؟",
+      "options": [
+        "بناء الشخصية الإيجابية وغرس قيم التنافس والعمل الجماعي",
+        "التعصب والخصومة",
+        "إهمال الدراسة",
+        "العزلة الفردية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Olahraga muda memupuk kepribadian positif, sportivitas, dan kerja tim («بناء الشخصية الإيجابية وغرس قيم التنافس والعمل الجماعي»)."
+    },
+    {
+      "id": "hamza_q_10_037",
+      "section": "reading",
+      "passage": "ممارسة الأنشطة الرياضية في أندية الشباب تسهم في بناء الشخصية الإيجابية وغرس قيم التنافس الشريف والعمل الجماعي. تُتيح هذه الأنشطة للناشئة استغلال أوقات الفراغ بطريقة مفيدة تبتعد بهم عن العادات الضارة.",
+      "question": "كيف يستفيد الناشئة من أوقات الفراغ في الأندية؟",
+      "options": [
+        "باستغلالها بطريقة مفيدة تبتعد عن العادات الضارة",
+        "بالنوم طوال اليوم",
+        "باللعب الإلكتروني دون توقف",
+        "بالتسكع في الشوارع"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pemuda memanfaatkan waktu luang secara positif dan jauh dari kebiasaan buruk («باستغلالها بطريقة مفيدة تبتعد عن العادات الضارة»)."
+    },
+    {
+      "id": "hamza_q_10_038",
+      "section": "reading",
+      "passage": "ممارسة الأنشطة الرياضية في أندية الشباب تسهم في بناء الشخصية الإيجابية وغرس قيم التنافس الشريف والعمل الجماعي. تُتيح هذه الأنشطة للناشئة استغلال أوقات الفراغ بطريقة مفيدة تبتعد بهم عن العادات الضارة.",
+      "question": "ما القيمة الأخلاقية المذكورة للمسابقات الرياضية؟",
+      "options": [
+        "التنافس الشريف والروح الرياضية",
+        "الفوز بأي طريقة رخيصة",
+        "تجاهل القوانين",
+        "السخرية من الخصم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Nilai moral kompetisi adalah sportivitas dan persaingan sehat («التنافس الشريف والروح الرياضية»)."
+    },
+    {
+      "id": "hamza_q_10_039",
+      "section": "reading",
+      "passage": "ممارسة الأنشطة الرياضية في أندية الشباب تسهم في بناء الشخصية الإيجابية وغرس قيم التنافس الشريف والعمل الجماعي. تُتيح هذه الأنشطة للناشئة استغلال أوقات الفراغ بطريقة مفيدة تبتعد بهم عن العادات الضارة.",
+      "question": "من الفئة المستهدفة الرئيسية بالنص؟",
+      "options": [
+        "الناشئة والشباب",
+        "المتقاعدون فقط",
+        "الأطفال الرضع",
+        "المعلمون فقط"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Target penerima manfaat utama adalah kalangan remaja dan pemuda («الناشئة والشباب»)."
+    },
+    {
+      "id": "hamza_q_10_040",
+      "section": "reading",
+      "passage": "ممارسة الأنشطة الرياضية في أندية الشباب تسهم في بناء الشخصية الإيجابية وغرس قيم التنافس الشريف والعمل الجماعي. تُتيح هذه الأنشطة للناشئة استغلال أوقات الفراغ بطريقة مفيدة تبتعد بهم عن العادات الضارة.",
+      "question": "ما النصيحة المستفادة من الفقرة؟",
+      "options": [
+        "تشجيع الناشئة على المشاركة الرياضية الجماعية في الأندية",
+        "الامتناع عن الرياضة",
+        "الاقتصار على المشاهدة التلفزيونية",
+        "إغلاق الأندية الرياضية"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Pesan utamanya mengajak pemuda bergabung dalam wadah klub olahraga bersportivitas («تشجيع الناشئة على المشاركة الرياضية الجماعية في الأندية»)."
+    },
+    {
+      "id": "hamza_q_10_041",
+      "section": "grammar",
+      "question": "اختر اسم الفاعل الصحيح من الفعل (تعلم):",
+      "options": [
+        "متعلّم",
+        "متعلَّم",
+        "تعليم",
+        "معلّم"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism fa'il dari fi'il ta'allama (تعلم) berwazan مُتَعَلِّم: «متعلّم»."
+    },
+    {
+      "id": "hamza_q_10_042",
+      "section": "grammar",
+      "question": "ما إعراب (طالباً) في: كافأ المديرُ خمسين طالباً؟",
+      "options": [
+        "تمييز منصوب بالفتحة",
+        "مفعول به",
+        "فاعل",
+        "مبتدأ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «طالباً» kedudukannya tamyiz angka (20-90) manshub ditandai fathah."
+    },
+    {
+      "id": "hamza_q_10_043",
+      "section": "grammar",
+      "question": "اختر المفعول المطلق المؤكد للفعل: فهمتُ الدرسَ ______.",
+      "options": [
+        "فهماً",
+        "فهومين",
+        "فهماً جلياً",
+        "مفهوماً"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Maf'ul mutlaq mu'akkid lil-fi'il berupa masdar mufrad nakirah: «فهماً»."
+    },
+    {
+      "id": "hamza_q_10_044",
+      "section": "grammar",
+      "question": "حدد الممنوع من الصرف لعلة واحدة (جمع أقصى):",
+      "options": [
+        "مصانع",
+        "فاطمة",
+        "أحمد",
+        "عثمان"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim mamnu' min ash-sharf shighat muntaha al-jumu' berwazan مَفَاعِل هو «مصانع»."
+    },
+    {
+      "id": "hamza_q_10_045",
+      "section": "grammar",
+      "question": "ما جمع التكسير لكلمة (دورة)؟",
+      "options": [
+        "دورات",
+        "دوراتٍ",
+        "دور",
+        "مديرات"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Jamak dari «دورة» yang paling umum adalah «دورات» (jamak mu'annath salim / taksir)."
+    },
+    {
+      "id": "hamza_q_10_046",
+      "section": "grammar",
+      "question": "اختر البدل المطابق المجرور: مررتُ بالأستاذِ ______.",
+      "options": [
+        "خالدٍ",
+        "خالدٌ",
+        "خالدًا",
+        "الخالدُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Badal muthabiq majrur dari majrur bil-kasrah («بالأستاذِ») هو «خالدٍ»."
+    },
+    {
+      "id": "hamza_q_10_047",
+      "section": "grammar",
+      "question": "حدد اسم المكان من الفعل (ورد):",
+      "options": [
+        "مورد",
+        "وارد",
+        "مورود",
+        "ورود"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism makan dari «ورد» berwazan مَفْعِل هو «مورد»."
+    },
+    {
+      "id": "hamza_q_10_048",
+      "section": "grammar",
+      "question": "اختر Harf an-nashib الذي يدل على النافية المستقبلية:",
+      "options": [
+        "لن",
+        "لم",
+        "لا الناهية",
+        "إنْ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf nashab yang menafikan fi'il mudhari' di masa depan adalah «لن»."
+    },
+    {
+      "id": "hamza_q_10_049",
+      "section": "grammar",
+      "question": "ما إعراب (مبتسماً) في: دخل المعلمُ الفصلَ مبتسماً؟",
+      "options": [
+        "حال منصوبة",
+        "فاعل",
+        "مفعول به",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «مبتسماً» kedudukannya hal manshub menjelaskan cara masuk."
+    },
+    {
+      "id": "hamza_q_10_050",
+      "section": "grammar",
+      "question": "حدد اسم المفعول من الفعل (رجا):",
+      "options": [
+        "مرجوّ",
+        "راجٍ",
+        "رجاء",
+        "مرجاء"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism maf'ul dari fi'il naqis (رجا) berwazan مَرِجُوّ هو «مرجوّ»."
+    },
+    {
+      "id": "hamza_q_10_051",
+      "section": "grammar",
+      "question": "اختر المبتدأ المرفوع بالضمة المقدرة للثقل:",
+      "options": [
+        "القاضي",
+        "أحمد",
+        "الطلاب",
+        "الكتاب"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim manqush (berakhir ya' lazimah) marfu' dengan dhammah muqaddarah atas ya' thiqal: «القاضي»."
+    },
+    {
+      "id": "hamza_q_10_052",
+      "section": "grammar",
+      "question": "ما نوع الاستثناء في: ما حضر المهندسون إلا مهندساً (أو مهندسٌ)؟",
+      "options": [
+        "تام منفي",
+        "مفرغ",
+        "تام مثبت",
+        "منقطع"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Istithna tam manfi karena diawali huruf nafi dan mustathna minhu disebutkan."
+    },
+    {
+      "id": "hamza_q_10_053",
+      "section": "grammar",
+      "question": "حدد اسم التفضيل المجرور بالإضافة: هذا ______ الكتبِ نافعاً.",
+      "options": [
+        "أفضلُ",
+        "أفضلَ",
+        "أفضلٍ",
+        "الأفضلُ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism tafdhil marfu' sebagai mubtada'/khabar dan mudhaf: «أفضلُ الكتبِ»."
+    },
+    {
+      "id": "hamza_q_10_054",
+      "section": "grammar",
+      "question": "اختر المصدر الصريح للفعل (تدرّب):",
+      "options": [
+        "تدَرُّب",
+        "متدرِّب",
+        "متدرَّب",
+        "تدريبة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Masdar sharih dari fi'il tadarraba (تدرب) هو «تدَرُّب»."
+    },
+    {
+      "id": "hamza_q_10_055",
+      "section": "grammar",
+      "question": "ما إعراب (طبيباً) في: جعلتُ ابني طبيباً؟",
+      "options": [
+        "مفعول به ثاني منصوب",
+        "مفعول به أول",
+        "حال",
+        "خبر"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «طبيباً» maf'ul bih kedua dari fi'il tahwil «جعل»."
+    },
+    {
+      "id": "hamza_q_10_056",
+      "section": "grammar",
+      "question": "اختر الفعل المضارع المجزوم بـ لم وعلامة جزمه حذف حرف العلة:",
+      "options": [
+        "لم يدعُ",
+        "لم يدعو",
+        "لم يدعْ",
+        "لم يدعون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il mudhari' naqis majzum «لم» ditandai حذف حرف العلة (الواو): «لم يدعُ»."
+    },
+    {
+      "id": "hamza_q_10_057",
+      "section": "grammar",
+      "question": "حدد اسم الآلة من الفعل (طحن):",
+      "options": [
+        "مطحنة (أو طاحونة)",
+        "طاحن",
+        "مطحون",
+        "طحينة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Ism alat dari tahana (طحن) berwazan مِفْعَلَة هو «مطحنة»."
+    },
+    {
+      "id": "hamza_q_10_058",
+      "section": "grammar",
+      "question": "ما وزن كلمة (منصة)؟",
+      "options": [
+        "مفعلة",
+        "مفعال",
+        "فعالة",
+        "تفعلة"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Wazan ism makan dari nashaba (نصب) هو «مَفْعَلَة» (منصّة)."
+    },
+    {
+      "id": "hamza_q_10_059",
+      "section": "grammar",
+      "question": "اختر الفعل المبني على السكون لاتصاله بنا الفاعلين:",
+      "options": [
+        "كتبْنا",
+        "كتبوا",
+        "كتبَ",
+        "تكتبون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Fi'il madhi mabni sukun bersambung na al-fa'ilin: «كتبْنا»."
+    },
+    {
+      "id": "hamza_q_10_060",
+      "section": "grammar",
+      "question": "ما إعراب (احتراماً) في: وقفتُ للمعلِّمِ احتراماً؟",
+      "options": [
+        "مفعول لأجله منصوب",
+        "حال",
+        "مفعول به",
+        "تمييز"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Kata «احتراماً» kedudukannya maf'ul li-ajlih manshub penjelas motivasi berdiri."
+    },
+    {
+      "id": "hamza_q_10_061",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح لأسلوب التعجب بالسماع والقياس:",
+      "options": [
+        "ما أروعَ العلمَ النافعَ!",
+        "ما أروعُ العلمُ النافعُ!",
+        "ما أروعَ العلمُ النافعُ!",
+        "أروعْ بالعلمَ النافعَ!"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Shighat ta'ajjub baku «ما أفعلَ + المفعول به المنصوب»: «ما أروعَ العلمَ!»."
+    },
+    {
+      "id": "hamza_q_10_062",
+      "section": "structures",
+      "question": "اختر التركيب الصحيح لاسم (لا النافية للجنس) الشبيه بالمضاف:",
+      "options": [
+        "لا طالعاً جَبَلاً خائفٌ",
+        "لا طالعُ جبلٍ خائفٌ",
+        "لا طالعَ جبلٍ خائفٌ",
+        "لا طالعٌ جبلًا خائفٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Isim La an-nafiyah lil-jins shabih bil-mudhaf manshub bertanwin: «لا طالعاً جَبَلاً»."
+    },
+    {
+      "id": "hamza_q_10_063",
+      "section": "structures",
+      "question": "حدد التركيب الصحيح لجمع المذكر السالم المنصوب بالياء:",
+      "options": [
+        "رأيتُ المهندسينَ البارعينَ يعملون",
+        "رأيتُ المهندسونَ البارعونَ يعملون",
+        "رأيتُ المهندسينَ البارعونَ يعملون",
+        "رأيتُ المهندسونَ البارعينَ يعملون"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Maf'ul bih jamak manshub ya' («المهندسينَ») + na'at manshub ya' («البارعينَ»)."
+    },
+    {
+      "id": "hamza_q_10_064",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة المسبوقة بـ (إنّ):",
+      "options": [
+        "إنّ المنصاتِ التعليميةَ مفيدةٌ",
+        "إنّ المنصاتُ التعليميةُ مفيدةٌ",
+        "إنّ المنصاتِ التعليميةُ مفيدةً",
+        "إنّ المنصاتُ التعليميةَ مفيدةٌ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. «إنّ» تنصب الاسم بالكسرة نيابة عن الفتحة («المنصاتِ»), ونعته منصوب بالفتحة («التعليميةَ»), وخبرها مرفوع («مفيدةٌ»)."
+    },
+    {
+      "id": "hamza_q_10_065",
+      "section": "structures",
+      "question": "اختر الترتيب الصحيح للجملة المعطوفة بـ (ثمّ التراخية):",
+      "options": [
+        "غرسنا البذرةَ ثمّ جنينا الثمرةَ",
+        "غرسنا البذرةَ أو جنينا الثمرةَ",
+        "غرسنا البذرةَ بل جنينا الثمرةَ",
+        "غرسنا البذرةَ لكن جنينا الثمرةَ"
+      ],
+      "correct_index": 0,
+      "explanation": "Jawaban A. Harf 'athaf «ثمّ» يفيد الترتيب مع التراخي الزمني بين الغرس والني: «غرسنا ... ثمّ جنينا»."
+    },
+    {
+      "id": "hamza_q_10_066",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب مقالاً عن دور المنصات التعليمية المفتوحة (MOOCs) في نشر المعرفة.",
+      "prompt_hint": "اذكر ميزتين للمنصات وكيف تمنح الفرصة لسكان المناطق النائية",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat esai minimal 80 kata ulasan peranan e-learning massal dalam pemerataan pendidikan tinggi."
+    },
+    {
+      "id": "hamza_q_10_067",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "ناقش تحديات سلاسل الإمداد العالمية وأهمية التخطيط اللوجستي الإستراتيجي.",
+      "prompt_hint": "ركز على تنويع التوريد والمخزون المحلي وتجنب اختناقات الموانئ",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Uraikan minimal 80 kata pentingnya kelancaran rantai pasok dan ketahanan stok nasional."
+    },
+    {
+      "id": "hamza_q_10_068",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "تحدث عن فوائد تمارين اليقظة الذهنية والتأمل للصحة النفسية والعاطفية.",
+      "prompt_hint": "اشرح كيف تقلل هذه التمارين من التوتر وتزيد التركيز في العمل",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Paparkan minimal 70 kata panduan kebiasaan mindfulness dalam memulihkan kebugaran emosi dan konsentrasi."
+    },
+    {
+      "id": "hamza_q_10_069",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "اكتب فقرة عن معايير العمارة المستدامة وأهمية خفض الانبعاثات الكربونية.",
+      "prompt_hint": "اشرح ترشيد استهلاك الطاقة والمياه في المباني الخضراء الحديثة",
+      "minimum_words": 70,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Buat naskah edukasi minimal 70 kata konsep green building dalam menekan biaya operasional dan kelestarian."
+    },
+    {
+      "id": "hamza_q_10_070",
+      "section": "writing",
+      "answer_type": "writing",
+      "question": "صف دور أندية الشباب والأنشطة الرياضية في بناء الشخصية الإيجابية للناشئة.",
+      "prompt_hint": "ركز على قيم التنافس الشريف والعمل الجماعي وحفظ الوقت",
+      "minimum_words": 80,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan menulis: Tuliskan karangan tertulis minimal 80 kata manfaat wadah olahraga dalam memupuk karakter pemuda."
+    },
+    {
+      "id": "hamza_q_10_071",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "هل تفضل الدراسة عبر المنصات المفتوحة أم الحضور الفعلي بالجامعة؟ ولماذا؟",
+      "prompt_hint": "وضح موقفك وأسباب اختيارك بوضوح خلال دقيقة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Sampaikan pandangan lisan 1 menit perbandingan preferensi belajar daring MOOCs vs kuliah offline."
+    },
+    {
+      "id": "hamza_q_10_072",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "كيف تؤثر مشاكل تأخير الشحن البحري على أسعار المنتجات في مدينتك؟",
+      "prompt_hint": "اذكر مثالاً لسلعة تأثر سعرها بالتوريد",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Jelaskan analisis lisan 60 detik Anda mengenai pengaruh krisis logistik terhadap lonjakan harga barang."
+    },
+    {
+      "id": "hamza_q_10_073",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "هل جربت ممارسة اليقظة الذهنية أو التأمل سابقاً؟ وما انطباعك عنها؟",
+      "prompt_hint": "عبر عن تجربتك الشخصية أو رأيك في التهدئة النفسية",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Bagikan ulasan lisan 1 menit pengalaman Anda melakukan relaksasi meditasi mindfulness."
+    },
+    {
+      "id": "hamza_q_10_074",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "ما رأيك في الشقق والمباني الخضراء التي تعتمد على الطاقة الشمسية والتهوية؟",
+      "prompt_hint": "اذكر ميزة واحدة تهمك في سكنك المستقبلي",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Uraikan secara lisan 60 detik daya tarik hunian berkonsep green building bagi kehidupan Anda."
+    },
+    {
+      "id": "hamza_q_10_075",
+      "section": "speaking",
+      "answer_type": "speaking",
+      "question": "قدم كلمة تحث فيها الناشئة على استغلال أوقات الفراغ في الرياضة والقراءة.",
+      "prompt_hint": "وجه ثلاث نصائح للابتعاد عن العادات الضارة",
+      "preparation_seconds": 30,
+      "max_recording_seconds": 60,
+      "options": [
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "correct_index": 0,
+      "scored": true,
+      "explanation": "Panduan berbicara: Berikan orasi lisan 1 menit imbauan remaja mengisi masa muda dengan kegiatan positif."
+    }
+  ]
+}
