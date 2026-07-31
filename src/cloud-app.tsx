@@ -12,12 +12,13 @@ import {
   useNavigate,
 } from '@tanstack/react-router'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Grid, Headphones, History, PlayCircle, Save, Search, Send, ShieldCheck, Sparkles, TimerReset, TriangleAlert, User, Users, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Grid, Headphones, History, PlayCircle, Save, Search, Send, ShieldCheck, Sparkles, TimerReset, TriangleAlert, Upload, User, Users, X } from 'lucide-react'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
 import { SpeakingRecorder } from './components/speaking-recorder'
 import { QuestionGrid } from './components/question-grid'
 import { UserManagement } from './components/user-management'
+import { AdminBundleUploader } from './components/admin-bundle-uploader'
 import { demoExam } from './data/exam-data'
 import {
   finishAttempt,
@@ -97,7 +98,7 @@ function CloudDashboardPage() {
   const [adminAssignments, setAdminAssignments] = useState<AdminPackageAssignment[]>([])
   const [error, setError] = useState("")
 
-  const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank">("packages")
+  const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload">("packages")
   const [searchTerm, setSearchTerm] = useState("")
   const [inspectAttemptId, setInspectAttemptId] = useState<string | null>(null)
   const [inspectQuestions, setInspectQuestions] = useState<ReviewQuestion[]>([])
@@ -446,11 +447,17 @@ function CloudDashboardPage() {
               <button
                 type="button"
                 onClick={() => setActiveTab("question_bank")}
-                className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
-                  activeTab === "question_bank" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100"
-                }`}
+                className={"inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] " + (activeTab === "question_bank" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100")}
               >
-                <BookOpenCheck size={17} /> Input & Revisi Soal
+                <BookOpenCheck size={17} /> Input &amp; Revisi Soal
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveTab("bundle_upload")}
+                className={"inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] " + (activeTab === "bundle_upload" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100")}
+              >
+                <Upload size={17} /> Upload Bundle Soal (JSON &amp; Audio)
               </button>
             </>
           )}
@@ -954,6 +961,18 @@ function CloudDashboardPage() {
               </div>
             </div>
           </section>
+        )}
+
+        {isAdmin && activeTab === "bundle_upload" && (
+          <div className="mt-6">
+            <AdminBundleUploader
+              client={client}
+              mode="cloud"
+              onSuccess={() => {
+                getPublishedExams(client).then(setExams).catch(console.error)
+              }}
+            />
+          </div>
         )}
       </div>
 

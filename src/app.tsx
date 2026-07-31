@@ -29,6 +29,7 @@ import {
   TimerReset,
   Trash2,
   TriangleAlert,
+  Upload,
   User,
   Users,
   X,
@@ -36,6 +37,7 @@ import {
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react"
 import { QuestionGrid } from "./components/question-grid"
 import { UserManagement } from "./components/user-management"
+import { AdminBundleUploader } from "./components/admin-bundle-uploader"
 import { demoExam } from "./data/exam-data"
 import { calculateRemainingSeconds, createSessionResult } from "./lib/scoring"
 import { useExamStore } from "./store/exam-store"
@@ -86,7 +88,7 @@ function AppRuntime() {
   return <RouterProvider router={router} />
 }
 
-type TabType = "packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank"
+type TabType = "packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload"
 
 function DashboardPage() {
   const navigate = useNavigate()
@@ -299,11 +301,17 @@ return (
               <button
                 type="button"
                 onClick={() => setActiveTab("question_bank")}
-                className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
-                  activeTab === "question_bank" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100"
-                }`}
+                className={"inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] " + (activeTab === "question_bank" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100")}
               >
-                <BookOpenCheck size={17} /> Input & Revisi Soal
+                <BookOpenCheck size={17} /> Input &amp; Revisi Soal
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveTab("bundle_upload")}
+                className={"inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] " + (activeTab === "bundle_upload" ? "bg-amber-800 text-white shadow-sm" : "bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100")}
+              >
+                <Upload size={17} /> Upload Bundle Soal (JSON &amp; Audio)
               </button>
             </>
           )}
@@ -748,6 +756,15 @@ return (
               </div>
             </div>
           </section>
+        )}
+
+        {isAdmin && activeTab === "bundle_upload" && (
+          <div className="mt-6">
+            <AdminBundleUploader
+              client={null}
+              mode="demo"
+            />
+          </div>
         )}
 
       </div>

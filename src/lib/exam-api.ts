@@ -429,3 +429,48 @@ export async function adminTogglePackagePublic(
   })
   if (error) throw error
 }
+
+export type AdminBundleImportResult = {
+  package_id: string
+  version_id: string
+  slug: string
+  question_count: number
+}
+
+export async function adminImportExamBundle(
+  client: SupabaseClient,
+  bundleData: unknown
+): Promise<AdminBundleImportResult> {
+  const { data, error } = await client.rpc('admin_import_exam_bundle', {
+    p_bundle: bundleData,
+  })
+  if (error) throw error
+  return data as AdminBundleImportResult
+}
+
+export async function adminUploadAudioFile(
+  client: SupabaseClient,
+  path: string,
+  file: File | Blob
+): Promise<{ path: string; publicUrl: string }> {
+  const { error } = await client.storage.from(AUDIO_BUCKET).upload(path, file, {
+    upsert: true,
+    contentType: file.type || 'audio/mpeg',
+  })
+  if (error) throw error
+  const publicUrl = client.storage.from(AUDIO_BUCKET).getPublicUrl(path).data.publicUrl
+  return { path, publicUrl }
+}
+
+export async function adminCheckAudioExists(
+  client: SupabaseClient,
+  path: string
+): Promise<boolean> {
+  const folder = path.includes('/') ? path.substring(0, path.lastIndexOf('/')) : ''
+  const filename = path.includes('/') ? path.substring(path.lastIndexOf('/') + 1) : path
+  const { data, error } = await client.storage.from(AUDIO_BUCKET).list(folder, {
+    search: filename,
+  })
+  if (error || !data) return false
+  return data.some((item) => item.name === filename)
+}
