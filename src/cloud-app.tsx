@@ -17,6 +17,7 @@ import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
 import { SpeakingRecorder } from './components/speaking-recorder'
 import { QuestionGrid } from './components/question-grid'
+import { UserManagement } from './components/user-management'
 import { demoExam } from './data/exam-data'
 import {
   finishAttempt,
@@ -43,6 +44,11 @@ import {
   type AdminQuestion,
   getAdminQuestions,
   seedDemoExamToSupabase,
+  adminAssignPackages,
+  adminInviteParticipant,
+  adminTogglePackagePublic,
+  getAdminPackageAssignments,
+  type AdminPackageAssignment,
 } from './lib/exam-api'
 import { AccountMenu, useAppAuth } from './lib/auth'
 import { AUDIO_BUCKET } from './lib/audio-assets'
@@ -88,6 +94,7 @@ function CloudDashboardPage() {
   const [attempts, setAttempts] = useState<CloudAttempt[]>([])
   const [adminAttempts, setAdminAttempts] = useState<AdminAttempt[]>([])
   const [adminQuestions, setAdminQuestions] = useState<AdminQuestion[]>([])
+  const [adminAssignments, setAdminAssignments] = useState<AdminPackageAssignment[]>([])
   const [error, setError] = useState("")
 
   const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank">("packages")
@@ -145,6 +152,7 @@ function CloudDashboardPage() {
   useEffect(() => {
     if (isAdmin) {
       void getAdminAllAttempts(client).then(setAdminAttempts).catch(() => {})
+      void getAdminPackageAssignments(client).then(setAdminAssignments).catch(() => {})
     }
   }, [client, isAdmin])
 
@@ -270,6 +278,26 @@ function CloudDashboardPage() {
     } finally {
       setSeeding(false)
     }
+  }
+
+  const handleAssignPackages = async (targetUserIdOrEmail: string, packageIds: string[]) => {
+    await adminAssignPackages(client, targetUserIdOrEmail, packageIds)
+    const updated = await getAdminPackageAssignments(client)
+    setAdminAssignments(updated)
+    const updatedExams = await getPublishedExams(client)
+    setExams(updatedExams)
+  }
+
+  const handleInviteParticipant = async (email: string, packageIds: string[]) => {
+    await adminInviteParticipant(client, email, packageIds)
+    const updated = await getAdminPackageAssignments(client)
+    setAdminAssignments(updated)
+  }
+
+  const handleTogglePackagePublic = async (packageId: string, currentIsPublic: boolean) => {
+    await adminTogglePackagePublic(client, packageId, !currentIsPublic)
+    const updatedExams = await getPublishedExams(client)
+    setExams(updatedExams)
   }
 
   const handleAdminSaveQuestion = async (e: React.FormEvent) => {
@@ -472,15 +500,34 @@ function CloudDashboardPage() {
                       <article key={exam.id} className="rounded-2xl border border-[#E6F0EB] bg-[#FCFFFD] p-5">
                         <div className="flex flex-wrap items-center justify-between gap-4">
                           <div>
-                            <h3 className="font-bold">{exam.title}</h3>
+                            <div className="flex items-center gap-2">
+                              <h3 className="font-bold">{exam.title}</h3>
+                              <span className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold ${
+                                exam.isPublic !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900 border border-amber-300'
+                              }`}>
+                                {exam.isPublic !== false ? 'Publik' : 'Khusus (Assigned)'}
+                              </span>
+                            </div>
                             <p className="mt-1 text-sm text-slate-600">{exam.subtitle}</p>
                           </div>
-                          <button
-                            onClick={() => navigate({ to: "/instructions/$versionId", params: { versionId: exam.id } })}
-                            className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-transform active:scale-[0.96]"
-                          >
-                            <PlayCircle size={17} /> Mulai
-                          </button>
+                          <div className="flex items-center gap-2">
+                            {isAdmin && (
+                              <button
+                                type="button"
+                                onClick={() => handleTogglePackagePublic(exam.packageId, exam.isPublic !== false)}
+                                className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50"
+                                title="Ubah status akses publik/khusus"
+                              >
+                                {exam.isPublic !== false ? 'Set Khusus' : 'Set Publik'}
+                              </button>
+                            )}
+                            <button
+                              onClick={() => navigate({ to: "/instructions/$versionId", params: { versionId: exam.id } })}
+                              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-transform active:scale-[0.96]"
+                            >
+                              <PlayCircle size={17} /> Mulai
+                            </button>
+                          </div>
                         </div>
                         <p className="mt-4 text-sm text-slate-600">
                           <Clock3 className="mr-2 inline size-4" /> {exam.durationMinutes} menit · Full Test
@@ -647,32 +694,30 @@ function CloudDashboardPage() {
           </section>
         )}
 
-        {/* Tab 4 (Admin): Manajemen User */}
-        {isAdmin && activeTab === "user_mgmt" && (
-          <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] border border-amber-100 sm:p-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Portal Admin Supabase</div>
-                <h2 className="text-xl font-bold text-slate-900">Manajemen User & Hak Akses</h2>
-                <p className="mt-1 text-sm text-slate-600">Pengaturan role admin dan peserta terdaftar.</p>
-              </div>
-            </div>
-
-            <div className="mt-6 rounded-2xl bg-amber-50/50 p-5 border border-amber-200">
-              <h3 className="font-bold text-amber-900">Status Akun Terhubung</h3>
-              <p className="mt-1 text-sm text-amber-800">
-                Akun aktif: <strong className="font-semibold">{auth.displayName}</strong> | Role terdeteksi: <strong className="uppercase font-bold">{auth.role}</strong>
-              </p>
-              <button
-                type="button"
-                onClick={() => auth.setRole(auth.role === "admin" ? "user" : "admin")}
-                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-amber-800 px-4 py-2 text-xs font-bold text-white transition-transform active:scale-[0.96]"
-              >
-                Ganti Role Pengujian (Simulasi Local/Cloud)
-              </button>
-            </div>
-          </section>
-        )}
+      {/* Tab 4 (Admin): Manajemen User */}
+      {isAdmin && activeTab === "user_mgmt" && (
+         <UserManagement
+           mode="cloud"
+           currentAuth={{
+             userId: auth.userId,
+             displayName: auth.displayName,
+             role: auth.role,
+             setRole: auth.setRole,
+           }}
+           cloudAttempts={adminAttempts}
+           onInspectAttempt={(attemptId) => setInspectAttemptId(attemptId)}
+           availablePackages={exams.map((e) => ({
+             id: e.id,
+             packageId: e.packageId,
+             title: e.title,
+             subtitle: e.subtitle,
+             isPublic: e.isPublic,
+           }))}
+           packageAssignments={adminAssignments}
+           onAssignPackages={handleAssignPackages}
+           onInviteParticipant={handleInviteParticipant}
+         />
+       )}
 
         {/* Tab 5 (Admin): Input & Revisi Soal */}
         {isAdmin && activeTab === "question_bank" && (

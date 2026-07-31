@@ -60,6 +60,15 @@ Dashboard
 
 Mode demo memakai `src/data/exam-data.ts`. Fitur **Bank soal** pada mode ini adalah alat draft lokal; soal yang dibuat di sana belum otomatis masuk ke paket ujian atau Supabase.
 
+### 5.4 Manajemen User & Hak Akses (Admin)
+
+- **Agregasi Pengguna & Attempt:** Mengelompokkan data sesi berdasarkan `user_id` di mode cloud atau data simulasi/lokal di mode demo.
+- **Metrik Utama & CEFR:** Menghitung total sesi, skor rata-rata, skor tertinggi, CEFR terbaik, dan seksi terkuat per user.
+- **Pencarian, Filter & Sortir:** Pencarian kata kunci (nama/email/ID), filter role (Admin/Peserta), dan sortir berdasarkan sesi/skor/aktivitas.
+- **Inspeksi Jawaban Per Sesi:** Drawer/modal detail user menyediakan akses inspeksi kunci jawaban per attempt.
+- **Panduan Access Control:** Integrasi hak akses admin dengan `publicMetadata` Clerk dan fungsi RPC Supabase `public.is_admin()`.
+- **Ekspor & Simulasi:** Ekspor laporan CSV data user dan penambahan user simulasi untuk pengujian.
+
 ### 5.2 Mesin ujian
 
 - Timer memakai waktu selesai absolut, bukan penghitung yang hanya hidup di memori, sehingga refresh tidak menambah waktu.

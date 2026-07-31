@@ -35,6 +35,7 @@ import {
 } from "lucide-react"
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react"
 import { QuestionGrid } from "./components/question-grid"
+import { UserManagement } from "./components/user-management"
 import { demoExam } from "./data/exam-data"
 import { calculateRemainingSeconds, createSessionResult } from "./lib/scoring"
 import { useExamStore } from "./store/exam-store"
@@ -106,13 +107,6 @@ function DashboardPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedAttempt, setSelectedAttempt] = useState<SessionResult | null>(null)
 
-  // Demo user data generator for admin view
-  const demoUsers = useMemo(() => [
-    { id: "demo-user", name: auth.displayName || "Peserta Demo", email: "peserta@hamza.test", role: auth.role, totalAttempts: history.length, avgScore: history.length > 0 ? Math.round(history.reduce((acc, h) => acc + h.score, 0) / history.length) : 0 },
-    { id: "user-002", name: "Ahmad Dahlan", email: "ahmad@hamza.test", role: "user" as const, totalAttempts: 3, avgScore: 82 },
-    { id: "user-003", name: "Fatimah Az-Zahra", email: "fatimah@hamza.test", role: "user" as const, totalAttempts: 5, avgScore: 91 },
-    { id: "admin-001", name: "Admin Utama", email: "admin@hamza.test", role: "admin" as const, totalAttempts: 1, avgScore: 88 },
-  ], [auth.displayName, auth.role, history])
 
   // Aggregate mock all-user attempts for admin view
   const mockAllAttempts = useMemo(() => {
@@ -535,64 +529,23 @@ return (
           </section>
         )}
 
-        {/* Tab 4 (Admin): Manajemen User */}
-        {isAdmin && activeTab === "user_mgmt" && (
-          <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-amber-100 sm:p-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <div className="inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 mb-1">Portal Admin</div>
-                <h2 className="text-xl font-bold text-slate-900">Manajemen User & Otentikasi</h2>
-                <p className="mt-1 text-sm text-slate-600">Daftar pengguna terdaftar dan pengaturan hak akses role.</p>
-              </div>
-            </div>
-
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full text-left text-sm">
-                <thead>
-                  <tr className="border-b border-slate-200 text-xs font-bold uppercase text-slate-500">
-                    <th className="py-3 px-4">Pengguna</th>
-                    <th className="py-3 px-4">Role Saat Ini</th>
-                    <th className="py-3 px-4 text-center">Jumlah Sesi</th>
-                    <th className="py-3 px-4 text-center">Rata-rata Skor</th>
-                    <th className="py-3 px-4 text-right">Aksi Admin</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {demoUsers.map((user) => (
-                    <tr key={user.id} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="py-4 px-4">
-                        <p className="font-bold text-slate-900">{user.name}</p>
-                        <p className="text-xs text-slate-500">{user.email}</p>
-                      </td>
-                      <td className="py-4 px-4">
-                        <span className={`inline-block rounded-lg px-2.5 py-1 text-xs font-bold ${
-                          user.role === "admin" ? "bg-amber-100 text-amber-900 border border-amber-300" : "bg-slate-100 text-slate-700"
-                        }`}>
-                          {user.role === "admin" ? "Admin" : "Peserta"}
-                        </span>
-                      </td>
-                      <td className="py-4 px-4 text-center tabular-nums font-semibold">{user.totalAttempts} sesi</td>
-                      <td className="py-4 px-4 text-center tabular-nums font-bold text-[#006C35]">{user.avgScore}</td>
-                      <td className="py-4 px-4 text-right">
-                        {user.id === "demo-user" ? (
-                          <button
-                            type="button"
-                            onClick={() => auth.setRole(auth.role === "admin" ? "user" : "admin")}
-                            className="rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 transition-transform active:scale-[0.96]"
-                          >
-                            Tukar Role Akun Ini
-                          </button>
-                        ) : (
-                          <span className="text-xs text-slate-400">Terbaca dari DB</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )}
+      {/* Tab 4 (Admin): Manajemen User */}
+      {isAdmin && activeTab === "user_mgmt" && (
+         <UserManagement
+           mode="demo"
+           currentAuth={{
+             userId: auth.userId || "demo-user",
+             displayName: auth.displayName || "Peserta Demo",
+             role: auth.role,
+             setRole: auth.setRole,
+           }}
+           demoHistory={history}
+            onInspectAttempt={(attId) => {
+              const found = history.find((h) => h.id === attId)
+              if (found) setSelectedAttempt(found)
+            }}
+          />
+       )}
 
         {/* Tab 5 (Admin): Input & Revisi Soal */}
         {isAdmin && activeTab === "question_bank" && (

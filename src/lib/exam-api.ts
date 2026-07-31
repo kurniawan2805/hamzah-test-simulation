@@ -8,6 +8,7 @@ export type PublishedExam = {
   title: string
   subtitle: string
   durationMinutes: number
+  isPublic?: boolean
 }
 
 export type PublicQuestion = {
@@ -91,7 +92,7 @@ function toAttempt(row: Row): CloudAttempt {
 export async function getPublishedExams(client: SupabaseClient): Promise<PublishedExam[]> {
   const { data, error } = await client
     .from('exam_versions')
-    .select('id, duration_minutes, package:exam_packages(id, title, subtitle)')
+    .select('id, duration_minutes, package:exam_packages(id, title, subtitle, is_public)')
     .eq('status', 'published')
     .order('published_at', { ascending: false })
   if (error) throw error
@@ -104,6 +105,7 @@ export async function getPublishedExams(client: SupabaseClient): Promise<Publish
       title: asString(packageRow.title),
       subtitle: asString(packageRow.subtitle),
       durationMinutes: asNumber(row.duration_minutes),
+      isPublic: packageRow.is_public !== false,
     }
   })
 }
@@ -370,4 +372,60 @@ export async function seedDemoExamToSupabase(client: SupabaseClient, questions: 
   }
 
   return versionId
+}
+
+export type AdminPackageAssignment = {
+  id: string
+  packageId: string
+  packageTitle: string
+  userId: string
+  assignedAt: string
+}
+
+export async function adminInviteParticipant(
+  client: SupabaseClient,
+  email: string,
+  packageIds?: string[]
+): Promise<{ success: boolean; message: string; email: string; assignedPackages?: string[] }> {
+  const { data, error } = await client.functions.invoke('invite-participant', {
+    body: { email, packageIds },
+  })
+  if (error) throw error
+  return data
+}
+
+export async function getAdminPackageAssignments(client: SupabaseClient): Promise<AdminPackageAssignment[]> {
+  const { data, error } = await client.rpc('get_admin_package_assignments')
+  if (error) throw error
+  return asRows(data).map((row) => ({
+    id: asString(row.id),
+    packageId: asString(row.package_id),
+    packageTitle: asString(row.package_title),
+    userId: asString(row.user_id),
+    assignedAt: asString(row.assigned_at),
+  }))
+}
+
+export async function adminAssignPackages(
+  client: SupabaseClient,
+  targetUserIdOrEmail: string,
+  packageIds: string[]
+): Promise<void> {
+  const { error } = await client.rpc('admin_assign_packages', {
+    p_user_id: targetUserIdOrEmail,
+    p_package_ids: packageIds,
+  })
+  if (error) throw error
+}
+
+export async function adminTogglePackagePublic(
+  client: SupabaseClient,
+  packageId: string,
+  isPublic: boolean
+): Promise<void> {
+  const { error } = await client.rpc('admin_toggle_package_public', {
+    p_package_id: packageId,
+    p_is_public: isPublic,
+  })
+  if (error) throw error
 }
