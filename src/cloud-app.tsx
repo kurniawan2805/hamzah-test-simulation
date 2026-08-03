@@ -13,15 +13,17 @@ import {
 } from '@tanstack/react-router'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Grid, Headphones, History, MessageSquareText, PlayCircle, Save, Search, Send, ShieldCheck, Sparkles, TimerReset, TriangleAlert, Upload, User, Users, X } from 'lucide-react'
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
 import { SpeakingRecorder } from './components/speaking-recorder'
 import { QuestionGrid } from './components/question-grid'
 import { UserManagement } from './components/user-management'
 import { AdminBundleUploader } from './components/admin-bundle-uploader'
-import { AiDiscussionGate } from './components/ai-discussion-gate'
+import { AiStudyTab } from './components/ai-study-tab'
 import { TierBadge } from './components/tier-badge'
 import { demoExam } from './data/exam-data'
+import { createCloudAiStudyAdapter } from './lib/ai-study-api'
+import { AI_STUDY_TOPIC_STORAGE_KEY, recommendTopics } from './lib/ai-topics'
 import {
   finishAttempt,
   getAttempt,
@@ -110,10 +112,16 @@ function CloudDashboardPage() {
   const [error, setError] = useState("")
   const [quotaByExam, setQuotaByExam] = useState<Record<string, number>>({})
 
-  const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload" | "ai_discussion">("packages")
+  const [preselectedTopic] = useState<string>(() => {
+    const stored = localStorage.getItem(AI_STUDY_TOPIC_STORAGE_KEY)
+    if (stored) localStorage.removeItem(AI_STUDY_TOPIC_STORAGE_KEY)
+    return stored ?? ""
+  })
+  const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload" | "ai_discussion">(preselectedTopic ? "ai_discussion" : "packages")
   const [searchTerm, setSearchTerm] = useState("")
   const [inspectAttemptId, setInspectAttemptId] = useState<string | null>(null)
   const [inspectQuestions, setInspectQuestions] = useState<ReviewQuestion[]>([])
+  const aiStudyAdapter = useMemo(() => createCloudAiStudyAdapter(client), [client])
 
   // Admin Question Editor state
   const [selectedVersionId, setSelectedVersionId] = useState<string>("")
@@ -716,7 +724,14 @@ function CloudDashboardPage() {
           </section>
         )}
 
-        {activeTab === "ai_discussion" && <AiDiscussionGate tier={auth.tier} />}
+        {activeTab === "ai_discussion" && (
+          <AiStudyTab
+            tier={auth.tier}
+            isAdmin={isAdmin}
+            adapter={aiStudyAdapter}
+            preselectedTopicId={preselectedTopic || undefined}
+          />
+        )}
 
         {/* Tab 3 (Admin): History Semua User */}
         {isAdmin && activeTab === "all_history" && (
@@ -1568,7 +1583,13 @@ function CloudResultsPage() {
   const client = useClient(); const { attemptId } = resultsRoute.useParams(); const navigate = useNavigate(); const [result, setResult] = useState<CloudAttempt | null>(null)
   useEffect(() => { void getAttempt(client, attemptId).then((attempt) => { if (attempt.state === 'active') navigate({ to: '/exam/$attemptId', params: { attemptId }, replace: true }); else setResult(attempt) }).catch(() => navigate({ to: '/' })) }, [attemptId, client, navigate])
   if (!result) return null; const chartOrder: Section[] = ['listening', 'reading', 'grammar', 'structures', 'writing', 'speaking']; const chartData = chartOrder.filter((section) => section in (result.sectionScores ?? {})).map((section) => ({ name: sectionCopy[section].label, description: sectionCopy[section].description, score: result.sectionScores?.[section] ?? 0 }))
-  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-5xl"><Brand /><section className="mt-7 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"><div className="rounded-3xl bg-[#006C35] p-8 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)]"><span className="grid size-12 place-items-center rounded-2xl bg-white/13"><Check size={25} /></span><p className="mt-6 text-sm font-bold text-emerald-100">Simulasi selesai</p><h1 className="mt-2 text-3xl font-bold">Hasil latihanmu</h1><div className="mt-8 flex items-end gap-4"><span className="text-6xl font-bold tabular-nums">{result.score}</span><span className="mb-2 text-emerald-100">/ 100</span></div><div className="mt-7 flex justify-between rounded-2xl bg-white/10 px-4 py-4"><span className="text-sm text-emerald-50">Level perkiraan</span><span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span></div><p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal dijawab benar.</p></div><section className="rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] sm:p-8"><p className="text-sm font-bold text-[#006C35]">Analisis kompetensi</p><h2 className="mt-1 text-xl font-bold">Performa per seksi</h2><p className="mt-2 text-sm text-slate-500">Batang mengikuti urutan seksi saat ujian. Garis emas menunjukkan target 60.</p><div className="mt-4 h-72"><Suspense fallback={<div className="h-full rounded-xl bg-slate-100" />}><PerformanceChart data={chartData} /></Suspense></div></section></section><div className="mt-6 flex justify-end"><Link to="/review/$attemptId" params={{ attemptId }} onClick={() => posthog.capture('exam_review_started', { attempt_id: attemptId, mode: 'cloud', score: result.score, cefr: result.cefr })} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96]"><BookOpenCheck size={17} />Tinjau pembahasan</Link></div></div></main>
+  const recommendations = recommendTopics(result.sectionScores ?? {})
+  const openAiStudy = (topicId: string | null) => {
+    if (topicId) localStorage.setItem(AI_STUDY_TOPIC_STORAGE_KEY, topicId)
+    else localStorage.removeItem(AI_STUDY_TOPIC_STORAGE_KEY)
+    navigate({ to: '/' })
+  }
+  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-5xl"><Brand /><section className="mt-7 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"><div className="rounded-3xl bg-[#006C35] p-8 text-white shadow-[0_18px_45px_rgba(0,108,53,0.20)]"><span className="grid size-12 place-items-center rounded-2xl bg-white/13"><Check size={25} /></span><p className="mt-6 text-sm font-bold text-emerald-100">Simulasi selesai</p><h1 className="mt-2 text-3xl font-bold">Hasil latihanmu</h1><div className="mt-8 flex items-end gap-4"><span className="text-6xl font-bold tabular-nums">{result.score}</span><span className="mb-2 text-emerald-100">/ 100</span></div><div className="mt-7 flex justify-between rounded-2xl bg-white/10 px-4 py-4"><span className="text-sm text-emerald-50">Level perkiraan</span><span className="rounded-lg bg-[#C5A059] px-3 py-1.5 text-sm font-bold text-[#17321F]">CEFR {result.cefr}</span></div><p className="mt-5 text-sm leading-6 text-emerald-50/85">{result.correctCount} dari {result.totalQuestions} soal dijawab benar.</p></div><section className="rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] sm:p-8"><p className="text-sm font-bold text-[#006C35]">Analisis kompetensi</p><h2 className="mt-1 text-xl font-bold">Performa per seksi</h2><p className="mt-2 text-sm text-slate-500">Batang mengikuti urutan seksi saat ujian. Garis emas menunjukkan target 60.</p><div className="mt-4 h-72"><Suspense fallback={<div className="h-full rounded-xl bg-slate-100" />}><PerformanceChart data={chartData} /></Suspense></div></section></section>{recommendations.length > 0 ? <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] border border-amber-100 sm:p-8"><p className="text-sm font-bold text-amber-800">Rekomendasi VIP+</p><h2 className="mt-1 text-xl font-bold text-slate-900">Topik yang disarankan</h2><div className="mt-4 grid gap-3 sm:grid-cols-2">{recommendations.map((item) => <div key={item.section} className="rounded-2xl border border-amber-100 bg-[#FFFCF4] p-4"><p className="font-bold text-slate-900">{item.label}</p><p className="mt-1 text-sm leading-6 text-slate-600">{item.reason}</p><button type="button" onClick={() => openAiStudy(item.topicId)} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-800 px-4 text-sm font-bold text-white hover:bg-amber-900 active:scale-[0.96]"><MessageSquareText size={15} /> Buka Belajar AI</button></div>)}</div></section> : null}<div className="mt-6 flex justify-end"><Link to="/review/$attemptId" params={{ attemptId }} onClick={() => posthog.capture('exam_review_started', { attempt_id: attemptId, mode: 'cloud', score: result.score, cefr: result.cefr })} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96]"><BookOpenCheck size={17} />Tinjau pembahasan</Link></div></div></main>
 }
 
 const ReviewAudioPlayer: React.FC<{ client?: SupabaseClient; audioPath: string }> = ({ client, audioPath }) => {

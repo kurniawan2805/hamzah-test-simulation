@@ -93,11 +93,21 @@ Opsi adalah seluruh kartu yang dapat diklik, bukan radio kecil yang sulit disent
 
 Status bookmark diprioritaskan secara visual atas status telah dijawab.
 
-### Tier badge, pemilih tier, dan gerbang Diskusi AI
+### Tier badge, pemilih tier, gerbang Diskusi AI, dan tab Belajar Topik
 
 - `TierBadge` adalah pill dengan ikon (Sparkles untuk Gratis, Crown untuk VIP/VIP+), teks tebal 11px, dan warna sesuai tabel token; dipakai di kartu paket, menu akun, tabel manajemen user, dan daftar penugasan paket.
 - Pemilih tier (paket/user) memakai `select` 44px, border slate, dan focus ring emas; opsi berlabel Gratis/VIP/VIP+.
-- Gerbang "Diskusi AI": pengguna non-VIP+ melihat kartu terkunci (ikon Lock, judul "Fitur VIP+", CTA "Lihat ketentuan VIP+") yang membuka dialog non-pembayaran "Hubungi admin"; pengguna VIP+ melihat empty state "Fitur ini segera hadir". Tidak ada chat sungguhan di milestone ini.
+- Gerbang "Diskusi AI": pengguna non-VIP+ melihat kartu terkunci (ikon Lock, judul "Fitur VIP+", CTA "Lihat ketentuan VIP+") yang membuka dialog non-pembayaran "Hubungi admin". Pengguna VIP+ dan admin masuk ke tab Belajar Topik (`AiStudyTab`).
+
+### Tab Belajar Topik AI
+
+- Daftar topik: kartu dua kolom per seksi (Grammar, Structures) dengan judul Arab RTL, judul Latin, dan deskripsi singkat; seluruh kartu adalah tombol 44px+ dengan focus ring emas.
+- Header tab menampilkan badge kuota harian: pesan `X/30` dan kuis `X/10`; saat kuota habis, tombol terkait nonaktif dengan pesan "Coba lagi besok".
+- Materi dan chat: gelembung pesan (user di kanan `#E6F0EB`, AI di kiri `slate-50`), area teks `whitespace-pre-wrap` dengan `dir="auto"` agar campuran Indonesia-Arab terbaca benar, dan pengiriman lewat tombol atau Enter (Shift+Enter untuk baris baru).
+- Kuis: kartu soal memakai `dir="rtl"` dan `font-arabic`; opsi adalah kartu penuh dengan label huruf `أ–د`, state terpilih `#E6F0EB` + border primary 2px; navigasi Sebelumnya/Berikutnya dan tombol "Kumpulkan jawaban".
+- Hasil kuis: panel skor hijau dengan angka besar, lalu kartu pembahasan per soal (benar `green-50`, salah terpilih `red-50`, pembahasan di panel krem `#FFFCF4`).
+- Rekomendasi dari halaman hasil: kartu amber "Topik yang disarankan" dengan tombol "Buka Belajar AI"; klik menulis topik ke `localStorage` (`hamza_ai_topic`) lalu membuka dashboard ke tab Belajar Topik dengan topik terpilih.
+- State demo dipersist di Zustand (`demoAiStudySessions`, `demoAiStudyUsage`); mode cloud membaca ulang sesi dari Supabase sehingga refresh/resume tidak kehilangan progres.
 
 ### Pemutar audio
 
@@ -129,4 +139,5 @@ Status bookmark diprioritaskan secara visual atas status telah dijawab.
 - Modal konfirmasi berlapis saat mengerjakan soal.
 - Animasi panjang yang membuat perpindahan soal lambat.
 - Teks Arab dalam font Latin, atau konten RTL tanpa atribut `dir`.
+- Materi, soal generate, atau chat AI yang menyinggung/membocorkan kunci jawaban ujian nyata.
 - Hanya membedakan state lewat warna tanpa teks, bentuk, atau ikon pendukung.

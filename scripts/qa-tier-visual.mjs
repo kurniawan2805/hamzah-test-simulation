@@ -63,8 +63,11 @@ const freeDashboard = async (page, viewport) => {
   await page.getByRole('button', { name: 'Diskusi AI' }).click()
   await page.waitForTimeout(250)
   const vipBody = await page.locator('body').innerText()
-  check(`${viewport.width}px: VIP+ melihat "segera hadir"`, vipBody.includes('segera hadir'))
-  await page.screenshot({ path: `${outDir}/ai-gate-vip-plus-${viewport.width}.png` })
+  check(
+    `${viewport.width}px: VIP+ melihat tab Belajar Topik`,
+    vipBody.includes('Belajar Topik dengan AI') && vipBody.includes('Materi, kuis, dan diskusi'),
+  )
+  await page.screenshot({ path: `${outDir}/ai-study-tab-${viewport.width}.png` })
 }
 
 const adminFlow = async (page, viewport) => {
