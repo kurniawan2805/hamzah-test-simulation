@@ -2,6 +2,8 @@ export const sections = ['listening', 'reading', 'grammar', 'structures', 'writi
 
 export type Section = (typeof sections)[number]
 
+export type UserTier = 'free' | 'vip' | 'vip_plus'
+
 export interface Question {
   id: string
   section: Section

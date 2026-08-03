@@ -19,6 +19,9 @@ Dokumen ini adalah sumber acuan desain untuk UI aplikasi. Ikuti token dan pola y
 | Primary | `#006C35` | CTA, jawaban terpilih, brand, status sukses utama |
 | Primary light | `#E6F0EB` | Latar state terpilih dan badge lembut |
 | Accent gold | `#C5A059` | Aksen progres dan level; jangan untuk aksi utama |
+| Badge tier Gratis | `#E6F0EB` + teks `#006C35`, border `#A7D7C0` | Label tingkat akses gratis |
+| Badge tier VIP | `#FEF3C7` + teks `#78350F`, border `#FCD34D` | Label tingkat akses VIP |
+| Badge tier VIP+ | `#78350F` + teks putih, border gelap senada | Label tingkat akses VIP+ |
 | App background | `#F8FAFC` | Latar halaman |
 | Surface | `#FFFFFF` | Kartu, header, panel |
 | Text primary | `#0F172A` | Teks utama |
@@ -89,6 +92,12 @@ Opsi adalah seluruh kartu yang dapat diklik, bukan radio kecil yang sulit disent
 | Aktif | Ring primary 2px dengan offset |
 
 Status bookmark diprioritaskan secara visual atas status telah dijawab.
+
+### Tier badge, pemilih tier, dan gerbang Diskusi AI
+
+- `TierBadge` adalah pill dengan ikon (Sparkles untuk Gratis, Crown untuk VIP/VIP+), teks tebal 11px, dan warna sesuai tabel token; dipakai di kartu paket, menu akun, tabel manajemen user, dan daftar penugasan paket.
+- Pemilih tier (paket/user) memakai `select` 44px, border slate, dan focus ring emas; opsi berlabel Gratis/VIP/VIP+.
+- Gerbang "Diskusi AI": pengguna non-VIP+ melihat kartu terkunci (ikon Lock, judul "Fitur VIP+", CTA "Lihat ketentuan VIP+") yang membuka dialog non-pembayaran "Hubungi admin"; pengguna VIP+ melihat empty state "Fitur ini segera hadir". Tidak ada chat sungguhan di milestone ini.
 
 ### Pemutar audio
 

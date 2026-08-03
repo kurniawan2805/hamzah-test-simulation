@@ -1,8 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 
 import { ClerkProvider, SignIn, UserButton, useAuth, useClerk, useUser } from "@clerk/react"
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react"
 import { posthog } from "./posthog"
+import type { UserTier } from "../types"
+import { TierBadge } from "../components/tier-badge"
 
 export type UserRole = "user" | "admin"
 
@@ -15,6 +17,8 @@ type AuthContextValue = {
   email?: string
   role: UserRole
   setRole: (role: UserRole) => void
+  tier: UserTier
+  setTier: (tier: UserTier) => void
   getToken: () => Promise<string | null>
   signOut: () => Promise<void>
 }
@@ -32,6 +36,8 @@ const demoAuth: AuthContextValue = {
   email: "peserta@hamza.test",
   role: "user",
   setRole: () => undefined,
+  tier: "free",
+  setTier: () => undefined,
   getToken: async () => null,
   signOut: async () => undefined,
 }
@@ -41,23 +47,43 @@ export function AppAuthProvider({ children }: { children: ReactNode }) {
     return (localStorage.getItem("hamza_demo_role") as UserRole) || "user"
   })
 
-  const setRole = (newRole: UserRole) => {
+  const [tier, setTierState] = useState<UserTier>(() => {
+    const stored = localStorage.getItem("hamza_demo_tier")
+    return stored === "vip" || stored === "vip_plus" ? stored : "free"
+  })
+
+  const setRole = useCallback((newRole: UserRole) => {
     setRoleState(newRole)
     localStorage.setItem("hamza_demo_role", newRole)
-  }
+  }, [])
+
+  const setTier = useCallback((newTier: UserTier) => {
+    setTierState(newTier)
+    localStorage.setItem("hamza_demo_tier", newTier)
+  }, [])
 
   if (!cloudEnabled || !clerkPublishableKey) {
-    return <AuthContext.Provider value={{ ...demoAuth, role, setRole }}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{ ...demoAuth, role, setRole, tier, setTier }}>{children}</AuthContext.Provider>
   }
 
   return (
     <ClerkProvider publishableKey={clerkPublishableKey} afterSignOutUrl="/">
-      <ClerkAuthBridge>{children}</ClerkAuthBridge>
+      <ClerkAuthBridge tier={tier} setTier={setTier}>
+        {children}
+      </ClerkAuthBridge>
     </ClerkProvider>
   )
 }
 
-function ClerkAuthBridge({ children }: { children: ReactNode }) {
+function ClerkAuthBridge({
+  children,
+  tier,
+  setTier,
+}: {
+  children: ReactNode
+  tier: UserTier
+  setTier: (tier: UserTier) => void
+}) {
   const { getToken, isLoaded, isSignedIn, userId } = useAuth()
   const { user } = useUser()
   const { signOut } = useClerk()
@@ -89,6 +115,8 @@ function ClerkAuthBridge({ children }: { children: ReactNode }) {
     email: user?.primaryEmailAddress?.emailAddress,
     role: detectedRole,
     setRole: () => undefined,
+    tier,
+    setTier,
     getToken: () => getToken({ template: "supabase" }),
     signOut: wrappedSignOut,
   }
@@ -154,8 +182,24 @@ export function AccountMenu() {
         <span className={`size-2 rounded-full ${auth.role === "admin" ? "bg-amber-600" : "bg-[#006C35]"}`} />
         {auth.role === "admin" ? "Admin" : "Peserta"}
       </span>
+      <TierBadge tier={auth.tier} />
       {auth.enabled ? <UserButton userProfileMode="modal" /> : (
-        <span className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">Mode demo</span>
+        <label className="flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
+          Mode demo
+          <select
+            aria-label="Tier demo"
+            value={auth.tier}
+            onChange={(event) => {
+              const next = event.target.value
+              if (next === "free" || next === "vip" || next === "vip_plus") auth.setTier(next)
+            }}
+            className="min-h-11 rounded-md border border-slate-200 bg-white px-1.5 text-[11px] font-bold text-slate-700 hover:border-[#C5A059] focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
+          >
+            <option value="free">Gratis</option>
+            <option value="vip">VIP</option>
+            <option value="vip_plus">VIP+</option>
+          </select>
+        </label>
       )}
     </div>
   )

@@ -20,6 +20,7 @@ import {
   History,
   Grid,
   ListChecks,
+  MessageSquareText,
   PlayCircle,
   Save,
   Search,
@@ -36,8 +37,10 @@ import {
 } from "lucide-react"
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react"
 import { QuestionGrid } from "./components/question-grid"
+import { AiDiscussionGate } from "./components/ai-discussion-gate"
 import { UserManagement } from "./components/user-management"
 import { AdminBundleUploader } from "./components/admin-bundle-uploader"
+import { TierBadge } from "./components/tier-badge"
 import { demoExam } from "./data/exam-data"
 import { calculateRemainingSeconds, createSessionResult } from "./lib/scoring"
 import { useExamStore } from "./store/exam-store"
@@ -88,7 +91,7 @@ function AppRuntime() {
   return <RouterProvider router={router} />
 }
 
-type TabType = "packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload"
+type TabType = "packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload" | "ai_discussion"
 
 function DashboardPage() {
   const navigate = useNavigate()
@@ -207,7 +210,7 @@ function DashboardPage() {
 return (
     <main className="min-h-dvh bg-[#F8FAFC] text-slate-900">
       <header className="border-b border-slate-200/80 bg-white sticky top-0 z-20">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-5 py-4 sm:px-8">
           <Brand />
           <AccountMenu />
         </div>
@@ -254,7 +257,7 @@ return (
         </section>
 
         {/* Unified Navigation Tabs */}
-        <div className="mt-8 flex items-center gap-2 border-b border-slate-200/80 pb-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth -mx-5 px-5 sm:mx-0 sm:px-0 shrink-0">
+        <div className="mt-8 flex flex-wrap items-center gap-2 border-b border-slate-200/80 pb-3 overflow-x-auto no-scrollbar lg:flex-nowrap scroll-smooth -mx-5 px-5 sm:mx-0 sm:px-0 shrink-0">
           <button
             type="button"
             onClick={() => setActiveTab("packages")}
@@ -273,6 +276,16 @@ return (
             }`}
           >
             <History size={17} /> Riwayat Saya {history.length > 0 && <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs tabular-nums">{history.length}</span>}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab("ai_discussion")}
+            className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
+              activeTab === "ai_discussion" ? "bg-[#006C35] text-white shadow-sm" : "bg-white text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <MessageSquareText size={17} /> Diskusi AI
           </button>
 
           {isAdmin && (
@@ -369,7 +382,10 @@ return (
                       <h3 className="font-bold text-slate-900">{demoExam.title}</h3>
                       <p className="mt-1 text-sm text-slate-600">{demoExam.subtitle}</p>
                     </div>
-                    <span className="rounded-lg bg-[#E6F0EB] px-3 py-1.5 text-xs font-bold text-[#006C35]">Full Test</span>
+                    <div className="flex items-center gap-2">
+                      <TierBadge tier="free" />
+                      <span className="rounded-lg bg-[#E6F0EB] px-3 py-1.5 text-xs font-bold text-[#006C35]">Full Test</span>
+                    </div>
                   </div>
                   <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-600">
                     <span className="inline-flex items-center gap-2"><Clock3 size={16} /> {demoExam.durationMinutes} menit</span>
@@ -474,8 +490,10 @@ return (
           </section>
         )}
 
-        {/* Tab 3 (Admin): History Semua User */}
-        {isAdmin && activeTab === "all_history" && (
+        {activeTab === "ai_discussion" && <AiDiscussionGate tier={auth.tier} />}
+
+      {/* Tab 3 (Admin): History Semua User */}
+      {isAdmin && activeTab === "all_history" && (
           <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_10px_30px_rgba(15,23,42,0.05)] border border-amber-100 sm:p-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
@@ -546,6 +564,8 @@ return (
              displayName: auth.displayName || "Peserta Demo",
              role: auth.role,
              setRole: auth.setRole,
+             tier: auth.tier,
+             setTier: auth.setTier,
            }}
            demoHistory={history}
             onInspectAttempt={(attId) => {
@@ -942,6 +962,7 @@ function ExamPage() {
   const questions = useMemo(() => [...demoExam.questions, ...(customQuestions || [])], [customQuestions])
 
   useEffect(() => {
+    if (completingRef.current) return
     if (activeExamId !== demoExam.id || submittedAt || !endsAt) {
       navigate({ to: "/", replace: true })
       return
