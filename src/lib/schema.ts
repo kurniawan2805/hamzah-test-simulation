@@ -52,6 +52,8 @@ export const examBundleImportSchema = z.object({
   subtitle: z.string().optional().default('Simulasi Ujian'),
   durationMinutes: z.number().positive().optional(),
   duration_minutes: z.number().positive().optional(),
+  min_tier: z.enum(['free', 'vip', 'vip_plus']).optional(),
+  minTier: z.enum(['free', 'vip', 'vip_plus']).optional(),
   isPublic: z.boolean().optional(),
   is_public: z.boolean().optional(),
   questions: z.array(bundleQuestionSchema).min(1, 'Minimal harus terdapat 1 soal dalam bundle'),

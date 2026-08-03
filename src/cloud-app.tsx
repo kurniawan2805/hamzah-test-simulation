@@ -12,13 +12,15 @@ import {
   useNavigate,
 } from '@tanstack/react-router'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Grid, Headphones, History, PlayCircle, Save, Search, Send, ShieldCheck, Sparkles, TimerReset, TriangleAlert, Upload, User, Users, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bookmark, BookOpenCheck, Check, ChevronLeft, Clock3, Grid, Headphones, History, MessageSquareText, PlayCircle, Save, Search, Send, ShieldCheck, Sparkles, TimerReset, TriangleAlert, Upload, User, Users, X } from 'lucide-react'
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { AudioPlayer } from './components/audio-player'
 import { SpeakingRecorder } from './components/speaking-recorder'
 import { QuestionGrid } from './components/question-grid'
 import { UserManagement } from './components/user-management'
 import { AdminBundleUploader } from './components/admin-bundle-uploader'
+import { AiDiscussionGate } from './components/ai-discussion-gate'
+import { TierBadge } from './components/tier-badge'
 import { demoExam } from './data/exam-data'
 import {
   finishAttempt,
@@ -47,17 +49,22 @@ import {
   seedDemoExamToSupabase,
   adminAssignPackages,
   adminInviteParticipant,
-  adminTogglePackagePublic,
+  adminSetPackageTier,
+  adminSetUserTier,
   getAdminPackageAssignments,
   type AdminPackageAssignment,
+  type AdminProfile,
+  getAdminProfiles,
+  getMyProfile,
   syncUserProfile,
 } from './lib/exam-api'
 import { AccountMenu, useAppAuth } from './lib/auth'
+import { tierLabels, tierOptions } from './lib/tiers'
 import { AUDIO_BUCKET } from './lib/audio-assets'
 import { calculateRemainingSeconds } from './lib/scoring'
 import { posthog } from './lib/posthog'
 import { useExamStore } from './store/exam-store'
-import type { Section } from './types'
+import type { Section, UserTier } from './types'
 
 const PerformanceChart = lazy(() => import('./components/performance-chart'))
 const sectionCopy: Record<Section, { label: string; description: string }> = {
@@ -90,6 +97,7 @@ function CloudDashboardPage() {
   const client = useClient()
   const navigate = useNavigate()
   const auth = useAppAuth()
+  const { userId: authUserId, displayName: authDisplayName, email: authEmail, setTier: authSetTier } = auth
   const isAdmin = auth.role === "admin"
 
   const [exams, setExams] = useState<PublishedExam[]>([])
@@ -97,9 +105,10 @@ function CloudDashboardPage() {
   const [adminAttempts, setAdminAttempts] = useState<AdminAttempt[]>([])
   const [adminQuestions, setAdminQuestions] = useState<AdminQuestion[]>([])
   const [adminAssignments, setAdminAssignments] = useState<AdminPackageAssignment[]>([])
+  const [adminProfiles, setAdminProfiles] = useState<AdminProfile[]>([])
   const [error, setError] = useState("")
 
-  const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload">("packages")
+  const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload" | "ai_discussion">("packages")
   const [searchTerm, setSearchTerm] = useState("")
   const [inspectAttemptId, setInspectAttemptId] = useState<string | null>(null)
   const [inspectQuestions, setInspectQuestions] = useState<ReviewQuestion[]>([])
@@ -152,15 +161,21 @@ function CloudDashboardPage() {
   }, [loadExamsAndAttempts])
 
   useEffect(() => {
-    if (auth.userId) {
-      void syncUserProfile(client, auth.displayName, auth.email)
+    if (authUserId) {
+      void syncUserProfile(client, authDisplayName, authEmail)
+      void getMyProfile(client)
+        .then((profile) => {
+          if (profile?.tier) authSetTier(profile.tier)
+        })
+        .catch(() => {})
     }
-  }, [client, auth.userId, auth.displayName, auth.email])
+  }, [client, authUserId, authDisplayName, authEmail, authSetTier])
 
   useEffect(() => {
     if (isAdmin) {
       void getAdminAllAttempts(client).then(setAdminAttempts).catch(() => {})
       void getAdminPackageAssignments(client).then(setAdminAssignments).catch(() => {})
+      void getAdminProfiles(client).then(setAdminProfiles).catch(() => {})
     }
   }, [client, isAdmin])
 
@@ -302,10 +317,15 @@ function CloudDashboardPage() {
     setAdminAssignments(updated)
   }
 
-  const handleTogglePackagePublic = async (packageId: string, currentIsPublic: boolean) => {
-    await adminTogglePackagePublic(client, packageId, !currentIsPublic)
+  const handleSetPackageTier = async (packageId: string, tier: UserTier) => {
+    await adminSetPackageTier(client, packageId, tier)
     const updatedExams = await getPublishedExams(client)
     setExams(updatedExams)
+  }
+
+  const handleSetUserTier = async (userId: string, tier: UserTier) => {
+    await adminSetUserTier(client, userId, tier)
+    setAdminProfiles((prev) => prev.map((profile) => (profile.id === userId ? { ...profile, tier } : profile)))
   }
 
   const handleAdminSaveQuestion = async (e: React.FormEvent) => {
@@ -360,7 +380,7 @@ function CloudDashboardPage() {
   return (
     <main className="min-h-dvh bg-[#F8FAFC] text-slate-900">
       <header className="border-b border-slate-200/80 bg-white sticky top-0 z-20">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-5 py-4 sm:px-8">
           <Brand />
           <AccountMenu />
         </div>
@@ -426,6 +446,16 @@ function CloudDashboardPage() {
             }`}
           >
             <History size={17} /> Riwayat Saya {completedAttempts.length > 0 && <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs tabular-nums">{completedAttempts.length}</span>}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab("ai_discussion")}
+            className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all active:scale-[0.96] ${
+              activeTab === "ai_discussion" ? "bg-[#006C35] text-white shadow-sm" : "bg-white text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            <MessageSquareText size={17} /> Diskusi AI
           </button>
 
           {isAdmin && (
@@ -506,8 +536,12 @@ function CloudDashboardPage() {
                 <div className="mt-6 grid gap-3">
                   {exams.length === 0 ? (
                     <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-5 text-amber-900">
-                      <p className="text-sm font-bold">Belum ada paket ujian terbit di Supabase Cloud.</p>
-                      <p className="mt-1 text-xs text-amber-800">Sebagai Admin, Anda dapat menginisialisasi 75 soal ke database Cloud dengan mengeklik tombol di tab Input & Revisi Soal.</p>
+                      <p className="text-sm font-bold">{isAdmin ? "Belum ada paket ujian terbit di Supabase Cloud." : "Belum ada paket yang dapat diakses dengan akunmu."}</p>
+                      {isAdmin ? (
+                        <p className="mt-1 text-xs text-amber-800">Sebagai Admin, Anda dapat menginisialisasi 75 soal ke database Cloud dengan mengeklik tombol di tab Input & Revisi Soal.</p>
+                      ) : (
+                        <p className="mt-1 text-xs text-amber-800">Tingkatan akunmu saat ini tidak membuka paket apa pun. Hubungi admin untuk menyesuaikan tingkatan atau penugasan paket.</p>
+                      )}
                     </div>
                   ) : (
                     exams.map((exam) => (
@@ -516,24 +550,33 @@ function CloudDashboardPage() {
                           <div>
                             <div className="flex items-center gap-2">
                               <h3 className="font-bold">{exam.title}</h3>
-                              <span className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold ${
-                                exam.isPublic !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900 border border-amber-300'
-                              }`}>
-                                {exam.isPublic !== false ? 'Publik' : 'Khusus (Assigned)'}
-                              </span>
+                              <TierBadge tier={exam.minTier} />
                             </div>
                             <p className="mt-1 text-sm text-slate-600">{exam.subtitle}</p>
                           </div>
                           <div className="flex items-center gap-2">
                             {isAdmin && (
-                              <button
-                                type="button"
-                                onClick={() => handleTogglePackagePublic(exam.packageId, exam.isPublic !== false)}
-                                className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-700 hover:bg-slate-50"
-                                title="Ubah status akses publik/khusus"
-                              >
-                                {exam.isPublic !== false ? 'Set Khusus' : 'Set Publik'}
-                              </button>
+                              <label className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700">
+                                <span className="uppercase tracking-wider text-slate-400">Tier</span>
+                                <select
+                                  aria-label={`Ubah tier paket ${exam.title}`}
+                                  value={exam.minTier}
+                                  onChange={async (event) => {
+                                    const next = event.target.value as UserTier
+                                    try {
+                                      await handleSetPackageTier(exam.packageId, next)
+                                    } catch (reason) {
+                                      setError(reason instanceof Error ? reason.message : "Gagal mengubah tier paket.")
+                                      void loadExamsAndAttempts()
+                                    }
+                                  }}
+                                  className="min-h-11 bg-white text-slate-800 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
+                                >
+                                  {tierOptions.map((tier) => (
+                                    <option key={tier} value={tier}>{tierLabels[tier]}</option>
+                                  ))}
+                                </select>
+                              </label>
                             )}
                             <button
                               onClick={() => navigate({ to: "/instructions/$versionId", params: { versionId: exam.id } })}
@@ -646,6 +689,8 @@ function CloudDashboardPage() {
           </section>
         )}
 
+        {activeTab === "ai_discussion" && <AiDiscussionGate tier={auth.tier} />}
+
         {/* Tab 3 (Admin): History Semua User */}
         {isAdmin && activeTab === "all_history" && (
           <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.05)] border border-amber-100 sm:p-8">
@@ -717,6 +762,8 @@ function CloudDashboardPage() {
              displayName: auth.displayName,
              role: auth.role,
              setRole: auth.setRole,
+             tier: auth.tier,
+             setTier: auth.setTier,
            }}
            cloudAttempts={adminAttempts}
            onInspectAttempt={(attemptId) => setInspectAttemptId(attemptId)}
@@ -726,10 +773,13 @@ function CloudDashboardPage() {
              title: e.title,
              subtitle: e.subtitle,
              isPublic: e.isPublic,
+             minTier: e.minTier,
            }))}
            packageAssignments={adminAssignments}
            onAssignPackages={handleAssignPackages}
            onInviteParticipant={handleInviteParticipant}
+           profiles={adminProfiles}
+           onSetUserTier={handleSetUserTier}
          />
        )}
 
@@ -813,8 +863,8 @@ function CloudDashboardPage() {
                     {draft.id ? `Mode: Edit Soal Nomor ${draft.position} (ID: ${draft.id.slice(0, 8)}...)` : `Mode: Tambah Soal Baru Nomor ${draft.position}`}
                   </span>
                   {draft.id && (
-                    <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
-                      ✓ Data lama dimuat otomatis
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+                      <Check size={13} /> Data lama dimuat otomatis
                     </span>
                   )}
                 </div>

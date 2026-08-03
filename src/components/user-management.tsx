@@ -18,7 +18,11 @@ import {
   Mail,
   Lock,
   Send,
+  Crown,
 } from 'lucide-react'
+import type { UserTier } from '../types'
+import { tierLabels, tierOptions } from '../lib/tiers'
+import { TierBadge } from './tier-badge'
 
 export interface UserAttemptItem {
   id: string
@@ -40,6 +44,7 @@ export interface AvailablePackageItem {
   title: string
   subtitle?: string
   isPublic?: boolean
+  minTier?: UserTier
 }
 
 export interface PackageAssignmentItem {
@@ -55,6 +60,7 @@ export interface UserAggregateItem {
   name: string
   email: string
   role: 'admin' | 'user'
+  tier?: UserTier
   joinedAt?: string
   lastActive?: string | null
   totalAttempts: number
@@ -77,6 +83,8 @@ export interface UserManagementProps {
     email?: string
     role: 'admin' | 'user'
     setRole?: (role: 'admin' | 'user') => void
+    tier?: UserTier
+    setTier?: (tier: UserTier) => void
   }
   cloudAttempts?: Array<{
     id: string
@@ -113,6 +121,8 @@ export interface UserManagementProps {
   packageAssignments?: PackageAssignmentItem[]
   onAssignPackages?: (targetUserIdOrEmail: string, packageIds: string[]) => Promise<void>
   onInviteParticipant?: (email: string, packageIds: string[]) => Promise<void>
+  profiles?: Array<{ id: string; email?: string | null; displayName?: string | null; tier: UserTier }>
+  onSetUserTier?: (userId: string, tier: UserTier) => Promise<void>
 }
 
 function getCefrFromScore(score: number): string {
@@ -149,6 +159,8 @@ export function UserManagement({
   packageAssignments = [],
   onAssignPackages,
   onInviteParticipant,
+  profiles = [],
+  onSetUserTier,
 }: UserManagementProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [roleFilter, setRoleFilter] = useState<'all' | 'admin' | 'user'>('all')
@@ -176,6 +188,7 @@ export function UserManagement({
 
   const [selectedUserAssignedPackageIds, setSelectedUserAssignedPackageIds] = useState<string[]>([])
   const [isSavingAssignment, setIsSavingAssignment] = useState(false)
+  const [isSavingTier, setIsSavingTier] = useState(false)
 
   const triggerToast = (msg: string) => {
     setToastMessage(msg)
@@ -263,6 +276,27 @@ export function UserManagement({
       })
     }
 
+    if (mode === 'cloud' && profiles.length > 0) {
+      profiles.forEach((profile) => {
+        const byId = userMap.get(profile.id)
+        if (byId) {
+          byId.tier = profile.tier
+          if (profile.displayName) byId.name = profile.displayName
+          if (profile.email) byId.email = profile.email
+          return
+        }
+        if (profile.email) {
+          for (const u of userMap.values()) {
+            if (u.email.toLowerCase() === profile.email.toLowerCase()) {
+              u.tier = profile.tier
+              if (profile.displayName) u.name = profile.displayName
+              return
+            }
+          }
+        }
+      })
+    }
+
     if (mode === 'cloud' && packageAssignments && packageAssignments.length > 0) {
       packageAssignments.forEach((pa) => {
         const target = pa.userId.toLowerCase()
@@ -313,6 +347,7 @@ export function UserManagement({
             name: u.name,
             email: u.email,
             role: u.role,
+            tier: u.id === 'admin-001' ? 'vip_plus' : u.id === 'user-002' ? 'vip' : 'free',
             joinedAt: '2026-07-01T10:00:00Z',
             lastActive: '2026-07-28T14:30:00Z',
             totalAttempts: 2,
@@ -439,7 +474,7 @@ export function UserManagement({
     })
 
     return list
-  }, [currentAuth, cloudAttempts, demoHistory, customSimulatedUsers, mode, packageAssignments, availablePackages])
+  }, [currentAuth, cloudAttempts, demoHistory, customSimulatedUsers, mode, packageAssignments, availablePackages, profiles])
 
   const filteredUsers = useMemo(() => {
     return aggregatedUsers
@@ -559,6 +594,22 @@ export function UserManagement({
     }
   }
 
+  const handleSetUserTier = async (userId: string, tier: UserTier) => {
+    if (!onSetUserTier || mode !== 'cloud') return
+    setIsSavingTier(true)
+    try {
+      await onSetUserTier(userId, tier)
+      if (selectedUser && selectedUser.id === userId) {
+        setSelectedUser({ ...selectedUser, tier })
+      }
+      triggerToast(`Tier berhasil diubah ke ${tierLabels[tier]}`)
+    } catch (err: unknown) {
+      triggerToast(`Gagal: ${err instanceof Error ? err.message : String(err)}`)
+    } finally {
+      setIsSavingTier(false)
+    }
+  }
+
   const handleCreateSimulatedUser = (e: React.FormEvent) => {
     e.preventDefault()
     if (!newUserForm.name.trim()) return
@@ -606,12 +657,13 @@ export function UserManagement({
   }
 
   const handleExportCSV = () => {
-    const headers = ['User ID', 'Nama', 'Email', 'Role', 'Total Sesi', 'Sesi Selesai', 'Rata-Rata Skor', 'Skor Tertinggi', 'CEFR Terbaik', 'Aktivitas Terakhir']
+    const headers = ['User ID', 'Nama', 'Email', 'Role', 'Tier', 'Total Sesi', 'Sesi Selesai', 'Rata-Rata Skor', 'Skor Tertinggi', 'CEFR Terbaik', 'Aktivitas Terakhir']
     const rows = aggregatedUsers.map((u) => [
       `"${u.id}"`,
       `"${u.name}"`,
       `"${u.email}"`,
       `"${u.role}"`,
+      `"${tierLabels[u.tier ?? 'free']}"`,
       u.totalAttempts,
       u.completedAttempts,
       u.avgScore,
@@ -672,6 +724,7 @@ export function UserManagement({
               }`}>
                 {currentAuth.role}
               </span>
+              <TierBadge tier={currentAuth.tier ?? 'free'} />
             </div>
             <p className="mt-1 text-xs text-amber-900">
               User ID: <code className="bg-amber-100 px-1.5 py-0.5 rounded text-amber-950 font-mono">{currentAuth.userId || 'demo-user'}</code> | Status RLS: <strong className="font-semibold text-emerald-800">Aktif &amp; Diverifikasi</strong>
@@ -756,7 +809,7 @@ export function UserManagement({
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Cari berdasarkan nama, email, atau User ID..."
+            placeholder="Cari nama, email, atau ID..."
             className="w-full rounded-xl border border-slate-200 bg-slate-50/50 pl-10 pr-9 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#006C35] focus:bg-white focus:outline-none"
           />
           {searchTerm && (
@@ -848,6 +901,7 @@ export function UserManagement({
             <tr className="border-b border-slate-200 bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-500">
               <th className="py-3.5 px-4">Pengguna</th>
               <th className="py-3.5 px-4">Role</th>
+              <th className="py-3.5 px-4">Tier</th>
               <th className="py-3.5 px-4 text-center">Sesi Ujian</th>
               <th className="py-3.5 px-4 text-center">Rata-Rata Skor</th>
               <th className="py-3.5 px-4 text-center">CEFR Terbaik</th>
@@ -859,7 +913,7 @@ export function UserManagement({
           <tbody className="divide-y divide-slate-100 bg-white">
             {filteredUsers.length === 0 ? (
               <tr>
-                <td colSpan={8} className="py-12 text-center text-slate-500">
+                <td colSpan={9} className="py-12 text-center text-slate-500">
                   <p className="font-semibold text-slate-700">Tidak ada pengguna yang cocok dengan kriteria pencarian.</p>
                   <p className="mt-1 text-xs text-slate-400">Coba ubah kata kunci pencarian atau reset filter role.</p>
                 </td>
@@ -904,6 +958,24 @@ export function UserManagement({
                         {user.role === 'admin' && <ShieldCheck size={12} />}
                         {user.role === 'admin' ? 'Admin' : 'Peserta'}
                       </span>
+                    </td>
+
+                    <td className="py-4 px-4">
+                      {mode === 'cloud' && onSetUserTier ? (
+                        <select
+                          aria-label={`Ubah tier ${user.name}`}
+                          value={user.tier ?? 'free'}
+                          disabled={isSavingTier}
+                          onChange={(e) => void handleSetUserTier(user.id, e.target.value as UserTier)}
+                          className="min-h-11 rounded-lg border border-slate-200 bg-white px-2 text-xs font-bold text-slate-700 hover:border-[#C5A059] focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
+                        >
+                          {tierOptions.map((t) => (
+                            <option key={t} value={t}>{tierLabels[t]}</option>
+                          ))}
+                        </select>
+                      ) : (
+                        <TierBadge tier={user.tier ?? 'free'} />
+                      )}
                     </td>
 
                     <td className="py-4 px-4 text-center">
@@ -995,6 +1067,30 @@ export function UserManagement({
               </div>
             </div>
 
+            <div className="mt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-amber-50/40 p-4">
+              <div>
+                <h4 className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-950">
+                  <Crown size={14} className="text-amber-800" /> Tingkatan Akun
+                </h4>
+                <p className="text-[11px] text-slate-600">Tier menentukan paket yang dapat diakses langsung oleh user ini.</p>
+              </div>
+              {mode === 'cloud' && onSetUserTier ? (
+                <select
+                  aria-label="Ubah tier akun"
+                  value={selectedUser.tier ?? 'free'}
+                  disabled={isSavingTier}
+                  onChange={(e) => void handleSetUserTier(selectedUser.id, e.target.value as UserTier)}
+                  className="min-h-11 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-bold text-slate-700 hover:border-[#C5A059] focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
+                >
+                  {tierOptions.map((t) => (
+                    <option key={t} value={t}>{tierLabels[t]}</option>
+                  ))}
+                </select>
+              ) : (
+                <TierBadge tier={selectedUser.tier ?? 'free'} />
+              )}
+            </div>
+
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
                 <span className="text-[11px] font-bold uppercase text-slate-400">Total Sesi</span>
@@ -1078,9 +1174,13 @@ export function UserManagement({
                         />
                         <div className="flex-1 text-xs">
                           <span className="font-bold text-slate-900 block">{pkg.title}</span>
-                          <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-semibold mt-0.5 ${pkg.isPublic !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'}`}>
-                            {pkg.isPublic !== false ? 'Publik' : 'Khusus (Private)'}
-                          </span>
+                          {pkg.minTier ? (
+                            <TierBadge tier={pkg.minTier} className="mt-0.5" />
+                          ) : (
+                            <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-semibold mt-0.5 ${pkg.isPublic !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'}`}>
+                              {pkg.isPublic !== false ? 'Publik' : 'Khusus (Private)'}
+                            </span>
+                          )}
                         </div>
                       </label>
                     )
@@ -1223,9 +1323,13 @@ export function UserManagement({
                           <div className="flex-1 text-xs">
                             <div className="flex items-center justify-between">
                               <span className="font-bold text-slate-900">{pkg.title}</span>
-                              <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${pkg.isPublic !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'}`}>
-                                {pkg.isPublic !== false ? 'Publik' : 'Khusus (Private)'}
-                              </span>
+                              {pkg.minTier ? (
+                                <TierBadge tier={pkg.minTier} />
+                              ) : (
+                                <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${pkg.isPublic !== false ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'}`}>
+                                  {pkg.isPublic !== false ? 'Publik' : 'Khusus (Private)'}
+                                </span>
+                              )}
                             </div>
                             {pkg.subtitle && <p className="text-[11px] text-slate-500 mt-0.5">{pkg.subtitle}</p>}
                           </div>

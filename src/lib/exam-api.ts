@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { Section } from '../types'
+import type { Section, UserTier } from '../types'
 import { AUDIO_BUCKET, getAudioPathForPosition } from './audio-assets'
 
 export type PublishedExam = {
@@ -9,6 +9,7 @@ export type PublishedExam = {
   subtitle: string
   durationMinutes: number
   isPublic?: boolean
+  minTier: UserTier
 }
 
 export type PublicQuestion = {
@@ -92,7 +93,7 @@ function toAttempt(row: Row): CloudAttempt {
 export async function getPublishedExams(client: SupabaseClient): Promise<PublishedExam[]> {
   const { data, error } = await client
     .from('exam_versions')
-    .select('id, duration_minutes, package:exam_packages(id, title, subtitle, is_public)')
+    .select('id, duration_minutes, package:exam_packages(id, title, subtitle, is_public, min_tier)')
     .eq('status', 'published')
     .order('published_at', { ascending: false })
   if (error) throw error
@@ -106,6 +107,9 @@ export async function getPublishedExams(client: SupabaseClient): Promise<Publish
       subtitle: asString(packageRow.subtitle),
       durationMinutes: asNumber(row.duration_minutes),
       isPublic: packageRow.is_public !== false,
+      minTier: (asString(packageRow.min_tier) === 'vip' || asString(packageRow.min_tier) === 'vip_plus'
+        ? asString(packageRow.min_tier)
+        : packageRow.is_public !== false ? 'free' : 'vip') as UserTier,
     }
   })
 }
@@ -345,12 +349,15 @@ export async function seedDemoExamToSupabase(client: SupabaseClient, questions: 
   const { data: existingPkg } = await client.from("exam_packages").select("id").eq("slug", "hamza-test-full-1").maybeSingle()
   if (existingPkg?.id) {
     pkgId = asString(existingPkg.id)
+    await client.from("exam_packages").update({ min_tier: "free", is_public: true }).eq("id", pkgId)
   } else {
     const { data: newPkg, error: pkgErr } = await client.from("exam_packages").insert({
       slug: "hamza-test-full-1",
       title: "Hamza Test · Simulation (Full Test)",
       subtitle: "Simulasi ujian bahasa Arab 6 seksi · 75 nomor",
       description: "Paket latihan standar Hamza Test dengan timer 60 menit dan analisis 6 seksi.",
+      min_tier: "free",
+      is_public: true,
     }).select("id").single()
     if (pkgErr) throw pkgErr
     pkgId = asString(newPkg.id)
@@ -400,6 +407,13 @@ export type AdminPackageAssignment = {
   assignedAt: string
 }
 
+export type AdminProfile = {
+  id: string
+  email?: string
+  displayName?: string
+  tier: UserTier
+}
+
 export async function adminInviteParticipant(
   client: SupabaseClient,
   email: string,
@@ -436,16 +450,54 @@ export async function adminAssignPackages(
   if (error) throw error
 }
 
-export async function adminTogglePackagePublic(
+export async function adminSetPackageTier(
   client: SupabaseClient,
   packageId: string,
-  isPublic: boolean
+  tier: UserTier
 ): Promise<void> {
-  const { error } = await client.rpc('admin_toggle_package_public', {
+  const { error } = await client.rpc('admin_set_package_tier', {
     p_package_id: packageId,
-    p_is_public: isPublic,
+    p_tier: tier,
   })
   if (error) throw error
+}
+
+export async function adminSetUserTier(
+  client: SupabaseClient,
+  userId: string,
+  tier: UserTier
+): Promise<void> {
+  const { error } = await client.rpc('admin_set_user_tier', {
+    p_user: userId,
+    p_tier: tier,
+  })
+  if (error) throw error
+}
+
+export async function getAdminProfiles(client: SupabaseClient): Promise<AdminProfile[]> {
+  const { data, error } = await client.rpc('get_admin_profiles')
+  if (error) throw error
+  return asRows(data).map((row) => ({
+    id: asString(row.id),
+    email: row.email ? asString(row.email) : undefined,
+    displayName: row.display_name ? asString(row.display_name) : undefined,
+    tier: (row.tier === 'vip' || row.tier === 'vip_plus' ? row.tier : 'free') as UserTier,
+  }))
+}
+
+export async function getMyProfile(
+  client: SupabaseClient
+): Promise<{ id: string; email?: string; displayName?: string; tier: UserTier } | null> {
+  const { data, error } = await client.rpc('get_my_profile')
+  if (error) throw error
+  const row = asRows(data)[0]
+  if (!row) return null
+  return {
+    id: asString(row.id),
+    email: row.email ? asString(row.email) : undefined,
+    displayName: row.display_name ? asString(row.display_name) : undefined,
+    tier: (row.tier === 'vip' || row.tier === 'vip_plus' ? row.tier : 'free') as UserTier,
+  }
 }
 
 export type AdminBundleImportResult = {

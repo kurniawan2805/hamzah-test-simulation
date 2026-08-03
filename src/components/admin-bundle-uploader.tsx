@@ -14,6 +14,8 @@ import {
 } from 'lucide-react'
 import { examBundleImportSchema, type ExamBundleImportData } from '../lib/schema'
 import { adminImportExamBundle, adminUploadAudioFile, adminCheckAudioExists } from '../lib/exam-api'
+import { tierLabels, tierOptions } from '../lib/tiers'
+import type { UserTier } from '../types'
 
 export interface AdminBundleUploaderProps {
   client?: SupabaseClient | null
@@ -45,6 +47,7 @@ export function AdminBundleUploader({ client, mode, onSuccess }: AdminBundleUplo
     question_count: number
   } | null>(null)
   const [importError, setImportError] = useState<string | null>(null)
+  const [bundleTier, setBundleTier] = useState<UserTier>('vip')
 
   const handleJsonUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -155,7 +158,7 @@ export function AdminBundleUploader({ client, mode, onSuccess }: AdminBundleUplo
 
     try {
       if (mode === 'cloud' && client) {
-        const res = await adminImportExamBundle(client, parsedBundle)
+        const res = await adminImportExamBundle(client, { ...parsedBundle, min_tier: bundleTier })
         setImportResult(res)
         if (onSuccess) onSuccess(res.package_id)
       } else {
@@ -270,9 +273,23 @@ export function AdminBundleUploader({ client, mode, onSuccess }: AdminBundleUplo
               <span className="flex size-6 items-center justify-center rounded-full bg-amber-800 text-xs text-white">2</span>
               Ringkasan Bundle &amp; Verifikasi Audio
             </h3>
-            <span className="rounded-lg bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">
-              ✓ JSON Valid
-            </span>
+            <div className="flex items-center gap-2">
+              <label className="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span className="uppercase tracking-wider text-slate-400">Tier paket</span>
+                <select
+                  value={bundleTier}
+                  onChange={(e) => setBundleTier(e.target.value as UserTier)}
+                  className="min-h-11 rounded-lg border border-slate-200 bg-white px-2 text-xs font-bold text-slate-800 hover:border-[#C5A059] focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
+                >
+                  {tierOptions.map((t) => (
+                    <option key={t} value={t}>{tierLabels[t]}</option>
+                  ))}
+                </select>
+              </label>
+              <span className="rounded-lg bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">
+                JSON Valid
+              </span>
+            </div>
           </div>
 
           {/* Metadata Card */}

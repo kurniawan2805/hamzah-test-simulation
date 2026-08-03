@@ -30,6 +30,8 @@ Bukan sasaran MVP:
 | Pengguna | Kebutuhan | Hasil yang diharapkan |
 | --- | --- | --- |
 | Peserta latihan | Mengerjakan ujian terstruktur dari desktop atau ponsel | Dapat melanjutkan sesi, mengetahui skor, dan meninjau kesalahan |
+| Peserta tier gratis | Mengakses satu modul latihan tanpa biaya | Tepat satu paket `free` tersedia dan dapat dikerjakan |
+| Peserta VIP / VIP+ | Mengakses paket tambahan dan fitur eksklusif | Tier aktif menentukan paket yang tampil dan bisa dimulai |
 | Pengelola konten (sementara via Supabase) | Menyiapkan paket, soal, kunci, dan audio | Paket hanya terlihat setelah lengkap dan diterbitkan |
 | Pengembang | Memelihara mode demo dan cloud tanpa melemahkan keamanan | Perubahan teruji dan tidak membocorkan jawaban |
 
@@ -67,6 +69,7 @@ Mode demo memakai `src/data/exam-data.ts`. Fitur **Bank soal** pada mode ini ada
 - **Pencarian, Filter & Sortir:** Pencarian kata kunci (nama/email/ID), filter role (Admin/Peserta), dan sortir berdasarkan sesi/skor/aktivitas.
 - **Inspeksi Jawaban Per Sesi:** Drawer/modal detail user menyediakan akses inspeksi kunci jawaban per attempt.
 - **Panduan Access Control:** Integrasi hak akses admin dengan `publicMetadata` Clerk dan fungsi RPC Supabase `public.is_admin()`.
+- **Tier User (Gratis/VIP/VIP+):** kolom `tier` di `profiles` dikelola lewat RPC admin dan panel Manajemen User; akses paket ditegakkan di RLS `exam_packages` dan RPC `start_attempt`.
 - **Ekspor & Simulasi:** Ekspor laporan CSV data user dan penambahan user simulasi untuk pengujian.
 
 ### 5.2 Mesin ujian
@@ -93,6 +96,7 @@ Mode demo memakai `src/data/exam-data.ts`. Fitur **Bank soal** pada mode ini ada
 5. Kuota audio harus diperiksa oleh server dalam mode cloud; pembatasan UI saja tidak cukup.
 6. Satu paket hanya memiliki satu versi `published` dalam satu waktu.
 7. Teks Arab, soal, opsi, dan bacaan memakai `dir="rtl"` serta kelas `font-arabic`.
+8. Akses paket ditentukan tier user (`free`/`vip`/`vip_plus`) atau assignment manual; user tier `free` hanya memperoleh satu paket bertier `free` yang terbit. Pembatasan ini ditegakkan server (RLS + `start_attempt`), bukan hanya UI.
 
 ## 7. Model konten
 
@@ -133,6 +137,8 @@ Urutan ini adalah arah berikutnya, bukan fitur yang telah tersedia.
 3. **Keandalan attempt:** retry/sinkronisasi eksplisit, indikator koneksi, dan penanganan konflik multi-tab.
 4. **Kualitas pembelajaran:** filter riwayat, analisis tren, target per kompetensi, serta penjelasan hasil yang lebih berguna.
 5. **Aksesibilitas dan pengujian E2E:** navigasi keyboard, pengumuman pembaca layar, dan skenario refresh/timeout/audio.
+6. **Pembayaran dan upgrade mandiri:** integrasi langganan (mis. Stripe) untuk penetapan tier VIP/VIP+ secara otomatis; saat ini tier hanya diubah oleh admin.
+7. **Diskusi AI untuk VIP+:** halaman chat dengan Edge Function OpenAI; saat ini fitur baru berupa gerbang akses dan UI empty state.
 
 ## 10. Ukuran keberhasilan awal
 
