@@ -7,6 +7,7 @@ export type UserTier = 'free' | 'vip' | 'vip_plus'
 export interface Question {
   id: string
   section: Section
+  topic?: string
   question: string
   options: [string, string, string, string]
   correct_index: number

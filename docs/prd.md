@@ -86,6 +86,17 @@ Mode demo memakai `src/data/exam-data.ts`. Fitur **Bank soal** pada mode ini ada
 - Perkiraan CEFR saat ini: `0–39 A2`, `40–59 B1`, `60–79 B2`, `80–100 C1`.
 - Nilai per seksi tersedia untuk `listening`, `reading`, `grammar`, dan `dictation`; seksi tanpa soal menghasilkan `0`.
 - Pembahasan hanya tersedia setelah attempt selesai.
+- Halaman hasil menampilkan kartu **Topik yang disarankan** berdasarkan seksi terendah: seksi `grammar`/`structures` menunjuk topik spesifik dari katalog Belajar AI, sedangkan `listening`/`reading` memberi saran generik untuk mengulang seksi tersebut.
+
+### 5.5 Belajar Topik dengan AI (VIP+)
+
+- Katalog v1 mencakup lima topik `grammar` & `structures`: Huruf Jar, Fi'il Madhi & Mudhari', Mubtada' & Khabar, Kaana wa Akhwatuha, dan Isim Majrur.
+- Alur: pilih topik → materi ringkas dari AI → kuis 5 soal → hasil + pembahasan per soal → chat lanjutan yang terikat topik.
+- Soal kuis diambil dari bank yang bertag `topic` pada `exam_questions`; bila stok kurang dari 5, kekurangannya digenerate AI dan kuncinya disimpan di `private.ai_study_quiz_keys`. Klien tidak pernah menerima `correct_index` atau pembahasan sebelum kuis dinilai.
+- Kuota harian per user: 30 pesan dan 10 kuis, direset harian, dan ditegakkan oleh RPC/database pada mode cloud (bukan hanya UI). Mode demo memakai aturan yang sama lewat state Zustand lokal.
+- Mode demo memakai `demoAiStudyAdapter` dengan materi dan soal contoh berlabel jelas "mode demo"; mode cloud memakai Edge Function `ai-study` (action `lesson`, `quiz_generate`, `grade`, `chat`, `recommend`) dengan Responses API model `gpt-5.6-luna` (variabel `AI_STUDY_MODEL`, fallback `gpt-5-mini` bila proyek belum punya akses).
+- Sesi, pesan, dan kuis disimpan di Supabase (`ai_study_sessions`, `ai_study_messages`, `ai_study_quizzes`) dengan RLS owner-only; refresh/resume tidak menghilangkan progres.
+- Akses dibatasi untuk tier `vip_plus` atau admin; pengguna lain tetap melihat gerbang terkunci yang sudah ada.
 
 ## 6. Aturan produk yang tidak boleh dilanggar
 
@@ -99,10 +110,14 @@ Mode demo memakai `src/data/exam-data.ts`. Fitur **Bank soal** pada mode ini ada
 8. Akses paket ditentukan tier user (`free`/`vip`/`vip_plus`) atau assignment manual; user tier `free` hanya memperoleh satu paket bertier `free` yang terbit. Pembatasan ini ditegakkan server (RLS + `start_attempt`), bukan hanya UI.
 9. Akun tier `free` maksimal 2 attempt selesai per paket; attempt yang dihitung berstatus `submitted`/`timed_out`, dan batas ini ditegakkan di RPC `start_attempt`, bukan hanya UI.
 10. Badge tier hanya ditampilkan untuk peserta; admin dianggap berada di atas VIP+ dan tidak memerlukan badge tier.
+11. Kuota Belajar AI (30 pesan / 10 kuis per hari) dan penilaian kuis AI harus ditegakkan server; kunci kuis hanya ada di `private.ai_study_quiz_keys` dan tidak pernah dibaca klien.
+12. Materi dan chat AI tidak boleh membocorkan atau menebak kunci jawaban ujian; AI hanya menjelaskan kaidah topik yang dipilih.
 
 ## 7. Model konten
 
 Soal pilihan ganda memiliki empat opsi dan satu kunci jawaban. Prototipe demo juga memuat tugas `writing` dan `speaking` yang tidak dihitung dalam skor otomatis; skema lokal divalidasi oleh Zod di `src/lib/schema.ts`. Satu `shared_asset_id` dapat digunakan oleh beberapa soal listening atau bacaan.
+
+Soal `grammar`/`structures` boleh membawa bidang opsional `topic` (mis. `grammar_huruf_jar`) agar bisa dipilih sebagai sumber soal kuis Belajar Topik AI. Bidang ini tidak memengaruhi penilaian ujian biasa.
 
 ```json
 {
@@ -127,6 +142,8 @@ Sebuah perubahan dianggap selesai bila, sesuai dampaknya:
 - Alur cloud hanya menampilkan paket berstatus `published`; peserta yang tidak berhak tidak dapat mengakses attempt atau review orang lain.
 - Hasil server sesuai kunci jawaban dan aturan CEFR di atas.
 - Audio tidak dapat diputar melebihi `max_audio_plays`, termasuk lewat pemanggilan API berulang.
+- Alur Belajar AI demo (pilih topik → materi → kuis 5 soal → hasil/pembahasan → chat) dapat di-refresh tanpa kehilangan progres; mode cloud menolak non-VIP+ dan kuota yang habis.
+- Tidak ada endpoint peserta yang mengekspos kunci kuis AI sebelum kuis dinilai.
 - Layout tetap dapat dipakai pada lebar 320 px dan teks Arab terbaca tanpa harakat bertumpuk.
 - `npm run lint`, `npm run test`, dan `npm run build` lulus apabila area terkait berubah.
 
@@ -140,7 +157,7 @@ Urutan ini adalah arah berikutnya, bukan fitur yang telah tersedia.
 4. **Kualitas pembelajaran:** filter riwayat, analisis tren, target per kompetensi, serta penjelasan hasil yang lebih berguna.
 5. **Aksesibilitas dan pengujian E2E:** navigasi keyboard, pengumuman pembaca layar, dan skenario refresh/timeout/audio.
 6. **Pembayaran dan upgrade mandiri:** integrasi langganan (mis. Stripe) untuk penetapan tier VIP/VIP+ secara otomatis; saat ini tier hanya diubah oleh admin.
-7. **Diskusi AI untuk VIP+:** halaman chat dengan Edge Function OpenAI; saat ini fitur baru berupa gerbang akses dan UI empty state.
+7. **Belajar Topik AI untuk VIP+ (lanjutan):** v1 (katalog grammar & structures, materi, kuis 5 soal, pembahasan, chat, kuota harian, rekomendasi dari hasil ujian) sudah berjalan di demo dan cloud. Lanjutan yang belum ada: topik listening/reading, streaming respons, riwayat sesi lintas topik, dan integrasi pembayaran untuk aktivasi VIP+ mandiri.
 
 ## 10. Ukuran keberhasilan awal
 

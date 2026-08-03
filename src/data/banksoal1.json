@@ -300,6 +300,7 @@
     {
       "id": "hamza_q_022",
       "section": "grammar",
+      "topic": "grammar_huruf_jar",
       "question": "أكمل الجملة: ذهبنا ______ المسجد.",
       "options": [
         "إلى",
@@ -339,6 +340,7 @@
     {
       "id": "hamza_q_025",
       "section": "grammar",
+      "topic": "grammar_mubtada_khabar",
       "question": "أي الجمل صحيحة؟",
       "options": [
         "الطالباتُ مجتهدون.",
@@ -352,6 +354,7 @@
     {
       "id": "hamza_q_026",
       "section": "grammar",
+      "topic": "grammar_fiil_madhi_mudhari",
       "question": " اختر الجملة الصحيحة:",
       "options": [
         "لم يذهبْ أحمدُ إلى المدرسة أمس.",
@@ -365,6 +368,7 @@
     {
       "id": "hamza_q_027",
       "section": "grammar",
+      "topic": "grammar_fiil_madhi_mudhari",
       "question": " أكمل الجملة: إذا ______ الوقت، فسأزورك.",
       "options": [
         "وجدتُ",
@@ -417,6 +421,7 @@
     {
       "id": "hamza_q_031",
       "section": "grammar",
+      "topic": "structures_kaana",
       "question": " أكمل: ليس الطالبُ ______.",
       "options": [
         "مهملٌ",
@@ -443,6 +448,7 @@
     {
       "id": "hamza_q_033",
       "section": "grammar",
+      "topic": "grammar_fiil_madhi_mudhari",
       "question": " أي الجمل تحتوي على فعل مضارع؟",
       "options": [
         "ذهب خالد.",
@@ -622,6 +628,7 @@
     {
       "id": "hamza_q_046",
       "section": "structures",
+      "topic": "structures_kaana",
       "question": " اختر الصيغة الصحيحة: كان الطلاب ______ الدرس.",
       "options": [
         "يدرسون",
@@ -635,6 +642,7 @@
     {
       "id": "hamza_q_047",
       "section": "structures",
+      "topic": "structures_isim_majrur",
       "question": " أكمل: رغم ______ المطر، خرج الناس.",
       "options": [
         "نزولِ",
@@ -648,6 +656,7 @@
     {
       "id": "hamza_q_048",
       "section": "structures",
+      "topic": "structures_isim_majrur",
       "question": " أي الجمل تحتوي على اسم مجرور؟",
       "options": [
         "قرأتُ الكتابَ.",
@@ -840,6 +849,7 @@
     {
       "id": "hamza_q_062",
       "section": "grammar",
+      "topic": "grammar_fiil_madhi_mudhari",
       "question": " أكمل: لو ______ أكثر، لنجحتَ.",
       "options": [
         "درستَ",

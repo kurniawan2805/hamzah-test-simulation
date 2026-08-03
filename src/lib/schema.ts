@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const questionSchema = z.object({
   id: z.string().min(1),
   section: z.enum(['listening', 'reading', 'grammar', 'structures', 'writing', 'speaking']),
+  topic: z.string().optional(),
   question: z.string().min(1),
   options: z.tuple([z.string(), z.string(), z.string(), z.string()]),
   correct_index: z.number().int().min(0).max(3),
@@ -29,6 +30,7 @@ export const examSchema = z.object({
 export const bundleQuestionSchema = z.object({
   id: z.string().optional(),
   section: z.enum(['listening', 'reading', 'grammar', 'structures', 'writing', 'speaking']),
+  topic: z.string().optional(),
   question: z.string().min(1, 'Pertanyaan tidak boleh kosong'),
   options: z.array(z.string()).min(4).max(4).nullable().optional(),
   correct_index: z.number().int().min(0).max(3).optional(),
