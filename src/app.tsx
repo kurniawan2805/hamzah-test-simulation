@@ -43,6 +43,7 @@ import { AdminBundleUploader } from "./components/admin-bundle-uploader"
 import { TierBadge } from "./components/tier-badge"
 import { demoExam } from "./data/exam-data"
 import { calculateRemainingSeconds, createSessionResult } from "./lib/scoring"
+import { FREE_ATTEMPT_LIMIT, freeAttemptsRemaining } from "./lib/tiers"
 import { useExamStore } from "./store/exam-store"
 import type { ExamFinishReason, Question, Section, SessionResult } from "./types"
 import { AccountMenu, AppAuthProvider, RequireAuth, useAppAuth } from "./lib/auth"
@@ -133,6 +134,9 @@ function DashboardPage() {
   const avgScore = totalSessions > 0 ? Math.round(history.reduce((acc, curr) => acc + curr.score, 0) / totalSessions) : 0
   const maxScore = totalSessions > 0 ? Math.max(...history.map((h) => h.score)) : 0
   const latestResult = history[0]
+  const usedFreeAttempts = history.filter((item) => item.examId === demoExam.id).length
+  const freeAttemptsLeft = freeAttemptsRemaining(auth.tier, usedFreeAttempts, isAdmin)
+  const demoQuotaExhausted = !hasActiveSession && freeAttemptsLeft === 0
 
   const filteredHistory = history.filter((item) => {
     const dateStr = formatDate(item.completedAt).toLowerCase()
@@ -353,10 +357,11 @@ return (
                       navigate({ to: "/instructions" })
                     }
                   }}
-                  className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#006C35] shadow-sm transition-transform active:scale-[0.96]"
+                  disabled={demoQuotaExhausted}
+                  className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#006C35] shadow-sm transition-transform active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {hasActiveSession ? <TimerReset size={18} /> : <PlayCircle size={18} />}
-                  {hasActiveSession ? "Lanjutkan ujian" : "Mulai simulasi"}
+                  {hasActiveSession ? "Lanjutkan ujian" : demoQuotaExhausted ? "Kuota habis" : "Mulai simulasi"}
                   <ArrowRight size={17} />
                 </button>
               </div>
@@ -391,6 +396,13 @@ return (
                     <span className="inline-flex items-center gap-2"><Clock3 size={16} /> {demoExam.durationMinutes} menit</span>
                     <span className="inline-flex items-center gap-2"><ListChecks size={16} /> 6 seksi · {demoExam.questions.length + customQuestions.length} nomor</span>
                   </div>
+                  {freeAttemptsLeft >= 0 && (
+                    <p className={`mt-3 text-sm ${freeAttemptsLeft === 0 ? "font-semibold text-red-700" : "text-slate-600"}`}>
+                      {freeAttemptsLeft === 0
+                        ? "Kuota percobaan gratis habis (maksimal 2 kali)."
+                        : `Sisa percobaan gratis: ${freeAttemptsLeft} dari ${FREE_ATTEMPT_LIMIT}`}
+                    </p>
+                  )}
                 </article>
               </div>
 
@@ -889,12 +901,19 @@ function QuestionBankPage() {
 
 function InstructionsPage() {
   const navigate = useNavigate()
+  const auth = useAppAuth()
   const startExam = useExamStore((state) => state.startExam)
   const activeExamId = useExamStore((state) => state.activeExamId)
   const submittedAt = useExamStore((state) => state.submittedAt)
+  const historyState = useExamStore((state) => state.history)
+  const history = useMemo(() => historyState || [], [historyState])
   const resuming = activeExamId === demoExam.id && !submittedAt
+  const usedFreeAttempts = history.filter((item) => item.examId === demoExam.id).length
+  const freeAttemptsLeft = freeAttemptsRemaining(auth.tier, usedFreeAttempts, auth.role === "admin")
+  const quotaExhausted = !resuming && freeAttemptsLeft === 0
 
   const start = () => {
+    if (quotaExhausted) return
     if (!resuming) {
       startExam(demoExam.id, demoExam.durationMinutes)
       posthog.capture("exam_started", { exam_id: demoExam.id, mode: "local", total_questions: demoExam.questions.length, duration_minutes: demoExam.durationMinutes })
@@ -926,10 +945,17 @@ function InstructionsPage() {
           <div className="mt-8 rounded-2xl border border-amber-100 bg-[#FFF9ED] p-4 text-sm leading-6 text-[#8A5A12]">
             <span className="font-bold">Catatan:</span> ini adalah simulasi latihan. Hasil tersimpan hanya di browser perangkat ini.
           </div>
+          {freeAttemptsLeft >= 0 && (
+            <p className={`mt-5 rounded-xl px-4 py-3 text-sm font-semibold ${quotaExhausted ? "bg-red-50 text-red-700" : "bg-[#E6F0EB] text-[#006C35]"}`}>
+              {quotaExhausted
+                ? "Kuota percobaan gratis untuk paket ini sudah habis (maksimal 2 kali)."
+                : `Sisa percobaan gratis: ${freeAttemptsLeft} dari ${FREE_ATTEMPT_LIMIT}.`}
+            </p>
+          )}
           <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
             <Link to="/" className="inline-flex min-h-11 items-center justify-center rounded-xl px-5 text-sm font-bold text-slate-600 transition-colors hover:bg-slate-100">Batal</Link>
-            <button type="button" onClick={start} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white shadow-sm transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B]">
-              <PlayCircle size={18} /> {resuming ? "Lanjutkan simulasi" : "Saya siap, mulai ujian"}
+            <button type="button" onClick={start} disabled={quotaExhausted} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white shadow-sm transition-[transform,background-color] active:scale-[0.96] hover:bg-[#00572B] disabled:cursor-not-allowed disabled:opacity-50">
+              <PlayCircle size={18} /> {quotaExhausted ? "Kuota habis" : resuming ? "Lanjutkan simulasi" : "Saya siap, mulai ujian"}
             </button>
           </div>
         </section>

@@ -182,8 +182,8 @@ export function AccountMenu() {
         <span className={`size-2 rounded-full ${auth.role === "admin" ? "bg-amber-600" : "bg-[#006C35]"}`} />
         {auth.role === "admin" ? "Admin" : "Peserta"}
       </span>
-      <TierBadge tier={auth.tier} />
-      {auth.enabled ? <UserButton userProfileMode="modal" /> : (
+      {auth.role === "user" && <TierBadge tier={auth.tier} />}
+      {auth.enabled ? <UserButton userProfileMode="modal" /> : auth.role === "user" && (
         <label className="flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
           Mode demo
           <select

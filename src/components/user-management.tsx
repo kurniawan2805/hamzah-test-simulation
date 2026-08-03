@@ -663,7 +663,7 @@ export function UserManagement({
       `"${u.name}"`,
       `"${u.email}"`,
       `"${u.role}"`,
-      `"${tierLabels[u.tier ?? 'free']}"`,
+      `"${u.role === 'admin' ? 'Di atas VIP+' : tierLabels[u.tier ?? 'free']}"`,
       u.totalAttempts,
       u.completedAttempts,
       u.avgScore,
@@ -724,7 +724,13 @@ export function UserManagement({
               }`}>
                 {currentAuth.role}
               </span>
-              <TierBadge tier={currentAuth.tier ?? 'free'} />
+              {currentAuth.role === 'user' ? (
+                <TierBadge tier={currentAuth.tier ?? 'free'} />
+              ) : (
+                <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold whitespace-nowrap text-slate-500 border border-slate-200">
+                  Di atas VIP+
+                </span>
+              )}
             </div>
             <p className="mt-1 text-xs text-amber-900">
               User ID: <code className="bg-amber-100 px-1.5 py-0.5 rounded text-amber-950 font-mono">{currentAuth.userId || 'demo-user'}</code> | Status RLS: <strong className="font-semibold text-emerald-800">Aktif &amp; Diverifikasi</strong>
@@ -961,7 +967,11 @@ export function UserManagement({
                     </td>
 
                     <td className="py-4 px-4">
-                      {mode === 'cloud' && onSetUserTier ? (
+                      {user.role === 'admin' ? (
+                        <span className="inline-flex items-center rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-500 border border-slate-200">
+                          Di atas VIP+
+                        </span>
+                      ) : mode === 'cloud' && onSetUserTier ? (
                         <select
                           aria-label={`Ubah tier ${user.name}`}
                           value={user.tier ?? 'free'}
@@ -1072,9 +1082,17 @@ export function UserManagement({
                 <h4 className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-950">
                   <Crown size={14} className="text-amber-800" /> Tingkatan Akun
                 </h4>
-                <p className="text-[11px] text-slate-600">Tier menentukan paket yang dapat diakses langsung oleh user ini.</p>
+                <p className="text-[11px] text-slate-600">
+                  {selectedUser.role === 'admin'
+                    ? 'Admin dianggap berada di atas VIP+, tier tidak berlaku.'
+                    : 'Tier menentukan paket yang dapat diakses langsung oleh user ini.'}
+                </p>
               </div>
-              {mode === 'cloud' && onSetUserTier ? (
+              {selectedUser.role === 'admin' ? (
+                <span className="inline-flex items-center rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-500 border border-slate-200">
+                  Di atas VIP+
+                </span>
+              ) : mode === 'cloud' && onSetUserTier ? (
                 <select
                   aria-label="Ubah tier akun"
                   value={selectedUser.tier ?? 'free'}

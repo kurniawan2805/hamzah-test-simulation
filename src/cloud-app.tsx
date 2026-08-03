@@ -27,6 +27,7 @@ import {
   getAttempt,
   getAttemptAnswers,
   getAttemptReview,
+  getFreeAttemptsRemaining,
   getPublishedExams,
   getQuestions,
   getSignedAudioUrl,
@@ -59,7 +60,7 @@ import {
   syncUserProfile,
 } from './lib/exam-api'
 import { AccountMenu, useAppAuth } from './lib/auth'
-import { tierLabels, tierOptions } from './lib/tiers'
+import { FREE_ATTEMPT_LIMIT, tierLabels, tierOptions } from './lib/tiers'
 import { AUDIO_BUCKET } from './lib/audio-assets'
 import { calculateRemainingSeconds } from './lib/scoring'
 import { posthog } from './lib/posthog'
@@ -107,6 +108,7 @@ function CloudDashboardPage() {
   const [adminAssignments, setAdminAssignments] = useState<AdminPackageAssignment[]>([])
   const [adminProfiles, setAdminProfiles] = useState<AdminProfile[]>([])
   const [error, setError] = useState("")
+  const [quotaByExam, setQuotaByExam] = useState<Record<string, number>>({})
 
   const [activeTab, setActiveTab] = useState<"packages" | "my_history" | "all_history" | "user_mgmt" | "question_bank" | "bundle_upload" | "ai_discussion">("packages")
   const [searchTerm, setSearchTerm] = useState("")
@@ -142,6 +144,16 @@ function CloudDashboardPage() {
       ])
       if (response.error) throw response.error
       setExams(published)
+      const quotaEntries = await Promise.all(
+        published.map(async (exam) => {
+          try {
+            return [exam.id, await getFreeAttemptsRemaining(client, exam.id)] as const
+          } catch {
+            return [exam.id, -1] as const
+          }
+        }),
+      )
+      setQuotaByExam(Object.fromEntries(quotaEntries))
       if (published.length > 0 && !selectedVersionId) {
         setSelectedVersionId(published[0].id)
       }
@@ -152,7 +164,10 @@ function CloudDashboardPage() {
         cefr: row.cefr as CloudAttempt["cefr"] | undefined, sectionScores: row.section_scores as CloudAttempt["sectionScores"], finishReason: row.finish_reason as CloudAttempt["finishReason"] | undefined,
       })))
     } catch (reason: unknown) {
-      setError(reason instanceof Error ? reason.message : "Paket ujian belum dapat dimuat.")
+      const detail = reason instanceof Error || (typeof reason === "object" && reason !== null && "message" in reason)
+        ? String((reason as { message?: unknown }).message ?? "")
+        : ""
+      setError(detail || "Paket ujian belum dapat dimuat.")
     }
   }, [client, selectedVersionId])
 
@@ -544,7 +559,10 @@ function CloudDashboardPage() {
                       )}
                     </div>
                   ) : (
-                    exams.map((exam) => (
+                    exams.map((exam) => {
+                      const remaining = quotaByExam[exam.id]
+                      const quotaExhausted = remaining === 0
+                      return (
                       <article key={exam.id} className="rounded-2xl border border-[#E6F0EB] bg-[#FCFFFD] p-5">
                         <div className="flex flex-wrap items-center justify-between gap-4">
                           <div>
@@ -580,17 +598,26 @@ function CloudDashboardPage() {
                             )}
                             <button
                               onClick={() => navigate({ to: "/instructions/$versionId", params: { versionId: exam.id } })}
-                              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-transform active:scale-[0.96]"
+                              disabled={quotaExhausted}
+                              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-4 text-sm font-bold text-white transition-transform active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-50"
                             >
-                              <PlayCircle size={17} /> Mulai
+                              <PlayCircle size={17} /> {quotaExhausted ? "Kuota habis" : "Mulai"}
                             </button>
                           </div>
                         </div>
                         <p className="mt-4 text-sm text-slate-600">
                           <Clock3 className="mr-2 inline size-4" /> {exam.durationMinutes} menit · Full Test
                         </p>
+                        {remaining >= 0 && (
+                          <p className={`mt-2 text-sm ${quotaExhausted ? "font-semibold text-red-700" : "text-slate-600"}`}>
+                            {quotaExhausted
+                              ? "Kuota percobaan gratis habis (maksimal 2 kali)."
+                              : `Sisa percobaan gratis: ${remaining} dari ${FREE_ATTEMPT_LIMIT}`}
+                          </p>
+                        )}
                       </article>
-                    ))
+                      )
+                    })
                   )}
                 </div>
               </div>
@@ -1106,10 +1133,78 @@ function CloudDashboardPage() {
 }
 
 function CloudInstructionsPage() {
-  const client = useClient(); const { versionId } = instructionsRoute.useParams(); const navigate = useNavigate(); const [exam, setExam] = useState<PublishedExam | null>(null); const [starting, setStarting] = useState(false); const [error, setError] = useState('')
-  useEffect(() => { void getPublishedExams(client).then((items) => setExam(items.find((item) => item.id === versionId) ?? null)).catch(() => setError('Paket ujian tidak tersedia.')) }, [client, versionId])
-  const begin = async () => { setStarting(true); try { const attempt = await startAttempt(client, versionId); posthog.capture('exam_started', { attempt_id: attempt.id, exam_version_id: versionId, mode: 'cloud', duration_minutes: exam?.durationMinutes }); navigate({ to: '/exam/$attemptId', params: { attemptId: attempt.id } }) } catch (reason) { setError(reason instanceof Error ? reason.message : 'Ujian belum dapat dimulai.') } finally { setStarting(false) } }
-  return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 sm:px-8 sm:py-12"><div className="mx-auto max-w-3xl"><Link to="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-600"><ArrowLeft size={17} />Kembali ke dashboard</Link><section className="mt-5 rounded-3xl bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.06)] sm:p-9"><span className="grid size-12 place-items-center rounded-2xl bg-[#E6F0EB] text-[#006C35]"><ShieldCheck size={24} /></span><p className="mt-6 text-sm font-bold text-[#006C35]">Sebelum memulai</p><h1 className="mt-1 text-3xl font-bold text-balance">{exam?.title ?? 'Memuat paket…'}</h1><p className="mt-4 leading-7 text-slate-600">Timer mulai saat kamu menekan tombol mulai. Jawaban disimpan ke akunmu dan akan tetap tersedia setelah refresh.</p><div className="mt-8 grid gap-3 sm:grid-cols-2"><Instruction icon={<Clock3 />} title="Waktu berjalan" text={`${exam?.durationMinutes ?? '—'} menit untuk menyelesaikan tes.`} /><Instruction icon={<Headphones />} title="Cek audio" text="Setiap audio hanya boleh diputar dua kali." /><Instruction icon={<Bookmark />} title="Tandai ragu" text="Kembali ke soal yang perlu diperiksa." /><Instruction icon={<Send />} title="Kirim jawaban" text="Ujian terkunci otomatis saat waktu habis." /></div>{error ? <p className="mt-5 text-sm font-semibold text-red-700">{error}</p> : null}<button disabled={!exam || starting} onClick={() => void begin()} className="mt-8 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96] disabled:opacity-50"><PlayCircle size={18} />{starting ? 'Menyiapkan…' : 'Saya siap, mulai ujian'}</button></section></div></main>
+  const client = useClient()
+  const { versionId } = instructionsRoute.useParams()
+  const navigate = useNavigate()
+  const [exam, setExam] = useState<PublishedExam | null>(null)
+  const [starting, setStarting] = useState(false)
+  const [error, setError] = useState('')
+  const [remaining, setRemaining] = useState(-1)
+
+  useEffect(() => {
+    void getPublishedExams(client)
+      .then((items) => {
+        const found = items.find((item) => item.id === versionId) ?? null
+        setExam(found)
+        if (!found) setError('Paket ujian tidak tersedia untuk tingkatan akunmu.')
+        if (found) {
+          void getFreeAttemptsRemaining(client, found.id)
+            .then(setRemaining)
+            .catch(() => setRemaining(-1))
+        }
+      })
+      .catch(() => setError('Paket ujian tidak tersedia.'))
+  }, [client, versionId])
+
+  const quotaExhausted = remaining === 0
+
+  const begin = async () => {
+    setStarting(true)
+    try {
+      const attempt = await startAttempt(client, versionId)
+      posthog.capture('exam_started', { attempt_id: attempt.id, exam_version_id: versionId, mode: 'cloud', duration_minutes: exam?.durationMinutes })
+      navigate({ to: '/exam/$attemptId', params: { attemptId: attempt.id } })
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : 'Ujian belum dapat dimulai.')
+    } finally {
+      setStarting(false)
+    }
+  }
+
+  return (
+    <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 sm:px-8 sm:py-12">
+      <div className="mx-auto max-w-3xl">
+        <Link to="/" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-600"><ArrowLeft size={17} />Kembali ke dashboard</Link>
+        <section className="mt-5 rounded-3xl bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.06)] sm:p-9">
+          <span className="grid size-12 place-items-center rounded-2xl bg-[#E6F0EB] text-[#006C35]"><ShieldCheck size={24} /></span>
+          <p className="mt-6 text-sm font-bold text-[#006C35]">Sebelum memulai</p>
+          <h1 className="mt-1 text-3xl font-bold text-balance">{exam?.title ?? 'Memuat paket…'}</h1>
+          <p className="mt-4 leading-7 text-slate-600">Timer mulai saat kamu menekan tombol mulai. Jawaban disimpan ke akunmu dan akan tetap tersedia setelah refresh.</p>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <Instruction icon={<Clock3 />} title="Waktu berjalan" text={`${exam?.durationMinutes ?? '—'} menit untuk menyelesaikan tes.`} />
+            <Instruction icon={<Headphones />} title="Cek audio" text="Setiap audio hanya boleh diputar dua kali." />
+            <Instruction icon={<Bookmark />} title="Tandai ragu" text="Kembali ke soal yang perlu diperiksa." />
+            <Instruction icon={<Send />} title="Kirim jawaban" text="Ujian terkunci otomatis saat waktu habis." />
+          </div>
+          {remaining >= 0 && (
+            <p className={`mt-5 rounded-xl px-4 py-3 text-sm font-semibold ${quotaExhausted ? 'bg-red-50 text-red-700' : 'bg-[#E6F0EB] text-[#006C35]'}`}>
+              {quotaExhausted
+                ? 'Kuota percobaan gratis untuk paket ini sudah habis (maksimal 2 kali). Hubungi admin untuk penambahan kuota.'
+                : `Sisa percobaan gratis: ${remaining} dari ${FREE_ATTEMPT_LIMIT}.`}
+            </p>
+          )}
+          {error ? <p className="mt-5 text-sm font-semibold text-red-700">{error}</p> : null}
+          <button
+            disabled={!exam || starting || quotaExhausted}
+            onClick={() => void begin()}
+            className="mt-8 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white active:scale-[0.96] disabled:opacity-50"
+          >
+            <PlayCircle size={18} />{starting ? 'Menyiapkan…' : quotaExhausted ? 'Kuota habis' : 'Saya siap, mulai ujian'}
+          </button>
+        </section>
+      </div>
+    </main>
+  )
 }
 
 function CloudExamPage() {

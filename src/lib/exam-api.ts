@@ -98,20 +98,25 @@ export async function getPublishedExams(client: SupabaseClient): Promise<Publish
     .order('published_at', { ascending: false })
   if (error) throw error
 
-  return asRows(data).map((row) => {
-    const packageRow = asRow(Array.isArray(row.package) ? row.package[0] : row.package)
-    return {
-      id: asString(row.id),
-      packageId: asString(packageRow.id),
-      title: asString(packageRow.title),
-      subtitle: asString(packageRow.subtitle),
-      durationMinutes: asNumber(row.duration_minutes),
-      isPublic: packageRow.is_public !== false,
-      minTier: (asString(packageRow.min_tier) === 'vip' || asString(packageRow.min_tier) === 'vip_plus'
-        ? asString(packageRow.min_tier)
-        : packageRow.is_public !== false ? 'free' : 'vip') as UserTier,
-    }
-  })
+  return asRows(data)
+    .filter((row) => {
+      const packageRow = Array.isArray(row.package) ? row.package[0] : row.package
+      return packageRow != null
+    })
+    .map((row) => {
+      const packageRow = asRow(Array.isArray(row.package) ? row.package[0] : row.package)
+      return {
+        id: asString(row.id),
+        packageId: asString(packageRow.id),
+        title: asString(packageRow.title),
+        subtitle: asString(packageRow.subtitle),
+        durationMinutes: asNumber(row.duration_minutes),
+        isPublic: packageRow.is_public !== false,
+        minTier: (asString(packageRow.min_tier) === 'vip' || asString(packageRow.min_tier) === 'vip_plus'
+          ? asString(packageRow.min_tier)
+          : packageRow.is_public !== false ? 'free' : 'vip') as UserTier,
+      }
+    })
 }
 
 export async function getQuestions(client: SupabaseClient, examVersionId: string): Promise<PublicQuestion[]> {
@@ -143,6 +148,12 @@ export async function startAttempt(client: SupabaseClient, examVersionId: string
   const { data, error } = await client.rpc('start_attempt', { p_exam_version_id: examVersionId })
   if (error) throw error
   return toAttempt(asRows(data)[0])
+}
+
+export async function getFreeAttemptsRemaining(client: SupabaseClient, examVersionId: string): Promise<number> {
+  const { data, error } = await client.rpc('free_attempts_remaining', { p_exam_version_id: examVersionId })
+  if (error) throw error
+  return typeof data === 'number' ? data : -1
 }
 
 export async function getAttempt(client: SupabaseClient, attemptId: string): Promise<CloudAttempt> {
