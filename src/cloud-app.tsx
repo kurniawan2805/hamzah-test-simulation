@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect */
+import { SpeakingScoreBreakdown } from './components/speaking-score-breakdown'
   // Remove unused eslint directive warning
   /* eslint-disable react-hooks/purity */
 
@@ -1595,8 +1596,11 @@ function CloudReviewPage() {
   return <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12"><div className="mx-auto max-w-4xl"><Link to="/results/$attemptId" params={{ attemptId }} className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-slate-600"><ArrowLeft size={17} />Kembali ke hasil</Link><div className="mt-5 rounded-3xl bg-white p-7 shadow-[0_10px_28px_rgba(15,23,42,0.05)]"><p className="text-sm font-bold text-[#006C35]">Mode tinjau</p><h1 className="mt-1 text-3xl font-bold text-balance">Jawaban dan pembahasan</h1></div><div className="mt-6 space-y-5">{questions.map((question) => { 
     if (question.answerType === 'speaking') {
       const feedback = question.speakingFeedback as {
-        pronunciation_score?: number
-        fluency_score?: number
+        pronunciation_score?: number | null
+        fluency_score?: number | null
+        assessment_basis?: string
+        language_score?: number
+        coherence_score?: number
         relevance_score?: number
         transcript?: string
         corrections?: Array<{ original: string; corrected: string; category: string; explanation_id: string }>
@@ -1633,24 +1637,11 @@ function CloudReviewPage() {
             {feedback && (
               <div className="mt-6 border-t border-slate-100 pt-5 text-sm leading-6">
                 <h3 className="font-bold text-[#006C35] mb-3">Analisis Penilaian AI (Berbicara):</h3>
-                <div className="grid gap-3 sm:grid-cols-3 mb-4">
-                  <div className="rounded-xl bg-slate-50 p-3">
-                    <p className="text-xs text-slate-500">Pelafalan (Makhraj)</p>
-                    <p className="text-lg font-bold text-slate-900">{feedback.pronunciation_score} / 35</p>
-                  </div>
-                  <div className="rounded-xl bg-slate-50 p-3">
-                    <p className="text-xs text-slate-500">Kelancaran (Fluency)</p>
-                    <p className="text-lg font-bold text-slate-900">{feedback.fluency_score} / 35</p>
-                  </div>
-                  <div className="rounded-xl bg-slate-50 p-3">
-                    <p className="text-xs text-slate-500">Kesesuaian Tema</p>
-                    <p className="text-lg font-bold text-slate-900">{feedback.relevance_score} / 30</p>
-                  </div>
-                </div>
+                <SpeakingScoreBreakdown feedback={feedback} />
                 
                 {feedback.corrections && feedback.corrections.length > 0 && (
                   <div className="mb-4">
-                    <p className="font-bold text-slate-800 mb-2">Koreksi Pelafalan & Ejaan:</p>
+                    <p className="font-bold text-slate-800 mb-2">Koreksi Bahasa:</p>
                     <div className="overflow-x-auto">
                       <table className="min-w-full text-left border-collapse border border-slate-150">
                         <thead>

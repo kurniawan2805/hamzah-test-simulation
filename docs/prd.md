@@ -23,7 +23,7 @@ Bukan sasaran MVP:
 
 - Sertifikasi resmi, proctoring, anti-cheat penuh, atau penilaian adaptif.
 - Penulisan soal, manajemen editor, atau publikasi paket melalui UI produksi.
-- Penilaian otomatis produksi untuk tugas esai. Keduanya sekarang dinilai menggunakan OpenAI gpt-4o-mini lewat Edge Function, sedangkan rekaman berbicara saat ini hanya tersedia sebagai mockup demo.
+- Sertifikasi kemampuan writing/speaking. Penilaian AI adalah umpan balik latihan mandiri, bukan hasil sertifikasi.
 
 ## 3. Pengguna dan kebutuhan utama
 
@@ -82,7 +82,12 @@ Mode demo memakai `src/data/exam-data.ts`. Fitur **Bank soal** pada mode ini ada
 
 ### 5.3 Hasil dan penilaian
 
-- Nilai adalah persentase jawaban benar yang dibulatkan ke bilangan bulat.
+- Edge Function writing/speaking memakai Responses API `gpt-6-luna`, dapat diganti lewat secret server `EXAM_GRADING_MODEL`. Tidak ada fallback model diam-diam. Transkripsi memakai `gpt-transcribe` (`EXAM_TRANSCRIPTION_MODEL`; parameter `languages[]=ar`, override model lama memakai `language=ar`). Akses model pada proyek perlu diverifikasi saat deploy.
+- Writing: tata bahasa 35, kosakata 35, pemenuhan tugas 30. Speaking v2: bahasa dalam transkrip 35, koherensi isi 35, pemenuhan tugas 30. Total dijumlahkan server dari komponen integer tervalidasi; feedback menyimpan versi rubrik. Nilai lama tetap memakai rubrik lama dan tidak otomatis dinilai ulang.
+- Speaking v2 hanya menilai isi transkrip; pelafalan, makhraj, intonasi, jeda, dan kelancaran lisan belum dinilai. Penilaian akustik berbasis rekaman dan kalibrasi terhadap penilai manusia masih rencana. Koreksi harus mengutip isi jawaban, bukan mengarang kesalahan.
+- Endpoint memeriksa akses owner pada attempt selesai sebelum akses service role. Payload demo langsung ditolak; mode demo frontend tetap berjalan lokal tanpa endpoint AI. Kegagalan API/unduh rekaman tidak disimpan sebagai nilai nol.
+
+- Nilai pilihan ganda adalah persentase jawaban benar. Di cloud, kredit writing/speaking (skor dibagi 100 per soal) ikut dijumlahkan; pembulatan hanya dilakukan pada persentase akhir. `correct_count` menghitung pilihan ganda benar.
 - Perkiraan CEFR saat ini: `0–39 A2`, `40–59 B1`, `60–79 B2`, `80–100 C1`.
 - Nilai per seksi tersedia untuk `listening`, `reading`, `grammar`, dan `dictation`; seksi tanpa soal menghasilkan `0`.
 - Pembahasan hanya tersedia setelah attempt selesai.
