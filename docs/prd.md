@@ -99,7 +99,9 @@ Mode demo memakai `src/data/exam-data.ts`. Fitur **Bank soal** pada mode ini ada
 - Alur: pilih topik → materi ringkas dari AI → kuis 5 soal → hasil + pembahasan per soal → chat lanjutan yang terikat topik.
 - Soal kuis diambil dari bank yang bertag `topic` pada `exam_questions`; bila stok kurang dari 5, kekurangannya digenerate AI dan kuncinya disimpan di `private.ai_study_quiz_keys`. Klien tidak pernah menerima `correct_index` atau pembahasan sebelum kuis dinilai.
 - Kuota harian per user: 30 pesan dan 10 kuis, direset harian, dan ditegakkan oleh RPC/database pada mode cloud (bukan hanya UI). Mode demo memakai aturan yang sama lewat state Zustand lokal.
-- Mode demo memakai `demoAiStudyAdapter` dengan materi dan soal contoh berlabel jelas "mode demo"; mode cloud memakai Edge Function `ai-study` (action `lesson`, `quiz_generate`, `grade`, `chat`, `recommend`) dengan Responses API model `gpt-5.6-luna` (variabel `AI_STUDY_MODEL`, fallback `gpt-5-mini` bila proyek belum punya akses).
+- Mode demo memakai `demoAiStudyAdapter` dengan materi dan soal contoh berlabel jelas "mode demo"; mode cloud memakai Edge Function `ai-study` (action `lesson`, `quiz_generate`, `grade`, `chat`, `recommend`) dengan Responses API model `gpt-6-luna`, dapat dikonfigurasi lewat `AI_STUDY_MODEL` tanpa fallback model otomatis.
+- Mode cloud mereservasi kuota sebelum memanggil AI. Permintaan yang gagal tetap memakai slot reservasi; UI memuat ulang kuota setelah berhasil maupun gagal. Draft kuis yang belum selesai dibuat tidak ditampilkan saat resume.
+- Topik dan seksi diambil dari sesi milik pengguna di server. Pesan disimpan melalui RPC khusus service role; publikasi lima soal dan penyimpanan kunci berlangsung atomik. Hasil serta pembahasan menjadi snapshot tetap setelah submit pertama, termasuk saat dimuat ulang.
 - Sesi, pesan, dan kuis disimpan di Supabase (`ai_study_sessions`, `ai_study_messages`, `ai_study_quizzes`) dengan RLS owner-only; refresh/resume tidak menghilangkan progres.
 - Akses dibatasi untuk tier `vip_plus` atau admin; pengguna lain tetap melihat gerbang terkunci yang sudah ada.
 

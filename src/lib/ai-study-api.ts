@@ -60,7 +60,7 @@ function errorMessage(reason: unknown): string {
 }
 
 async function ensureSession(client: SupabaseClient, topicId: string, section: Section): Promise<string> {
-  const { data, error } = await client.rpc('ai_study_start_session', { p_topic: topicId, p_section: section })
+  const { data, error } = await client.rpc('ai_study_open_session', { p_topic: topicId, p_section: section })
   if (error) throw error
   const sessionId = asString(rowOf(data).session_id)
   if (!sessionId) throw new Error('Sesi belajar gagal dibuat.')
@@ -94,6 +94,7 @@ async function loadTopicState(client: SupabaseClient, topicId: string, section: 
     .from('ai_study_quizzes')
     .select('id, topic, questions, answers, completed_at, created_at')
     .eq('session_id', sessionId)
+    .neq('questions', '[]')
     .order('created_at', { ascending: false })
     .limit(1)
   if (quizError) throw quizError
@@ -114,9 +115,8 @@ async function loadTopicState(client: SupabaseClient, topicId: string, section: 
       ? quizRow.answers.map((value: unknown) => (typeof value === 'number' ? value : null))
       : []
     if (quizRow.completed_at) {
-      const { data: gradeRows, error: gradeError } = await client.rpc('ai_study_grade_quiz', {
+      const { data: gradeRows, error: gradeError } = await client.rpc('ai_study_get_quiz_result', {
         p_quiz_id: quiz.id,
-        p_answers: quizAnswers.map((value) => (value === null ? null : value)),
       })
       if (!gradeError && gradeRows) quizResult = toQuizResult(rowOf(gradeRows))
     }

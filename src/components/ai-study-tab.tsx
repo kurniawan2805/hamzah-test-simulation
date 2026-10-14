@@ -75,10 +75,10 @@ export function AiStudyTab({ tier, isAdmin, adapter, preselectedTopicId }: AiStu
     setError('')
     try {
       setTopicState(await action())
-      setQuota(await adapter.loadQuota())
     } catch (reason: unknown) {
       setError(errorMessage(reason))
     } finally {
+      await adapter.loadQuota().then(setQuota).catch(() => undefined)
       setLoading(false)
     }
   }

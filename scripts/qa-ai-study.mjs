@@ -19,6 +19,8 @@ function check(name, ok, detail = '') {
 
 async function withPage(viewport, fn) {
   const page = await browser.newPage({ viewport })
+  await page.route('**/_vercel/insights/**', route => route.fulfill({ status: 200, contentType: 'application/javascript', body: '' }))
+  await page.route('**/favicon.ico', route => route.fulfill({ status: 204, body: '' }))
   page.on('pageerror', (err) => report.errors.push(`pageerror: ${err.message}`))
   page.on('console', (msg) => {
     if (msg.type() === 'error') report.errors.push(`console: ${msg.text()}`)
@@ -189,3 +191,4 @@ await withPage({ width: 1280, height: 900 }, resultsFlow)
 writeFileSync(`${outDir}/report-ai-study.json`, JSON.stringify(report, null, 2))
 console.log(JSON.stringify(report, null, 2))
 await browser.close()
+if (report.checks.some(check => !check.ok) || report.errors.length > 0) process.exitCode = 1
