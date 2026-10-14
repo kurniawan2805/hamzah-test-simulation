@@ -62,6 +62,8 @@ Jangan memakai hitam murni sebagai warna antarmuka utama. Gunakan slate untuk ke
 
 ## 5. Komponen dan state
 
+Review speaking dengan `assessment_basis=transcript_only` menampilkan komponen Tata Bahasa & Kosakata, Koherensi Isi, dan Kesesuaian Tema, serta penjelasan bahwa pelafalan/makhraj/kelancaran lisan belum dinilai. Hasil lama tetap menampilkan label rubrik aslinya.
+
 ### Tombol
 
 - CTA utama: latar primary, teks putih, `rounded-xl`, tebal, tinggi minimal 44px.
