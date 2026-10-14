@@ -37,11 +37,13 @@ import {
 } from "lucide-react"
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react"
 import { QuestionGrid } from "./components/question-grid"
-import { AiDiscussionGate } from "./components/ai-discussion-gate"
+import { AiStudyTab } from "./components/ai-study-tab"
 import { UserManagement } from "./components/user-management"
 import { AdminBundleUploader } from "./components/admin-bundle-uploader"
 import { TierBadge } from "./components/tier-badge"
 import { demoExam } from "./data/exam-data"
+import { demoAiStudyAdapter } from "./lib/ai-study-demo"
+import { AI_STUDY_TOPIC_STORAGE_KEY, recommendTopics } from "./lib/ai-topics"
 import { calculateRemainingSeconds, createSessionResult } from "./lib/scoring"
 import { FREE_ATTEMPT_LIMIT, freeAttemptsRemaining } from "./lib/tiers"
 import { useExamStore } from "./store/exam-store"
@@ -109,10 +111,14 @@ function DashboardPage() {
   const submittedAt = useExamStore((state) => state.submittedAt)
   const hasActiveSession = activeExamId === demoExam.id && !submittedAt
 
-  const [activeTab, setActiveTab] = useState<TabType>("packages")
+  const [preselectedTopic] = useState<string>(() => {
+    const stored = localStorage.getItem(AI_STUDY_TOPIC_STORAGE_KEY)
+    if (stored) localStorage.removeItem(AI_STUDY_TOPIC_STORAGE_KEY)
+    return stored ?? ""
+  })
+  const [activeTab, setActiveTab] = useState<TabType>(preselectedTopic ? "ai_discussion" : "packages")
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedAttempt, setSelectedAttempt] = useState<SessionResult | null>(null)
-
 
   // Aggregate mock all-user attempts for admin view
   const mockAllAttempts = useMemo(() => {
@@ -502,7 +508,14 @@ return (
           </section>
         )}
 
-        {activeTab === "ai_discussion" && <AiDiscussionGate tier={auth.tier} />}
+        {activeTab === "ai_discussion" && (
+          <AiStudyTab
+            tier={auth.tier}
+            isAdmin={isAdmin}
+            adapter={demoAiStudyAdapter}
+            preselectedTopicId={preselectedTopic || undefined}
+          />
+        )}
 
       {/* Tab 3 (Admin): History Semua User */}
       {isAdmin && activeTab === "all_history" && (
@@ -1244,6 +1257,13 @@ function ResultsPage() {
     description: sectionCopy[s].description,
     score: latestResult.sectionScores[s] || 0,
   }))
+  const recommendations = recommendTopics(latestResult.sectionScores)
+
+  const openAiStudy = (topicId: string | null) => {
+    if (topicId) localStorage.setItem(AI_STUDY_TOPIC_STORAGE_KEY, topicId)
+    else localStorage.removeItem(AI_STUDY_TOPIC_STORAGE_KEY)
+    navigate({ to: "/" })
+  }
 
   return (
     <main className="min-h-dvh bg-[#F8FAFC] px-5 py-8 text-slate-900 sm:px-8 sm:py-12">
@@ -1274,6 +1294,27 @@ function ResultsPage() {
             </div>
           </section>
         </section>
+        {recommendations.length > 0 && (
+          <section className="mt-6 rounded-3xl bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)] border border-amber-100 sm:p-8">
+            <p className="text-sm font-bold text-amber-800">Rekomendasi VIP+</p>
+            <h2 className="mt-1 text-xl font-bold text-slate-900">Topik yang disarankan</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {recommendations.map((item) => (
+                <div key={item.section} className="rounded-2xl border border-amber-100 bg-[#FFFCF4] p-4">
+                  <p className="font-bold text-slate-900">{item.label}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">{item.reason}</p>
+                  <button
+                    type="button"
+                    onClick={() => openAiStudy(item.topicId)}
+                    className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-800 px-4 text-sm font-bold text-white hover:bg-amber-900 active:scale-[0.96]"
+                  >
+                    <MessageSquareText size={15} /> Buka Belajar AI
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
         <div className="mt-6 flex justify-between">
           <Link to="/" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 hover:bg-slate-100"><ArrowLeft size={17} /> Dashboard</Link>
           <Link to="/review" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#006C35] px-5 text-sm font-bold text-white transition-transform active:scale-[0.96]"><BookOpenCheck size={17} /> Tinjau pembahasan</Link>

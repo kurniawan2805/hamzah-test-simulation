@@ -7,7 +7,7 @@
     <meta name="description" content="Simulasi ujian kemahiran bahasa Arab Hamza Test." />
     <title>Hamza Test Simulation</title>
     <script type="module">
-      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      if (import.meta.env.DEV && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
         try {
           const RefreshRuntime = await import(/* @vite-ignore */ '/@react-refresh')
           const runtime = RefreshRuntime.default || RefreshRuntime

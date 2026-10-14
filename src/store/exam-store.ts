@@ -1,6 +1,17 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import type { Question, SessionResult } from '../types'
+import type { AiChatMessage, AiQuiz, AiQuizResult } from '../lib/ai-study'
+import type { AiStudyUsage } from '../lib/ai-study-quota'
+
+export interface DemoAiStudySession {
+  topicId: string
+  lessonLoaded: boolean
+  messages: AiChatMessage[]
+  quiz: AiQuiz | null
+  quizAnswers: (number | null)[] | null
+  quizResult: AiQuizResult | null
+}
 
 export interface CloudSessionBackup {
   currentIndex: number
@@ -27,7 +38,11 @@ interface ExamState {
   saveCustomQuestion: (question: Question) => void
   deleteCustomQuestion: (id: string) => void
   cloudBackups: Record<string, CloudSessionBackup>
+  demoAiStudySessions: Record<string, DemoAiStudySession>
+  demoAiStudyUsage: AiStudyUsage | null
   startExam: (examId: string, durationMinutes: number) => void
+  saveDemoAiStudySession: (session: DemoAiStudySession) => void
+  saveDemoAiStudyUsage: (usage: AiStudyUsage) => void
   setCurrentIndex: (index: number, questionId: string) => void
   answerQuestion: (questionId: string, answerIndex: number) => void
   setWritingAnswer: (questionId: string, text: string) => void
@@ -65,8 +80,13 @@ export const useExamStore = create<ExamState>()(
       ...emptySession,
       history: [],
       customQuestions: [],
+      demoAiStudySessions: {},
+      demoAiStudyUsage: null,
       saveCustomQuestion: (q) => set((state) => ({ customQuestions: [...state.customQuestions.filter((item) => item.id !== q.id), q] })),
       deleteCustomQuestion: (id) => set((state) => ({ customQuestions: state.customQuestions.filter((item) => item.id !== id) })),
+      saveDemoAiStudySession: (session) =>
+        set((state) => ({ demoAiStudySessions: { ...state.demoAiStudySessions, [session.topicId]: session } })),
+      saveDemoAiStudyUsage: (usage) => set({ demoAiStudyUsage: usage }),
       cloudBackups: {},
       startExam: (examId, durationMinutes) => {
         const now = Date.now()
@@ -153,6 +173,8 @@ export const useExamStore = create<ExamState>()(
           audioPlays: state.audioPlays,
           history: state.history,
           customQuestions: state.customQuestions,
+          demoAiStudySessions: state.demoAiStudySessions,
+          demoAiStudyUsage: state.demoAiStudyUsage,
           cloudBackups: state.cloudBackups,
         }),
     },
