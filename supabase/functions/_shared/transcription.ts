@@ -1,3 +1,5 @@
+import { ProviderError } from './provider-error.ts'
+
 export function transcriptionForm(audio: Blob, model = 'gpt-transcribe', path?: string) {
   if (audio.size === 0 || audio.size > 25 * 1024 * 1024) throw new Error('Invalid recording size')
   const mime = audio.type.split(';')[0].toLowerCase()
@@ -22,7 +24,7 @@ export async function transcribe(audio: Blob, apiKey: string, model: string, req
     method: 'POST', headers: { Authorization: `Bearer ${apiKey}` },
     body: transcriptionForm(audio, model, path), signal: AbortSignal.timeout(90_000),
   })
-  if (!response.ok) throw new Error('Transcription provider failed')
+  if (!response.ok) throw await ProviderError.fromResponse(response, 'transcription')
   const data: unknown = await response.json()
   if (!data || typeof data !== 'object' || !('text' in data) || typeof data.text !== 'string') throw new Error('Invalid transcription response')
   return data.text.trim()

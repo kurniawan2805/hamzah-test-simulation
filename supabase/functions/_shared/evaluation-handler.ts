@@ -1,6 +1,7 @@
 import { gradingSchema, normalizeGrade, responseText } from './grading.ts'
 import type { Skill } from './grading.ts'
 import { transcribe } from './transcription.ts'
+import { ProviderError } from './provider-error.ts'
 
 export type Answer = { questionId: string; question: string; text?: string | null; audioPath?: string | null }
 export type Evaluation = { question_id: string; score: number; feedback: Record<string, unknown> }
@@ -62,7 +63,7 @@ export function evaluationHandler(skill: Skill, prompt: string, deps: Evaluation
               input: [{ role: 'system', content: prompt }, { role: 'user', content: JSON.stringify({ prompt_question: answer.question, student_submission: submission }) }],
             }),
           })
-          if (!response.ok) throw new Error('Grading provider failed')
+          if (!response.ok) throw await ProviderError.fromResponse(response, 'grading')
           raw = JSON.parse(responseText(await response.json()))
         }
         const feedback = { ...normalizeGrade(raw, skill, submission), grading_model: model, ...(skill === 'speaking' ? { transcription_model: transcriptionModel } : {}) }
@@ -70,8 +71,10 @@ export function evaluationHandler(skill: Skill, prompt: string, deps: Evaluation
       }
       if (grades.length) await deps.save(attemptId, grades)
       return json({ success: true, data: grades })
-    } catch {
-      return json({ error: 'Penilaian belum berhasil. Silakan coba lagi.' }, 500)
+    } catch (error) {
+      const diagnostic = error instanceof ProviderError ? { stage: error.stage, status: error.status, code: error.code, parameter: error.parameter } : undefined
+      if (diagnostic) console.error('exam_provider_failure', diagnostic)
+      return json({ error: 'Penilaian belum berhasil. Silakan coba lagi.', ...(diagnostic ? { diagnostic } : {}) }, 500)
     }
   }
 }

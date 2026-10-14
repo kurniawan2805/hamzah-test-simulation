@@ -1,6 +1,6 @@
 # Audit penilaian writing dan speaking — 14 Oktober 2026
 
-## Temuan dan perbaikan lokal
+## Temuan dan perbaikan
 
 1. **Tinggi — klaim akustik tanpa bukti.** Rubrik lama memberi 70 poin untuk makhraj dan kelancaran dari transkrip Whisper saja. Rubrik speaking v2 menilai bahasa dan koherensi isi, masing-masing 35 poin, serta pemenuhan tugas 30 poin. Pelafalan/kelancaran bernilai `null`; review menjelaskan batas ini. Ini memperbaiki kejujuran penilaian, bukan validasi kemampuan berbicara menyeluruh.
 2. **Tinggi — otorisasi endpoint.** Endpoint sebelumnya membaca attempt dengan service role tanpa memeriksa pemilik. Sekarang RPC owner-only `get_attempt_review` harus berhasil untuk attempt selesai sebelum pemanggilan AI dan pembacaan privileged. Payload demo langsung ditolak; demo frontend tetap lokal.
@@ -19,14 +19,25 @@
 
 ## Verifikasi
 
-- `npm run lint`, `npm run test` (81 test dalam 11 file), dan `npm run build` lulus pada checkout terpisah dari `origin/main`. Build memberi peringatan ukuran chunk.
+- `npm run lint`, `npm run test` (83 test dalam 12 file), dan `npm run build` lulus pada checkout terpisah dari `origin/main`. Build memberi peringatan ukuran chunk.
 - Chrome headless: alur demo mulai → jawab → refresh/resume → kirim → hasil → review lulus pada viewport 1440×900 dan 390×900. Test komponen review mencakup rubrik baru, label historis, dan komponen tanpa nilai.
 - Test baru mencakup batas skor, total server, hitungan kata, bukti koreksi, tidak adanya skor akustik, parsing REST, respons tidak lengkap dan refusal.
-- Kedua entrypoint Edge Function lolos `deno check`. Test handler memakai Request/Response dan provider tiruan, meliputi autentikasi, payload, STT baru/override lama, MIME file, kegagalan unduh/provider/simpan, respons kosong, serta skor invalid.\n- Migration dijalankan di PostgreSQL WASM (PGlite) dengan fixture skema: writing/speaking 65 tetap 65, gabungan MC 100 + writing 65 menjadi 83, pemilik lain/subject kosong/attempt aktif ditolak, service role diterima, dan anon tidak punya execute. Ini bukan pengujian RLS/storage deployment Supabase penuh.\n- Panggilan OpenAI nyata dan alur cloud dengan akun peserta belum diuji: environment lokal tidak menyediakan OPENAI_API_KEY atau sesi peserta. Migration dan Edge Function belum dideploy.
+- Kedua entrypoint Edge Function lolos `deno check`. Test handler memakai Request/Response dan provider tiruan, meliputi autentikasi, payload, STT baru/override lama, MIME file, kegagalan unduh/provider/simpan, respons kosong, serta skor invalid.
+- Migration dijalankan di PostgreSQL WASM (PGlite) dengan fixture skema: writing/speaking 65 tetap 65, gabungan MC 100 + writing 65 menjadi 83, pemilik lain/subject kosong/attempt aktif ditolak, service role diterima, dan anon tidak punya execute. Ini bukan pengujian RLS/storage deployment Supabase penuh.
+- Migration dan kedua Edge Function sudah diterapkan pada proyek `crbtkqemvvtzfgtffvos`. Secret OpenAI tetap di Supabase. Uji endpoint dengan akun Supabase Auth sementara (bukan sesi Clerk browser) berhasil: writing 200, speaking 200, model `gpt-6-luna`/`gpt-transcribe`, transkrip Arab tidak kosong, skor tersimpan dan agregasi sesuai. Satu sampel sintetis menghasilkan writing 96, speaking 92, agregat 94; ini bukti integrasi, bukan ukuran akurasi penilaian.
+- Uji nyata menolak request tanpa login (401), payload langsung (403), attempt aktif (403), dan attempt pemilik lain (403) pada kedua endpoint. Semua fixture akun/paket draft/attempt/audio dibersihkan. Uji sesi Clerk pada browser produksi belum dilakukan.
+- Fixture suara pertama berisi header WAV tanpa sampel sehingga provider menolak file (400). Fixture diperbaiki menjadi audio Arab sintetis 16 detik. Skrip live sekarang memeriksa chunk data WAV sebelum membuat fixture server. Diagnostik provider menyimpan status, tahap, kode, dan parameter yang dibatasi formatnya; tidak menyimpan pesan provider, secret, atau jawaban.
+- Advisor produksi juga menemukan dua policy RLS lama yang mereferensikan user_metadata (exam_packages dan package_assignments), di luar perubahan penilaian ini. Policy tersebut tidak diubah pada deployment ini.
 - Perubahan lokal lain yang sudah ada pada Belajar AI dan migration Agustus tidak termasuk audit ini.
 
-## Aktivasi
+## Mengulang uji server
 
-Terapkan migration `20261014113000_fix_fractional_exam_scores.sql` dan deploy ulang `evaluate-writing` serta `evaluate-speaking` setelah review. Pastikan proyek OpenAI punya akses kedua model. Uji satu attempt milik sendiri, attempt orang lain, attempt aktif, jawaban kosong, rekaman Arab, dan kegagalan provider; bandingkan sampel hasil dengan penilai manusia sebelum memakai nilai sebagai ukuran kemampuan.
+Gunakan CLI yang sudah login ke proyek tujuan, lalu jalankan:
+
+```bash
+node scripts/test-live-grading.mjs PROJECT_REF /path/to/synthetic-arabic.wav
+```
+
+Skrip mengambil kredensial proyek hanya ke memori, membuat akun tanpa mengirim email serta paket draft sementara, mengunggah audio, memanggil endpoint, memeriksa persistensi dan agregasi, kemudian membersihkan fixture melalui `finally`. Gunakan audio sintetis. Uji sampel manusia dengan aksen, tingkat kemampuan, dan kondisi mikrofon beragam masih diperlukan untuk kalibrasi.
 
 Referensi model: [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna). Kontrak API: [Structured outputs](https://developers.openai.com/api/docs/guides/structured-outputs).
