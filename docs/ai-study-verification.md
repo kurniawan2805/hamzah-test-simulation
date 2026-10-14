@@ -10,6 +10,6 @@ Verifikasi lokal:
 - 121 tes pada 17 file berhasil, termasuk handler cloud serta migration SQL melalui PGlite.
 - `deno check supabase/functions/ai-study/index.ts` berhasil.
 - 24 pemeriksaan browser demo berhasil pada viewport 1280px dan 320px: materi, kuis, hasil, chat, kuota, resume, akses, dan rekomendasi.
-- QA browser tetap keluar dengan status gagal karena HTML bawaan meminta `/@react-refresh` di preview produksi dan mendapat 404. Semua 24 pemeriksaan fitur berhasil; error resource ini tidak disembunyikan.
+- Pemicu React Refresh pada HTML dibatasi ke mode development. Pengulangan QA preview produksi berhasil tanpa console error atau resource gagal. Analytics Vercel dan favicon distub oleh harness lokal.
 
 Migration dan Edge Function revisi ini belum diterapkan ke produksi. Uji integrasi cloud langsung masih menunggu persetujuan deploy; pengujian lokal tidak membuktikan konfigurasi produksi.
