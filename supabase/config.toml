@@ -1,0 +1,4 @@
+project_id = "hamzah-test-simulation"
+
+[functions.ai-study]
+verify_jwt = false

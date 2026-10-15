@@ -26,6 +26,24 @@ function fixture() {
   return { deps, handle: studyHandler(deps, 'system', 'quiz') }
 }
 describe('AI study production handler', () => {
+  it('rejects requests without a Bearer token before any database or provider access', async () => {
+    const { deps, handle } = fixture()
+    const request = new Request('https://test', { method: 'POST', body: JSON.stringify({ action: 'lesson', session_id: sessionId }) })
+    expect((await handle(request)).status).toBe(401)
+    expect(deps.allowed).not.toHaveBeenCalled()
+    expect(deps.userRpc).not.toHaveBeenCalled()
+    expect(deps.adminRpc).not.toHaveBeenCalled()
+    expect(deps.request).not.toHaveBeenCalled()
+  })
+  it.each(['lesson', 'chat', 'quiz_generate', 'grade', 'recommend'])('requires database-verified access for %s', async action => {
+    const { deps, handle } = fixture()
+    deps.allowed.mockResolvedValue(false)
+    expect((await handle(post({ action }))).status).toBe(403)
+    expect(deps.allowed).toHaveBeenCalledWith('Bearer qa')
+    expect(deps.userRpc).not.toHaveBeenCalled()
+    expect(deps.adminRpc).not.toHaveBeenCalled()
+    expect(deps.request).not.toHaveBeenCalled()
+  })
   it('keeps the server topic catalog consistent with the UI', () => {
     expect(studyTopics).toEqual(Object.fromEntries(aiTopics.map(topic => [topic.id, topic.section])))
   })

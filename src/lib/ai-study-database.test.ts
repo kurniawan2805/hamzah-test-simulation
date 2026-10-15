@@ -23,6 +23,8 @@ beforeAll(async () => {
   `)
   await db.exec(await readFile(new URL('../../supabase/migrations/20260803170000_add_ai_study.sql', import.meta.url), 'utf8'))
   await db.exec(await readFile(new URL('../../supabase/migrations/20261014123000_fix_ai_study_cloud_integrity.sql', import.meta.url), 'utf8'))
+  await db.exec('grant all privileges on public.ai_study_sessions,public.ai_study_messages,public.ai_study_quizzes,public.ai_study_usage to anon,authenticated')
+  await db.exec(await readFile(new URL('../../supabase/migrations/20261015023048_restrict_ai_study_table_privileges.sql', import.meta.url), 'utf8'))
 }, 30000)
 beforeEach(async () => {
   await db.exec("truncate public.ai_study_sessions,public.ai_study_usage cascade; select set_config('qa.user','qa-owner',false),set_config('qa.tier','vip_plus',false),set_config('qa.role','authenticated',false)")
@@ -35,6 +37,16 @@ async function publish(q: unknown = questions, k: unknown = keys) {
   return db.query('select public.ai_study_publish_quiz($1,$2::jsonb,$3::jsonb)', [quizId, JSON.stringify(q), JSON.stringify(k)])
 }
 describe('AI study cloud integrity migration', () => {
+  it('limits public table access to authenticated SELECT', async () => {
+    for (const table of ['ai_study_sessions','ai_study_messages','ai_study_quizzes','ai_study_usage']) {
+      const result = await db.query<{ role: string; privilege: string; allowed: boolean }>(`
+        select role,privilege,has_table_privilege(role,$1,privilege) as allowed
+        from unnest(array['anon','authenticated']) role
+        cross join unnest(array['SELECT','INSERT','UPDATE','DELETE','TRUNCATE','REFERENCES','TRIGGER']) privilege
+      `, [`public.${table}`])
+      for (const row of result.rows) expect(row.allowed).toBe(row.role === 'authenticated' && row.privilege === 'SELECT')
+    }
+  })
   it('resumes the same canonical session without ambiguous SQL columns', async () => {
     expect((await rpc<{ session_id: string }>('ai_study_open_session', "'grammar_huruf_jar','grammar'"))[0].session_id).toBe(sessionId)
     await expect(rpc('ai_study_open_session', "'invented','grammar'")).rejects.toThrow('Topik tidak valid')
